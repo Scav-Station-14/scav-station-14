@@ -11,6 +11,7 @@
     removes:
     - type: LizardAccent
     - type: MothAccent
+    - type: YingletAccent
     - type: ReplacementAccent
       accent: dwarf
 
