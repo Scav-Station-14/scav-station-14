@@ -9,6 +9,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
+using Content.Shared.Wieldable.Components;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
@@ -323,7 +324,7 @@ namespace Content.Client.Hands.Systems
                 RaiseLocalEvent(held, new HeldVisualsUpdatedEvent(uid, revealedLayers), true);
                 return;
             }
-
+            
             // add the new layers
             foreach (var (key, layerData) in ev.Layers)
             {
@@ -349,8 +350,18 @@ namespace Content.Client.Hands.Systems
                 sprite.LayerSetData(index, layerData);
 
                 //Add displacement maps
-                if (handComp.HandDisplacement is not null)
-                    _displacement.TryAddDisplacement(handComp.HandDisplacement, sprite, index, key, revealedLayers);
+                if (handComp.HandDisplacements.TryGetValue(ev.Location, out var disp))
+                { //switch branches and see if the "transferring networked container to client-side" error occurs there when wielding too. note that it happens when weilding even with this version that doesnt touch wield
+                    _displacement.TryAddDisplacement(disp, sprite, index, key, revealedLayers);
+                    //if (TryComp<WieldableComponent>(held, out WieldableComponent? wield) && wield.Wielded == true)
+                    //{
+                    //    //at this point, we dont want to do displacement for wielded weapons, will add later
+                    //}
+                    //else
+                    //{
+                    //    _displacement.TryAddDisplacement(handComp.HandDisplacements[ev.Location], sprite, index, key, revealedLayers);
+                    //}
+                }
             }
 
             RaiseLocalEvent(held, new HeldVisualsUpdatedEvent(uid, revealedLayers), true);

@@ -39,7 +39,11 @@
             "directions": 4
         },
         {
-            "name": "inhand",
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
             "directions": 4
         }
     ]
