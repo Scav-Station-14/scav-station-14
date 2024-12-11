@@ -350,17 +350,24 @@ namespace Content.Client.Hands.Systems
                 sprite.LayerSetData(index, layerData);
 
                 //Add displacement maps
+                //if (TryComp<WieldableComponent>(held, out WieldableComponent? wield) && wield.Wielded == true)
+                //{
+                //    if (handComp.WieldedDisplacements.TryGetValue(ev.Location, out var wielddisp))
+                //    {
+                //        _displacement.TryAddDisplacement(wielddisp, sprite, index, key, revealedLayers);
+                //    }
+                //}
+                //else
+                //{
+                //    if (handComp.HandDisplacements.TryGetValue(ev.Location, out var disp))
+                //    {
+                //        _displacement.TryAddDisplacement(disp, sprite, index, key, revealedLayers);
+                //    }
+                //}
+
                 if (handComp.HandDisplacements.TryGetValue(ev.Location, out var disp))
                 { //switch branches and see if the "transferring networked container to client-side" error occurs there when wielding too. note that it happens when weilding even with this version that doesnt touch wield
                     _displacement.TryAddDisplacement(disp, sprite, index, key, revealedLayers);
-                    //if (TryComp<WieldableComponent>(held, out WieldableComponent? wield) && wield.Wielded == true)
-                    //{
-                    //    //at this point, we dont want to do displacement for wielded weapons, will add later
-                    //}
-                    //else
-                    //{
-                    //    _displacement.TryAddDisplacement(handComp.HandDisplacements[ev.Location], sprite, index, key, revealedLayers);
-                    //}
                 }
             }
 

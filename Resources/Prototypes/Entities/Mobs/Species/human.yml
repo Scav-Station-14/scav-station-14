@@ -27,6 +27,29 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: Hands
+    handDisplacements:
+      Right:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: inhand-right
+      Left:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: inhand-left
+    wieldedDisplacements: #ultimately, this might come down to writing a custom visualizer that just handles the displacements (the wielded state is already handled elsewhere apparently, seems to be cryptic, and i dont want to touch that with a ten foot pole)
+      Right:              #this shouldnt be all that hard, just make a basic visualizer and have its behavior and returned effect linked to the hand involved
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: inhand-wielded-right
+      Left:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: inhand-wielded-left
 
 
 - type: entity

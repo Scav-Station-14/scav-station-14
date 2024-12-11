@@ -81,6 +81,9 @@ public sealed partial class HandsComponent : Component
     [DataField]
     public Dictionary<HandLocation, DisplacementData> HandDisplacements = new();
 
+    [DataField]
+    public Dictionary<HandLocation, DisplacementData> WieldedDisplacements = new();
+
     /// <summary>
     /// If false, hands cannot be stripped, and they do not show up in the stripping menu.
     /// </summary>
