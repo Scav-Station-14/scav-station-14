@@ -365,11 +365,17 @@ namespace Content.Client.Hands.Systems
                 //    }
                 //}
 
-                if (handComp.HandDisplacements.TryGetValue(ev.Location, out var disp))
-                { //switch branches and see if the "transferring networked container to client-side" error occurs there when wielding too. note that it happens when weilding even with this version that doesnt touch wield
+                string itemState = (ev.HeldPrefix == null)
+                    ? ev.Location.ToString().ToLowerInvariant()
+                    : $"{ev.HeldPrefix}-{ev.Location.ToString().ToLowerInvariant()}";
+
+
+                if (handComp.HandDisplacements.TryGetValue(itemState, out var disp)) //should this be in the if chain? as in, if the heldprefix variant doesnt exist, fall back to the normal displacement?
+                {//yes, because more flexible is better, so we dont want to hardcode it to only accept "wielded", but this will otherwise break for other stuff (note: a prefix that is both wielded and something else doesnt exist to my knowledge, so rest easy there (can only have one prefix at once anyway))
                     _displacement.TryAddDisplacement(disp, sprite, index, key, revealedLayers);
                 }
             }
+
 
             RaiseLocalEvent(held, new HeldVisualsUpdatedEvent(uid, revealedLayers), true);
         }

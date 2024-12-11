@@ -23,11 +23,11 @@
             "directions": 4
         },
         {
-            "name": "inhand-wielded-left",
+            "name": "wielded-inhand-left",
             "directions": 4
         },
         {
-            "name": "inhand-wielded-right",
+            "name": "wielded-inhand-right",
             "directions": 4
         }
     ]

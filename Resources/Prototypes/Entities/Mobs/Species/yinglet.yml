@@ -94,12 +94,12 @@
         Blunt: 2
   - type: Hands
     handDisplacements:
-      Right:
+      right:
         sizeMaps:
           32:
             sprite: Mobs/Species/Yinglet/displacement.rsi
             state: inhand-right
-      Left:
+      left:
         sizeMaps:
           32:
             sprite: Mobs/Species/Yinglet/displacement.rsi

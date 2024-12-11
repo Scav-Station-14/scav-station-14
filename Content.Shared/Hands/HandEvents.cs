@@ -34,6 +34,8 @@ namespace Content.Shared.Hands
         /// </remarks>
         public List<(string, PrototypeLayerData)> Layers = new();
 
+        public string HeldPrefix; //optional, but needed here
+
         public GetInhandVisualsEvent(EntityUid user, HandLocation location)
         {
             User = user;
