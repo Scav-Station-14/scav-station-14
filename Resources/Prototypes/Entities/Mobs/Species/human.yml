@@ -39,7 +39,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: inhand-left
-      wielded-right:              #this shouldnt be all that hard, just make a basic visualizer and have its behavior and returned effect linked to the hand involved
+      wielded-right:
         sizeMaps:
           32:
             sprite: Mobs/Species/Human/displacement.rsi
