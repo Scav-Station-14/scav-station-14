@@ -42,6 +42,18 @@
     {
       "name": "equipped-head-unshaded-vox",
       "directions": 4
+    },
+	{
+      "name": "equipped-head-yinglet",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-light-yinglet",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-unshaded-yinglet",
+      "directions": 4
     }
   ]
 }

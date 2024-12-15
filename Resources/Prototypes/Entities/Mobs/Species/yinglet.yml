@@ -7,8 +7,9 @@
   components:
   - type: HumanoidAppearance
     species: Yinglet
-#    hideLayersOnEquip: #unknown at present
-#    - HeadTop
+    hideLayersOnEquip:
+    - Tail
+    - Hair
   - type: Hunger
   - type: Thirst
   - type: Icon
