@@ -9,6 +9,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
+using Content.Shared.Wieldable.Components;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
@@ -323,7 +324,7 @@ namespace Content.Client.Hands.Systems
                 RaiseLocalEvent(held, new HeldVisualsUpdatedEvent(uid, revealedLayers), true);
                 return;
             }
-
+            
             // add the new layers
             foreach (var (key, layerData) in ev.Layers)
             {
@@ -349,9 +350,32 @@ namespace Content.Client.Hands.Systems
                 sprite.LayerSetData(index, layerData);
 
                 //Add displacement maps
-                if (handComp.HandDisplacement is not null)
-                    _displacement.TryAddDisplacement(handComp.HandDisplacement, sprite, index, key, revealedLayers);
+                //if (TryComp<WieldableComponent>(held, out WieldableComponent? wield) && wield.Wielded == true)
+                //{
+                //    if (handComp.WieldedDisplacements.TryGetValue(ev.Location, out var wielddisp))
+                //    {
+                //        _displacement.TryAddDisplacement(wielddisp, sprite, index, key, revealedLayers);
+                //    }
+                //}
+                //else
+                //{
+                //    if (handComp.HandDisplacements.TryGetValue(ev.Location, out var disp))
+                //    {
+                //        _displacement.TryAddDisplacement(disp, sprite, index, key, revealedLayers);
+                //    }
+                //}
+
+                string itemState = (ev.HeldPrefix == null)
+                    ? ev.Location.ToString().ToLowerInvariant()
+                    : $"{ev.HeldPrefix}-{ev.Location.ToString().ToLowerInvariant()}";
+
+
+                if (handComp.HandDisplacements.TryGetValue(itemState, out var disp)) //should this be in the if chain? as in, if the heldprefix variant doesnt exist, fall back to the normal displacement?
+                {//yes, because more flexible is better, so we dont want to hardcode it to only accept "wielded", but this will otherwise break for other stuff (note: a prefix that is both wielded and something else doesnt exist to my knowledge, so rest easy there (can only have one prefix at once anyway))
+                    _displacement.TryAddDisplacement(disp, sprite, index, key, revealedLayers);
+                }
             }
+
 
             RaiseLocalEvent(held, new HeldVisualsUpdatedEvent(uid, revealedLayers), true);
         }

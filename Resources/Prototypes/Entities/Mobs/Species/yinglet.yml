@@ -7,8 +7,9 @@
   components:
   - type: HumanoidAppearance
     species: Yinglet
-#    hideLayersOnEquip: #unknown at present
-#    - HeadTop
+    hideLayersOnEquip:
+    - Tail
+    - Hair
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -93,11 +94,27 @@
       types:
         Blunt: 2
   - type: Hands
-    handDisplacement:
-      sizeMaps:
-        32:
-          sprite: Mobs/Species/Yinglet/displacement.rsi
-          state: inhand
+    handDisplacements:
+      right:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Yinglet/displacement.rsi
+            state: inhand-right
+      left:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Yinglet/displacement.rsi
+            state: inhand-left
+      wielded-right:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Yinglet/displacement.rsi
+            state: wielded-inhand-right
+      wielded-left:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Yinglet/displacement.rsi
+            state: wielded-inhand-left
   - type: MovementSpeedModifier
     basewalkspeed: 3.5
     basesprintspeed: 5.7
@@ -192,10 +209,41 @@
   - type: HumanoidAppearance
     species: Yinglet
   - type: Inventory
-    femaleDisplacements:
+    speciesId: yinglet
+    displacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
+            sprite: Mobs/Species/Yinglet/displacement.rsi
+            state: jumpsuit
+      eyes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Yinglet/displacement.rsi
+            state: eyes
+      gloves:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Yinglet/displacement.rsi
+            state: hand
+      back:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Yinglet/displacement.rsi
+            state: back
+      ears:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Yinglet/displacement.rsi
+            state: ears
+      shoes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Yinglet/displacement.rsi
+            state: shoes
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Yinglet/displacement.rsi
+            state: head
 

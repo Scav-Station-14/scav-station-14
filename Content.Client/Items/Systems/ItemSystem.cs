@@ -74,6 +74,8 @@ public sealed class ItemSystem : SharedItemSystem
 
             args.Layers.Add((key, layer));
         }
+
+        args.HeldPrefix = item.HeldPrefix;
     }
 
     /// <summary>

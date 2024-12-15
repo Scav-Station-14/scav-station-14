@@ -22,12 +22,20 @@
       "directions": 4
     },
     {
+      "name": "off-equipped-HELMET-yinglet",
+      "directions": 4
+    },
+    {
       "name": "on-equipped-HELMET",
       "directions": 4
     },
     {
       "name": "on-equipped-HELMET-vox",
       "directions": 4
+    },
+    {
+        "name": "on-equipped-HELMET-yinglet",
+        "directions": 4
     }
   ]
 }

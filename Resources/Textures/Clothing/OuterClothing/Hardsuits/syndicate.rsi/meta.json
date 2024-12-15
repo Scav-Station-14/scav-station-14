@@ -22,6 +22,10 @@
       "name": "equipped-OUTERCLOTHING-monkey",
       "directions": 4
     },
+	{
+      "name": "equipped-OUTERCLOTHING-yinglet",
+      "directions": 4
+    },
     {
       "name": "inhand-left",
       "directions": 4

@@ -79,7 +79,7 @@ public sealed partial class HandsComponent : Component
     public TimeSpan ThrowCooldown = TimeSpan.FromSeconds(0.5f);
 
     [DataField]
-    public DisplacementData? HandDisplacement;
+    public Dictionary<string, DisplacementData> HandDisplacements = new();
 
     /// <summary>
     /// If false, hands cannot be stripped, and they do not show up in the stripping menu.
