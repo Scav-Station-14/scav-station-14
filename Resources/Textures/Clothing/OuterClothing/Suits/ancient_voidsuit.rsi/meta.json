@@ -40,6 +40,36 @@
         ]
       ]
     },
+	{
+      "name": "equipped-OUTERCLOTHING-yinglet",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
     {
       "name": "inhand-left",
       "directions": 4
