@@ -279,6 +279,14 @@ public abstract partial class InventorySystem
             return false;
         }
 
+        if (clothing != null && !slotDefinition.SlotFlags.HasFlag(SlotFlags.POCKET) &&
+            ((clothing.EquipeeWhitelist != null && _whitelistSystem.IsWhitelistFail(clothing.EquipeeWhitelist, target)) ||
+             (clothing.EquipeeBlacklist != null && _whitelistSystem.IsBlacklistPass(clothing.EquipeeBlacklist, target)))) //at present this works partially. it displays the error but then fails to actually prevent it from being equipped (wait, actually i screwed up and it DOES pass the whitelist. but i had the whitelist in the blacklist slot but after fixing it, now it doesnt work at all?
+        {
+            reason = "inventory-component-can-equip-does-not-fit";
+            return false;
+        }
+
         var attemptEvent = new IsEquippingAttemptEvent(actor, target, itemUid, slotDefinition);
         RaiseLocalEvent(target, attemptEvent, true);
         if (attemptEvent.Cancelled)

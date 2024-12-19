@@ -1,6 +1,7 @@
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -76,6 +77,14 @@ public sealed partial class ClothingComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan StripDelay = TimeSpan.Zero;
+
+
+    [DataField]
+    public EntityWhitelist? EquipeeWhitelist;
+
+    [DataField]
+    public EntityWhitelist? EquipeeBlacklist;
+
 }
 
 [Serializable, NetSerializable]

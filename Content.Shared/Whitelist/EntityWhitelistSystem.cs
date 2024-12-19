@@ -2,6 +2,8 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Item;
 using Content.Shared.Roles;
 using Content.Shared.Tag;
+using Content.Shared.Inventory;
+using System.Linq;
 
 namespace Content.Shared.Whitelist;
 
@@ -96,6 +98,13 @@ public sealed class EntityWhitelistSystem : EntitySystem
             return list.RequireAll
                 ? _tag.HasAllTags(uid, list.Tags)
                 : _tag.HasAnyTag(uid, list.Tags);
+        }
+
+        InventoryComponent? inventory = null;
+        if (list.Species != null && Resolve(uid, ref inventory, false) && inventory.SpeciesId != null)
+        {
+            if (list.Species.Contains(inventory.SpeciesId))
+                return true;
         }
 
         return list.RequireAll;
