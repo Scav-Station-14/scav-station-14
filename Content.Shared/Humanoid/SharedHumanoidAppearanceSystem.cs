@@ -429,7 +429,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         {
             return;
         }
-        humanoid.MarkingSet.EnsureDefault(humanoid.SkinColor, humanoid.EyeColor, _markingManager);
+        humanoid.MarkingSet.EnsureDefault(humanoid.SkinColor, humanoid.EyeColor, humanoid.Sex, _markingManager);
     }
 
     /// <summary>

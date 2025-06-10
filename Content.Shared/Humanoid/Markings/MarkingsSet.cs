@@ -271,8 +271,9 @@ public sealed partial class MarkingSet
     /// <param name="skinColor">Skin color for marking coloring.</param>
     /// <param name="eyeColor">Eye color for marking coloring.</param>
     /// <param name="hairColor">Hair color for marking coloring.</param>
+    /// <param name="sex">Sex of the character, as some defaults could be sex-specific.</param>
     /// <param name="markingManager">Marking manager.</param>
-    public void EnsureDefault(Color? skinColor = null, Color? eyeColor = null, MarkingManager? markingManager = null)
+    public void EnsureDefault(Color? skinColor = null, Color? eyeColor = null, Sex? sex = null, MarkingManager? markingManager = null)
     {
         IoCManager.Resolve(ref markingManager);
 
@@ -296,7 +297,11 @@ public sealed partial class MarkingSet
                         );
                     var marking = new Marking(points.DefaultMarkings[index], colors);
 
-                    AddBack(category, marking);
+                    if(sex == null || prototype.SexRestriction == null || sex == prototype.SexRestriction)
+                    {
+                        AddBack(category, marking);
+                    }
+
                 }
 
                 index++;

@@ -57,19 +57,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/atmos.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/atmos.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterEngineer
 
@@ -80,19 +69,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/bar.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/bar.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterBartender
 
@@ -103,19 +81,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/captain.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/captain.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCaptain
 
@@ -126,19 +93,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/cargo.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/cargo.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCargo
 
@@ -149,19 +105,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/ce.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/ce.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCE
 
@@ -172,19 +117,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/centcom.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/centcom.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCentcom
 
@@ -196,19 +130,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/chef.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/chef.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -217,19 +140,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/chemistry.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/chemistry.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -247,19 +159,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/cmo.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/cmo.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -287,19 +188,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/engineering.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/engineering.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterEngineer
 
@@ -310,19 +200,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/genetics.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/genetics.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -340,19 +219,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/hop.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/hop.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOP
 
@@ -380,19 +248,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/hos.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/hos.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOS
 
@@ -403,19 +260,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/hydroponics.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/hydroponics.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHydro
 
@@ -426,19 +272,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/janitor.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/janitor.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -456,19 +291,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/medical.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/medical.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -486,19 +310,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/mime.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/mime.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterMime
 
@@ -509,19 +322,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/mining.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/mining.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterMiner
 
@@ -532,19 +334,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/paramedic.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/paramedic.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -562,19 +353,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/quartermaster.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/quartermaster.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterQM
 
@@ -586,19 +366,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/rd.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/rd.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -616,19 +385,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/robotics.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/robotics.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterRobo
 
@@ -640,19 +398,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/science.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/science.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -670,19 +417,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/security.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/security.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSec
 
@@ -693,19 +429,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/virology.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/virology.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -739,19 +464,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/warden.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/warden.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterWarden
 
@@ -763,19 +477,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/syndiecap.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/syndiecap.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSyndie
 
@@ -802,19 +505,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/syndie.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/syndie.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSyndie
 
@@ -837,19 +529,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/web.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/web.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
   - type: Construction
     graph: WebObjects
     node: coat

@@ -18,6 +18,10 @@
       "name": "equipped-OUTERCLOTHING-vox",
       "directions": 4
     },
+	{
+      "name": "equipped-OUTERCLOTHING-yinglet",
+      "directions": 4
+    },
     {
       "name": "inhand-left",
       "directions": 4
@@ -53,6 +57,14 @@
     },
 	{
       "name": "winterbits-equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+	{
+      "name": "coatybits-equipped-OUTERCLOTHING-yinglet",
+      "directions": 4
+    },
+	{
+      "name": "winterbits-equipped-OUTERCLOTHING-yinglet",
       "directions": 4
     },
 	{
