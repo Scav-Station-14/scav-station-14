@@ -1198,6 +1198,9 @@ namespace Content.Client.Lobby.UI
             // In case there's species restrictions for loadouts
             RefreshLoadouts();
             UpdateSexControls(); // update sex for new species
+            var speciesPrototype = _prototypeManager.Index<SpeciesPrototype>(newSpecies);
+            SetAge((speciesPrototype.MinAge + speciesPrototype.YoungAge) / 2); //default age to the equivalent of 24 for this species
+            UpdateAgeEdit();
             UpdateSpeciesGuidebookIcon();
             ReloadPreview();
         }
