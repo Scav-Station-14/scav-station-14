@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 251.0.0
+  engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/03/2025 15:13:26
-  entityCount: 608
+  time: 07/25/2025 18:41:52
+  entityCount: 611
 maps: []
 grids:
 - 1
@@ -71,6 +71,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -2014,6 +2015,16 @@ entities:
     - type: Transform
       pos: 10.5,0.5
       parent: 1
+- proto: FloorDrain
+  entities:
+  - uid: 396
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,-2.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: GasMixerOnFlipped
   entities:
   - uid: 94
@@ -3188,14 +3199,6 @@ entities:
     - type: Transform
       pos: -8.5,-2.5
       parent: 1
-- proto: PowerCellRecharger
-  entities:
-  - uid: 365
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.5,-5.5
-      parent: 1
 - proto: Poweredlight
   entities:
   - uid: 202
@@ -3444,13 +3447,17 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         59:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         58:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         56:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         55:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
 - proto: SignalButtonDirectional
   entities:
   - uid: 213
@@ -3464,9 +3471,11 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         316:
-        - Pressed: DoorBolt
+        - - Pressed
+          - DoorBolt
         3:
-        - Pressed: DoorBolt
+        - - Pressed
+          - DoorBolt
   - uid: 314
     components:
     - type: MetaData
@@ -3478,13 +3487,17 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         317:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         328:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         152:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         212:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 329
     components:
     - type: Transform
@@ -3494,13 +3507,17 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         389:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         394:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         395:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         16:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
 - proto: SignDirectionalDorms
   entities:
   - uid: 679
@@ -3539,6 +3556,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 11.5,0.5
+      parent: 1
+- proto: SinkWide
+  entities:
+  - uid: 386
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,-2.5
       parent: 1
 - proto: SMESBasic
   entities:
@@ -3685,6 +3710,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -10.5,-2.5
       parent: 1
+- proto: TelecomServerFilledShuttle
+  entities:
+  - uid: 561
+    components:
+    - type: Transform
+      pos: -9.5,-0.5
+      parent: 1
 - proto: Thruster
   entities:
   - uid: 23
@@ -3793,21 +3825,33 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         573:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         572:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         571:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         93:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
   - uid: 611
     components:
     - type: Transform
@@ -3817,13 +3861,19 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         577:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         219:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
   - uid: 613
     components:
     - type: Transform
@@ -3833,21 +3883,33 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         576:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         575:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         574:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         618:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
   - uid: 619
     components:
     - type: Transform
@@ -3857,13 +3919,19 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         302:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         192:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
 - proto: WallmountTelevision
   entities:
   - uid: 366
@@ -4442,6 +4510,14 @@ entities:
     components:
     - type: Transform
       pos: 0.5,0.5
+      parent: 1
+- proto: WeaponCapacitorRecharger
+  entities:
+  - uid: 365
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,-5.5
       parent: 1
 - proto: WindoorSecure
   entities:

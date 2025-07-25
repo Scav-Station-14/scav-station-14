@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Grid
+  engineVersion: 255.1.0
+  forkId: ""
+  forkVersion: ""
+  time: 07/25/2025 19:30:06
+  entityCount: 114
+maps: []
+grids:
+- 1
+orphans:
+- 1
+nullspace: []
 tilemap:
   0: Space
   88: FloorShuttleWhite
@@ -48,6 +59,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -642,13 +654,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 3.5,2.5
       parent: 1
-- proto: PowerCellRecharger
-  entities:
-  - uid: 60
-    components:
-    - type: Transform
-      pos: 3.5,0.5
-      parent: 1
 - proto: Poweredlight
   entities:
   - uid: 101
@@ -683,6 +688,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 4.5,2.5
+      parent: 1
+- proto: Sink
+  entities:
+  - uid: 114
+    components:
+    - type: Transform
+      pos: -0.5,1.5
       parent: 1
 - proto: SmallGyroscopeNfsd
   entities:
@@ -827,6 +839,13 @@ entities:
     components:
     - type: Transform
       pos: 0.5,0.5
+      parent: 1
+- proto: WeaponCapacitorRecharger
+  entities:
+  - uid: 60
+    components:
+    - type: Transform
+      pos: 3.5,0.5
       parent: 1
 - proto: WindoorSecureSecurityLocked
   entities:

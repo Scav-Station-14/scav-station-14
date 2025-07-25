@@ -4,7 +4,7 @@ meta:
   engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 06/03/2025 13:47:48
+  time: 07/25/2025 19:46:45
   entityCount: 231
 maps: []
 grids:
@@ -131,24 +131,24 @@ entities:
         tiles:
           0,0:
             0: 4871
-            2: 17408
-            1: 2048
+            1: 17408
+            2: 2048
           0,-1:
             0: 28915
           -1,0:
             0: 34956
-            1: 512
+            2: 512
           0,1:
-            1: 48
-            2: 68
+            2: 48
+            1: 68
           -1,1:
-            1: 192
+            2: 192
           0,-2:
             0: 12288
-            1: 35840
+            2: 35840
           -1,-2:
             0: 32768
-            1: 9728
+            2: 9728
           -1,-1:
             0: 51432
         uniqueMixes:
@@ -168,7 +168,7 @@ entities:
           - 0
           - 0
         - volume: 2500
-          immutable: True
+          temperature: 293.15
           moles:
           - 0
           - 0
@@ -183,7 +183,7 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.15
+          immutable: True
           moles:
           - 0
           - 0
@@ -1234,13 +1234,6 @@ entities:
         42:
         - - Pressed
           - Toggle
-- proto: LockerNfsdEvidence
-  entities:
-  - uid: 99
-    components:
-    - type: Transform
-      pos: 0.5,-4.5
-      parent: 1
 - proto: LockerWallEVAColorNfsdFilled
   entities:
   - uid: 198
@@ -1549,6 +1542,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,0.5
+      parent: 1
+- proto: TelecomServerFilledShuttle
+  entities:
+  - uid: 47
+    components:
+    - type: Transform
+      pos: 0.5,-4.5
       parent: 1
 - proto: ThrusterNfsd
   entities:
