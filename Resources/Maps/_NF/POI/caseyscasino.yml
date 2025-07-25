@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 247.2.0
+  engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 03/21/2025 23:39:46
-  entityCount: 1304
+  time: 07/25/2025 21:06:32
+  entityCount: 1305
 maps: []
 grids:
 - 2
@@ -66,6 +66,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifier: 0.25
     - type: GridPathfinding
     - type: BecomesStation
       id: CaseysCasino
@@ -5641,6 +5642,13 @@ entities:
     - type: Transform
       pos: 13.610134,-1.6778301
       parent: 2
+- proto: NFTelecomServerFilled
+  entities:
+  - uid: 1301
+    components:
+    - type: Transform
+      pos: -10.5,2.5
+      parent: 2
 - proto: NitrogenCanister
   entities:
   - uid: 434
@@ -6742,33 +6750,47 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1015:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1013:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1014:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1009:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1012:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1011:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1022:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1021:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1020:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1019:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1017:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1018:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1016:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1010:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 1179
     components:
     - type: Transform
@@ -6778,9 +6800,11 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1027:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         123:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
 - proto: SignAtmos
   entities:
   - uid: 426

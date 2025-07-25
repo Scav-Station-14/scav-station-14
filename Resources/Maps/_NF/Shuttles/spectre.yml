@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 06/07/2025 10:02:42
-  entityCount: 1272
+  time: 07/25/2025 20:59:32
+  entityCount: 1278
 maps: []
 grids:
 - 3
@@ -4173,6 +4173,22 @@ entities:
       parent: 3
     - type: Fixtures
       fixtures: {}
+  - uid: 1109
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,1.5
+      parent: 3
+    - type: Fixtures
+      fixtures: {}
+  - uid: 1185
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,1.5
+      parent: 3
+    - type: Fixtures
+      fixtures: {}
 - proto: FolderSpawner
   entities:
   - uid: 661
@@ -6245,13 +6261,6 @@ entities:
     - type: Transform
       pos: 2.5,10.5
       parent: 3
-- proto: PowerCellRecharger
-  entities:
-  - uid: 1025
-    components:
-    - type: Transform
-      pos: 5.5,-2.5
-      parent: 3
 - proto: Poweredlight
   entities:
   - uid: 510
@@ -6975,6 +6984,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: -6.5,7.5
       parent: 3
+- proto: Sink
+  entities:
+  - uid: 1105
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,10.5
+      parent: 3
 - proto: SinkWide
   entities:
   - uid: 676
@@ -6982,6 +6999,18 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 12.5,4.5
+      parent: 3
+  - uid: 1106
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,1.5
+      parent: 3
+  - uid: 1108
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,1.5
       parent: 3
 - proto: SMESBasic
   entities:
@@ -7205,6 +7234,13 @@ entities:
     components:
     - type: Transform
       pos: -0.5,14.5
+      parent: 3
+- proto: TelecomServerFilledShuttle
+  entities:
+  - uid: 1088
+    components:
+    - type: Transform
+      pos: -5.5,12.5
       parent: 3
 - proto: Thruster
   entities:
@@ -9000,6 +9036,13 @@ entities:
     components:
     - type: Transform
       pos: 0.5,3.5
+      parent: 3
+- proto: WeaponCapacitorRecharger
+  entities:
+  - uid: 1025
+    components:
+    - type: Transform
+      pos: 5.5,-2.5
       parent: 3
 - proto: WetFloorSign
   entities:

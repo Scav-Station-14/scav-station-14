@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 255.0.0
+  engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/16/2025 20:01:47
-  entityCount: 4333
+  time: 07/25/2025 21:22:13
+  entityCount: 4335
 maps: []
 grids:
 - 2
@@ -154,6 +154,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -13682,6 +13683,16 @@ entities:
     - type: Transform
       pos: 10.4126625,39.413414
       parent: 2
+- proto: FloorDrain
+  entities:
+  - uid: 973
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5,9.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: Gaslock
   entities:
   - uid: 433
@@ -21595,6 +21606,13 @@ entities:
     - type: Transform
       pos: 0.5,-4.5
       parent: 2
+- proto: NFTelecomServerFilled
+  entities:
+  - uid: 951
+    components:
+    - type: Transform
+      pos: 18.5,15.5
+      parent: 2
 - proto: NitrogenCanister
   entities:
   - uid: 2109
@@ -21896,43 +21914,6 @@ entities:
     components:
     - type: Transform
       pos: 12.5,13.5
-      parent: 2
-- proto: PowerCellRecharger
-  entities:
-  - uid: 3765
-    components:
-    - type: Transform
-      pos: -1.5,37.5
-      parent: 2
-  - uid: 3767
-    components:
-    - type: Transform
-      pos: 2.5,2.5
-      parent: 2
-  - uid: 3768
-    components:
-    - type: Transform
-      pos: -5.5,-1.5
-      parent: 2
-  - uid: 3769
-    components:
-    - type: Transform
-      pos: 5.5,-1.5
-      parent: 2
-  - uid: 3770
-    components:
-    - type: Transform
-      pos: 5.5,19.5
-      parent: 2
-  - uid: 3771
-    components:
-    - type: Transform
-      pos: -4.5,19.5
-      parent: 2
-  - uid: 3931
-    components:
-    - type: Transform
-      pos: 3.5,28.5
       parent: 2
 - proto: PoweredLEDLightPostSmall
   entities:
@@ -24452,6 +24433,14 @@ entities:
     - type: Transform
       pos: 17.5,10.5
       parent: 2
+- proto: SinkWide
+  entities:
+  - uid: 972
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5,9.5
+      parent: 2
 - proto: SMESBasic
   entities:
   - uid: 510
@@ -25283,12 +25272,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 20.5,15.5
-      parent: 2
-  - uid: 1704
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 18.5,15.5
       parent: 2
   - uid: 1995
     components:
@@ -28271,6 +28254,43 @@ entities:
     components:
     - type: Transform
       pos: 4.5,4.5
+      parent: 2
+- proto: WeaponCapacitorRecharger
+  entities:
+  - uid: 3765
+    components:
+    - type: Transform
+      pos: -1.5,37.5
+      parent: 2
+  - uid: 3767
+    components:
+    - type: Transform
+      pos: 2.5,2.5
+      parent: 2
+  - uid: 3768
+    components:
+    - type: Transform
+      pos: -5.5,-1.5
+      parent: 2
+  - uid: 3769
+    components:
+    - type: Transform
+      pos: 5.5,-1.5
+      parent: 2
+  - uid: 3770
+    components:
+    - type: Transform
+      pos: 5.5,19.5
+      parent: 2
+  - uid: 3771
+    components:
+    - type: Transform
+      pos: -4.5,19.5
+      parent: 2
+  - uid: 3931
+    components:
+    - type: Transform
+      pos: 3.5,28.5
       parent: 2
 - proto: WindoorSecure
   entities:
