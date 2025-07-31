@@ -1,0 +1,35 @@
+- type: vessel
+  id: Bee
+  parent: BaseVessel
+  name: IMS Bee
+  description: Small expedition-capable landing and salvage craft.
+  price: 25000
+  category: Small
+  group: Expedition
+  shuttlePath: /Maps/_Scav/Shuttles/bee.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  - Expedition
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Bee
+  mapName: 'IMS Bee'
+  mapPath: /Maps/_Scav/Shuttles/bee.yml
+  minPlayers: 0
+  stations:
+    Bee:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Bee {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            ContractorInterview: [ 0, 0 ]
+            PilotInterview: [ 0, 0 ]
+            MercenaryInterview: [ 0, 0 ]
