@@ -68,12 +68,37 @@
   viscosity: 0.25
   tileReactions:
     - !type:SpillTileReaction
-#  metabolisms: # Frontier
-#    Food: # Frontier
-#      # Delicious! # Frontier
-#      effects: # Frontier
-#      - !type:SatiateHunger # Frontier
-#        factor: 1 # Frontier
+  metabolisms: # Frontier: removed all metabolisms #Scav: reinstated, but adjusted
+    Food:
+      effects: #all the properties of Vitamin, but only for yinglets
+      - !type:HealthChange
+        conditions:
+          - !type:OrganType
+            type: Yinglet
+        probability: 0.5
+        damage:
+          groups:
+            Brute: -0.5
+            Burn: -0.5
+      - !type:ModifyBleedAmount
+        conditions:
+          - !type:OrganType
+            type: Yinglet
+        amount: -0.25
+      - !type:SatiateHunger
+        conditions:
+          - !type:OrganType
+            type: Yinglet
+      - !type:GenericStatusEffect #also makes them get a high
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 8
+        refresh: false
+        conditions:
+        - !type:OrganType
+          type: Yinglet #End Scav
+
   footstepSound:
     collection: FootstepBlood
     params:
