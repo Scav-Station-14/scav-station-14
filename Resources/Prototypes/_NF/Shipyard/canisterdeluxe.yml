@@ -23,7 +23,7 @@
   mapPath: /Maps/_Scav/Shuttles/canisterdeluxe.yml
   minPlayers: 0
   stations:
-    Canister:
+    CanisterDeluxe:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
