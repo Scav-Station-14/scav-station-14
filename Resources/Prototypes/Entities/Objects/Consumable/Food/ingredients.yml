@@ -274,8 +274,10 @@
       food:
         maxVol: 18
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 8
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 7 #Scav 15<7
   - type: Tag
     tags:
       - Ingredient
@@ -320,8 +322,10 @@
       food:
         maxVol: 6
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 2 #Scav 5<2
 
 - type: entity
   name: dough rope
@@ -342,8 +346,10 @@
       food:
         maxVol: 6
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 2 #Scav 5<2
 
 - type: entity
   name: cornmeal dough

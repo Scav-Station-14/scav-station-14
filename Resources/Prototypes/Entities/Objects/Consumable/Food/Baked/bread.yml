@@ -21,7 +21,7 @@
       food:
         maxVol: 31
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 20
         - ReagentId: Flavorol
           Quantity: 5
@@ -45,7 +45,7 @@
       food:
         maxVol: 9
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 4
         - ReagentId: Flavorol
           Quantity: 1
@@ -209,7 +209,7 @@
       food:
         maxVol: 25
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 15
         - ReagentId: Flavorol
           Quantity: 5
@@ -234,7 +234,7 @@
       food:
         maxVol: 6
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 3
         - ReagentId: Flavorol
           Quantity: 1
@@ -261,7 +261,7 @@
       food:
         maxVol: 40
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 20
         - ReagentId: Vitamin
           Quantity: 5
@@ -289,7 +289,7 @@
       food:
         maxVol: 10
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 4
         - ReagentId: Vitamin
           Quantity: 1.2
@@ -317,8 +317,10 @@
       food:
         maxVol: 50
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 20
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 10 #Scav 30<10
         - ReagentId: Vitamin
           Quantity: 5
         - ReagentId: Flavorol
@@ -348,8 +350,10 @@
       food:
         maxVol: 10
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2 #Scav 6<2
         - ReagentId: Vitamin
           Quantity: 1.2
         - ReagentId: Flavorol
@@ -381,7 +385,7 @@
       food:
         maxVol: 45
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 15
         - ReagentId: Vitamin
           Quantity: 5
@@ -412,7 +416,7 @@
       food:
         maxVol: 10
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 3
         - ReagentId: Vitamin
           Quantity: 1
@@ -468,7 +472,7 @@
       food:
         maxVol: 45
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 5
@@ -500,7 +504,7 @@
       food:
         maxVol: 10
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 2
         - ReagentId: Vitamin
           Quantity: 1
@@ -535,8 +539,10 @@
       food:
         maxVol: 60
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 20
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 10 #Scav 30<10
         - ReagentId: Vitamin
           Quantity: 5
         - ReagentId: Toxin
@@ -568,8 +574,10 @@
       food:
         maxVol: 15
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2 #Scav 6<2
         - ReagentId: Vitamin
           Quantity: 1.2
         - ReagentId: Toxin
@@ -603,8 +611,10 @@
       food:
         maxVol: 60 # Frontier: 48<60
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 20
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 10 #Scav 30<10
         - ReagentId: Protein
           Quantity: 12
         - ReagentId: Flavorol # Frontier
@@ -630,8 +640,10 @@
       food:
         maxVol: 12 # Frontier: 10<12
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2 #Scav 6<2
         - ReagentId: Vitamin
           Quantity: 2.4
         - ReagentId: Flavorol # Frontier
@@ -658,8 +670,10 @@
       food:
         maxVol: 45
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 20
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 10 #Scav 30<10
         - ReagentId: Vitamin
           Quantity: 5
         - ReagentId: Flavorol
@@ -689,8 +703,10 @@
       food:
         maxVol: 10
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2 #Scav 6<2
         - ReagentId: Vitamin
           Quantity: 1.2
         - ReagentId: Flavorol
@@ -719,7 +735,7 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 6
         - ReagentId: Vitamin
           Quantity: 1
@@ -800,7 +816,7 @@
       food:
         maxVol: 2
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 0.5
         - ReagentId: Vitamin
           Quantity: 0.1
@@ -858,7 +874,7 @@
       food:
         maxVol: 10
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 1
@@ -883,8 +899,10 @@
       food:
         maxVol: 12
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 2
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 2 #Scav 4<2
         - ReagentId: Vitamin
           Quantity: 2
         - ReagentId: Flavorol
@@ -909,8 +927,10 @@
       food:
         maxVol: 20
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2 #Scav 6<2
         - ReagentId: Vitamin
           Quantity: 5
         - ReagentId: Flavorol
@@ -935,7 +955,7 @@
       food:
         maxVol: 12
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 4
         - ReagentId: Vitamin
           Quantity: 4
@@ -960,7 +980,7 @@
       food:
         maxVol: 15
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 4
         - ReagentId: Mold
           Quantity: 7
@@ -980,7 +1000,7 @@
       food:
         maxVol: 15
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 3
         - ReagentId: Vitamin
           Quantity: 2
@@ -1005,7 +1025,7 @@
       food:
         maxVol: 45
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 5

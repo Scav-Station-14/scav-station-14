@@ -18,8 +18,10 @@
       food:
         maxVol: 31
         reagents: #Most of these are this with slight variations, not worth changing until we have the rest of the reagents
+        - ReagentId: Grain #Scav
+          Quantity: 5
         - ReagentId: Nutriment
-          Quantity: 11
+          Quantity: 6 #Scav 11<6
         - ReagentId: Vitamin
           Quantity: 5
         - ReagentId: Flavorol
@@ -52,8 +54,10 @@
       food:
         maxVol: 8
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 1.1
         - ReagentId: Nutriment
-          Quantity: 2.5
+          Quantity: 1.4 #Scav 2.5<1.4
         - ReagentId: Vitamin
           Quantity: 1
         - ReagentId: Flavorol
@@ -480,8 +484,10 @@
       food:
         maxVol: 23
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 5
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 1 #Scav 6<1
         - ReagentId: Amatoxin
           Quantity: 3
         - ReagentId: Vitamin
@@ -555,8 +561,10 @@
       food:
         maxVol: 41
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 5
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 10 #Scav 15<10
         - ReagentId: Theobromine
           Quantity: 2
         - ReagentId: Flavorol

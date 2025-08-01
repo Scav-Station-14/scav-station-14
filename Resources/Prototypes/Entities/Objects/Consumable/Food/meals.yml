@@ -351,8 +351,10 @@
       food:
         maxVol: 15
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 3 #Scav 6<3
         - ReagentId: Vitamin
           Quantity: 1
   - type: Tag
@@ -367,7 +369,7 @@
   description: BBQ ribs, slathered in a healthy coating of BBQ sauce. The least vegan thing to ever exist.
   components:
   - type: Food
-    trash: 
+    trash:
     - FoodKebabSkewer
   - type: FlavorProfile
     flavors:
@@ -411,8 +413,10 @@
       food:
         maxVol: 20
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 3 #Scav 6<3
         - ReagentId: Vitamin
           Quantity: 4
         - ReagentId: Flavorol
@@ -590,8 +594,10 @@
         food:
           maxVol: 15
           reagents:
+          - ReagentId: Grain #Scav
+            Quantity: 3
           - ReagentId: Nutriment
-            Quantity: 8
+            Quantity: 5 #Scav 8<5
           - ReagentId: CapsaicinOil
             Quantity: 6
           - ReagentId: Flavorol
@@ -639,7 +645,7 @@
   description: Buttery.
   components:
   - type: Food
-    trash: 
+    trash:
     - FoodPlate
   - type: FlavorProfile
     flavors:

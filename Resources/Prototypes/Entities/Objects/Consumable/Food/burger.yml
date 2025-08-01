@@ -17,7 +17,7 @@
       food:
         maxVol: 10
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 6.66 # 1/3 of a loaf of bread, technically losing 0.01 nutriment per batch of three buns over making bread loaves/slices
   - type: Butcherable
     butcherDelay: 1
@@ -31,10 +31,10 @@
   id: FoodBreadBunBottom
   parent: FoodBreadSliceBase
   name: bottom bun
-  description: It's time to start building the burger tower. 
+  description: It's time to start building the burger tower.
   components:
   - type: Item
-    size: Normal #patch until there is an adequate resizing system in place 
+    size: Normal #patch until there is an adequate resizing system in place
   - type: Food
   - type: Sprite
     drawdepth: Mobs
@@ -59,7 +59,7 @@
         maxVol: 5
         canReact: false # Dont want cause reactions inside burgers after merging ingredients
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 3.3 # 1/2 of a bun
 
 - type: entity
@@ -78,12 +78,12 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 3.3 # 1/2 of a bun
   - type: FoodSequenceElement
     entries:
       Burger: BunTopBurger
-  
+
 # Base
 
 - type: entity
@@ -104,8 +104,10 @@
       food:
         maxVol: 15
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 7
+          Quantity: 4 #Scav 7<4
         - ReagentId: Vitamin
           Quantity: 3
   - type: Item
@@ -149,7 +151,7 @@
       food:
         maxVol: 25
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 2
         - ReagentId: Protein
           Quantity: 6
@@ -179,8 +181,10 @@
       food:
         maxVol: 40
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 19
+          Quantity: 16 #Scav 19<16
         - ReagentId: Vitamin
           Quantity: 5
         - ReagentId: Flavorol
@@ -207,7 +211,7 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 3
         - ReagentId: Protein
           Quantity: 5
@@ -236,7 +240,7 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 3
         - ReagentId: Protein
           Quantity: 6
@@ -264,8 +268,10 @@
       food:
         maxVol: 43
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 17
+          Quantity: 14 #Scav 17<14
         - ReagentId: Vitamin
           Quantity: 9
         - ReagentId: Flavorol
@@ -294,8 +300,10 @@
       food:
         maxVol: 25
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 3 #Scav 6<3
         - ReagentId: Protein
           Quantity: 6
         - ReagentId: Vitamin
@@ -325,8 +333,10 @@
       food:
         maxVol: 15
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 3 #Scav 6<3
         - ReagentId: Protein
           Quantity: 3
         - ReagentId: Vitamin
@@ -353,7 +363,7 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 3
         - ReagentId: Vitamin
           Quantity: 7
@@ -391,7 +401,7 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 3
         - ReagentId: Protein
           Quantity: 7
@@ -423,8 +433,10 @@
       food:
         maxVol: 20
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 1 #Scav 4<1
         - ReagentId: Protein
           Quantity: 6
         - ReagentId: Vitamin
@@ -452,10 +464,12 @@
       food:
         maxVol: 25
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 2
         - ReagentId: Bicaridine #keeping it somewhat consistent with the meat itself
           Quantity: 7
         - ReagentId: Vitamin
-          Quantity: 12
+          Quantity: 10 #Scav 12<10
   - type: Tag
     tags:
     - Meat
@@ -477,8 +491,10 @@
       food:
         maxVol: 20
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 1 #Scav 4<1
         - ReagentId: Protein
           Quantity: 5
         - ReagentId: Vitamin
@@ -508,8 +524,10 @@
       food:
         maxVol: 25
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 1 #Scav 4<1
         - ReagentId: Protein
           Quantity: 6
         - ReagentId: CapsaicinOil
@@ -537,7 +555,7 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 3
         - ReagentId: Protein
           Quantity: 7
@@ -567,8 +585,10 @@
       food:
         maxVol: 20
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 5 #Scav 8<5
         - ReagentId: Licoxide
           Quantity: 5
         - ReagentId: Flavorol
@@ -609,8 +629,10 @@
       food:
         maxVol: 20
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 3 #Scav 6<3
         - ReagentId: CapsaicinOil
           Quantity: 5
         - ReagentId: Blackpepper
@@ -642,8 +664,10 @@
       food:
         maxVol: 30
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 7
+          Quantity: 4 #Scav 7<4
         - ReagentId: Vitamin
           Quantity: 12
         - ReagentId: Flavorol
@@ -671,7 +695,7 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 2
         - ReagentId: Protein
           Quantity: 6
@@ -700,7 +724,7 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 2
         - ReagentId: Protein
           Quantity: 7
@@ -719,7 +743,7 @@
   description: An elusive rib shaped burger with limited availability across the galaxy. Not as good as you remember it.
   components:
   - type: Food
-    trash: 
+    trash:
     - FoodKebabSkewer
   - type: FlavorProfile
     flavors:
@@ -732,7 +756,7 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 2
         - ReagentId: Protein
           Quantity: 7
@@ -764,8 +788,10 @@
       food:
         maxVol: 25
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 3 #Scav 6<3
         - ReagentId: Protein
           Quantity: 9
         - ReagentId: Vitamin
@@ -793,7 +819,7 @@
       food:
         maxVol: 25
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 2
         - ReagentId: Protein
           Quantity: 6
@@ -822,7 +848,7 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 3
         - ReagentId: Protein
           Quantity: 6
@@ -853,8 +879,10 @@
       food:
         maxVol: 15
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 2 #Scav 5<2
         - ReagentId: SulfuricAcid
           Quantity: 5
   - type: Tag
@@ -879,8 +907,10 @@
       food:
         maxVol: 20
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 1 #Scav 4<1
         - ReagentId: Protein
           Quantity: 6
         - ReagentId: Vitamin
@@ -906,8 +936,10 @@
       food:
         maxVol: 25
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 1 #Scav 4<1
         - ReagentId: Protein
           Quantity: 5
         - ReagentId: Vitamin
@@ -932,8 +964,10 @@
       food:
         maxVol: 90 # Frontier: 60<90
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 29
+          Quantity: 26 #Scav 29<26
         - ReagentId: Vitamin
           Quantity: 24
         - ReagentId: TableSalt
@@ -966,7 +1000,7 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 3
         - ReagentId: Protein
           Quantity: 6
@@ -994,7 +1028,7 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 3
         - ReagentId: Protein
           Quantity: 6
@@ -1028,7 +1062,7 @@
       food:
         maxVol: 15
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 3
         - ReagentId: Protein
           Quantity: 4
@@ -1037,4 +1071,4 @@
   - type: Tag
     tags:
     - Meat
-    
+

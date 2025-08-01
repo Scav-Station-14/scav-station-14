@@ -69,7 +69,7 @@
   pricePerUnit: 3
 
 - type: reagent
-  id: Sugar #Candy and grains
+  id: Sugar #Candy and grains #Scav: grain is being made its own thing and also worth noting most savory foods that do have grain didnt have sugar
   name: reagent-name-sugar
   group: Foods
   desc: reagent-desc-sugar

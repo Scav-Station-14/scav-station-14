@@ -65,8 +65,10 @@
       food:
         maxVol: 15
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2 #Scav 6<2
         - ReagentId: Vitamin
           Quantity: 4
         - ReagentId: Flavorol

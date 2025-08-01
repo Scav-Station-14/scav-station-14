@@ -286,7 +286,7 @@
   - type: Extractable
     grindableSolutionName: food
   - type: DamageOnInteract
-    damage: 
+    damage:
       types:
         Heat: 4
         Caustic: 4
@@ -313,7 +313,7 @@
             volume: -5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: DamageOnHit 
+  - type: DamageOnHit
     damage:
       types:
         Blunt: 5 # The nettle will "wilt" after 5 hits.
@@ -839,8 +839,10 @@
       food:
         maxVol: 14
         reagents:
+        - ReagentId: Grain #Scav: since Grain is primarily used for yinglets it makes sense to do this here, even if certain things made from potatoes are fine
+          Quantity: 6
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 4 #Scav 10<4
         - ReagentId: Vitamin
           Quantity: 4
   - type: Sprite

@@ -18,8 +18,10 @@
       food:
         maxVol: 40
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 5
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 10 #Scav 15<10
         - ReagentId: Vitamin
           Quantity: 5
         - ReagentId: Flavorol
@@ -53,8 +55,10 @@
         # Note: Keep FoodPizzaMoldySlice & FoodPizzaSliceBase roughly in sync
         maxVol: 6
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 1
         - ReagentId: Nutriment
-          Quantity: 3
+          Quantity: 2 #Scav 3<2
         - ReagentId: Vitamin
           Quantity: 0.8
         - ReagentId: Flavorol
@@ -202,8 +206,10 @@
       food:
         maxVol: 40
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 5
         - ReagentId: Nutriment
-          Quantity: 25
+          Quantity: 20 #Scav 25<20
         - ReagentId: JuiceCarrot
           Quantity: 5
         - ReagentId: Vitamin
@@ -234,8 +240,10 @@
       food:
         maxVol: 10
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 1
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 3 #Scav 4<3
         - ReagentId: JuiceCarrot
           Quantity: 1
         - ReagentId: Vitamin
@@ -264,8 +272,10 @@
       food:
         maxVol: 60
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 5
         - ReagentId: Nutriment
-          Quantity: 27
+          Quantity: 22 #Scav 27<22
         - ReagentId: Vitamin
           Quantity: 6
         - ReagentId: Omnizine
@@ -295,8 +305,10 @@
       food:
         maxVol: 10
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 1
         - ReagentId: Nutriment
-          Quantity: 4.5
+          Quantity: 3.5 #Scav 4.5<3.5
         - ReagentId: Vitamin
           Quantity: 1
         - ReagentId: Omnizine
@@ -332,8 +344,10 @@
       food:
         maxVol: 65
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 5
         - ReagentId: Nutriment
-          Quantity: 6 # Frontier: 20<6 (keeping flavorol and total volume the same)
+          Quantity: 1 # Frontier: 20<6 (keeping flavorol and total volume the same) #Scav 6<1
         - ReagentId: THC
           Quantity: 30
         - ReagentId: Flavorol # Frontier
@@ -359,7 +373,7 @@
       food:
         maxVol: 10
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 1 # Frontier: 3.5<1
         - ReagentId: THC
           Quantity: 5
@@ -481,8 +495,10 @@
       food:
         maxVol: 85
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 5
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 25 #Scav 30<25
         - ReagentId: Vitamin
           Quantity: 5
         - ReagentId: Iron
@@ -517,8 +533,10 @@
       food:
         maxVol: 15
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 1
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 4 #Scav 5<4
         - ReagentId: Vitamin
           Quantity: 0.8
         - ReagentId: Iron
@@ -558,8 +576,10 @@
         # Note: Keep FoodPizzaMoldySlice & FoodPizzaSliceBase roughly in sync
         maxVol: 5
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 1
         - ReagentId: Nutriment
-          Quantity: 2
+          Quantity: 1 #Scav 2<1
         - ReagentId: Mold
           Quantity: 2
         - ReagentId: Vitamin
@@ -595,8 +615,10 @@
       food:
         maxVol: 40
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 5
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 15 #Scav 20<15
         - ReagentId: Radium
           Quantity: 4
         - ReagentId: Uranium
@@ -630,8 +652,10 @@
       food:
         maxVol: 5
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 1
         - ReagentId: Nutriment
-          Quantity: 2.5
+          Quantity: 1.5 #Scav 2.5<1.5
         - ReagentId: Radium
           Quantity: 0.5
         - ReagentId: Uranium
@@ -726,8 +750,10 @@
       food:
         maxVol: 45
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 5
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 15 #Scav 20<15
         - ReagentId: Happiness
           Quantity: 12
         - ReagentId: Pax
@@ -751,8 +777,10 @@
       food:
         maxVol: 10
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 1
         - ReagentId: Nutriment
-          Quantity: 3.5
+          Quantity: 2.5 #Scav 3.5<2.5
         - ReagentId: Happiness
           Quantity: 2
         - ReagentId: Pax

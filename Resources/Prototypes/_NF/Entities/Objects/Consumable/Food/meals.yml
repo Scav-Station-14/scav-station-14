@@ -154,8 +154,10 @@
       food:
         maxVol: 25
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 9
+          Quantity: 5 #Scav 9<5
         - ReagentId: Vitamin
           Quantity: 5
         - ReagentId: Flavorol
@@ -181,8 +183,10 @@
       food:
         maxVol: 25
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 9
+          Quantity: 5 #Scav 9<5
         - ReagentId: Vitamin
           Quantity: 5
         - ReagentId: Flavorol
@@ -210,8 +214,10 @@
         reagents:
         - ReagentId: Bicaridine
           Quantity: 5
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 2 #Scav 5<2
         - ReagentId: Protein
           Quantity: 7
         - ReagentId: Flavorol
@@ -239,8 +245,10 @@
       food:
         maxVol: 25
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 9
+          Quantity: 5 #Scav 9<5
         - ReagentId: Vitamin
           Quantity: 5
         - ReagentId: CucumberWater

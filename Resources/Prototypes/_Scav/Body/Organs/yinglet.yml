@@ -2,7 +2,6 @@
   id: OrganYingletStomach
   parent: [OrganAnimalStomach, OrganHumanStomach]
   name: yinglet stomach
-  categories: [ HideSpawnMenu ]
   components:
   - type: Stomach
     specialDigestible:

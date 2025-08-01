@@ -16,7 +16,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 2
         - ReagentId: GastroToxin
           Quantity: 1
