@@ -21,6 +21,8 @@
       - EncryptionKeyPublic
       - EncryptionKeyMedical
       - EncryptionKeyTraffic
+  - type: ApcPowerReceiver
+    powerLoad: 500
   - type: Machine
     board: TelecomServerShuttleCircuitboard
   - type: TelecomServer
