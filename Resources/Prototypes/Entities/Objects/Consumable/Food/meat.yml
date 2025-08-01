@@ -717,6 +717,19 @@
         Quantity: 10
   - type: Sprite
     state: slime
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 1
+        - ReagentId: Fat
+          Quantity: 5
+        - ReagentId: Slime
+          Quantity: 10
 
 - type: entity
   name: raw snail meat
@@ -729,7 +742,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 20 #Scav: 15<20
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -737,6 +750,8 @@
           Quantity: 3
         - ReagentId: Water
           Quantity: 4 #It makes saline if you add salt!
+        - ReagentId: Slime #Scav
+          Quantity: 5
 
 - type: entity
   name: anomalous meat mass
@@ -796,6 +811,8 @@
           Quantity: 10
         - ReagentId: Iron
           Quantity: 10
+        - ReagentId: Slime #Scav
+          Quantity: 20
   - type: StaticPrice
     price: 3000 #It has so much Omnizin in it
   - type: Tag
@@ -1260,7 +1277,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 18 #Scav: 15<18
         reagents:
         - ReagentId: Nutriment
           Quantity: 3
@@ -1268,6 +1285,8 @@
           Quantity: 3
         - ReagentId: Water
           Quantity: 4 # makes saline if you add salt!
+        - ReagentId: Slime #Scav
+          Quantity: 3
   - type: FoodSequenceElement
     entries:
       Burger: MeatSnail

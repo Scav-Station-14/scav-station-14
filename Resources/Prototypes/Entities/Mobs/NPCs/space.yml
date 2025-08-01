@@ -478,6 +478,8 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
+        - ReagentId: Slime #Scav
+          Quantity: 5
   - type: Butcherable
     spawned:
     - id: FoodMeatSnail
