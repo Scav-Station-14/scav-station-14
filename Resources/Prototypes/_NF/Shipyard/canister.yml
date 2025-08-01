@@ -6,14 +6,14 @@
   id: Canister
   parent: BaseVessel
   name: UAC Canister
-  description: Whatever you're bringing, it won't fit. Seats two. Gravity included.
+  description: A short-range transport pod. Whatever you're bringing, it won't fit.
   price: 8000
   category: Micro
-  group: Scrap
-  shuttlePath: /Maps/_NF/Shuttles/Scrap/canister.yml
+  group: Shipyard
+  shuttlePath: /Maps/_NF/Shuttles/canister.yml
   guidebookPage: Null
   class:
-  - Scrapyard
+#  - Scrapyard #Scav
   - Civilian
   engine:
   - Plasma
@@ -21,7 +21,7 @@
 - type: gameMap
   id: Canister
   mapName: 'UAC Canister'
-  mapPath: /Maps/_NF/Shuttles/Scrap/canister.yml
+  mapPath: /Maps/_NF/Shuttles/canister.yml
   minPlayers: 0
   stations:
     Canister:
