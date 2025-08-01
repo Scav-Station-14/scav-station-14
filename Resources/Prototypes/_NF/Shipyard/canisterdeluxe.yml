@@ -1,0 +1,38 @@
+# Author Info
+# GitHub: NuclearCreeperIII (https://github.com/NuclearCreeperIII)
+# Discord: nuclear_the_bomb
+#
+- type: vessel
+  id: CanisterDeluxe
+  parent: BaseVessel
+  name: UAC Canister Deluxe
+  description: A deluxe model of the classic Canister, for corporate liasons or those with more money than sense.
+  price: 24000
+  category: Micro
+  group: Shipyard
+  shuttlePath: /Maps/_Scav/Shuttles/canisterdeluxe.yml
+  guidebookPage: Null
+  class:
+  - Civilian
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: CanisterDeluxe
+  mapName: 'UAC Canister Deluxe'
+  mapPath: /Maps/_Scav/Shuttles/canisterdeluxe.yml
+  minPlayers: 0
+  stations:
+    Canister:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Canister Deluxe {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            ContractorInterview: [ 0, 0 ]
+            PilotInterview: [ 0, 0 ]
+            MercenaryInterview: [ 0, 0 ]
