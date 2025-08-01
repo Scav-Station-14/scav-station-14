@@ -62,6 +62,7 @@
   keycode: 'u'
   frequency: 1347
   color: "#b48b57"
+  longRange: true # Scav
 
 - type: radioChannel
   id: Syndicate
