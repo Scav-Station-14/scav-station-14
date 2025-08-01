@@ -1,0 +1,9 @@
+- type: reaction
+  id: WetGrain
+  reactants:
+    Enzyme:
+      amount: 1
+    Grain:
+      amount: 1
+  products:
+    WetGrain: 1
