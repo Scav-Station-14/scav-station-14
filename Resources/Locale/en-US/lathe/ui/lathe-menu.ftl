@@ -15,6 +15,7 @@ lathe-reagent-dispense-no-container = Liquid pours out of {THE($name)} onto the 
 lathe-menu-result-reagent-display = {$reagent} ({$amount}u)
 lathe-menu-material-display = {$material} ({$amount})
 lathe-menu-tooltip-display = {$amount} of {$material}
+lathe-menu-tooltip-max-display =  Maximum possible to make: {$maxAmount}
 lathe-menu-description-display = [italic]{$description}[/italic]
 lathe-menu-material-amount = { $amount ->
     [1] {NATURALFIXED($amount, 2)} {$unit}

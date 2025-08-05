@@ -144,7 +144,7 @@ public sealed partial class LatheMenu : DefaultWindow
     {
         StringBuilder sb = new();
         var multiplier = _entityManager.GetComponent<LatheComponent>(Entity).FinalMaterialUseMultiplier; // Frontier: MaterialUseMultiplier<FinalMaterialUseMultiplier
-
+        var maxList = new List<double>(); //scav
         foreach (var (id, amount) in prototype.Materials)
         {
             if (!_prototypeManager.TryIndex(id, out var proto))
@@ -158,8 +158,8 @@ public sealed partial class LatheMenu : DefaultWindow
 
             var availableAmount = _materialStorage.GetMaterialAmount(Entity, id);
             var missingAmount = Math.Max(0, adjustedAmount - availableAmount);
-            var missingSheets = missingAmount / (float) sheetVolume;
-
+            var missingSheets = missingAmount / (float)sheetVolume;
+            maxList.Add(Math.Floor(availableAmount / (float)adjustedAmount)); //scav
             var name = Loc.GetString(proto.Name);
 
             string tooltipText;
@@ -175,6 +175,11 @@ public sealed partial class LatheMenu : DefaultWindow
 
             sb.AppendLine(tooltipText);
         }
+        //scav adds max possible produced amount
+        var maxMakeAmount = maxList.Min();
+        var tooltipMax = Loc.GetString("lathe-menu-tooltip-max-display", ("maxAmount", maxMakeAmount));
+        sb.AppendLine(tooltipMax);
+
 
         var desc = _lathe.GetRecipeDescription(prototype);
         if (!string.IsNullOrWhiteSpace(desc))
