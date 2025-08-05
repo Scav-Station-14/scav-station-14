@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Grid
+  engineVersion: 255.1.0
+  forkId: ""
+  forkVersion: ""
+  time: 07/25/2025 19:24:53
+  entityCount: 654
+maps: []
+grids:
+- 1
+orphans:
+- 1
+nullspace: []
 tilemap:
   0: Space
   30: FloorDark
@@ -54,6 +65,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -1782,13 +1794,6 @@ entities:
     - type: Transform
       pos: 0.5,8.5
       parent: 1
-- proto: ComputerMedicalRecords
-  entities:
-  - uid: 220
-    components:
-    - type: Transform
-      pos: -0.5,8.5
-      parent: 1
 - proto: ComputerPowerMonitoring
   entities:
   - uid: 219
@@ -1828,11 +1833,10 @@ entities:
       parent: 1
 - proto: ComputerSurveillanceCameraMonitor
   entities:
-  - uid: 223
+  - uid: 220
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,7.5
+      pos: -0.5,8.5
       parent: 1
 - proto: ConveyorBelt
   entities:
@@ -2814,6 +2818,13 @@ entities:
     - type: Transform
       pos: 8.5,2.5
       parent: 1
+- proto: NFRandomBook
+  entities:
+  - uid: 396
+    components:
+    - type: Transform
+      pos: -5.5,1.5
+      parent: 1
 - proto: NitrogenCanister
   entities:
   - uid: 370
@@ -3051,13 +3062,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 7.5,3.5
       parent: 1
-- proto: NFRandomBook
-  entities:
-  - uid: 396
-    components:
-    - type: Transform
-      pos: -5.5,1.5
-      parent: 1
 - proto: RandomPosterLegit
   entities:
   - uid: 168
@@ -3124,15 +3128,20 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         415:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         289:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         226:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         241:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         165:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
 - proto: SignDirectionalDorms
   entities:
   - uid: 617
@@ -3414,6 +3423,13 @@ entities:
     - type: Transform
       pos: 8.5,-1.5
       parent: 1
+- proto: TelecomServerFilledShuttle
+  entities:
+  - uid: 223
+    components:
+    - type: Transform
+      pos: -1.5,7.5
+      parent: 1
 - proto: ThrusterNfsd
   entities:
   - uid: 429
@@ -3534,13 +3550,19 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         224:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         225:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
 - proto: WallmountTelevision
   entities:
   - uid: 528

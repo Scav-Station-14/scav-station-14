@@ -1,34 +1,33 @@
 # Author Info
-# GitHub: Cu1r (https://github.com/Cu1r/)
-# Discord: cu1r
+# GitHub: NuclearCreeperIII (https://github.com/NuclearCreeperIII)
+# Discord: nuclear_the_bomb
 #
 - type: vessel
-  id: Canister
+  id: CanisterDeluxe
   parent: BaseVessel
-  name: UAC Canister
-  description: Whatever you're bringing, it won't fit. Seats two. Gravity included.
-  price: 8000
+  name: UAC Canister Deluxe
+  description: A deluxe model of the classic Canister, for corporate liasons or those with more money than sense.
+  price: 24000
   category: Micro
-  group: Scrap
-  shuttlePath: /Maps/_NF/Shuttles/Scrap/canister.yml
+  group: Shipyard
+  shuttlePath: /Maps/_Scav/Shuttles/canisterdeluxe.yml
   guidebookPage: Null
   class:
-  - Scrapyard
   - Civilian
   engine:
   - Plasma
 
 - type: gameMap
-  id: Canister
-  mapName: 'UAC Canister'
-  mapPath: /Maps/_NF/Shuttles/Scrap/canister.yml
+  id: CanisterDeluxe
+  mapName: 'UAC Canister Deluxe'
+  mapPath: /Maps/_Scav/Shuttles/canisterdeluxe.yml
   minPlayers: 0
   stations:
-    Canister:
+    CanisterDeluxe:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Canister {1}'
+          mapNameTemplate: 'Canister Deluxe {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

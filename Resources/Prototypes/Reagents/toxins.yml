@@ -483,6 +483,9 @@
           - !type:OrganType
             type: Vox
             shouldHave: false
+          - !type:OrganType #Scav
+            type: Yinglet
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -496,6 +499,9 @@
           - !type:OrganType
             type: Vox
             shouldHave: false
+          - !type:OrganType #Scav
+            type: Yinglet
+            shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:OrganType
@@ -504,6 +510,9 @@
         - !type:OrganType
           type: Vox
           shouldHave: false
+        - !type:OrganType #Scav
+            type: Yinglet
+            shouldHave: false
         damage:
           types:
             Poison: 1
@@ -527,6 +536,14 @@
         reagent: Protein
         amount: 0.5
       # End Frontier: goblin metabolism
+      # Scav: yinglet metabolism
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Yinglet
+        reagent: Protein
+        amount: 0.5
+      # End Scav: yinglet metabolism
 
 - type: reagent
   id: Allicin

@@ -18,7 +18,7 @@
         reagents:
         - ReagentId: Sugar
           Quantity: 5
-        - ReagentId: Nutriment
+        - ReagentId: Nutriment #Scav: not grain because its special
           Quantity: 2
         - ReagentId: Omnizine
           Quantity: 5
@@ -49,8 +49,10 @@
       food:
         maxVol: 15
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2 #Scav 6<2
         - ReagentId: Vitamin
           Quantity: 4
         - ReagentId: Flavorol
@@ -88,8 +90,10 @@
       food:
         maxVol: 10
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2 #Scav 6<2
         - ReagentId: Honey
           Quantity: 2
         - ReagentId: Flavorol
@@ -118,7 +122,7 @@
       food:
         maxVol: 10
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 2
         - ReagentId: Sugar
           Quantity: 4

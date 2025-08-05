@@ -7,7 +7,7 @@
   - type: Extractable
     juiceSolution:
       reagents:
-      - ReagentId: Nutriment
+      - ReagentId: Grain #Scav Nutriment<Grain
         Quantity: 3
       - ReagentId: Sugar
         Quantity: 10
@@ -23,7 +23,7 @@
   - type: Extractable
     juiceSolution:
       reagents:
-      - ReagentId: Nutriment
+      - ReagentId: Grain #Scav Nutriment<Grain
         Quantity: 10
       - ReagentId: Sugar
         Quantity: 20
@@ -39,7 +39,7 @@
   - type: Extractable
     juiceSolution:
       reagents:
-      - ReagentId: Nutriment
+      - ReagentId: Grain #Scav Nutriment<Grain
         Quantity: 5
       - ReagentId: Sugar
         Quantity: 10

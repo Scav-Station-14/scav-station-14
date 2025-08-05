@@ -1,0 +1,54 @@
+#although the original intention was to restrict food to nutriment, vitamin, protein, and sugar, more granularity needs to be added to support things like dietary restriction in more complex detail
+
+#Nutriment
+- type: reagent
+  id: Grain #Functionally identical to nutriment except makes yinglets throw up
+  name: reagent-name-grain
+  group: Foods
+  desc: reagent-desc-grain
+  physicalDesc: reagent-physical-desc-grainy
+  flavor: bread
+  color: "#D7BF84"
+  metabolisms:
+    Food:
+      effects: #do we maybe want to change this to just an adjustreagent that converts to nutriment?
+      - !type:SatiateHunger
+      - !type:ChemVomit
+        conditions:
+        - !type:OrganType
+          type: Yinglet
+        probability: 0.6
+  plantMetabolism:
+  - !type:PlantAdjustNutrition
+    amount: 1.5
+  - !type:PlantAdjustHealth
+    amount: 0.75
+  pricePerUnit: 2
+
+- type: reagent #Grain that has become no longer dangerous to yinglets when dampened
+  id: WetGrain #Should Grain be renamed to DryGrain?
+  name: reagent-name-wetgrain
+  group: Foods
+  desc: reagent-desc-grain
+  physicalDesc: reagent-physical-desc-slimy
+  flavor: bread
+  color: "#D7BF84"
+  metabolisms: #identical to nutriment
+    Food:
+      effects:
+      - !type:SatiateHunger
+  plantMetabolism:
+  - !type:PlantAdjustNutrition
+    amount: 1.5
+  - !type:PlantAdjustHealth
+    amount: 0.75
+  pricePerUnit: 2
+
+#This was set up with yinglet food restrictions in mind, if other species that cant have grain at all exist, some changes needed
+#most notably, should add WetGrain to food items still using nutriment like noodles (TODO)
+
+
+#may want to split into gluten and starch as well in the future
+
+#Protein
+#TODO: separate animal and plant proteins

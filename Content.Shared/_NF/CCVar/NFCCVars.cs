@@ -24,7 +24,7 @@ public sealed class NFCCVars
     /// Respawn time, how long the player has to wait in seconds after death, or on subsequent cryo attempts.
     /// </summary>
     public static readonly CVarDef<float> RespawnTime =
-        CVarDef.Create("nf14.respawn.time", 1200.0f, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("nf14.respawn.time", 900.0f, CVar.SERVER | CVar.REPLICATED); //Scav: 1200.0<900.0
 
     /// <summary>
     /// Whether or not returning from cryosleep is enabled.
@@ -105,10 +105,10 @@ public sealed class NFCCVars
         CVarDef.Create("shuttle.shipyard", true, CVar.SERVERONLY);
 
     /// <summary>
-    /// Base sell rate (multiplier: 0.75 = 75%)
+    /// Base sell rate (multiplier: 0.75 = 75%) #Scav: updated to 0.95
     /// </summary>
     public static readonly CVarDef<float> ShipyardSellRate =
-        CVarDef.Create("shuttle.shipyard_base_sell_rate", 0.75f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.shipyard_base_sell_rate", 0.95f, CVar.SERVERONLY);
 
     /*
      * Salvage
@@ -239,7 +239,7 @@ public sealed class NFCCVars
     ///     If true, allows map extraction (scrubbing a planet's atmosphere).
     /// </summary>
     public static readonly CVarDef<bool> AllowMapGasExtraction =
-        CVarDef.Create("nf14.atmos.allow_map_gas_extraction", false, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("nf14.atmos.allow_map_gas_extraction", true, CVar.SERVER | CVar.REPLICATED); //Scav: false<true
 
     /*
      * Audio

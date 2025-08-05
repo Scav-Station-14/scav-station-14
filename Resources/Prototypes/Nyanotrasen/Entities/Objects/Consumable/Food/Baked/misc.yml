@@ -15,7 +15,7 @@
       food:
         maxVol: 60
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 20
         - ReagentId: Mold
           Quantity: 28

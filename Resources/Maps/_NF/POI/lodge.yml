@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 248.0.2
+  engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 04/10/2025 16:51:15
-  entityCount: 2579
+  time: 07/25/2025 21:10:57
+  entityCount: 2585
 maps: []
 grids:
 - 1
@@ -115,6 +115,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifier: 0.25
     - type: GridPathfinding
     - type: BecomesStation
       id: Lodge
@@ -1527,7 +1528,6 @@ entities:
             1719: -11,6
             1720: -13,6
             1721: -14,7
-            1722: -14,9
             1723: -15,10
             1724: -16,9
             1725: -16,7
@@ -6477,11 +6477,6 @@ entities:
     - type: Transform
       pos: -13.5,8.5
       parent: 1
-  - uid: 1619
-    components:
-    - type: Transform
-      pos: -14.5,8.5
-      parent: 1
   - uid: 1620
     components:
     - type: Transform
@@ -6801,6 +6796,31 @@ entities:
     components:
     - type: Transform
       pos: 4.5,10.5
+      parent: 1
+  - uid: 2581
+    components:
+    - type: Transform
+      pos: -13.5,11.5
+      parent: 1
+  - uid: 2582
+    components:
+    - type: Transform
+      pos: -13.5,10.5
+      parent: 1
+  - uid: 2583
+    components:
+    - type: Transform
+      pos: -13.5,9.5
+      parent: 1
+  - uid: 2584
+    components:
+    - type: Transform
+      pos: -15.5,8.5
+      parent: 1
+  - uid: 2585
+    components:
+    - type: Transform
+      pos: -14.5,8.5
       parent: 1
 - proto: CableHV
   entities:
@@ -14186,28 +14206,6 @@ entities:
     - type: Transform
       pos: -9.5,13.5
       parent: 1
-- proto: NFBoxMagazinePistol35Practice
-  entities:
-  - uid: 2047
-    components:
-    - type: Transform
-      pos: 10.545279,13.4767
-      parent: 1
-  - uid: 2048
-    components:
-    - type: Transform
-      pos: 10.404654,14.429825
-      parent: 1
-  - uid: 2049
-    components:
-    - type: Transform
-      pos: 10.607779,15.429825
-      parent: 1
-  - uid: 2050
-    components:
-    - type: Transform
-      pos: 10.498404,16.429825
-      parent: 1
 - proto: MaterialReclaimer
   entities:
   - uid: 1499
@@ -14270,6 +14268,28 @@ entities:
     components:
     - type: Transform
       pos: 6.535731,10.07715
+      parent: 1
+- proto: NFBoxMagazinePistol35Practice
+  entities:
+  - uid: 2047
+    components:
+    - type: Transform
+      pos: 10.545279,13.4767
+      parent: 1
+  - uid: 2048
+    components:
+    - type: Transform
+      pos: 10.404654,14.429825
+      parent: 1
+  - uid: 2049
+    components:
+    - type: Transform
+      pos: 10.607779,15.429825
+      parent: 1
+  - uid: 2050
+    components:
+    - type: Transform
+      pos: 10.498404,16.429825
       parent: 1
 - proto: NFHolopadExpeditionLodge
   entities:
@@ -14400,6 +14420,25 @@ entities:
     - type: Transform
       pos: -32.5,4.5
       parent: 1
+- proto: NFTelecomServerFilled
+  entities:
+  - uid: 1619
+    components:
+    - type: Transform
+      pos: -13.5,13.5
+      parent: 1
+- proto: NFWeaponEnergyRifleCarbinePractice
+  entities:
+  - uid: 2512
+    components:
+    - type: Transform
+      pos: 7.6572943,14.637034
+      parent: 1
+  - uid: 2513
+    components:
+    - type: Transform
+      pos: 7.5947943,15.324534
+      parent: 1
 - proto: NonLethalVendingMachine
   entities:
   - uid: 1768
@@ -14493,23 +14532,6 @@ entities:
     components:
     - type: Transform
       pos: -1.5,20.5
-      parent: 1
-- proto: PowerCellRecharger
-  entities:
-  - uid: 2191
-    components:
-    - type: Transform
-      pos: -11.5,16.5
-      parent: 1
-  - uid: 2192
-    components:
-    - type: Transform
-      pos: -0.5,3.5
-      parent: 1
-  - uid: 2193
-    components:
-    - type: Transform
-      pos: 6.5,5.5
       parent: 1
 - proto: Poweredlight
   entities:
@@ -15720,6 +15742,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -13.5,17.5
       parent: 1
+  - uid: 2580
+    components:
+    - type: Transform
+      pos: 1.5,10.5
+      parent: 1
 - proto: SinkWide
   entities:
   - uid: 848
@@ -16456,6 +16483,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 16.5,17.5
       parent: 1
+    - type: Conveyed
 - proto: TargetStrange
   entities:
   - uid: 1720
@@ -16464,6 +16492,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 17.5,14.5
       parent: 1
+    - type: Conveyed
 - proto: ToiletDirtyWater
   entities:
   - uid: 1629
@@ -16500,45 +16529,75 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         958:
-        - Left: Forward
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Forward
+        - - Middle
+          - Off
         961:
-        - Left: Forward
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Forward
+        - - Middle
+          - Off
         1017:
-        - Left: Forward
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Forward
+        - - Middle
+          - Off
         1018:
-        - Left: Forward
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Forward
+        - - Middle
+          - Off
         1019:
-        - Left: Forward
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Forward
+        - - Middle
+          - Off
         1020:
-        - Left: Forward
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Forward
+        - - Middle
+          - Off
         1021:
-        - Left: Forward
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Forward
+        - - Middle
+          - Off
         701:
-        - Left: Forward
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Forward
+        - - Middle
+          - Off
         823:
-        - Left: Forward
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Forward
+        - - Middle
+          - Off
         824:
-        - Left: Forward
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Forward
+        - - Middle
+          - Off
   - uid: 2104
     components:
     - type: Transform
@@ -16547,9 +16606,12 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1497:
-        - Left: Forward
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Forward
+        - - Middle
+          - Off
 - proto: VendingMachineAmmoPOI
   entities:
   - uid: 597
@@ -18009,17 +18071,20 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 7.5,15.5
       parent: 1
-- proto: NFWeaponEnergyRifleCarbinePractice
-  entities:
-  - uid: 2512
+  - uid: 2191
     components:
     - type: Transform
-      pos: 7.6572943,14.637034
+      pos: -11.5,16.5
       parent: 1
-  - uid: 2513
+  - uid: 2192
     components:
     - type: Transform
-      pos: 7.5947943,15.324534
+      pos: -0.5,3.5
+      parent: 1
+  - uid: 2193
+    components:
+    - type: Transform
+      pos: 6.5,5.5
       parent: 1
 - proto: Windoor
   entities:

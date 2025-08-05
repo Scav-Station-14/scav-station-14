@@ -87,7 +87,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
-        damage: 200
+        damage: 300
       behaviors:
       - !type:GibBehavior { }
     # - trigger: # Scav: removed to match frontier's handling of

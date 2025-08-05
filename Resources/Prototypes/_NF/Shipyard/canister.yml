@@ -1,0 +1,39 @@
+# Author Info
+# GitHub: Cu1r (https://github.com/Cu1r/)
+# Discord: cu1r
+#
+- type: vessel
+  id: Canister
+  parent: BaseVessel
+  name: UAC Canister
+  description: A short-range transport pod. Whatever you're bringing, it won't fit.
+  price: 8000
+  category: Micro
+  group: Shipyard
+  shuttlePath: /Maps/_NF/Shuttles/canister.yml
+  guidebookPage: Null
+  class:
+#  - Scrapyard #Scav
+  - Civilian
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Canister
+  mapName: 'UAC Canister'
+  mapPath: /Maps/_NF/Shuttles/canister.yml
+  minPlayers: 0
+  stations:
+    Canister:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Canister {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            ContractorInterview: [ 0, 0 ]
+            PilotInterview: [ 0, 0 ]
+            MercenaryInterview: [ 0, 0 ]

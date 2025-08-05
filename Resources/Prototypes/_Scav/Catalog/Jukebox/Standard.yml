@@ -20,10 +20,10 @@
   id: Re_-Your-Brains
   name: "Re: Your Brains - Jonathan Coulton"
   path:
-    path: /Audio/_Scav/Jukebox/The-Future-Soon.ogg
+    path: /Audio/_Scav/Jukebox/Re_-Your-Brains.ogg
 
 - type: jukebox
   id: The-Future-Soon
   name: The Future Soon - Jonathan Coulton
   path:
-    path: /Audio/_Scav/Jukebox/Re_-Your-Brains.ogg
+    path: /Audio/_Scav/Jukebox/The-Future-Soon.ogg

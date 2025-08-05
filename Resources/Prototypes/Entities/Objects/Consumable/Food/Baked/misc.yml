@@ -14,8 +14,10 @@
       food:
         maxVol: 6
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 2 #Scav 5<2
   - type: Item
     size: Tiny
   - type: Tag
@@ -41,8 +43,10 @@
       food:
         maxVol: 10
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2 #Scav 6<2
         - ReagentId: Vitamin
           Quantity: 2
   - type: FlavorProfile
@@ -64,8 +68,10 @@
       food:
         maxVol: 12
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2 #Scav 6<2
         - ReagentId: Vitamin
           Quantity: 2
         - ReagentId: JuiceBerry
@@ -87,8 +93,10 @@
       food:
         maxVol: 12
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2 #Scav 6<2
         - ReagentId: Vitamin
           Quantity: 2
         - ReagentId: JuiceCherry
@@ -122,8 +130,10 @@
       food:
         maxVol: 12
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2 #Scav 6<2
         - ReagentId: Vitamin
           Quantity: 2
         - ReagentId: CocoaPowder
@@ -142,8 +152,10 @@
       food:
         maxVol: 12
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2 #Scav 6<2
         - ReagentId: Vitamin
           Quantity: 2
         - ReagentId: JuiceBanana
@@ -189,8 +201,10 @@
       food:
         maxVol: 10
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2 #Scav 6<2
         - ReagentId: Vitamin
           Quantity: 2
 
@@ -218,8 +232,10 @@
       food:
         maxVol: 8
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 1 #Scav 5<1
         - ReagentId: Vitamin
           Quantity: 1
 
@@ -236,8 +252,10 @@
       food:
         maxVol: 8
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 1 #Scav 5<1
         - ReagentId: Vitamin
           Quantity: 1
   - type: Tag
@@ -685,8 +703,10 @@
       food:
         maxVol: 78
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 20
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 10 #Scav 30<10
         - ReagentId: Theobromine
           Quantity: 18
   - type: SliceableFood
@@ -712,8 +732,10 @@
       food:
         maxVol: 13
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 2 #Scav 5<2
         - ReagentId: Theobromine
           Quantity: 3
   - type: Tag
@@ -739,8 +761,10 @@
       food:
         maxVol: 228
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 20
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 10 #Scav 30<10
         - ReagentId: Theobromine
           Quantity: 18
         - ReagentId: THC
@@ -768,8 +792,10 @@
       food:
         maxVol: 38
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 3
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 2 #Scav 5<2
         - ReagentId: Theobromine
           Quantity: 3
         - ReagentId: THC
@@ -819,7 +845,7 @@
       food:
         maxVol: 7
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 3
         - ReagentId: Butter
           Quantity: 2
@@ -881,8 +907,10 @@
       food:
         maxVol: 21
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 5
         - ReagentId: Nutriment
-          Quantity: 11
+          Quantity: 6 #Scav 11<6
         - ReagentId: Butter
           Quantity: 2
         - ReagentId: Vitamin

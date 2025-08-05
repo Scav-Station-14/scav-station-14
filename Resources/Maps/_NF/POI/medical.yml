@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 251.0.0
+  engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/21/2025 05:29:18
-  entityCount: 1772
+  time: 07/25/2025 21:12:58
+  entityCount: 1774
 maps: []
 grids:
 - 1
@@ -86,6 +86,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifier: 0.25
     - type: GridPathfinding
     - type: BecomesStation
       id: Medical
@@ -1717,23 +1718,32 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         891:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         890:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         888:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         1285:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         84:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         889:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         1435:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         1438:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         1440:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
   - uid: 351
     components:
     - type: Transform
@@ -1750,21 +1760,29 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         861:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         862:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         863:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         864:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         1329:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         884:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         885:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         886:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
   - uid: 848
     components:
     - type: Transform
@@ -1783,31 +1801,44 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         879:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         877:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         876:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         878:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         875:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         874:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         873:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         872:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         871:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         869:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         868:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         867:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         870:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
   - uid: 849
     components:
     - type: Transform
@@ -1849,17 +1880,23 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         534:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         498:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         490:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         1675:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         1674:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         1653:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
   - uid: 850
     components:
     - type: Transform
@@ -1902,17 +1939,23 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1676:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         1677:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         1678:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         1679:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         1680:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
         1681:
-        - AirDanger: Close
+        - - AirDanger
+          - Close
   - uid: 1636
     components:
     - type: Transform
@@ -9999,6 +10042,13 @@ entities:
     - type: Transform
       pos: -2.5,9.5
       parent: 1
+- proto: NFTelecomServerFilled
+  entities:
+  - uid: 1773
+    components:
+    - type: Transform
+      pos: 6.5,3.5
+      parent: 1
 - proto: NitrogenCanister
   entities:
   - uid: 301
@@ -11211,11 +11261,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1679:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1680:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1681:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 358
     components:
     - type: Transform
@@ -11225,11 +11278,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1676:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1677:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1678:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 472
     components:
     - type: Transform
@@ -11239,11 +11295,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         490:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         498:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         534:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 489
     components:
     - type: Transform
@@ -11253,11 +11312,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1675:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1674:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1653:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 584
     components:
     - type: Transform
@@ -11267,19 +11329,26 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         891:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         890:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         889:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         888:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1435:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1438:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1440:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 592
     components:
     - type: Transform
@@ -11288,9 +11357,11 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1285:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         84:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 915
     components:
     - type: Transform
@@ -11300,7 +11371,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         586:
-        - Pressed: DoorBolt
+        - - Pressed
+          - DoorBolt
   - uid: 1283
     components:
     - type: Transform
@@ -11310,21 +11382,29 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         886:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         885:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         884:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1329:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         864:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         863:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         862:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         861:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 1541
     components:
     - type: Transform
@@ -11334,31 +11414,44 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         867:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         868:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         869:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         870:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         871:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         872:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         873:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         874:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         875:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         878:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         876:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         877:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         879:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 1586
     components:
     - type: Transform
@@ -11368,19 +11461,26 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         860:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1607:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1556:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1338:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         905:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         797:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1490:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 1605
     components:
     - type: Transform
@@ -11390,31 +11490,44 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         879:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         877:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         876:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         878:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         875:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         874:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         873:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         872:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         871:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         870:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         869:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         868:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         867:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
 - proto: SignalSwitch
   entities:
   - uid: 137
@@ -11426,8 +11539,10 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         749:
-        - On: Forward
-        - Off: Off
+        - - On
+          - Forward
+        - - Off
+          - Off
 - proto: SignBar
   entities:
   - uid: 735
@@ -11552,6 +11667,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 9.5,6.5
+      parent: 1
+- proto: SinkWide
+  entities:
+  - uid: 1774
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,10.5
       parent: 1
 - proto: SMESBasic
   entities:

@@ -8,7 +8,7 @@
   - type: Item
     storedRotation: -90
   - type: Food
-    trash: 
+    trash:
     - FoodBowlBig
     utensil: Spoon
   - type: SolutionContainerManager
@@ -242,8 +242,10 @@
       food:
         maxVol: 20
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 1
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 7 #Scav 8<7
         - ReagentId: Vitamin
           Quantity: 6
         - ReagentId: Flavorol
@@ -557,8 +559,10 @@
       food:
         maxVol: 25
         reagents:
+        - ReagentId: Grain #Scav
+          Quantity: 5
         - ReagentId: Nutriment
-          Quantity: 7
+          Quantity: 2 #Scav 7<2
         - ReagentId: Vitamin
           Quantity: 2
         - ReagentId: Milk
@@ -1029,7 +1033,7 @@
     flavors:
       - miso
   - type: Food
-    trash: 
+    trash:
     - FoodBowlFancy
   - type: Sprite
     layers:
@@ -1323,7 +1327,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 25 #Scav 20<25
         reagents:
           - ReagentId: Nutriment
             Quantity: 6
@@ -1331,6 +1335,8 @@
             Quantity: 6
           - ReagentId: Allicin
             Quantity: 3
+          - ReagentId: Slime #Scav
+            Quantity: 5
   - type: Tag
     tags:
     - Meat

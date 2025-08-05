@@ -78,7 +78,7 @@
       food:
         maxVol: 15
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Grain #Scav Nutriment<Grain
           Quantity: 4
         - ReagentId: Vitamin
           Quantity: 1
