@@ -22,6 +22,8 @@ using Robust.Shared.Timing;
 using Content.Shared.DeviceNetwork.Components;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Server._NF.SectorServices; // Frontier
+using Content.Server.Voting.Managers; //scav
+using Content.Shared.Voting;//scav
 
 namespace Content.Server.RoundEnd
 {
@@ -43,6 +45,7 @@ namespace Content.Server.RoundEnd
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly SectorServiceSystem _sectorService = default!; // Frontier: sector-wide alerts
+        [Dependency] private readonly IVoteManager _voteManager = default!;
 
         public TimeSpan DefaultCooldownDuration { get; set; } = TimeSpan.FromSeconds(30);
 
@@ -200,6 +203,9 @@ namespace Content.Server.RoundEnd
 
             ActivateCooldown();
             RaiseLocalEvent(RoundEndSystemChangedEvent.Default);
+
+            Enum.TryParse<StandardVoteType>("Extend", ignoreCase: true, out var type);
+            _voteManager.CreateStandardVote(null, type);
 
             var shuttle = _shuttle.GetShuttle();
             if (shuttle != null && TryComp<DeviceNetworkComponent>(shuttle, out var net))

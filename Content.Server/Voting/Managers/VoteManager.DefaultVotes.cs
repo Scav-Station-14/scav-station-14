@@ -19,6 +19,8 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Robust.Shared.Console;
+
 
 namespace Content.Server.Voting.Managers
 {
@@ -69,6 +71,12 @@ namespace Content.Server.Voting.Managers
                     timeoutVote = false; // Allows the timeout to be updated manually in the create method
                     CreateVotekickVote(initiator, args);
                     break;
+                case StandardVoteType.Extend:
+                    CreateExtendVote(initiator);
+                    break;
+
+
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(voteType), voteType, null);
             }
@@ -564,6 +572,81 @@ namespace Content.Server.Voting.Managers
                 vote.CastVote(initiator, 0);
             }
         }
+//scav
+        private void CreateExtendVote(ICommonSession? initiator)
+        {
+
+            var alone = _playerManager.PlayerCount == 1 && initiator != null;
+            var options = new VoteOptions
+            {
+                Title = Loc.GetString("ui-vote-extend"),
+                Options =
+                {
+                    (Loc.GetString("ui-vote-extend-extend"), "extend"),
+                    (Loc.GetString("ui-vote-extend-end"), "end"),
+                    (Loc.GetString("ui-vote-extend-abstain"), "abstain")
+                },
+                Duration = alone
+                    ? TimeSpan.FromSeconds(_cfg.GetCVar(CCVars.VoteTimerAlone))
+                    : TimeSpan.FromSeconds(60)
+            };
+
+            if (alone)
+                options.InitiatorTimeout = TimeSpan.FromSeconds(10);
+
+            WirePresetVoteInitiator(options, initiator);
+
+            var vote = CreateVote(options);
+
+            vote.OnFinished += (_, args) =>
+            {
+                var votesYes = vote.VotesPerOption["extend"];
+                var votesNo = vote.VotesPerOption["end"];
+                var votesDunno = vote.VotesPerOption["abstain"];
+                var total = votesYes + votesNo;
+
+                // Get the voters, for logging purposes.
+                List<ICommonSession> yesVoters = new();
+                List<ICommonSession> noVoters = new();
+                foreach (var (voter, castVote) in vote.CastVotes)
+                {
+                    if (castVote == 0)
+                    {
+                        yesVoters.Add(voter);
+                    }
+                    if (castVote == 1)
+                    {
+                        noVoters.Add(voter);
+                    }
+                }
+                var yesVotersString = string.Join(", ", yesVoters);
+                var noVotersString = string.Join(", ", noVoters);
+
+                if (total == 0 || votesYes / (float)total >= 0.5)
+                {
+                    _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Vote to extend succeeded:  Yes: {votesYes} / No: {votesNo}.");
+                    _chatManager.DispatchServerAnnouncement(Loc.GetString("ui-vote-extend-win", ("votedYes", votesYes), ("votedNo", votesNo), ("votedAbst", votesDunno)));
+                    var roundEnd = _entityManager.EntitySysManager.GetEntitySystem<RoundEndSystem>();
+                    roundEnd.CancelRoundEndCountdown(null, false);
+                }
+                if (total > 0 && votesYes / (float)total <= 0.5)
+                {
+                    _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Vote to extend Failed:  Yes: {votesYes} / No: {votesNo}.");
+                    _chatManager.DispatchServerAnnouncement(Loc.GetString("ui-vote-extend-fail", ("votedYes", votesYes), ("votedNo", votesNo), ("votedAbst", votesDunno)));
+                }
+            };
+            if (initiator != null)
+            {
+                // Cast yes vote if created the vote yourself.
+                vote.CastVote(initiator, 0);
+            }
+
+
+        }
+
+
+
+
 
         private void AnnounceCancelledVotekickForVoters(string target)
         {

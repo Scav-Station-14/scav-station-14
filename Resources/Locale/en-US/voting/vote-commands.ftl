@@ -3,7 +3,7 @@
 ## 'createvote' command
 
 cmd-createvote-desc = Creates a vote
-cmd-createvote-help = Usage: createvote <'restart'|'preset'|'map'>
+cmd-createvote-help = Usage: createvote <'restart'|'preset'|'map'|'extend'>
 cmd-createvote-cannot-call-vote-now = You can't call a vote right now!
 cmd-createvote-invalid-vote-type = Invalid vote type
 cmd-createvote-arg-vote-type = <vote type>
