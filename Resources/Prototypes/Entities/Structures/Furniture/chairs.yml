@@ -198,8 +198,8 @@
   components:
   - type: Sprite
     state: shuttle
-  - type: Rotatable # Frontier
-    rotateWhileAnchored: true # Frontier
+  #- type: Rotatable # Frontier #Scav
+  #  rotateWhileAnchored: true # Frontier #Scav
   - type: Construction
     graph: Seat
     node: chairPilotSeat
