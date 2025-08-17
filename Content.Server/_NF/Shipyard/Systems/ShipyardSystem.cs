@@ -20,7 +20,7 @@ using Content.Server._NF.Station.Components;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Utility;
 using Robust.Shared.GameObjects;
-using Content.Server._Scav.Shipyard;
+using Content.Server._Scav.Persistence;
 
 namespace Content.Server._NF.Shipyard.Systems;
 

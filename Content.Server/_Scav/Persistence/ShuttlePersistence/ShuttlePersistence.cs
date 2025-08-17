@@ -1,8 +1,8 @@
-namespace Content.Server._Scav.Shipyard;
+namespace Content.Server._Scav.Persistence;
 
 public sealed partial class ShuttlePersistenceSystem : EntitySystem
 {
-    public static readonly MapInitEvent MapInitEventInstance = new(); //Scav. Also, replace with GridReinitEventInstance once initial testing is done
+    //public static readonly MapInitEvent MapInitEventInstance = new(); //replace with GridReinitEventInstance once initial testing is done
 
     public override void Initialize()
     {
@@ -25,7 +25,8 @@ public sealed partial class ShuttlePersistenceSystem : EntitySystem
                 toInitialize.Add(child);
             }
 
-            RaiseLocalEvent(uid, MapInitEventInstance);
+            var ev = new GridReInitEvent(); //this is a LOT of variable declarations because its inside a recursive loop, was it better to define it once?
+            RaiseLocalEvent(uid, ev);
         }
     }
 }
