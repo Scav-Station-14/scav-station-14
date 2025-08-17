@@ -20,6 +20,7 @@ using Content.Server._NF.Station.Components;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Utility;
 using Robust.Shared.GameObjects;
+using Content.Server._Scav.Shipyard;
 
 namespace Content.Server._NF.Shipyard.Systems;
 
@@ -34,8 +35,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-
-    public static readonly MapInitEvent MapInitEventInstance = new(); //Scav. Also, replace with GridReinitEventInstance once initial testing is done
+    [Dependency] private readonly ShuttlePersistenceSystem _shuttlePersistence = default!;
 
     public MapId? ShipyardMap { get; private set; }
     private float _shuttleIndex;
@@ -173,32 +173,10 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         shuttleGrid = grid.Value.Owner;
 
-        RecursiveGridReInit(shuttleGrid.Value); // Scav
+        _shuttlePersistence.RecursiveGridReInit(shuttleGrid.Value); // Scav
 
         return true;
     }
-
-    // Scav
-    private void RecursiveGridReInit(EntityUid gridEntity)
-    {
-        var toInitialize = new List<EntityUid> { gridEntity };
-        for (var i = 0; i < toInitialize.Count; i++)
-        {
-            var uid = toInitialize[i];
-            // toInitialize might contain deleted entities.
-            //if (!_metaQuery.TryComp(uid, out var meta))
-            //    continue;
-
-            var children = Transform(uid).ChildEnumerator;
-            while (children.MoveNext(out var child))
-            {
-                toInitialize.Add(child);
-            }
-
-            RaiseLocalEvent(uid, MapInitEventInstance);
-        }
-    }
-    // End Scav
 
     /// <summary>
     /// Checks a shuttle to make sure that it is docked to the given station, and that there are no lifeforms aboard. Then it teleports tagged items on top of the console, appraises the grid, outputs to the server log, and deletes the grid
