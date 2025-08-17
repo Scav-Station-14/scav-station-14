@@ -8,6 +8,7 @@ using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.DeviceNetwork.Systems;
 using Content.Shared.Examine;
+using Content.Server._Scav.Persistence;
 
 namespace Content.Server.DeviceNetwork.Systems
 {
@@ -44,7 +45,8 @@ namespace Content.Server.DeviceNetwork.Systems
             SubscribeLocalEvent<DeviceNetworkComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<DeviceNetworkComponent, ComponentShutdown>(OnNetworkShutdown);
             SubscribeLocalEvent<DeviceNetworkComponent, ExaminedEvent>(OnExamine);
-
+            SubscribeLocalEvent<DeviceNetworkComponent, GridReInitEvent>(OnGridReInit);
+            
             _activeQueue = _queueA;
             _nextQueue = _queueB;
         }
@@ -104,6 +106,26 @@ namespace Content.Server.DeviceNetwork.Systems
         /// Automatically attempt to connect some devices when a map starts.
         /// </summary>
         private void OnMapInit(EntityUid uid, DeviceNetworkComponent device, MapInitEvent args)
+        {
+            if (device.ReceiveFrequency == null
+                && device.ReceiveFrequencyId != null
+                && _protoMan.TryIndex<DeviceFrequencyPrototype>(device.ReceiveFrequencyId, out var receive))
+            {
+                device.ReceiveFrequency = receive.Frequency;
+            }
+
+            if (device.TransmitFrequency == null
+                && device.TransmitFrequencyId != null
+                && _protoMan.TryIndex<DeviceFrequencyPrototype>(device.TransmitFrequencyId, out var xmit))
+            {
+                device.TransmitFrequency = xmit.Frequency;
+            }
+
+            if (device.AutoConnect)
+                ConnectDevice(uid, device);
+        }
+
+        private void OnGridReInit(EntityUid uid, DeviceNetworkComponent device, GridReInitEvent args)
         {
             if (device.ReceiveFrequency == null
                 && device.ReceiveFrequencyId != null

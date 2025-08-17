@@ -1,3 +1,4 @@
+using Content.Server._Scav.Persistence;
 using Content.Server.Administration.Logs;
 using Content.Server.Audio;
 using Content.Server.Emp;
@@ -21,6 +22,7 @@ public sealed class PowerChargeSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<PowerChargeComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<PowerChargeComponent, GridReInitEvent>(OnGridReInit);
         SubscribeLocalEvent<PowerChargeComponent, ComponentShutdown>(OnComponentShutdown);
         SubscribeLocalEvent<PowerChargeComponent, ActivatableUIOpenAttemptEvent>(OnUIOpenAttempt);
         SubscribeLocalEvent<PowerChargeComponent, AfterActivatableUIOpenEvent>(OnAfterUiOpened);
@@ -81,6 +83,20 @@ public sealed class PowerChargeSystem : EntitySystem
 
         UpdatePowerState(ent, powerReceiver);
         UpdateState((ent, ent.Comp, powerReceiver));
+    }
+
+    private void OnGridReInit(Entity<PowerChargeComponent> ent, ref GridReInitEvent args)
+    {
+        if (ent.Comp.Active)
+        {
+            var eventArgs = new ChargedMachineActivatedEvent();
+            RaiseLocalEvent(ent, ref eventArgs);
+        }
+        else
+        {
+            var eventArgs = new ChargedMachineDeactivatedEvent();
+            RaiseLocalEvent(ent, ref eventArgs);
+        }
     }
 
     public void SetSwitchedOn(EntityUid uid, PowerChargeComponent component, bool on,  // Frontier: private<public for linking system in StationAnchorSystem.
