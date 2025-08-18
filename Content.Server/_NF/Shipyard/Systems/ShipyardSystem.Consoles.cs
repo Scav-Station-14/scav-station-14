@@ -647,7 +647,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     /// <param name="disableSaleQuery">A query to get any marked objects from an entity</param>
     /// <param name="xformQuery">A query to get the transform component of an entity</param>
     /// <returns>The reason that a shuttle should be blocked from sale, null otherwise.</returns>
-    public string? FindDisableShipyardSaleObjects(EntityUid shuttle, ShipyardConsoleUiKey key, EntityQuery<ShipyardSellConditionComponent> disableSaleQuery, EntityQuery<TransformComponent> xformQuery)
+    public string? FindDisableShipyardSaleObjects(EntityUid shuttle, ShipyardConsoleUiKey? key, EntityQuery<ShipyardSellConditionComponent> disableSaleQuery, EntityQuery<TransformComponent> xformQuery)
     {
         var xform = xformQuery.GetComponent(shuttle);
         var childEnumerator = xform.ChildEnumerator;
@@ -656,7 +656,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         {
             if (disableSaleQuery.TryGetComponent(child, out var disableSale)
                 && disableSale.BlockSale is true
-                && !disableSale.AllowedShipyardTypes.Contains(key))
+                && (key == null || !disableSale.AllowedShipyardTypes.Contains(key.Value))) // Scav: made ShipyardConsoleUiKey optional (also made it nullable in function params)
             {
                 return disableSale.Reason ?? "shipyard-console-fallback-prevent-sale";
             }
