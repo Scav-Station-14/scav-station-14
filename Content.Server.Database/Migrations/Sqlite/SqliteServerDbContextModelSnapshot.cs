@@ -15,7 +15,7 @@ namespace Content.Server.Database.Migrations.Sqlite
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
@@ -264,7 +264,8 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("expiration_time");
 
-                    b.Property<DateTime>("LastEditedAt")
+                    b.Property<DateTime?>("LastEditedAt")
+                        .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("last_edited_at");
 
@@ -392,7 +393,8 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("expiration_time");
 
-                    b.Property<DateTime>("LastEditedAt")
+                    b.Property<DateTime?>("LastEditedAt")
+                        .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("last_edited_at");
 
@@ -1275,39 +1277,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("server_unban", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.Ship", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("ship_id");
-
-                    b.Property<string>("FallbackFilePath")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("fallback_file_path");
-
-                    b.Property<string>("FilePath")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("file_path");
-
-                    b.Property<string>("ShipName")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("ship_name");
-
-                    b.Property<string>("ShipNameSuffix")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("ship_name_suffix");
-
-                    b.HasKey("Id")
-                        .HasName("PK_ship");
-
-                    b.ToTable("ship", (string)null);
-                });
-
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
                 {
                     b.Property<int>("Id")
@@ -1394,25 +1363,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasDatabaseName("IX_player_round_rounds_id");
 
                     b.ToTable("player_round", (string)null);
-                });
-
-            modelBuilder.Entity("ProfileShip", b =>
-                {
-                    b.Property<int>("ProfilesId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("profiles_id");
-
-                    b.Property<int>("ShipId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("ship_id");
-
-                    b.HasKey("ProfilesId", "ShipId")
-                        .HasName("PK_profile_ship");
-
-                    b.HasIndex("ShipId")
-                        .HasDatabaseName("IX_profile_ship_ship_id");
-
-                    b.ToTable("profile_ship", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
@@ -1974,23 +1924,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK_player_round_round_rounds_id");
-                });
-
-            modelBuilder.Entity("ProfileShip", b =>
-                {
-                    b.HasOne("Content.Server.Database.Profile", null)
-                        .WithMany()
-                        .HasForeignKey("ProfilesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_profile_ship_profile_profiles_id");
-
-                    b.HasOne("Content.Server.Database.Ship", null)
-                        .WithMany()
-                        .HasForeignKey("ShipId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_profile_ship_ship_ship_id");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>

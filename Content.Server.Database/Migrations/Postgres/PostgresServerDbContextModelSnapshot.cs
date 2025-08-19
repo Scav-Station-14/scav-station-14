@@ -20,7 +20,7 @@ namespace Content.Server.Database.Migrations.Postgres
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.1")
+                .HasAnnotation("ProductVersion", "8.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -283,7 +283,8 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("expiration_time");
 
-                    b.Property<DateTime>("LastEditedAt")
+                    b.Property<DateTime?>("LastEditedAt")
+                        .IsRequired()
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("last_edited_at");
 
@@ -417,7 +418,8 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("expiration_time");
 
-                    b.Property<DateTime>("LastEditedAt")
+                    b.Property<DateTime?>("LastEditedAt")
+                        .IsRequired()
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("last_edited_at");
 
@@ -1347,41 +1349,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("server_unban", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.Ship", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("ship_id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("FallbackFilePath")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("fallback_file_path");
-
-                    b.Property<string>("FilePath")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("file_path");
-
-                    b.Property<string>("ShipName")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("ship_name");
-
-                    b.Property<string>("ShipNameSuffix")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("ship_name_suffix");
-
-                    b.HasKey("Id")
-                        .HasName("PK_ship");
-
-                    b.ToTable("ship", (string)null);
-                });
-
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
                 {
                     b.Property<int>("Id")
@@ -1472,25 +1439,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasDatabaseName("IX_player_round_rounds_id");
 
                     b.ToTable("player_round", (string)null);
-                });
-
-            modelBuilder.Entity("ProfileShip", b =>
-                {
-                    b.Property<int>("ProfilesId")
-                        .HasColumnType("integer")
-                        .HasColumnName("profiles_id");
-
-                    b.Property<int>("ShipId")
-                        .HasColumnType("integer")
-                        .HasColumnName("ship_id");
-
-                    b.HasKey("ProfilesId", "ShipId")
-                        .HasName("PK_profile_ship");
-
-                    b.HasIndex("ShipId")
-                        .HasDatabaseName("IX_profile_ship_ship_id");
-
-                    b.ToTable("profile_ship", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
@@ -2052,23 +2000,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK_player_round_round_rounds_id");
-                });
-
-            modelBuilder.Entity("ProfileShip", b =>
-                {
-                    b.HasOne("Content.Server.Database.Profile", null)
-                        .WithMany()
-                        .HasForeignKey("ProfilesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_profile_ship_profile_profiles_id");
-
-                    b.HasOne("Content.Server.Database.Ship", null)
-                        .WithMany()
-                        .HasForeignKey("ShipId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_profile_ship_ship_ship_id");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
