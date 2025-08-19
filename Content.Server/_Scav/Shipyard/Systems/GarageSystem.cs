@@ -36,6 +36,7 @@ using Content.Server._Scav.Persistence;
 using Content.Server.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 
 namespace Content.Server._Scav.Shipyard.Systems;
 public sealed partial class GarageSystem : SharedGarageSystem
@@ -257,7 +258,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
             }
 
             //Database save
-            if (!TryComp<MindComponent>(player, out var mind) || mind.UserId == null)
+            if (!TryComp<MindContainerComponent>(player, out var mindContainer) || !TryComp<MindComponent>(mindContainer.Mind, out var mind) || mind.UserId == null)
                 return;
 
             if (TryComp<ShuttlePersistenceComponent>(shuttleUid, out var persistence)) //If its got a ShuttlePersistenceComponent, this is an existing ship, if not assume its a new ship. Dont mind if this gets serialized along with the ship, we'll use EnsureComp and overwrite on a new spawn anyway
