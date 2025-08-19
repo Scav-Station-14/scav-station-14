@@ -344,6 +344,15 @@ namespace Content.Server.Database
 
         #endregion
 
+        #region Ships
+        // Scav: region for functions related to ship database
+        Task<int> RegisterShip(string shipName, string shipNameSuffix, int profileId, string? filePath, string? fallbackFilePath);
+        //Task<bool> AddProfileToShip(int shipId, int profileId);
+        //Task<bool> RemoveProfileFromShip(int shipId, int profileId);
+        Task<List<Ship>> GetShipsByUser(NetUserId userId);
+        // End Scav
+        #endregion
+
         #region DB Notifications
 
         void SubscribeToNotifications(Action<DatabaseNotification> handler);
@@ -1029,7 +1038,7 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.RemoveJobWhitelist(player, job));
         }
-        
+
         // Frontier: ghost role DB ops
         public Task AddGhostRoleWhitelist(Guid player, ProtoId<GhostRolePrototype> ghostRole)
         {
@@ -1065,6 +1074,31 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.CleanIPIntelCache(range));
         }
+
+        // Scav: ship database functions
+        public Task<int> RegisterShip(string shipName, string shipNameSuffix, int profileId, string? filePath, string? fallbackFilePath)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.RegisterShip(shipName, shipNameSuffix, profileId, filePath, fallbackFilePath));
+        }
+        /*
+        public Task<bool> AddProfileToShip(int shipId, int profileId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddProfileToShip(shipId, profileId));
+        }
+        public Task<bool> RemoveProfileFromShip(int shipId, int profileId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.RemoveProfileFromShip(shipId, profileId));
+        }
+        */
+        public Task<List<Ship>> GetShipsByUser(NetUserId userId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetShipsByUser(userId));
+        }
+        // End Scav
 
         public void SubscribeToNotifications(Action<DatabaseNotification> handler)
         {

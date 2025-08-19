@@ -185,6 +185,21 @@ namespace Content.Server.Database
             prefs.SelectedCharacterSlot = newSlot;
         }
 
+        // Scav
+        public async Task<Profile> GetUserCurrentProfileFromPrefs(NetUserId userId) //Afaik there will always be at least one profile per user, if theres ever a time this isnt true this might cause a crash due to not expecting null value
+        {
+            await using var db = await GetDb();
+
+            var profile = await db.DbContext.Profile
+                .Include(p => p.Preference)
+                .Where(p => p.Preference.UserId == userId)
+                .SingleAsync(p => p.Preference.SelectedCharacterSlot == p.Slot);
+
+            return profile;
+        }
+
+        // End Scav
+
         private static HumanoidCharacterProfile ConvertProfiles(Profile profile)
         {
             var jobs = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
@@ -1857,6 +1872,83 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             await db.DbContext.SaveChangesAsync();
             return true;
         }
+
+        #endregion
+
+        #region Ships
+        public async Task<int> RegisterShip(string shipName, string shipNameSuffix, int profileId, string? filePath, string? fallbackFilePath)
+        {
+            await using var db = await GetDb();
+
+            var shipEntry = new Ship
+            {
+                ShipName = shipName,
+                ShipNameSuffix = shipNameSuffix,
+                FilePath = filePath ?? "",
+                FallbackFilePath = fallbackFilePath ?? ""
+            };
+            var ownerProfile = db.DbContext.Profile.FirstOrDefault(p => p.Id == profileId) ?? null;
+            if (ownerProfile != null)
+                shipEntry.Profiles.Add(ownerProfile);
+
+            db.DbContext.Ship.Add(shipEntry);
+            await db.DbContext.SaveChangesAsync();
+
+            return shipEntry.Id;
+        }
+
+        /*
+        public async Task<bool> AddProfileToShip(int shipId, int profileId) //Note: not completely sure if this is safe if you add a duplicate record
+        {
+            await using var db = await GetDb();
+
+            var ship = await db.DbContext.Ship
+                    .Include(s => s.Profiles)
+                    .Where(s => s.Id == shipId)
+                    .SingleAsync();
+
+            var profile = await db.DbContext.Profile
+                    .Where(p => p.Id == profileId)
+                    .SingleAsync();
+
+            ship.Profiles.Add(profile);
+
+            await db.DbContext.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> RemoveProfileFromShip(int shipId, int profileId) //note: unsure if safe to try to remove nonexistent
+        {
+            await using var db = await GetDb();
+
+            var ship = await db.DbContext.Ship
+                    .Include(s => s.Profiles)
+                    .Where(s => s.Id == shipId)
+                    .SingleAsync();
+
+            var profile = await db.DbContext.Profile
+                    .Where(p => p.Id == profileId)
+                    .SingleAsync();
+
+            ship.Profiles.Remove(profile);
+
+            await db.DbContext.SaveChangesAsync();
+
+            return true;
+        }
+        */
+
+        public async Task<List<Ship>> GetShipsByUser(NetUserId userId)
+        {
+            var profile = await GetUserCurrentProfileFromPrefs(userId);
+            await using var db = await GetDb();
+
+            var ships = db.DbContext.Ship.Where(s => s.Profiles.Any(p => p.Id == profile.Id)).ToList();
+
+            return ships;
+        }
+
 
         #endregion
 

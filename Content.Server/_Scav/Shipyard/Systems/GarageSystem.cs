@@ -32,6 +32,7 @@ using Content.Server.Shuttles.Systems;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Utility;
 using Content.Server._NF.ShuttleRecords;
+using Content.Server._Scav.Persistence;
 using Content.Server.Administration.Logs;
 using Content.Shared.Database;
 
@@ -49,7 +50,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
     [Dependency] private readonly ShuttleRecordsSystem _shuttleRecordsSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
-
+    [Dependency] private readonly IServerDbManager _db = default!;
 
     public override void Initialize()
     {
@@ -224,6 +225,9 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
         var fullName = deed != null ? ShipyardSystem.GetFullName(deed) : null;
 
+
+
+
         //remove any elements that shouldnt be serialized
         _docking.UndockDocks(shuttleUid); // TODO: introduce some kind of delay between this and saving the grid, as it stands the doors dont close fully and then get saved in that halfway state
         RemComp<LinkedLifecycleGridParentComponent>(shuttleUid);
@@ -232,15 +236,31 @@ public sealed partial class GarageSystem : SharedGarageSystem
         RemComp<ShuttleDeedComponent>(shuttleUid);
         RemComp<StationMemberComponent>(shuttleUid);
 
+
+
+
+
+        var filepath = fullName + ".yml";
+
         if (fullName != null)
         {
-            var saveResult = _mapLoader.TrySaveGrid(shuttleUid, new ResPath(fullName + ".yml"));
+            var saveResult = _mapLoader.TrySaveGrid(shuttleUid, new ResPath(filepath));
             if (!saveResult)
             {
                 ConsolePopup(player, Loc.GetString("shipyard-console-sale-invalid-ship")); //suffice it to say, if this happens, thats catastrophically bad, we've already deleted a bunch of stuff...
                 _adminLogger.Add(LogType.ShipYardUsage, LogImpact.High, $"{ToPrettyString(player):actor} failed to save shuttle grid {ToPrettyString(shuttleUid)} via {ToPrettyString(uid)}. Admin intervention is likely necessary.");
                 PlayDenySound(player, uid, component);
                 return;
+            }
+
+            //Database save
+            if (TryComp<ShuttlePersistenceComponent>(shuttleUid, out var persistence)) //If its got a ShuttlePersistenceComponent, this is an existing ship, if not assume its a new ship. Dont mind if this gets serialized along with the ship, we'll use EnsureComp and overwrite on a new spawn anyway
+            {
+
+            }
+            else
+            {
+                //_db.RegisterShip(deed.ShuttleName, deed.ShuttleNameSuffix, args.Entity, filepath, null);
             }
         }
         else

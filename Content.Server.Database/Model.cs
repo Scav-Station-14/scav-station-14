@@ -46,6 +46,7 @@ namespace Content.Server.Database
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
+        public DbSet<Ship> Ship { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -371,6 +372,10 @@ namespace Content.Server.Database
                 .OwnsOne(p => p.HWId)
                 .Property(p => p.Type)
                 .HasDefaultValue(HwidType.Legacy);
+
+            modelBuilder.Entity<Ship>()
+                .HasMany(s => s.Profiles)
+                .WithMany();
         }
 
         public virtual IQueryable<AdminLog> SearchLogs(IQueryable<AdminLog> query, string searchText)
@@ -461,6 +466,18 @@ namespace Content.Server.Database
         public int ProfileId { get; set; }
 
         public string TraitName { get; set; } = null!;
+    }
+
+    [Table("ship")]
+    public class Ship
+    {
+        public int Id { get; set; }
+        public string ShipName { get; set; } = null!;
+        public string ShipNameSuffix { get; set; } = null!;
+        public List<Profile> Profiles { get; } = [];
+        public string FilePath { get; set; } = null!;
+        public string FallbackFilePath { get; set; } = null!;
+
     }
 
     #region Loadouts
