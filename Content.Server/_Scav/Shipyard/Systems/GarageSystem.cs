@@ -35,6 +35,7 @@ using Content.Server._NF.ShuttleRecords;
 using Content.Server._Scav.Persistence;
 using Content.Server.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.Mind;
 
 namespace Content.Server._Scav.Shipyard.Systems;
 public sealed partial class GarageSystem : SharedGarageSystem
@@ -223,7 +224,8 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
         _shipyardSystem.CleanGrid(shuttleUid, uid);
 
-        var fullName = deed != null ? ShipyardSystem.GetFullName(deed) : null;
+        var name = deed.ShuttleName;
+        var suffix = deed.ShuttleNameSuffix;
 
 
 
@@ -240,10 +242,11 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
 
 
-        var filepath = fullName + ".yml";
 
-        if (fullName != null)
+        if (name != null && suffix != null)
         {
+            var filepath = name + suffix + ".yml";
+
             var saveResult = _mapLoader.TrySaveGrid(shuttleUid, new ResPath(filepath));
             if (!saveResult)
             {
@@ -254,13 +257,16 @@ public sealed partial class GarageSystem : SharedGarageSystem
             }
 
             //Database save
+            if (!TryComp<MindComponent>(player, out var mind) || mind.UserId == null)
+                return;
+
             if (TryComp<ShuttlePersistenceComponent>(shuttleUid, out var persistence)) //If its got a ShuttlePersistenceComponent, this is an existing ship, if not assume its a new ship. Dont mind if this gets serialized along with the ship, we'll use EnsureComp and overwrite on a new spawn anyway
             {
 
             }
             else
             {
-                //_db.RegisterShip(deed.ShuttleName, deed.ShuttleNameSuffix, args.Entity, filepath, null);
+                _db.RegisterShip(name, suffix, mind.UserId.Value, filepath, null);
             }
         }
         else

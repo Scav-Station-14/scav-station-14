@@ -1876,7 +1876,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         #endregion
 
         #region Ships
-        public async Task<int> RegisterShip(string shipName, string shipNameSuffix, int profileId, string? filePath, string? fallbackFilePath)
+        public async Task<int> RegisterShip(string shipName, string shipNameSuffix, NetUserId userId, string? filePath, string? fallbackFilePath)
         {
             await using var db = await GetDb();
 
@@ -1887,9 +1887,8 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 FilePath = filePath ?? "",
                 FallbackFilePath = fallbackFilePath ?? ""
             };
-            var ownerProfile = db.DbContext.Profile.FirstOrDefault(p => p.Id == profileId) ?? null;
-            if (ownerProfile != null)
-                shipEntry.Profiles.Add(ownerProfile);
+            var ownerProfile = await GetUserCurrentProfileFromPrefs(userId);
+            shipEntry.Profiles.Add(ownerProfile);
 
             db.DbContext.Ship.Add(shipEntry);
             await db.DbContext.SaveChangesAsync();
