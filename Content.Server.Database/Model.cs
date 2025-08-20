@@ -372,10 +372,6 @@ namespace Content.Server.Database
                 .OwnsOne(p => p.HWId)
                 .Property(p => p.Type)
                 .HasDefaultValue(HwidType.Legacy);
-
-            modelBuilder.Entity<Ship>()
-                .HasMany(s => s.Profiles)
-                .WithMany();
         }
 
         public virtual IQueryable<AdminLog> SearchLogs(IQueryable<AdminLog> query, string searchText)
@@ -429,6 +425,7 @@ namespace Content.Server.Database
 
         public int PreferenceId { get; set; }
         public Preference Preference { get; set; } = null!;
+        public List<Ship> Ships { get; } = [];
     }
 
     public class Job
