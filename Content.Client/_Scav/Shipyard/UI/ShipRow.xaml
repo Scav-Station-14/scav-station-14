@@ -1,0 +1,23 @@
+<PanelContainer xmlns="https://spacestation14.io"
+                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                HorizontalExpand="True">
+    <BoxContainer Orientation="Horizontal"
+                  HorizontalExpand="True">
+        <Label Name="ShipName"
+               Access="Public"
+               HorizontalExpand="True" />
+        <controls:ConfirmButton Name="Retrieve"
+                                Access="Public"
+                                ToolTip=""
+                                Text="{Loc 'shipyard-console-purchase-available'}"
+                                StyleClasses="LabelSubText"
+                                MinWidth="130"
+                                HorizontalAlignment="Right" /> <!-- 130 px: approximate width of "Purchase"-->
+        <PanelContainer>
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#252825" />
+            </PanelContainer.PanelOverride>
+        </PanelContainer>
+    </BoxContainer>
+</PanelContainer>

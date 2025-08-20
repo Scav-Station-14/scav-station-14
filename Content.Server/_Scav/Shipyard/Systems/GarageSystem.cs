@@ -36,6 +36,7 @@ using Robust.Shared.Utility;
 using Content.Server._NF.ShuttleRecords;
 using Content.Server._Scav.Persistence;
 using Content.Server.Administration.Logs;
+using Content.Server.Preferences.Managers;
 using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -56,6 +57,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
 
     public List<ShipData> Ships = new List<ShipData>(); //local copy of the ships stored in the database. this is honestly probably the best way to handle this
 
@@ -79,7 +81,9 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
     private void RefreshState(EntityUid uid, string? shipDeed, EntityUid? targetId, GarageConsoleUiKey uiKey, NetUserId? userId)
     {
-        var userShips = Ships.Where(s => s.ProfileData.Where(p => p.UserId == userId).Any(p => p.Slot == 0)).ToList();
+        _prefsManager.TryGetCachedPreferences(userId!.Value, out var prefs); //TODO:error handling for this being null
+
+        var userShips = Ships.Where(s => s.ProfileData.Where(p => p.UserId == userId).Any(p => p.Slot == prefs!.SelectedCharacterIndex)).ToList();
 
         var newState = new GarageConsoleInterfaceState(
             shipDeed,

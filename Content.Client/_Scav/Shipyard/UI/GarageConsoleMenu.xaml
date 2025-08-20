@@ -7,7 +7,7 @@
         <ScrollContainer HorizontalExpand="True"
                          VerticalExpand="True"
                          SizeFlagsStretchRatio="6">
-            <BoxContainer Name="Vessels"
+            <BoxContainer Name="Ships"
                           Orientation="Vertical"
                           HorizontalExpand="True"
                           VerticalExpand="True">

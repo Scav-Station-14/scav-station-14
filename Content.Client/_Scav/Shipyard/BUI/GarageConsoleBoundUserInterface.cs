@@ -5,6 +5,7 @@ using Content.Shared._NF.Shipyard.Events;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 using Robust.Client.UserInterface;
 using Content.Client._Scav.Shipyard.UI;
+using Content.Shared._Scav._Shipyard;
 using Content.Shared._Scav.Shipyard.BUI;
 using Content.Shared._Scav.Shipyard.Events;
 
@@ -28,7 +29,7 @@ public sealed class GarageConsoleBoundUserInterface : BoundUserInterface
         if (_menu == null)
         {
             _menu = this.CreateWindow<GarageConsoleMenu>();
-            //_menu.OnOrderApproved += ApproveOrder;
+            _menu.OnShipRetrieved += RetrieveShip;
             _menu.OnStoreShip += StoreShip;
             _menu.TargetIdButton.OnPressed += _ => SendMessage(new ItemSlotButtonPressedEvent("ShipyardConsole-targetId"));
 
@@ -46,12 +47,12 @@ public sealed class GarageConsoleBoundUserInterface : BoundUserInterface
         }
     }
 
-    private void Populate(List<string> availablePrototypes, List<string> unavailablePrototypes, bool freeListings, bool validId)
+    private void Populate(List<ShipData> ships)
     {
         if (_menu == null)
             return;
 
-        //empty for now
+        _menu.PopulateShips(ships);
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -62,22 +63,22 @@ public sealed class GarageConsoleBoundUserInterface : BoundUserInterface
             return;
 
         var castState = (GarageConsoleInterfaceState)state;
-        //Populate(castState.ShipyardPrototypes.available, castState.ShipyardPrototypes.unavailable, castState.FreeListings, castState.IsTargetIdPresent);
+        Populate(castState.Ships);
         _menu?.UpdateState(castState);
     }
 
-    /*
-    private void ApproveOrder(ButtonEventArgs args)
+
+    private void RetrieveShip(ButtonEventArgs args)
     {
-        if (args.Button.Parent?.Parent is not VesselRow row || row.Vessel == null)
+        if (args.Button.Parent?.Parent is not ShipRow row)
         {
             return;
         }
 
-        var vesselId = row.Vessel.ID;
-        SendMessage(new ShipyardConsolePurchaseMessage(vesselId));
+        var shipId = row.ShipId;
+        SendMessage(new GarageConsoleRetrieveMessage(shipId));
     }
-    */
+
 
     private void StoreShip(ButtonEventArgs args)
     {

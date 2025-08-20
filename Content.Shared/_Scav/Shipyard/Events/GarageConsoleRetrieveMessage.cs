@@ -8,7 +8,9 @@ namespace Content.Shared._Scav.Shipyard.Events;
 [Serializable, NetSerializable]
 public sealed class GarageConsoleRetrieveMessage : BoundUserInterfaceMessage
 {
-    public GarageConsoleRetrieveMessage()
+    public int ShipId;
+    public GarageConsoleRetrieveMessage(int shipId)
     {
+        ShipId = shipId;
     }
 }
