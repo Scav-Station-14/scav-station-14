@@ -1890,6 +1890,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             var ownerProfile = await GetUserCurrentProfileFromPrefs(userId);
             shipEntry.Profiles.Add(ownerProfile);
 
+            db.DbContext.Profile.Attach(ownerProfile);
             db.DbContext.Ship.Add(shipEntry);
             await db.DbContext.SaveChangesAsync();
 
