@@ -40,7 +40,9 @@ using Content.Server.Preferences.Managers;
 using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Preferences;
 using Robust.Shared.Network;
+using Robust.Shared.Player;
 
 namespace Content.Server._Scav.Shipyard.Systems;
 public sealed partial class GarageSystem : SharedGarageSystem
@@ -58,6 +60,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
     public List<ShipData> Ships = new List<ShipData>(); //local copy of the ships stored in the database. this is honestly probably the best way to handle this
 
@@ -79,11 +82,12 @@ public sealed partial class GarageSystem : SharedGarageSystem
         Ships = await _db.GetShipData();
     }
 
-    private void RefreshState(EntityUid uid, string? shipDeed, EntityUid? targetId, GarageConsoleUiKey uiKey, NetUserId? userId)
+    private void RefreshState(EntityUid uid, string? shipDeed, EntityUid? targetId, GarageConsoleUiKey uiKey, EntityUid player)
     {
-        _prefsManager.TryGetCachedPreferences(userId!.Value, out var prefs); //TODO:error handling for this being null
+        if (!TryGetCharacterData(player, out var userId, out var slot))
+            return;
 
-        var userShips = Ships.Where(s => s.ProfileData.Where(p => p.UserId == userId).Any(p => p.Slot == prefs!.SelectedCharacterIndex)).ToList();
+        var userShips = Ships.Where(s => s.ProfileData.Where(p => p.UserId == userId).Any(p => p.Slot == slot)).ToList();
 
         var newState = new GarageConsoleInterfaceState(
             shipDeed,
@@ -126,8 +130,8 @@ public sealed partial class GarageSystem : SharedGarageSystem
         var voucherUsed = HasComp<ShipyardVoucherComponent>(targetId);
 
         var fullName = deed != null ? ShipyardSystem.GetFullName(deed) : null;
-        TryGetNetUserIdOfPlayerUid(player, out var userId);
-        RefreshState(uid, fullName, targetId, (GarageConsoleUiKey)args.UiKey, userId);
+
+        RefreshState(uid, fullName, targetId, (GarageConsoleUiKey)args.UiKey, player);
     }
 
     private void OnItemSlotChanged(EntityUid uid, GarageConsoleComponent component, ContainerModifiedMessage args)
@@ -164,12 +168,11 @@ public sealed partial class GarageSystem : SharedGarageSystem
             }
 
             var fullName = deed != null ? ShipyardSystem.GetFullName(deed) : null;
-            TryGetNetUserIdOfPlayerUid(player, out var userId);
             RefreshState(uid,
                 fullName,
                 targetId,
                 (GarageConsoleUiKey)uiComp.Key,
-                userId);
+                player);
 
         }
     }
@@ -251,7 +254,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
         var suffix = deed.ShuttleNameSuffix;
 
 
-        if(!TryGetNetUserIdOfPlayerUid(player, out var userId)) //we dont really want to proceed if there isnt an actual user doing this, i assume
+        if(!TryGetCharacterData(player, out var userId, out _)) //we dont really want to proceed if there isnt an actual user doing this, i assume
             return; //TODO: better exit handling here
 
         //remove any elements that shouldnt be serialized
@@ -310,11 +313,27 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
         _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low, $"{ToPrettyString(player):actor} used {ToPrettyString(targetId)} to return {shuttleName} to the garage via {ToPrettyString(uid)}");
 
-        RefreshState(uid, null, targetId, (GarageConsoleUiKey)args.UiKey, userId);
+        RefreshState(uid, null, targetId, (GarageConsoleUiKey)args.UiKey, player);
     }
 
     public void OnRetrieveMessage(EntityUid uid, GarageConsoleComponent component, GarageConsoleRetrieveMessage args)
     {
+        if (args.Actor is not { Valid: true } player)
+            return;
+
+        if(!TryGetCharacterData(player, out var userId, out var slot)) //we dont really want to proceed if there isnt an actual user doing this, i assume
+            return; //TODO: better exit handling here
+
+        var requestedShip = Ships.SingleOrDefault(s => s.Id == args.ShipId);
+
+        if (!(requestedShip == null) || !requestedShip!.ProfileData.Any(p => p.UserId == userId)) //this is currently only checking user id, needs to also check slot
+        {
+            ConsolePopup(player, Loc.GetString("shipyard-console-sale-invalid-ship")); //suffice it to say, if this happens, thats catastrophically bad, we've already deleted a bunch of stuff...
+            _adminLogger.Add(LogType.ShipYardUsage, LogImpact.High, $"{ToPrettyString(player):actor} attempted to retrieve ship with Id {args.ShipId} via {ToPrettyString(uid)}, but they do not own that ship");
+            PlayDenySound(player, uid, component);
+            return;
+        }
+
 
     }
 
@@ -352,6 +371,32 @@ public sealed partial class GarageSystem : SharedGarageSystem
         }
 
         userId = mind.UserId.Value;
+        return true;
+    }
+
+    private bool TryGetCharacterData(EntityUid uid, out NetUserId? userId, out int? slot)
+    {
+        userId = null;
+        slot = null;
+
+        if (!_playerManager.TryGetSessionByEntity(uid, out var session))
+        {
+            //_log.Info($"TryBankDeposit: {mobUid} has no attached session");
+            return false;
+        }
+        if (!_prefsManager.TryGetCachedPreferences(session.UserId, out var prefs))
+        {
+            //_log.Info($"TryBankDeposit: {mobUid} has no cached prefs");
+            return false;
+        }
+        if (prefs.SelectedCharacter is not HumanoidCharacterProfile profile)
+        {
+            //_log.Info($"TryBankDeposit: {mobUid} has the wrong prefs type");
+            return false;
+        }
+
+        userId = session.UserId;
+        slot = prefs.SelectedCharacterIndex;
         return true;
     }
 }
