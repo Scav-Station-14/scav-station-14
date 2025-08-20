@@ -784,7 +784,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     }
 
     #region Deed Assignment
-    void AssignShuttleDeedProperties(Entity<ShuttleDeedComponent> deed, EntityUid? shuttleUid, string? shuttleName, string? shuttleOwner, bool purchasedWithVoucher)
+    public void AssignShuttleDeedProperties(Entity<ShuttleDeedComponent> deed, EntityUid? shuttleUid, string? shuttleName, string? shuttleOwner, bool purchasedWithVoucher)
     {
         deed.Comp.ShuttleUid = shuttleUid;
         TryParseShuttleName(deed.Comp, shuttleName!);

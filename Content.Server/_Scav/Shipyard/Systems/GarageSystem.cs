@@ -35,8 +35,10 @@ using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Utility;
 using Content.Server._NF.ShuttleRecords;
 using Content.Server._Scav.Persistence;
+using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Preferences.Managers;
+using Content.Server.Shuttles.Components;
 using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -61,6 +63,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private readonly IdCardSystem _idSystem = default!;
 
     public List<ShipData> Ships = new List<ShipData>(); //local copy of the ships stored in the database. this is honestly probably the best way to handle this
 
@@ -282,7 +285,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
             //Database save
 
 
-            if (TryComp<ShuttlePersistenceComponent>(shuttleUid, out var persistence)) //If its got a ShuttlePersistenceComponent, this is an existing ship, if not assume its a new ship. Dont mind if this gets serialized along with the ship, we'll use EnsureComp and overwrite on a new spawn anyway
+            if (TryComp<ShuttlePersistenceTrackerComponent>(shuttleUid, out var persistence)) //If its got a ShuttlePersistenceTrackerComponent, this is an existing ship, if not assume its a new ship. Dont mind if this gets serialized along with the ship, we'll use EnsureComp and overwrite on a new spawn anyway
             {
 
             }
@@ -322,19 +325,94 @@ public sealed partial class GarageSystem : SharedGarageSystem
             return;
 
         if(!TryGetCharacterData(player, out var userId, out var slot)) //we dont really want to proceed if there isnt an actual user doing this, i assume
-            return; //TODO: better exit handling here
+            return;
 
         var requestedShip = Ships.SingleOrDefault(s => s.Id == args.ShipId);
 
-        if (!(requestedShip == null) || !requestedShip!.ProfileData.Any(p => p.UserId == userId)) //this is currently only checking user id, needs to also check slot
+        if (component.TargetIdSlot.ContainerSlot?.ContainedEntity is not { Valid: true } targetId || !TryComp<IdCardComponent>(targetId, out var idCard))
         {
-            ConsolePopup(player, Loc.GetString("shipyard-console-sale-invalid-ship")); //suffice it to say, if this happens, thats catastrophically bad, we've already deleted a bunch of stuff...
-            _adminLogger.Add(LogType.ShipYardUsage, LogImpact.High, $"{ToPrettyString(player):actor} attempted to retrieve ship with Id {args.ShipId} via {ToPrettyString(uid)}, but they do not own that ship");
+            ConsolePopup(player, Loc.GetString("shipyard-console-no-idcard"));
             PlayDenySound(player, uid, component);
             return;
         }
 
+        if (HasComp<ShuttleDeedComponent>(targetId))
+        {
+            ConsolePopup(player, Loc.GetString("shipyard-console-already-deeded"));
+            PlayDenySound(player, uid, component);
+            return;
+        }
 
+        //do we need an access reader component check? probably was there for nfsd stuff
+
+        if (requestedShip == null || String.IsNullOrEmpty(requestedShip.FilePath))
+        {
+            ConsolePopup(player, Loc.GetString("shipyard-console-invalid-vessel")); //TODO: needs different message
+            _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(player):player} tried to retrieve a ship that does not exist.");
+            PlayDenySound(player, uid, component);
+            return;
+        }
+
+        if (!requestedShip!.ProfileData.Where(p => p.UserId == userId).Any(p => p.Slot == slot))
+        {
+            ConsolePopup(player, Loc.GetString("comms-console-permission-denied"));
+            _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Medium, $"{ToPrettyString(player):player} attempted to retrieve ship with Id {args.ShipId} via {ToPrettyString(uid)}, but they do not own that ship");
+            PlayDenySound(player, uid, component);
+            return;
+        }
+
+        if (_station.GetOwningStation(uid) is not { Valid: true } station)
+        {
+            ConsolePopup(player, Loc.GetString("shipyard-console-invalid-station"));
+            PlayDenySound(player, uid, component);
+            return;
+        }
+
+        //Spawn the shuttle from the filepath
+        if (!_shipyardSystem.TryPurchaseShuttle(station, new ResPath(requestedShip.FilePath), out var shuttleUidOut))
+        {
+            PlayDenySound(player, uid, component);
+            return;
+        }
+
+        var shuttleUid = shuttleUidOut.Value;
+        if (!TryComp<ShuttleComponent>(shuttleUid, out var shuttle))
+        {
+            PlayDenySound(player, uid, component);
+            return;
+        }
+
+        //TODO: rework of the latejoin code, the existing solution depends on an existing prototype
+
+        var shuttlePersistenceTracker = EnsureComp<ShuttlePersistenceTrackerComponent>(shuttleUid);
+        shuttlePersistenceTracker.ShipId = requestedShip.Id;
+
+        var deedID = EnsureComp<ShuttleDeedComponent>(targetId);
+
+        var fullName = requestedShip.ShipName + " " + requestedShip.ShipNameSuffix;
+
+        var shuttleOwner = Name(player).Trim();
+        _shipyardSystem.AssignShuttleDeedProperties((targetId, deedID), shuttleUid, fullName, shuttleOwner, false);
+
+        var deedShuttle = EnsureComp<ShuttleDeedComponent>(shuttleUid);
+        _shipyardSystem.AssignShuttleDeedProperties((shuttleUid, deedShuttle), shuttleUid, fullName, shuttleOwner, false);
+
+        if (component.NewJobTitle != null)
+        {
+            _idSystem.TryChangeJobTitle(targetId, Loc.GetString(component.NewJobTitle), idCard, player);
+        }
+
+        //TODO: implement station records stuff
+
+        EnsureComp<LinkedLifecycleGridParentComponent>(shuttleUid);
+
+        //TODO: send purchase message
+        PlayConfirmSound(player, uid, component);
+        _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low, $"{ToPrettyString(player):actor} used {ToPrettyString(targetId)} to retrieve ship {ToPrettyString(shuttleUid)} from garage via {ToPrettyString(uid)}");
+
+        //TODO: shuttle records code
+
+        RefreshState(uid, fullName, targetId, (GarageConsoleUiKey)args.UiKey, player);
     }
 
     public async void GetShipsFromDb(NetUserId userId)
