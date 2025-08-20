@@ -4,6 +4,7 @@ using System.Net;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Shared._Scav._Shipyard;
 using Content.Server.Administration.Logs;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -349,6 +350,9 @@ namespace Content.Server.Database
         Task<int> RegisterShip(string shipName, string shipNameSuffix, NetUserId userId, string? filePath, string? fallbackFilePath);
         //Task<bool> AddProfileToShip(int shipId, int profileId);
         //Task<bool> RemoveProfileFromShip(int shipId, int profileId);
+
+        Task<List<Ship>> GetShips();
+        Task<List<ShipData>> GetShipData();
         Task<List<Ship>> GetShipsByUser(NetUserId userId);
         // End Scav
         #endregion
@@ -1093,6 +1097,16 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.RemoveProfileFromShip(shipId, profileId));
         }
         */
+        public Task<List<Ship>> GetShips()
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetShips());
+        }
+        public Task<List<ShipData>> GetShipData()
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetShipData());
+        }
         public Task<List<Ship>> GetShipsByUser(NetUserId userId)
         {
             DbWriteOpsMetric.Inc();

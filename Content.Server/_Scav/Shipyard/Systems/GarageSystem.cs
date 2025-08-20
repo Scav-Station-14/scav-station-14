@@ -1,3 +1,5 @@
+using System.Linq;
+using Content.Shared._Scav._Shipyard;
 using Content.Server._NF.Shipyard.Systems;
 using Content.Shared._NF.Shipyard.BUI;
 using Content.Shared._NF.Shipyard;
@@ -37,6 +39,7 @@ using Content.Server.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Robust.Shared.Network;
 
 namespace Content.Server._Scav.Shipyard.Systems;
 public sealed partial class GarageSystem : SharedGarageSystem
@@ -54,23 +57,35 @@ public sealed partial class GarageSystem : SharedGarageSystem
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
 
+    public List<ShipData> Ships = new List<ShipData>(); //local copy of the ships stored in the database. this is honestly probably the best way to handle this
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<GarageConsoleComponent, BoundUIOpenedEvent>(OnConsoleUIOpened);
         SubscribeLocalEvent<GarageConsoleComponent, GarageConsoleStoreMessage>(OnStoreMessage);
-        //SubscribeLocalEvent<GarageConsoleComponent, ShipyardConsolePurchaseMessage>(OnPurchaseMessage);
+        SubscribeLocalEvent<GarageConsoleComponent, GarageConsoleRetrieveMessage>(OnRetrieveMessage);
         SubscribeLocalEvent<GarageConsoleComponent, EntInsertedIntoContainerMessage>(OnItemSlotChanged);
         SubscribeLocalEvent<GarageConsoleComponent, EntRemovedFromContainerMessage>(OnItemSlotChanged);
+
+        RefreshShips();
     }
 
-    private void RefreshState(EntityUid uid, string? shipDeed, EntityUid? targetId, GarageConsoleUiKey uiKey)
+    private async void RefreshShips()
     {
+        Ships = await _db.GetShipData();
+    }
+
+    private void RefreshState(EntityUid uid, string? shipDeed, EntityUid? targetId, GarageConsoleUiKey uiKey, NetUserId? userId)
+    {
+        var userShips = Ships.Where(s => s.ProfileData.Where(p => p.UserId == userId).Any(p => p.Slot == 0)).ToList();
+
         var newState = new GarageConsoleInterfaceState(
             shipDeed,
             targetId.HasValue,
-            ((byte)uiKey));
+            ((byte)uiKey),
+            userShips);
 
         _ui.SetUiState(uid, uiKey, newState);
     }
@@ -107,7 +122,8 @@ public sealed partial class GarageSystem : SharedGarageSystem
         var voucherUsed = HasComp<ShipyardVoucherComponent>(targetId);
 
         var fullName = deed != null ? ShipyardSystem.GetFullName(deed) : null;
-        RefreshState(uid, fullName, targetId, (GarageConsoleUiKey)args.UiKey);
+        TryGetNetUserIdOfPlayerUid(player, out var userId);
+        RefreshState(uid, fullName, targetId, (GarageConsoleUiKey)args.UiKey, userId);
     }
 
     private void OnItemSlotChanged(EntityUid uid, GarageConsoleComponent component, ContainerModifiedMessage args)
@@ -144,10 +160,12 @@ public sealed partial class GarageSystem : SharedGarageSystem
             }
 
             var fullName = deed != null ? ShipyardSystem.GetFullName(deed) : null;
+            TryGetNetUserIdOfPlayerUid(player, out var userId);
             RefreshState(uid,
                 fullName,
                 targetId,
-                (GarageConsoleUiKey)uiComp.Key);
+                (GarageConsoleUiKey)uiComp.Key,
+                userId);
 
         }
     }
@@ -229,7 +247,8 @@ public sealed partial class GarageSystem : SharedGarageSystem
         var suffix = deed.ShuttleNameSuffix;
 
 
-
+        if(!TryGetNetUserIdOfPlayerUid(player, out var userId)) //we dont really want to proceed if there isnt an actual user doing this, i assume
+            return; //TODO: better exit handling here
 
         //remove any elements that shouldnt be serialized
         _docking.UndockDocks(shuttleUid); // TODO: introduce some kind of delay between this and saving the grid, as it stands the doors dont close fully and then get saved in that halfway state
@@ -238,10 +257,6 @@ public sealed partial class GarageSystem : SharedGarageSystem
         RemComp<NavMapComponent>(shuttleUid);
         RemComp<ShuttleDeedComponent>(shuttleUid);
         RemComp<StationMemberComponent>(shuttleUid);
-
-
-
-
 
 
         if (name != null && suffix != null)
@@ -258,8 +273,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
             }
 
             //Database save
-            if (!TryComp<MindContainerComponent>(player, out var mindContainer) || !TryComp<MindComponent>(mindContainer.Mind, out var mind) || mind.UserId == null)
-                return;
+
 
             if (TryComp<ShuttlePersistenceComponent>(shuttleUid, out var persistence)) //If its got a ShuttlePersistenceComponent, this is an existing ship, if not assume its a new ship. Dont mind if this gets serialized along with the ship, we'll use EnsureComp and overwrite on a new spawn anyway
             {
@@ -267,8 +281,9 @@ public sealed partial class GarageSystem : SharedGarageSystem
             }
             else
             {
-                _db.RegisterShip(name, suffix, mind.UserId.Value, filepath, null);
+                _db.RegisterShip(name, suffix, userId!.Value, filepath, null);
             }
+            RefreshShips();
         }
         else
         {
@@ -291,7 +306,17 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
         _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low, $"{ToPrettyString(player):actor} used {ToPrettyString(targetId)} to return {shuttleName} to the garage via {ToPrettyString(uid)}");
 
-        RefreshState(uid, null, targetId, (GarageConsoleUiKey)args.UiKey);
+        RefreshState(uid, null, targetId, (GarageConsoleUiKey)args.UiKey, userId);
+    }
+
+    public void OnRetrieveMessage(EntityUid uid, GarageConsoleComponent component, GarageConsoleRetrieveMessage args)
+    {
+
+    }
+
+    public async void GetShipsFromDb(NetUserId userId)
+    {
+        var ships = _db.GetShipsByUser(userId);
     }
 
     private void ConsolePopup(EntityUid uid, string text)
@@ -310,5 +335,19 @@ public sealed partial class GarageSystem : SharedGarageSystem
     private void PlayConfirmSound(EntityUid playerUid, EntityUid consoleUid, GarageConsoleComponent component)
     {
         _audio.PlayEntity(component.ConfirmSound, playerUid, consoleUid);
+    }
+
+    private bool TryGetNetUserIdOfPlayerUid(EntityUid uid, out NetUserId? userId)
+    {
+        if (!TryComp<MindContainerComponent>(uid, out var mindContainer) ||
+            !TryComp<MindComponent>(mindContainer.Mind, out var mind) ||
+            mind.UserId == null)
+        {
+            userId = null;
+            return false;
+        }
+
+        userId = mind.UserId.Value;
+        return true;
     }
 }

@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Shared._Scav._Shipyard;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration.Logs;
@@ -1938,6 +1939,34 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return true;
         }
         */
+
+        public async Task<List<Ship>> GetShips()
+        {
+            await using var db = await GetDb();
+
+            var ships = db.DbContext.Ship.Where(s => s.Profiles.Any()).ToList();
+
+            return ships;
+        }
+
+        public async Task<List<ShipData>> GetShipData()
+        {
+            await using var db = await GetDb();
+
+            var ships = db.DbContext.Ship
+                .Select(p => new ShipData
+            {
+                Id = p.Id,
+                ShipName = p.ShipName,
+                ShipNameSuffix = p.ShipNameSuffix,
+                FilePath = p.FilePath,
+                ProfileData = p.Profiles.Select(pr => new ProfileIdentifier {UserId = pr.Preference.UserId, Slot = pr.Slot}).ToList()
+            })
+                .ToList();
+
+            return ships;
+        }
+
 
         public async Task<List<Ship>> GetShipsByUser(NetUserId userId)
         {
