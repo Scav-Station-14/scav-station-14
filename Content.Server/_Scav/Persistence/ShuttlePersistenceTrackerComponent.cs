@@ -1,7 +1,7 @@
 namespace Content.Server._Scav.Persistence;
 
 /// <summary>
-/// Used to track the ShipId of a ship spawned from a garage console. Please note that due to EntitySerializer not liking Guids, grids containing this component cannot be saved.
+/// Used to track the ShipId of a ship spawned from a garage console. Due to EntitySerializer not liking Guids, the Guid is stored as a string here.
 /// </summary>
 [RegisterComponent]
 public sealed partial class ShuttlePersistenceTrackerComponent : Component
@@ -10,5 +10,5 @@ public sealed partial class ShuttlePersistenceTrackerComponent : Component
     /// Database ID of the ship record this ship is attached to.
     /// </summary>
     [DataField] [NonSerialized]
-    public Guid ShipId;
+    public string ShipGuid;
 }

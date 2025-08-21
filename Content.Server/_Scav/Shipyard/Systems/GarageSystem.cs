@@ -65,7 +65,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly IdCardSystem _idSystem = default!;
 
-    public List<ShipData> Ships = new List<ShipData>(); //local copy of the ships stored in the database. this is honestly probably the best way to handle this
+    public List<ShipData> Ships = new List<ShipData>(); //local copy of the ships stored in the database, to avoid database async annoyances. Also tracks the current guid of active ships
 
     public override void Initialize()
     {
@@ -271,36 +271,41 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
         if (name != null && suffix != null)
         {
-            Guid? existingShipId = null;
-            if (TryComp<ShuttlePersistenceTrackerComponent>(shuttleUid, out var persistence))
+            if (TryComp<ShuttlePersistenceTrackerComponent>(shuttleUid, out var persistence) && !String.IsNullOrEmpty(persistence.ShipGuid))
             {
-                existingShipId = persistence.ShipId;
-                RemComp<ShuttlePersistenceTrackerComponent>(shuttleUid); //Because Guids dont serialize, if we dont remove this component it will fail to save the file
-            }
+                var existingShipId = new Guid(persistence.ShipGuid);
+                var filePath = "/ships/" + name + "_" + suffix + "_" + persistence.ShipGuid + ".yml";
 
-            var filepath = "/ships/" + name + suffix + ".yml";
+                var saveResult = _mapLoader.TrySaveGrid(shuttleUid, new ResPath(filePath));
+                if (!saveResult)
+                {
+                    ConsolePopup(player, Loc.GetString("shipyard-console-sale-invalid-ship")); //suffice it to say, if this happens, thats catastrophically bad, we've already deleted a bunch of stuff...
+                    _adminLogger.Add(LogType.ShipYardUsage, LogImpact.High, $"{ToPrettyString(player):actor} failed to save shuttle grid {ToPrettyString(shuttleUid)} as existing ship {persistence.ShipGuid} via {ToPrettyString(uid)}. Admin intervention is likely necessary.");
+                    PlayDenySound(player, uid, component);
+                    return;
+                }
 
-            var saveResult = _mapLoader.TrySaveGrid(shuttleUid, new ResPath(filepath));
-            if (!saveResult)
-            {
-                ConsolePopup(player, Loc.GetString("shipyard-console-sale-invalid-ship")); //suffice it to say, if this happens, thats catastrophically bad, we've already deleted a bunch of stuff...
-                _adminLogger.Add(LogType.ShipYardUsage, LogImpact.High, $"{ToPrettyString(player):actor} failed to save shuttle grid {ToPrettyString(shuttleUid)} via {ToPrettyString(uid)}. Admin intervention is likely necessary.");
-                PlayDenySound(player, uid, component);
-                return;
-            }
-
-            //Database save
-            if (existingShipId != null)
-            {
-                var i = Ships.FindIndex(s => s.ShipId == existingShipId.Value);
-                Ships[i] = new ShipData {ShipId = existingShipId.Value, ShipName = name, ShipNameSuffix = suffix, FilePath = filepath, ProfileData = new List<ProfileIdentifier> {new ProfileIdentifier {UserId = userId!.Value.UserId, Slot = slot!.Value}}};
-                //TODO: update database here
+                var i = Ships.FindIndex(s => s.ShipId == existingShipId);
+                Ships[i] = new ShipData { ShipId = existingShipId, ShipName = name, ShipNameSuffix = suffix, FilePath = filePath, ProfileData = new List<ProfileIdentifier> { new ProfileIdentifier { UserId = userId!.Value.UserId, Slot = slot!.Value } } };
+                //Ships.First(s => s.ShipId == requestedShip.ShipId).GridUid = shuttleUid.Id; //TODO: IMPLEMENT THIS
+                _db.UpdateShip(existingShipId, name, suffix, filePath);
             }
             else
             {
-                Guid newShipId = Guid.NewGuid();
-                Ships.Add(new ShipData {ShipId = newShipId, ShipName = name, ShipNameSuffix = suffix, FilePath = filepath, ProfileData = new List<ProfileIdentifier> {new ProfileIdentifier {UserId = userId!.Value.UserId, Slot = slot!.Value}}});
-                _db.RegisterShip(newShipId, name, suffix, userId!.Value, filepath, null);
+                var newShipId = Guid.NewGuid();
+                var filePath = "/ships/" + name + "_" + suffix + "_" + newShipId.ToString() + ".yml";
+
+                var saveResult = _mapLoader.TrySaveGrid(shuttleUid, new ResPath(filePath));
+                if (!saveResult)
+                {
+                    ConsolePopup(player, Loc.GetString("shipyard-console-sale-invalid-ship")); //suffice it to say, if this happens, thats catastrophically bad, we've already deleted a bunch of stuff...
+                    _adminLogger.Add(LogType.ShipYardUsage, LogImpact.High, $"{ToPrettyString(player):actor} failed to save shuttle grid {ToPrettyString(shuttleUid)} via {ToPrettyString(uid)}. Admin intervention is likely necessary.");
+                    PlayDenySound(player, uid, component);
+                    return;
+                }
+
+                Ships.Add(new ShipData { ShipId = newShipId, ShipName = name, ShipNameSuffix = suffix, FilePath = filePath, ProfileData = new List<ProfileIdentifier> { new ProfileIdentifier { UserId = userId!.Value.UserId, Slot = slot!.Value } } });
+                _db.RegisterShip(newShipId, name, suffix, userId!.Value, filePath, null);
             }
         }
         else
@@ -361,6 +366,13 @@ public sealed partial class GarageSystem : SharedGarageSystem
             return;
         }
 
+        //Check if a ship already exists with this ship guid assigned
+        /*
+        if (!Exists(requestedShip.GridUid)))
+        {
+
+        }*/
+
         if (!requestedShip!.ProfileData.Where(p => p.UserId == userId).Any(p => p.Slot == slot))
         {
             ConsolePopup(player, Loc.GetString("comms-console-permission-denied"));
@@ -393,7 +405,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
         //TODO: rework of the latejoin code, the existing solution depends on an existing prototype
 
         var shuttlePersistenceTracker = EnsureComp<ShuttlePersistenceTrackerComponent>(shuttleUid);
-        shuttlePersistenceTracker.ShipId = requestedShip.ShipId;
+        shuttlePersistenceTracker.ShipGuid = requestedShip.ShipId.ToString();
 
         var deedID = EnsureComp<ShuttleDeedComponent>(targetId);
 

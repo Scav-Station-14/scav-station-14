@@ -1899,6 +1899,23 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return shipEntry.Id;
         }
 
+        public async Task<bool> UpdateShip(Guid shipId, string shipName, string shipNameSuffix, string? filePath) //this wont update users but oh well, honestly probably better to handle those separately anyhow
+        {
+            await using var db = await GetDb();
+
+            var record = db.DbContext.Ship.SingleOrDefault(s => s.ShipId == shipId);
+            if (record != null)
+            {
+                record.ShipName = shipName;
+                record.ShipNameSuffix = shipNameSuffix;
+                record.FilePath = filePath ?? record.FilePath;
+
+                await db.DbContext.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
+
         public async Task<List<Ship>> GetShips()
         {
             await using var db = await GetDb();

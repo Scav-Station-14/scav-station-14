@@ -348,6 +348,7 @@ namespace Content.Server.Database
         #region Ships
         // Scav: region for functions related to ship database
         Task<int> RegisterShip(Guid shipId, string shipName, string shipNameSuffix, NetUserId userId, string? filePath, string? fallbackFilePath);
+        Task<bool> UpdateShip(Guid shipId, string shipName, string shipNameSuffix, string? filePath);
         //Task<bool> AddProfileToShip(int shipId, int profileId);
         //Task<bool> RemoveProfileFromShip(int shipId, int profileId);
 
@@ -1084,6 +1085,12 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.RegisterShip(shipId, shipName, shipNameSuffix, userId, filePath, fallbackFilePath));
+        }
+
+        public Task<bool> UpdateShip(Guid shipId, string shipName, string shipNameSuffix, string? filePath)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpdateShip(shipId, shipName, shipNameSuffix, filePath));
         }
         /*
         public Task<bool> AddProfileToShip(int shipId, int profileId)
