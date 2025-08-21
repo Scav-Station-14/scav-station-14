@@ -7,7 +7,7 @@ namespace Content.Client._Scav.Shipyard.UI;
 [GenerateTypedNameReferences]
 public sealed partial class ShipRow : PanelContainer
 {
-    public int ShipId;
+    public Guid ShipId;
     public ShipRow()
     {
         RobustXamlLoader.Load(this);

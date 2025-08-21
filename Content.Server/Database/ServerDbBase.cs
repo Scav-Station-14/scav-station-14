@@ -1898,48 +1898,6 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return shipEntry.Id;
         }
 
-        /*
-        public async Task<bool> AddProfileToShip(int shipId, int profileId) //Note: not completely sure if this is safe if you add a duplicate record
-        {
-            await using var db = await GetDb();
-
-            var ship = await db.DbContext.Ship
-                    .Include(s => s.Profiles)
-                    .Where(s => s.Id == shipId)
-                    .SingleAsync();
-
-            var profile = await db.DbContext.Profile
-                    .Where(p => p.Id == profileId)
-                    .SingleAsync();
-
-            ship.Profiles.Add(profile);
-
-            await db.DbContext.SaveChangesAsync();
-
-            return true;
-        }
-
-        public async Task<bool> RemoveProfileFromShip(int shipId, int profileId) //note: unsure if safe to try to remove nonexistent
-        {
-            await using var db = await GetDb();
-
-            var ship = await db.DbContext.Ship
-                    .Include(s => s.Profiles)
-                    .Where(s => s.Id == shipId)
-                    .SingleAsync();
-
-            var profile = await db.DbContext.Profile
-                    .Where(p => p.Id == profileId)
-                    .SingleAsync();
-
-            ship.Profiles.Remove(profile);
-
-            await db.DbContext.SaveChangesAsync();
-
-            return true;
-        }
-        */
-
         public async Task<List<Ship>> GetShips()
         {
             await using var db = await GetDb();
@@ -1956,7 +1914,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             var ships = db.DbContext.Ship
                 .Select(p => new ShipData
             {
-                Id = p.Id,
+                ShipId = p.ShipId,
                 ShipName = p.ShipName,
                 ShipNameSuffix = p.ShipNameSuffix,
                 FilePath = p.FilePath,

@@ -327,7 +327,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
         if(!TryGetCharacterData(player, out var userId, out var slot)) //we dont really want to proceed if there isnt an actual user doing this, i assume
             return;
 
-        var requestedShip = Ships.SingleOrDefault(s => s.Id == args.ShipId);
+        var requestedShip = Ships.SingleOrDefault(s => s.ShipId == args.ShipId);
 
         if (component.TargetIdSlot.ContainerSlot?.ContainedEntity is not { Valid: true } targetId || !TryComp<IdCardComponent>(targetId, out var idCard))
         {
@@ -385,7 +385,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
         //TODO: rework of the latejoin code, the existing solution depends on an existing prototype
 
         var shuttlePersistenceTracker = EnsureComp<ShuttlePersistenceTrackerComponent>(shuttleUid);
-        shuttlePersistenceTracker.ShipId = requestedShip.Id;
+        shuttlePersistenceTracker.ShipId = requestedShip.ShipId;
 
         var deedID = EnsureComp<ShuttleDeedComponent>(targetId);
 

@@ -7,5 +7,5 @@ public sealed partial class ShuttlePersistenceTrackerComponent : Component
     /// Database ID of the ship record this ship is attached to.
     /// </summary>
     [DataField]
-    public int ShipId { get; set; }
+    public Guid ShipId { get; set; }
 }

@@ -10,7 +10,7 @@ namespace Content.Shared._Scav._Shipyard;
 [NetSerializable]
 public sealed class ShipData
 {
-    public int Id { get; set; }
+    public Guid ShipId { get; set; }
     public string ShipName { get; set; } = null!;
     public string ShipNameSuffix { get; set; } = null!;
     public string FilePath { get; set; } = null!;
