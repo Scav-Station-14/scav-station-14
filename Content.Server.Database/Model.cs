@@ -469,11 +469,13 @@ namespace Content.Server.Database
     public class Ship
     {
         public int Id { get; set; }
+        public Guid ShipId { get; set; } //No way to get Ids in code after insert so need some other unique identifier
         public string ShipName { get; set; } = null!;
         public string ShipNameSuffix { get; set; } = null!;
         public List<Profile> Profiles { get; } = [];
         public string FilePath { get; set; } = null!;
         public string FallbackFilePath { get; set; } = null!;
+        public byte Size { get; set; } //This will be converted to a VesselSize enum in practice. A value of 0 will be treated as invalid
 
     }
 

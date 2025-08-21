@@ -1366,6 +1366,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("file_path");
 
+                    b.Property<Guid>("ShipId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("ship_id");
+
                     b.Property<string>("ShipName")
                         .IsRequired()
                         .HasColumnType("text")
@@ -1376,10 +1380,18 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("ship_name_suffix");
 
+                    b.Property<byte>("Size")
+                        .HasColumnType("smallint")
+                        .HasColumnName("size");
+
                     b.HasKey("Id")
                         .HasName("PK_ship");
 
-                    b.ToTable("ship", (string)null);
+                    b.ToTable("ship", null, t =>
+                        {
+                            t.Property("ShipId")
+                                .HasColumnName("ship_id1");
+                        });
                 });
 
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
