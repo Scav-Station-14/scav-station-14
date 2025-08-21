@@ -257,7 +257,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
         var suffix = deed.ShuttleNameSuffix;
 
 
-        if(!TryGetCharacterData(player, out var userId, out _)) //we dont really want to proceed if there isnt an actual user doing this, i assume
+        if(!TryGetCharacterData(player, out var userId, out var slot)) //we dont really want to proceed if there isnt an actual user doing this, i assume
             return; //TODO: better exit handling here
 
         //remove any elements that shouldnt be serialized
@@ -271,7 +271,14 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
         if (name != null && suffix != null)
         {
-            var filepath = name + suffix + ".yml";
+            Guid? existingShipId = null;
+            if (TryComp<ShuttlePersistenceTrackerComponent>(shuttleUid, out var persistence))
+            {
+                existingShipId = persistence.ShipId;
+                RemComp<ShuttlePersistenceTrackerComponent>(shuttleUid); //Because Guids dont serialize, if we dont remove this component it will fail to save the file
+            }
+
+            var filepath = "/ships/" + name + suffix + ".yml";
 
             var saveResult = _mapLoader.TrySaveGrid(shuttleUid, new ResPath(filepath));
             if (!saveResult)
@@ -283,17 +290,18 @@ public sealed partial class GarageSystem : SharedGarageSystem
             }
 
             //Database save
-
-
-            if (TryComp<ShuttlePersistenceTrackerComponent>(shuttleUid, out var persistence)) //If its got a ShuttlePersistenceTrackerComponent, this is an existing ship, if not assume its a new ship. Dont mind if this gets serialized along with the ship, we'll use EnsureComp and overwrite on a new spawn anyway
+            if (existingShipId != null)
             {
-
+                var i = Ships.FindIndex(s => s.ShipId == existingShipId.Value);
+                Ships[i] = new ShipData {ShipId = existingShipId.Value, ShipName = name, ShipNameSuffix = suffix, FilePath = filepath, ProfileData = new List<ProfileIdentifier> {new ProfileIdentifier {UserId = userId!.Value.UserId, Slot = slot!.Value}}};
+                //TODO: update database here
             }
             else
             {
-                _db.RegisterShip(name, suffix, userId!.Value, filepath, null);
+                Guid newShipId = Guid.NewGuid();
+                Ships.Add(new ShipData {ShipId = newShipId, ShipName = name, ShipNameSuffix = suffix, FilePath = filepath, ProfileData = new List<ProfileIdentifier> {new ProfileIdentifier {UserId = userId!.Value.UserId, Slot = slot!.Value}}});
+                _db.RegisterShip(newShipId, name, suffix, userId!.Value, filepath, null);
             }
-            RefreshShips();
         }
         else
         {
@@ -345,7 +353,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
         //do we need an access reader component check? probably was there for nfsd stuff
 
-        if (requestedShip == null || String.IsNullOrEmpty(requestedShip.FilePath))
+        if (requestedShip == null || String.IsNullOrEmpty(requestedShip.FilePath) || requestedShip.ShipId == Guid.Empty)
         {
             ConsolePopup(player, Loc.GetString("shipyard-console-invalid-vessel")); //TODO: needs different message
             _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(player):player} tried to retrieve a ship that does not exist.");

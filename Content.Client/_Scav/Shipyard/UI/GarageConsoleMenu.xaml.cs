@@ -78,7 +78,7 @@ public sealed partial class GarageConsoleMenu : FancyWindow
         {
             var shipEntry = new ShipRow
             {
-                ShipId = ship.Id,
+                ShipId = ship.ShipId,
                 ShipName = { Text = ship.ShipName + " " + ship.ShipNameSuffix },
                 Retrieve = { Text = Loc.GetString("shipyard-console-purchase-available") } //TODO: make new localization string for this
             };

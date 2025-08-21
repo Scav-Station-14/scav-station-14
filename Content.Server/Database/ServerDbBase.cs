@@ -1877,12 +1877,13 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         #endregion
 
         #region Ships
-        public async Task<int> RegisterShip(string shipName, string shipNameSuffix, NetUserId userId, string? filePath, string? fallbackFilePath)
+        public async Task<int> RegisterShip(Guid ShipId, string shipName, string shipNameSuffix, NetUserId userId, string? filePath, string? fallbackFilePath)
         {
             await using var db = await GetDb();
 
             var shipEntry = new Ship
             {
+                ShipId = ShipId,
                 ShipName = shipName,
                 ShipNameSuffix = shipNameSuffix,
                 FilePath = filePath ?? "",
