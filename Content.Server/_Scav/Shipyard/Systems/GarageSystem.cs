@@ -38,14 +38,21 @@ using Content.Server._Scav.Persistence;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
+using Content.Server.Maps;
 using Content.Server.Preferences.Managers;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Shuttles.Components;
+using Content.Server.Station;
+using Content.Server.StationRecords;
+using Content.Server.StationRecords.Systems;
+using Content.Shared._NF.Shipyard.Prototypes;
 using Content.Shared.Database;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Radio;
+using Content.Shared.StationRecords;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -71,6 +78,8 @@ public sealed partial class GarageSystem : SharedGarageSystem
     [Dependency] private readonly IdCardSystem _idSystem = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly AccessSystem _accessSystem = default!;
+    [Dependency] private readonly StationRecordsSystem _records = default!;
 
     public List<ShipData> Ships = new List<ShipData>(); //local copy of the ships stored in the database, to avoid database async annoyances. Also tracks the current guid of active ships
 
@@ -94,7 +103,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
     private void RefreshState(EntityUid uid, string? shipDeed, EntityUid? targetId, GarageConsoleUiKey uiKey, EntityUid player)
     {
-        if (!TryGetCharacterData(player, out var userId, out var slot))
+        if (!TryGetCharacterData(player, out var userId, out var slot, out _))
             return;
 
         var userShips = Ships.Where(s => s.ProfileData.Where(p => p.UserId == userId).Any(p => p.Slot == slot)).ToList();
@@ -192,7 +201,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
         if (args.Actor is not { Valid: true } player)
             return;
 
-        if(!TryGetCharacterData(player, out var userId, out var slot)) //we dont really want to proceed if there isnt an actual user doing this, i assume
+        if(!TryGetCharacterData(player, out var userId, out var slot, out _)) //we dont really want to proceed if there isnt an actual user doing this, i assume
             return;
 
         if (component.TargetIdSlot.ContainerSlot?.ContainedEntity is not { Valid: true } targetId || !TryComp<IdCardComponent>(targetId, out var idCard))
@@ -216,7 +225,17 @@ public sealed partial class GarageSystem : SharedGarageSystem
             return;
         }
 
-        //Shipyard version messes with station records at this point, TODO: research how that works and port it here
+        //Transfers your records back to the station you returned the ship on. Copied from ShipyardSystem. I might be wrong but wont this fail to transfer any records belonging to crew? May need to update when adding crew addition button to station records console
+        if (_station.GetOwningStation(shuttleUid) is { Valid: true } shuttleStation
+            && TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
+            && keyStorage.Key != null
+            && keyStorage.Key.Value.OriginStation == shuttleStation
+            && _records.TryGetRecord<GeneralStationRecord>(keyStorage.Key.Value, out var record))
+        {
+            //_records.RemoveRecord(keyStorage.Key.Value);
+            _records.AddRecordEntry(stationUid, record);
+            _records.Synchronize(stationUid);
+        }
 
         var shuttleName = ToPrettyString(shuttleUid); // Grab the name before it gets 1984'd
         var shuttleNetEntity = _entityManager.GetNetEntity(shuttleUid); // same with the netEntity for shuttle records
@@ -344,7 +363,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
         if (args.Actor is not { Valid: true } player)
             return;
 
-        if(!TryGetCharacterData(player, out var userId, out var slot)) //we dont really want to proceed if there isnt an actual user doing this, i assume
+        if(!TryGetCharacterData(player, out var userId, out var slot, out var profile)) //we dont really want to proceed if there isnt an actual user doing this, i assume
             return;
 
         var requestedShip = Ships.SingleOrDefault(s => s.ShipId == args.ShipId);
@@ -416,16 +435,40 @@ public sealed partial class GarageSystem : SharedGarageSystem
             return;
         }
 
-        //TODO: rework of the latejoin code, the existing solution depends on an existing prototype
 
         var shuttlePersistenceTracker = EnsureComp<ShuttlePersistenceTrackerComponent>(shuttleUid);
         shuttlePersistenceTracker.ShipGuid = requestedShip.ShipId.ToString();
 
         requestedShip.Active = true; //Mark as active, this will be used to determine if the ship already exists in contexts where querying for a ShuttlePersistenceTrackerComponent would be unreasonable
 
-        var deedID = EnsureComp<ShuttleDeedComponent>(targetId);
-
         var fullName = requestedShip.ShipName + " " + requestedShip.ShipNameSuffix;
+
+        //Shuttle station setup (shipyard version used the vessel's mapprototype, this uses a basic template but fills in the name directly
+        EntityUid? shuttleStation = null;
+        if (_prototypeManager.TryIndex<GameMapPrototype>("PersistentShipTemplate", out var persistentShipTemplate)) //this doesnt need to be an if, i know it exists.
+        {
+            List<EntityUid> gridUids = new()
+            {
+                shuttleUid
+            };
+
+            shuttleStation = _station.InitializeNewStation(persistentShipTemplate.Stations["PersistentShipTemplate"], gridUids, fullName);
+        }
+        if (shuttleStation == null)
+        {
+            ConsolePopup(player, "station not created");
+            PlayDenySound(player, uid, component);
+        }
+
+
+        if (TryComp<AccessComponent>(targetId, out var newCap)) //I would like, eventually, to have actual separate access for different ships. But I guess just generic captain access is fine.
+        {
+            var newAccess = newCap.Tags.ToList();
+            newAccess.AddRange(component.NewAccessLevels);
+            _accessSystem.TrySetTags(targetId, newAccess, newCap);
+        }
+
+        var deedID = EnsureComp<ShuttleDeedComponent>(targetId);
 
         var shuttleOwner = Name(player).Trim();
         _shipyardSystem.AssignShuttleDeedProperties((targetId, deedID), shuttleUid, fullName, shuttleOwner, false);
@@ -438,7 +481,34 @@ public sealed partial class GarageSystem : SharedGarageSystem
             _idSystem.TryChangeJobTitle(targetId, Loc.GetString(component.NewJobTitle), idCard, player);
         }
 
-        //TODO: implement station records stuff
+        //Station records for shuttle. Based on ShipyardSystem's implementation, which was described as bad, so if that changes this needs to.
+        if (TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage) && shuttleStation != null && keyStorage.Key != null)
+        {
+            if (_records.TryGetRecord<GeneralStationRecord>(keyStorage.Key.Value, out var record))
+            {
+                _records.AddRecordEntry(shuttleStation.Value, record);
+            }
+            else
+            {
+                //Original code checks mind for current user profile here, we already did that earlier so no need
+                TryComp<FingerprintComponent>(player, out var fingerprintComponent);
+                TryComp<DnaComponent>(player, out var dnaComponent);
+                TryComp<StationRecordsComponent>(shuttleStation, out var stationRec);
+                _records.CreateGeneralRecord(shuttleStation.Value, targetId, profile!.Name, profile.Age, profile.Species, profile.Gender, $"Captain", fingerprintComponent!.Fingerprint, dnaComponent!.DNA, profile, stationRec!);
+            }
+        }
+        _records.Synchronize(shuttleStation!.Value);
+        _records.Synchronize(station);
+
+        if (_prototypeManager.TryIndex<VesselPrototype>("PersistentShipTemplate", out var vessel)) //BaseVessel is abstract but has important stuff like the IFF component setup so have to use very basic vessel proto
+        {
+            EntityManager.AddComponents(shuttleUid, vessel.AddComponents);
+        }
+        else
+        {
+            ConsolePopup(player, "vessel prototype not found");
+            PlayDenySound(player, uid, component);
+        }
 
         EnsureComp<LinkedLifecycleGridParentComponent>(shuttleUid);
 
@@ -514,10 +584,11 @@ public sealed partial class GarageSystem : SharedGarageSystem
         return true;
     }
 
-    private bool TryGetCharacterData(EntityUid uid, out NetUserId? userId, out int? slot)
+    private bool TryGetCharacterData(EntityUid uid, out NetUserId? userId, out int? slot, out HumanoidCharacterProfile? profile)
     {
         userId = null;
         slot = null;
+        profile = null;
 
         if (!_playerManager.TryGetSessionByEntity(uid, out var session))
         {
@@ -529,7 +600,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
             //_log.Info($"TryBankDeposit: {mobUid} has no cached prefs");
             return false;
         }
-        if (prefs.SelectedCharacter is not HumanoidCharacterProfile profile)
+        if (prefs.SelectedCharacter is not HumanoidCharacterProfile characterProfile)
         {
             //_log.Info($"TryBankDeposit: {mobUid} has the wrong prefs type");
             return false;
@@ -537,6 +608,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
         userId = session.UserId;
         slot = prefs.SelectedCharacterIndex;
+        profile = characterProfile;
         return true;
     }
 }

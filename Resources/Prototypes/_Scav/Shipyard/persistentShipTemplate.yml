@@ -1,0 +1,23 @@
+- type: vessel
+  id: PersistentShipTemplate
+  parent: BaseVessel
+  name: Ship
+  description: "Template for ship saved to the garage. This message should not appear."
+  shuttlePath: /Maps/_Scav/Shuttles/template.yml
+
+- type: gameMap
+  id: PersistentShipTemplate
+  mapName: 'Ship'
+  mapPath: /Maps/_Scav/Shuttles/template.yml
+  minPlayers: 0
+  stations:
+    PersistentShipTemplate:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Ship'
+      - type: StationJobs
+        availableJobs:
+          ContractorInterview: [ 0, 0 ]
+          PilotInterview: [ 0, 0 ]
+          MercenaryInterview: [ 0, 0 ]
