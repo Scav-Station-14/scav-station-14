@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 07/25/2025 21:10:57
-  entityCount: 2585
+  time: 08/22/2025 04:06:34
+  entityCount: 2584
 maps: []
 grids:
 - 1
@@ -7741,6 +7741,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 15.5,4.5
       parent: 1
+- proto: ComputerGarage
+  entities:
+  - uid: 698
+    components:
+    - type: Transform
+      pos: 15.5,11.5
+      parent: 1
 - proto: ComputerPowerMonitoring
   entities:
   - uid: 263
@@ -7785,11 +7792,6 @@ entities:
       parent: 1
 - proto: ComputerTabletopShipyardExpedition
   entities:
-  - uid: 2144
-    components:
-    - type: Transform
-      pos: 15.5,11.5
-      parent: 1
   - uid: 2164
     components:
     - type: Transform
@@ -16319,11 +16321,6 @@ entities:
     components:
     - type: Transform
       pos: 13.5,11.5
-      parent: 1
-  - uid: 698
-    components:
-    - type: Transform
-      pos: 15.5,11.5
       parent: 1
   - uid: 790
     components:

@@ -4,7 +4,7 @@ meta:
   engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 07/25/2025 21:23:49
+  time: 08/22/2025 03:55:40
   entityCount: 6475
 maps: []
 grids:
@@ -3753,7 +3753,7 @@ entities:
       pos: 39.5,-1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -5416.354
+      secondsUntilStateChange: -5614.6533
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11032,6 +11032,31 @@ entities:
     - type: Transform
       pos: -15.5,-10.5
       parent: 1
+- proto: ComputerGarage
+  entities:
+  - uid: 175
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 52.5,18.5
+      parent: 1
+  - uid: 489
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 77.5,-4.5
+      parent: 1
+  - uid: 534
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -20.5,-1.5
+      parent: 1
+  - uid: 551
+    components:
+    - type: Transform
+      pos: 10.5,-14.5
+      parent: 1
 - proto: ComputerPowerMonitoring
   entities:
   - uid: 4641
@@ -11073,31 +11098,6 @@ entities:
     components:
     - type: Transform
       pos: 25.5,-4.5
-      parent: 1
-- proto: ComputerShipyard
-  entities:
-  - uid: 175
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 52.5,18.5
-      parent: 1
-  - uid: 489
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 77.5,-4.5
-      parent: 1
-  - uid: 534
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -20.5,-1.5
-      parent: 1
-  - uid: 551
-    components:
-    - type: Transform
-      pos: 10.5,-14.5
       parent: 1
 - proto: ComputerTabletopCargoOrders
   entities:

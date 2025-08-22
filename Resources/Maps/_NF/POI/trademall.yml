@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 07/25/2025 21:28:42
-  entityCount: 6316
+  time: 08/22/2025 04:04:55
+  entityCount: 6318
 maps: []
 grids:
 - 1
@@ -19120,6 +19120,13 @@ entities:
     - type: Transform
       pos: 27.5,-5.5
       parent: 1
+- proto: ComputerGarage
+  entities:
+  - uid: 297
+    components:
+    - type: Transform
+      pos: -19.5,2.5
+      parent: 1
 - proto: ComputerPowerMonitoring
   entities:
   - uid: 73
@@ -19148,13 +19155,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 11.5,21.5
-      parent: 1
-- proto: ComputerShipyardSr
-  entities:
-  - uid: 297
-    components:
-    - type: Transform
-      pos: -19.5,2.5
       parent: 1
 - proto: ComputerSolarControl
   entities:
@@ -19324,6 +19324,19 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 26.5,-3.5
+      parent: 1
+- proto: ComputerWallmountBankATM
+  entities:
+  - uid: 6317
+    components:
+    - type: Transform
+      pos: 38.5,2.5
+      parent: 1
+  - uid: 6318
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 43.5,-1.5
       parent: 1
 - proto: ConveyorBelt
   entities:
