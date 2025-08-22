@@ -15,6 +15,7 @@ public sealed class ShipData
     public string ShipNameSuffix { get; set; } = null!;
     public string FilePath { get; set; } = null!;
     public List<ProfileIdentifier> ProfileData { get; set; } = new List<ProfileIdentifier>();
+    public bool Active { get; set; }
 }
 
 /// <summary>

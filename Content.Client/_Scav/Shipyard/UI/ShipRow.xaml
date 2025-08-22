@@ -10,7 +10,7 @@
         <controls:ConfirmButton Name="Retrieve"
                                 Access="Public"
                                 ToolTip=""
-                                Text="{Loc 'shipyard-console-purchase-available'}"
+                                Text="{Loc 'garage-console-retrieve-available'}"
                                 StyleClasses="LabelSubText"
                                 MinWidth="130"
                                 HorizontalAlignment="Right" /> <!-- 130 px: approximate width of "Purchase"-->

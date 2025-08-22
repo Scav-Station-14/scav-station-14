@@ -80,7 +80,7 @@ public sealed partial class GarageConsoleMenu : FancyWindow
             {
                 ShipId = ship.ShipId,
                 ShipName = { Text = ship.ShipName + " " + ship.ShipNameSuffix },
-                Retrieve = { Text = Loc.GetString("garage-console-retrieve-available") }
+                Retrieve = { Text = Loc.GetString("garage-console-retrieve-available"), Disabled = ship.Active}
             };
 
             shipEntry.Retrieve.OnConfirming += OnStartConfirming;

@@ -292,7 +292,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
                 }
 
                 var i = Ships.FindIndex(s => s.ShipId == existingShipId);
-                Ships[i] = new ShipData { ShipId = existingShipId, ShipName = name, ShipNameSuffix = suffix, FilePath = filePath, ProfileData = new List<ProfileIdentifier> { new ProfileIdentifier { UserId = userId!.Value.UserId, Slot = slot!.Value } } };
+                Ships[i] = new ShipData { ShipId = existingShipId, ShipName = name, ShipNameSuffix = suffix, FilePath = filePath, ProfileData = new List<ProfileIdentifier> { new ProfileIdentifier { UserId = userId!.Value.UserId, Slot = slot!.Value } }, Active = false};
                 _db.UpdateShip(existingShipId, name, suffix, filePath);
 
                 SendStoreMessage(uid, deed.ShuttleOwner, name + " " + suffix, component.ShipyardChannel, player);
@@ -312,7 +312,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
                     return;
                 }
 
-                Ships.Add(new ShipData { ShipId = newShipId, ShipName = name, ShipNameSuffix = suffix, FilePath = filePath, ProfileData = new List<ProfileIdentifier> { new ProfileIdentifier { UserId = userId!.Value.UserId, Slot = slot!.Value } } });
+                Ships.Add(new ShipData { ShipId = newShipId, ShipName = name, ShipNameSuffix = suffix, FilePath = filePath, ProfileData = new List<ProfileIdentifier> { new ProfileIdentifier { UserId = userId!.Value.UserId, Slot = slot!.Value } }, Active = false});
                 _db.RegisterShip(newShipId, name, suffix, userId!.Value, filePath, null);
 
                 SendStoreNewMessage(uid, deed.ShuttleOwner, name + " " + suffix, component.ShipyardChannel, player);
@@ -420,6 +420,8 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
         var shuttlePersistenceTracker = EnsureComp<ShuttlePersistenceTrackerComponent>(shuttleUid);
         shuttlePersistenceTracker.ShipGuid = requestedShip.ShipId.ToString();
+
+        requestedShip.Active = true; //Mark as active, this will be used to determine if the ship already exists in contexts where querying for a ShuttlePersistenceTrackerComponent would be unreasonable
 
         var deedID = EnsureComp<ShuttleDeedComponent>(targetId);
 
