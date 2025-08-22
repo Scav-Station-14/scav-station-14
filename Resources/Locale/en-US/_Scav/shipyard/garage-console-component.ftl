@@ -7,3 +7,5 @@ garage-console-save-error = CRITICAL ERROR - Unable to store ship!
 garage-console-retrieving = {$owner} shuttle {$vessel} en route.
 garage-console-storing = {$owner} shuttle {$vessel} returned to garage by {$player}.
 garage-console-storing-new = {$owner} shuttle {$vessel} registered by {$player}.
+
+garage-console-retrieve-available = Retrieve

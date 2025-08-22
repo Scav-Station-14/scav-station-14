@@ -80,7 +80,7 @@ public sealed partial class GarageConsoleMenu : FancyWindow
             {
                 ShipId = ship.ShipId,
                 ShipName = { Text = ship.ShipName + " " + ship.ShipNameSuffix },
-                Retrieve = { Text = Loc.GetString("shipyard-console-purchase-available") } //TODO: make new localization string for this
+                Retrieve = { Text = Loc.GetString("garage-console-retrieve-available") }
             };
 
             shipEntry.Retrieve.OnConfirming += OnStartConfirming;

@@ -33,6 +33,7 @@ using Content.Shared.Preferences;
 using Content.Server.Shuttles.Components;
 using Content.Server._NF.Station.Components;
 using System.Text.RegularExpressions;
+using Content.Server._Scav.Persistence;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Access;
@@ -357,6 +358,13 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         if (_station.GetOwningStation(uid) is not { Valid: true } stationUid)
         {
             ConsolePopup(player, Loc.GetString("shipyard-console-invalid-station"));
+            PlayDenySound(player, uid, component);
+            return;
+        }
+
+        if (TryComp<ShuttlePersistenceTrackerComponent>(shuttleUid, out _))
+        {
+            ConsolePopup(player, Loc.GetString("shipyard-console-sale-persistent-shuttle"));
             PlayDenySound(player, uid, component);
             return;
         }
