@@ -37,14 +37,18 @@ using Content.Server._NF.ShuttleRecords;
 using Content.Server._Scav.Persistence;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
+using Content.Server.Chat.Systems;
 using Content.Server.Preferences.Managers;
+using Content.Server.Radio.EntitySystems;
 using Content.Server.Shuttles.Components;
 using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Preferences;
+using Content.Shared.Radio;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Scav.Shipyard.Systems;
 public sealed partial class GarageSystem : SharedGarageSystem
@@ -61,9 +65,12 @@ public sealed partial class GarageSystem : SharedGarageSystem
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly IdCardSystem _idSystem = default!;
+    [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
     public List<ShipData> Ships = new List<ShipData>(); //local copy of the ships stored in the database, to avoid database async annoyances. Also tracks the current guid of active ships
 
@@ -185,6 +192,9 @@ public sealed partial class GarageSystem : SharedGarageSystem
         if (args.Actor is not { Valid: true } player)
             return;
 
+        if(!TryGetCharacterData(player, out var userId, out var slot)) //we dont really want to proceed if there isnt an actual user doing this, i assume
+            return;
+
         if (component.TargetIdSlot.ContainerSlot?.ContainedEntity is not { Valid: true } targetId || !TryComp<IdCardComponent>(targetId, out var idCard))
         {
             ConsolePopup(player, Loc.GetString("shipyard-console-no-idcard"));
@@ -235,10 +245,10 @@ public sealed partial class GarageSystem : SharedGarageSystem
                     ConsolePopup(player, Loc.GetString("shipyard-console-sale-organic-aboard", ("name", saleResult.OrganicName ?? "Somebody")));
                     break;
                 case ShipyardSaleError.InvalidShip:
-                    ConsolePopup(player, Loc.GetString("shipyard-console-sale-invalid-ship"));
+                    ConsolePopup(player, Loc.GetString("garage-console-sale-invalid-ship"));
                     break;
                 default:
-                    ConsolePopup(player, Loc.GetString("shipyard-console-sale-unknown-reason", ("reason", saleResult.Error.ToString())));
+                    ConsolePopup(player, Loc.GetString("garage-console-sale-unknown-reason", ("reason", saleResult.Error.ToString())));
                     break;
             }
             PlayDenySound(player, uid, component);
@@ -255,10 +265,6 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
         var name = deed.ShuttleName;
         var suffix = deed.ShuttleNameSuffix;
-
-
-        if(!TryGetCharacterData(player, out var userId, out var slot)) //we dont really want to proceed if there isnt an actual user doing this, i assume
-            return; //TODO: better exit handling here
 
         //remove any elements that shouldnt be serialized
         _docking.UndockDocks(shuttleUid); // TODO: introduce some kind of delay between this and saving the grid, as it stands the doors dont close fully and then get saved in that halfway state
@@ -279,7 +285,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
                 var saveResult = _mapLoader.TrySaveGrid(shuttleUid, new ResPath(filePath));
                 if (!saveResult)
                 {
-                    ConsolePopup(player, Loc.GetString("shipyard-console-sale-invalid-ship")); //suffice it to say, if this happens, thats catastrophically bad, we've already deleted a bunch of stuff...
+                    ConsolePopup(player, Loc.GetString("garage-console-save-error")); //suffice it to say, if this happens, thats catastrophically bad, we've already deleted a bunch of stuff...
                     _adminLogger.Add(LogType.ShipYardUsage, LogImpact.High, $"{ToPrettyString(player):actor} failed to save shuttle grid {ToPrettyString(shuttleUid)} as existing ship {persistence.ShipGuid} via {ToPrettyString(uid)}. Admin intervention is likely necessary.");
                     PlayDenySound(player, uid, component);
                     return;
@@ -287,8 +293,10 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
                 var i = Ships.FindIndex(s => s.ShipId == existingShipId);
                 Ships[i] = new ShipData { ShipId = existingShipId, ShipName = name, ShipNameSuffix = suffix, FilePath = filePath, ProfileData = new List<ProfileIdentifier> { new ProfileIdentifier { UserId = userId!.Value.UserId, Slot = slot!.Value } } };
-                //Ships.First(s => s.ShipId == requestedShip.ShipId).GridUid = shuttleUid.Id; //TODO: IMPLEMENT THIS
                 _db.UpdateShip(existingShipId, name, suffix, filePath);
+
+                SendStoreMessage(uid, deed.ShuttleOwner, name + " " + suffix, component.ShipyardChannel, player);
+                _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low, $"{ToPrettyString(player):actor} used {ToPrettyString(targetId)} to return {shuttleName} to the garage via {ToPrettyString(uid)}");
             }
             else
             {
@@ -298,7 +306,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
                 var saveResult = _mapLoader.TrySaveGrid(shuttleUid, new ResPath(filePath));
                 if (!saveResult)
                 {
-                    ConsolePopup(player, Loc.GetString("shipyard-console-sale-invalid-ship")); //suffice it to say, if this happens, thats catastrophically bad, we've already deleted a bunch of stuff...
+                    ConsolePopup(player, Loc.GetString("garage-console-save-error")); //suffice it to say, if this happens, thats catastrophically bad, we've already deleted a bunch of stuff...
                     _adminLogger.Add(LogType.ShipYardUsage, LogImpact.High, $"{ToPrettyString(player):actor} failed to save shuttle grid {ToPrettyString(shuttleUid)} via {ToPrettyString(uid)}. Admin intervention is likely necessary.");
                     PlayDenySound(player, uid, component);
                     return;
@@ -306,6 +314,9 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
                 Ships.Add(new ShipData { ShipId = newShipId, ShipName = name, ShipNameSuffix = suffix, FilePath = filePath, ProfileData = new List<ProfileIdentifier> { new ProfileIdentifier { UserId = userId!.Value.UserId, Slot = slot!.Value } } });
                 _db.RegisterShip(newShipId, name, suffix, userId!.Value, filePath, null);
+
+                SendStoreNewMessage(uid, deed.ShuttleOwner, name + " " + suffix, component.ShipyardChannel, player);
+                _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low, $"{ToPrettyString(player):actor} used {ToPrettyString(targetId)} to register {shuttleName} to the garage via {ToPrettyString(uid)}");
             }
         }
         else
@@ -324,10 +335,6 @@ public sealed partial class GarageSystem : SharedGarageSystem
         RemComp<ShuttleDeedComponent>(targetId);
 
         PlayConfirmSound(player, uid, component);
-
-        //TODO: Send sell message
-
-        _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low, $"{ToPrettyString(player):actor} used {ToPrettyString(targetId)} to return {shuttleName} to the garage via {ToPrettyString(uid)}");
 
         RefreshState(uid, null, targetId, (GarageConsoleUiKey)args.UiKey, player);
     }
@@ -360,18 +367,25 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
         if (requestedShip == null || String.IsNullOrEmpty(requestedShip.FilePath) || requestedShip.ShipId == Guid.Empty)
         {
-            ConsolePopup(player, Loc.GetString("shipyard-console-invalid-vessel")); //TODO: needs different message
+            ConsolePopup(player, Loc.GetString("garage-console-invalid-ship"));
             _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(player):player} tried to retrieve a ship that does not exist.");
             PlayDenySound(player, uid, component);
             return;
         }
 
         //Check if a ship already exists with this ship guid assigned
-        /*
-        if (!Exists(requestedShip.GridUid)))
+        var persistenceTrackerQuery = EntityQueryEnumerator<ShuttlePersistenceTrackerComponent>();
+        var shipIdString = requestedShip.ShipId.ToString();
+        while (persistenceTrackerQuery.MoveNext(out _, out var persistenceTracker))
         {
-
-        }*/
+            if (persistenceTracker.ShipGuid == shipIdString)
+            {
+                ConsolePopup(player, Loc.GetString("garage-console-already-retrieved"));
+                _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(player):player} tried to retrieve a ship that was already spawned.");
+                PlayDenySound(player, uid, component);
+                return;
+            }
+        }
 
         if (!requestedShip!.ProfileData.Where(p => p.UserId == userId).Any(p => p.Slot == slot))
         {
@@ -426,7 +440,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
         EnsureComp<LinkedLifecycleGridParentComponent>(shuttleUid);
 
-        //TODO: send purchase message
+        SendRetrieveMessage(uid, player, fullName, component.ShipyardChannel);
         PlayConfirmSound(player, uid, component);
         _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low, $"{ToPrettyString(player):actor} used {ToPrettyString(targetId)} to retrieve ship {ToPrettyString(shuttleUid)} from garage via {ToPrettyString(uid)}");
 
@@ -456,6 +470,32 @@ public sealed partial class GarageSystem : SharedGarageSystem
     private void PlayConfirmSound(EntityUid playerUid, EntityUid consoleUid, GarageConsoleComponent component)
     {
         _audio.PlayEntity(component.ConfirmSound, playerUid, consoleUid);
+    }
+
+    private void SendRetrieveMessage(EntityUid uid, EntityUid player, string name, string shipyardChannel)
+    {
+        var channel = _prototypeManager.Index<RadioChannelPrototype>(shipyardChannel);
+
+        _radio.SendRadioMessage(uid, Loc.GetString("garage-console-retrieving", ("owner", player), ("vessel", name)), channel, uid);
+        _chat.TrySendInGameICMessage(uid, Loc.GetString("garage-console-retrieving", ("owner", player!), ("vessel", name)), InGameICChatType.Speak, true);
+    }
+
+    private void SendStoreMessage(EntityUid uid, string? player, string name, string shipyardChannel, EntityUid seller)
+    {
+        var channel = _prototypeManager.Index<RadioChannelPrototype>(shipyardChannel);
+
+        _radio.SendRadioMessage(uid, Loc.GetString("garage-console-storing", ("owner", player!), ("vessel", name!), ("player", seller)), channel, uid);
+        _chat.TrySendInGameICMessage(uid, Loc.GetString("garage-console-storing", ("owner", player!), ("vessel", name!), ("player", seller)), InGameICChatType.Speak, true);
+
+    }
+
+    private void SendStoreNewMessage(EntityUid uid, string? player, string name, string shipyardChannel, EntityUid seller)
+    {
+        var channel = _prototypeManager.Index<RadioChannelPrototype>(shipyardChannel);
+
+        _radio.SendRadioMessage(uid, Loc.GetString("garage-console-storing-new", ("owner", player!), ("vessel", name!), ("player", seller)), channel, uid);
+        _chat.TrySendInGameICMessage(uid, Loc.GetString("garage-console-storing-new", ("owner", player!), ("vessel", name!), ("player", seller)), InGameICChatType.Speak, true);
+
     }
 
     private bool TryGetNetUserIdOfPlayerUid(EntityUid uid, out NetUserId? userId)
