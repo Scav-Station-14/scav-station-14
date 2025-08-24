@@ -5,6 +5,8 @@ using Content.Shared._NF.BindToStation;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
+using Content.Shared.CCVar;// Scav
+using Robust.Shared.Configuration;// Scav
 
 namespace Content.Server._NF.BindToStation;
 
@@ -12,6 +14,7 @@ public sealed class BindToStationSystem : EntitySystem
 {
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly ExtensionCableSystem _extensionCable = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;// Scav
 
     public override void Initialize()
     {
@@ -34,7 +37,12 @@ public sealed class BindToStationSystem : EntitySystem
 
     // Ensure consistency for station-bound machines
     public void OnBoundMapInit(Entity<StationBoundObjectComponent> ent, ref MapInitEvent args)
-    {
+    {// Scav
+        if (_cfg.GetCVar(CCVars.DisableStationBinding))
+        {
+            BindToStation(ent, null, false);
+        }
+        // Scav end
         if (ent.Comp.Enabled
             && TryComp<ExtensionCableReceiverComponent>(ent.Owner, out var receiver)
             && _station.GetOwningStation(ent.Owner) != ent.Comp.BoundStation)
