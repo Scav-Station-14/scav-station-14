@@ -8,6 +8,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes; // Frontier
 using Robust.Shared.Utility;
+using Content.Shared.CCVar;
+using Robust.Shared.Configuration; //
 
 namespace Content.Server.Construction;
 
@@ -15,6 +17,7 @@ public sealed partial class ConstructionSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // Frontier
     [Dependency] private readonly BindToStationSystem _bindToStation = default!; // Frontier
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Scav
     private void InitializeMachines()
     {
         SubscribeLocalEvent<MachineComponent, ComponentInit>(OnMachineInit);
@@ -29,7 +32,7 @@ public sealed partial class ConstructionSystem
         // Frontier - we mirror the bind to grid component from any existing machine board onto the resultant machine to prevent high-grading
         foreach (var board in component.BoardContainer.ContainedEntities)
         {
-            if (TryComp<StationBoundObjectComponent>(board, out var binding))
+            if (TryComp<StationBoundObjectComponent>(board, out var binding) && !_cfg.GetCVar(CCVars.DisableStationBinding)) // Scav Added cvar
                 _bindToStation.BindToStation(uid, binding.BoundStation, binding.Enabled);
         }
         // End Frontier
