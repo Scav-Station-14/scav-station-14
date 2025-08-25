@@ -46,6 +46,7 @@ using Content.Server.Station;
 using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
 using Content.Shared._NF.Shipyard.Prototypes;
+using Content.Shared._NF.ShuttleRecords;
 using Content.Shared.Database;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Mind;
@@ -500,9 +501,11 @@ public sealed partial class GarageSystem : SharedGarageSystem
         _records.Synchronize(shuttleStation!.Value);
         _records.Synchronize(station);
 
+        var vesselID = "";
         if (_prototypeManager.TryIndex<VesselPrototype>("PersistentShipTemplate", out var vessel)) //BaseVessel is abstract but has important stuff like the IFF component setup so have to use very basic vessel proto
         {
             EntityManager.AddComponents(shuttleUid, vessel.AddComponents);
+            vesselID = vessel.ID;
         }
         else
         {
@@ -516,7 +519,17 @@ public sealed partial class GarageSystem : SharedGarageSystem
         PlayConfirmSound(player, uid, component);
         _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low, $"{ToPrettyString(player):actor} used {ToPrettyString(targetId)} to retrieve ship {ToPrettyString(shuttleUid)} from garage via {ToPrettyString(uid)}");
 
-        //TODO: shuttle records code
+        _shuttleRecordsSystem.AddRecord(
+            new ShuttleRecord(
+                name: requestedShip.ShipName ?? "",
+                suffix: requestedShip.ShipNameSuffix ?? "",
+                ownerName: shuttleOwner,
+                entityUid: EntityManager.GetNetEntity(shuttleUid),
+                purchasedWithVoucher: false,
+                purchasePrice: 0,
+                vesselPrototypeId: vesselID
+            )
+        );
 
         RefreshState(uid, fullName, targetId, (GarageConsoleUiKey)args.UiKey, player);
     }
