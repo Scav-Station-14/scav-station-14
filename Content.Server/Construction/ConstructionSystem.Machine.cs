@@ -8,8 +8,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes; // Frontier
 using Robust.Shared.Utility;
-using Content.Shared.CCVar;
-using Robust.Shared.Configuration; //
+using Content.Shared.CCVar; // Scav
+using Robust.Shared.Configuration; // Scav
 
 namespace Content.Server.Construction;
 

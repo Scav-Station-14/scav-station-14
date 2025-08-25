@@ -4,6 +4,8 @@ using Content.Shared._NF.BindToStation; // Frontier
 using Content.Shared.Computer;
 using Content.Shared.Power;
 using Robust.Shared.Containers;
+using Content.Shared.CCVar;// Scav
+using Robust.Shared.Configuration;// Scav
 
 namespace Content.Server.Construction;
 
@@ -36,7 +38,7 @@ public sealed partial class ConstructionSystem
         var boardContainer = _container.EnsureContainer<Container>(component.Owner, "board");
         foreach (var board in boardContainer.ContainedEntities)
         {
-            if (TryComp<StationBoundObjectComponent>(board, out var binding))
+            if (TryComp<StationBoundObjectComponent>(board, out var binding) && !_cfg.GetCVar(CCVars.DisableStationBinding)) // Scav Added cvar
                 _bindToStation.BindToStation(component.Owner, binding.BoundStation, binding.Enabled);
         }
         // End Frontier
