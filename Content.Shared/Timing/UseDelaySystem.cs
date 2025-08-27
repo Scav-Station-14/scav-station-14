@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Robust.Shared.GameStates;
 using Robust.Shared.Timing;
+using Content.Shared._Scav.Persistence;
 
 namespace Content.Shared.Timing;
 
@@ -19,6 +20,7 @@ public sealed class UseDelaySystem : EntitySystem
         SubscribeLocalEvent<UseDelayComponent, EntityUnpausedEvent>(OnUnpaused);
         SubscribeLocalEvent<UseDelayComponent, ComponentGetState>(OnDelayGetState);
         SubscribeLocalEvent<UseDelayComponent, ComponentHandleState>(OnDelayHandleState);
+        SubscribeLocalEvent<UseDelayComponent, GridReInitEvent>(OnGridReInit);
     }
 
     private void OnDelayHandleState(Entity<UseDelayComponent> ent, ref ComponentHandleState args)
@@ -186,5 +188,10 @@ public sealed class UseDelaySystem : EntitySystem
             entry.EndTime = curTime - _metadata.GetPauseTime(ent) + entry.Length;
         }
         Dirty(ent);
+    }
+
+    private void OnGridReInit(Entity<UseDelayComponent> ent, ref GridReInitEvent args)
+    {
+        ResetAllDelays(ent);
     }
 }
