@@ -48,4 +48,3 @@
           messageSet: Pirate
         - type: StationDeadDropHintExempt
         - type: TradeCrateWildcardDestination
-        - type: BindToStationVariationPassExemption

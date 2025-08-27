@@ -33,4 +33,3 @@
       components:
         - type: StationNameSetup
           mapNameTemplate: "Derelict McCargo"
-        - type: BindToStationVariationPassExemption

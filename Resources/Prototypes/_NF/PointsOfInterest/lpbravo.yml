@@ -42,4 +42,3 @@
         - type: StationJobs
           availableJobs: {}
         - type: StationDeadDropHintExempt
-        - type: BindToStationVariationPassExemption
