@@ -337,6 +337,7 @@
     guides:
     - AnomalousResearch
   # Frontier: extra anomaly generator fields
+  - type: BindToStation
   - type: TypingIndicator
     proto: robot
   - type: Speech
