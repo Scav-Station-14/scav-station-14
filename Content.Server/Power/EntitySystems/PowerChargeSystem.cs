@@ -1,4 +1,4 @@
-using Content.Server._Scav.Persistence;
+using Content.Shared._Scav.Persistence;
 using Content.Server.Administration.Logs;
 using Content.Server.Audio;
 using Content.Server.Emp;

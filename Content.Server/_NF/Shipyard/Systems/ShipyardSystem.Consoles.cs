@@ -33,7 +33,7 @@ using Content.Shared.Preferences;
 using Content.Server.Shuttles.Components;
 using Content.Server._NF.Station.Components;
 using System.Text.RegularExpressions;
-using Content.Server._Scav.Persistence;
+using Content.Shared._Scav.Persistence;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Access;

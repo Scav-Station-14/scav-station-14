@@ -1,3 +1,5 @@
+using Content.Shared._Scav.Persistence;
+
 namespace Content.Server._Scav.Persistence;
 
 public sealed partial class ShuttlePersistenceSystem : EntitySystem
@@ -26,15 +28,7 @@ public sealed partial class ShuttlePersistenceSystem : EntitySystem
             }
 
             var ev = new GridReInitEvent(); //this is a LOT of variable declarations because its inside a recursive loop, was it better to define it once?
-            RaiseLocalEvent(uid, ev);
+            RaiseLocalEvent(uid, ref ev);
         }
-    }
-}
-
-
-public sealed class GridReInitEvent : EntityEventArgs
-{
-    public GridReInitEvent()
-    {
     }
 }

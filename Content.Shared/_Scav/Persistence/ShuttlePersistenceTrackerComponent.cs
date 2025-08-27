@@ -1,4 +1,4 @@
-namespace Content.Server._Scav.Persistence;
+namespace Content.Shared._Scav.Persistence;
 
 /// <summary>
 /// Used to track the ShipId of a ship spawned from a garage console. Due to EntitySerializer not liking Guids, the Guid is stored as a string here.

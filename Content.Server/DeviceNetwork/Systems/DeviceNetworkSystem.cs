@@ -8,7 +8,7 @@ using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.DeviceNetwork.Systems;
 using Content.Shared.Examine;
-using Content.Server._Scav.Persistence;
+using Content.Shared._Scav.Persistence;
 
 namespace Content.Server.DeviceNetwork.Systems
 {
@@ -46,7 +46,7 @@ namespace Content.Server.DeviceNetwork.Systems
             SubscribeLocalEvent<DeviceNetworkComponent, ComponentShutdown>(OnNetworkShutdown);
             SubscribeLocalEvent<DeviceNetworkComponent, ExaminedEvent>(OnExamine);
             SubscribeLocalEvent<DeviceNetworkComponent, GridReInitEvent>(OnGridReInit);
-            
+
             _activeQueue = _queueA;
             _nextQueue = _queueB;
         }

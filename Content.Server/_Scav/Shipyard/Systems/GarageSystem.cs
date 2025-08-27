@@ -34,7 +34,7 @@ using Content.Server.Shuttles.Systems;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Utility;
 using Content.Server._NF.ShuttleRecords;
-using Content.Server._Scav.Persistence;
+using Content.Shared._Scav.Persistence;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
