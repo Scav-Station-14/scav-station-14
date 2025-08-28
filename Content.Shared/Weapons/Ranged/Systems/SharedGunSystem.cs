@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._Scav.Persistence;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
@@ -101,6 +102,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         SubscribeLocalEvent<GunComponent, CycleModeEvent>(OnCycleMode);
         SubscribeLocalEvent<GunComponent, HandSelectedEvent>(OnGunSelected);
         SubscribeLocalEvent<GunComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<GunComponent, GridReInitEvent>(OnGridReInit);
     }
 
     private void OnMapInit(Entity<GunComponent> gun, ref MapInitEvent args)
@@ -623,6 +625,11 @@ public abstract partial class SharedGunSystem : EntitySystem
             comp.ProjectileSpeedModified = ev.ProjectileSpeed;
             DirtyField(gun, nameof(GunComponent.ProjectileSpeedModified));
         }
+    }
+
+    private void OnGridReInit(EntityUid uid, GunComponent component, ref GridReInitEvent args)
+    {
+        RefreshModifiers(uid);
     }
 
     protected abstract void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null);
