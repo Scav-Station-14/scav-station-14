@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Scav.Persistence; // Scav
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Stacks;
@@ -37,6 +38,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         SubscribeLocalEvent<MaterialStorageComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<MaterialStorageComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<MaterialStorageComponent, TechnologyDatabaseModifiedEvent>(OnDatabaseModified);
+        SubscribeLocalEvent<MaterialStorageComponent, GridReInitEvent>(OnGridReInit); // Scav
     }
 
     public override void Update(float frameTime)
@@ -57,6 +59,13 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     {
         _appearance.SetData(uid, MaterialStorageVisuals.Inserting, false);
     }
+
+    // Scav
+    private void OnGridReInit(EntityUid uid, MaterialStorageComponent component, GridReInitEvent args)
+    {
+        _appearance.SetData(uid, MaterialStorageVisuals.Inserting, false);
+    }
+    // End Scav
 
     /// <summary>
     /// Gets all the materials stored on this entity
