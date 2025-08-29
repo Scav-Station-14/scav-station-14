@@ -16,7 +16,8 @@ using Content.Shared.Labels.Components;
 using Content.Shared.Chemistry.Reagent; // Frontier
 using Content.Shared.Verbs; // Frontier
 using Content.Shared.Examine; // Frontier
-using Content.Server.Construction; // Frontier
+using Content.Server.Construction;
+using Content.Shared._Scav.Persistence; // Frontier
 using Content.Shared.Labels.EntitySystems; // Frontier
 
 namespace Content.Server.Chemistry.EntitySystems
@@ -58,6 +59,8 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ReagentDispenserComponent, ReagentDispenserClearContainerSolutionMessage>(OnClearContainerSolutionMessage);
 
             SubscribeLocalEvent<ReagentDispenserComponent, MapInitEvent>(OnMapInit, before: new []{typeof(ItemSlotsSystem)});
+
+            SubscribeLocalEvent<ReagentDispenserComponent, GridReInitEvent>(OnGridReInit);
         }
 
         private void SubscribeUpdateUiState<T>(Entity<ReagentDispenserComponent> ent, ref T ev)
@@ -286,6 +289,16 @@ namespace Content.Server.Chemistry.EntitySystems
                 }
             }
             // End Frontier
+        }
+
+        private void OnGridReInit(EntityUid uid, ReagentDispenserComponent component, GridReInitEvent args)
+        {
+            _itemSlotsSystem.AddItemSlot(uid, SharedReagentDispenser.OutputSlotName, component.BeakerSlot);
+
+            for (int i = 0; i < component.StorageSlots.Count; i++)
+            {
+                _itemSlotsSystem.AddItemSlot(uid, component.StorageSlotIds[i], component.StorageSlots[i]);
+            }
         }
 
         // Frontier: upgradable parts
