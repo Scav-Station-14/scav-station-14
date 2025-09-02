@@ -1,3 +1,4 @@
+using Content.Shared._Scav.Persistence;
 using Content.Shared.Storage.Components; // Frontier: Server<Shared
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
@@ -40,6 +41,7 @@ public sealed class MagnetPickupSystem : EntitySystem
         SubscribeLocalEvent<MagnetPickupComponent, MapInitEvent>(OnMagnetMapInit);
         SubscribeLocalEvent<MagnetPickupComponent, ExaminedEvent>(OnExamined); // Frontier
         SubscribeLocalEvent<MagnetPickupComponent, GetVerbsEvent<AlternativeVerb>>(AddToggleMagnetVerb); // Frontier
+        SubscribeLocalEvent<MagnetPickupComponent, GridReInitEvent>(OnGridReInit);
     }
 
     private void OnMagnetMapInit(EntityUid uid, MagnetPickupComponent component, MapInitEvent args)
@@ -47,6 +49,10 @@ public sealed class MagnetPickupSystem : EntitySystem
         component.NextScan = _timing.CurTime;
     }
 
+    private void OnGridReInit(EntityUid uid, MagnetPickupComponent component, GridReInitEvent args)
+    {
+        component.NextScan = _timing.CurTime;
+    }
 
     // Frontier: togglable magnets
     private void AddToggleMagnetVerb(EntityUid uid, MagnetPickupComponent component, GetVerbsEvent<AlternativeVerb> args)
