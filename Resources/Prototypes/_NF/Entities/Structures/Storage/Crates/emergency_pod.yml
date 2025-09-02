@@ -101,3 +101,5 @@
     node: medicalpod
     containers:
     - entity_storage
+  - type: ShipyardSellCondition # Scav
+    preserveOnSale: true # Scav

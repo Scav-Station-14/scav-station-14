@@ -88,6 +88,8 @@
   - type: AccessReader
   - type: ExplosionResistance
     damageCoefficient: 0.6
+  - type: ShipyardSellCondition # Scav
+    preserveOnSale: true # Scav
 
 - type: entity
   parent: DVSmartFridge
