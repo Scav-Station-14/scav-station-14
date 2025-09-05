@@ -7,3 +7,6 @@ marking-YingletHairPompador = Pompador
 marking-YingletHairPonytail = Ponytail
 marking-YingletHairSpiky = Spiky
 marking-YingletHairUpdo = Updo
+marking-YingletHairAkoll = Akoll
+marking-YingletHairFonzie = Fonzie
+marking-YingletHairFlowing = Flowing

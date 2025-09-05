@@ -41,6 +41,18 @@
     {
       "name": "updo",
       "directions": 4
+    },
+    {
+      "name": "akoll",
+      "directions": 4
+    },
+    {
+      "name": "fonzie",
+      "directions": 4
+    },
+    {
+      "name": "flowing",
+      "directions": 4
     }
   ]
 }

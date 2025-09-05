@@ -78,3 +78,30 @@
   sprites:
     - sprite: _Scav/Mobs/Customization/Yinglet/yinglet_hair.rsi
       state: updo
+
+- type: marking
+  id: YingletHairAkoll
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Yinglet]
+  sprites:
+    - sprite: _Scav/Mobs/Customization/Yinglet/yinglet_hair.rsi
+      state: akoll
+
+- type: marking
+  id: YingletHairFonzie
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Yinglet]
+  sprites:
+    - sprite: _Scav/Mobs/Customization/Yinglet/yinglet_hair.rsi
+      state: fonzie
+
+- type: marking
+  id: YingletHairFlowing
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Yinglet]
+  sprites:
+    - sprite: _Scav/Mobs/Customization/Yinglet/yinglet_hair.rsi
+      state: flowing
