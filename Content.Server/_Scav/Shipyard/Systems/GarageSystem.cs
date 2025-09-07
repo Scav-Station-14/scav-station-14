@@ -38,6 +38,7 @@ using Content.Shared._Scav.Persistence;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
+using Content.Server.GameTicking;
 using Content.Server.Maps;
 using Content.Server.Preferences.Managers;
 using Content.Server.Radio.EntitySystems;
@@ -93,6 +94,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
         SubscribeLocalEvent<GarageConsoleComponent, GarageConsoleRetrieveMessage>(OnRetrieveMessage);
         SubscribeLocalEvent<GarageConsoleComponent, EntInsertedIntoContainerMessage>(OnItemSlotChanged);
         SubscribeLocalEvent<GarageConsoleComponent, EntRemovedFromContainerMessage>(OnItemSlotChanged);
+        SubscribeLocalEvent<GameRunLevelChangedEvent>(OnRunLevelChanged);
 
         RefreshShips();
     }
@@ -100,6 +102,24 @@ public sealed partial class GarageSystem : SharedGarageSystem
     private async void RefreshShips()
     {
         Ships = await _db.GetShipData();
+    }
+
+    private void OnRunLevelChanged(GameRunLevelChangedEvent args)
+    {
+        switch (args.New)
+        {
+            case GameRunLevel.PostRound:
+                SaveAllShips();
+                break;
+            case GameRunLevel.PreRoundLobby:
+                RefreshShips();
+                break;
+        }
+    }
+
+    private void SaveAllShips()
+    {
+
     }
 
     private void RefreshState(EntityUid uid, string? shipDeed, EntityUid? targetId, GarageConsoleUiKey uiKey, EntityUid player)
