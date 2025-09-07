@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._Scav._Shipyard;
 using Content.Server._NF.Shipyard.Systems;
@@ -55,6 +56,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Radio;
 using Content.Shared.StationRecords;
+using Content.Shared.Warps;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -82,6 +84,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly AccessSystem _accessSystem = default!;
     [Dependency] private readonly StationRecordsSystem _records = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public List<ShipData> Ships = new List<ShipData>(); //local copy of the ships stored in the database, to avoid database async annoyances. Also tracks the current guid of active ships
 
@@ -99,6 +102,33 @@ public sealed partial class GarageSystem : SharedGarageSystem
         RefreshShips();
     }
 
+    private bool TryGetNearestWarp(EntityUid uid, [NotNullWhen(true)] out EntityUid? warp)
+    {
+        warp = null;
+        float? distance = null;
+        var warpQuery = EntityQueryEnumerator<GarageTeleportMarkerComponent>();
+        TryComp(uid, out TransformComponent? callerTransform);
+        while (warpQuery.MoveNext(out var warpUid, out var warpComponent))
+        {
+            if (TryComp(warpUid, out TransformComponent? warpTransform))
+            {
+                var newDistance = (_transform.GetMapCoordinates(warpTransform).Position - _transform.GetMapCoordinates(callerTransform!).Position).Length();
+                if (distance == null || newDistance < distance)
+                {
+                    warp = warpUid;
+                    distance = newDistance;
+                }
+            }
+        }
+
+        if (warp is null)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
     private async void RefreshShips()
     {
         Ships = await _db.GetShipData();
@@ -109,17 +139,12 @@ public sealed partial class GarageSystem : SharedGarageSystem
         switch (args.New)
         {
             case GameRunLevel.PostRound:
-                SaveAllShips();
+                StoreAllShips();
                 break;
             case GameRunLevel.PreRoundLobby:
                 RefreshShips();
                 break;
         }
-    }
-
-    private void SaveAllShips()
-    {
-
     }
 
     private void RefreshState(EntityUid uid, string? shipDeed, EntityUid? targetId, GarageConsoleUiKey uiKey, EntityUid player)
@@ -217,6 +242,35 @@ public sealed partial class GarageSystem : SharedGarageSystem
         }
     }
 
+    private void StoreAllShips()
+    {
+        /*
+        var persistenceTrackerQuery = EntityQueryEnumerator<ShuttlePersistenceTrackerComponent>();
+        while (persistenceTrackerQuery.MoveNext(out var shuttleUid, out var persistenceTracker))
+        {
+            //station records?
+            //get name and netent?
+
+            //finddisableshipyardsaleobjects equivalent
+
+            //presaleshuttlecheck equivalent
+
+            if (_station.GetOwningStation(shuttleUid) is { Valid: true } shuttleStationUid)
+            {
+                _station.DeleteStation(shuttleStationUid);
+            }
+
+            _shipyardSystem.CleanGrid(shuttleUid, uid); //this wants a uid to tp everything to
+
+            _docking.UndockDocks(shuttleUid);
+            RemComp<IFFComponent>(shuttleUid);
+            RemComp<NavMapComponent>(shuttleUid);
+            RemComp<ShuttleDeedComponent>(shuttleUid);
+            RemComp<StationMemberComponent>(shuttleUid);
+        }
+        */
+    }
+
     public void OnStoreMessage(EntityUid uid, GarageConsoleComponent component, GarageConsoleStoreMessage args)
     {
         if (args.Actor is not { Valid: true } player)
@@ -301,7 +355,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
             _station.DeleteStation(shuttleStationUid);
         }
 
-        _shipyardSystem.CleanGrid(shuttleUid, uid);
+        _shipyardSystem.CleanGrid(shuttleUid, TryGetNearestWarp(uid, out var warp) ? warp!.Value : uid);
 
         var name = deed.ShuttleName;
         var suffix = deed.ShuttleNameSuffix;

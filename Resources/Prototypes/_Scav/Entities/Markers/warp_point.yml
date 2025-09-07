@@ -1,0 +1,8 @@
+- type: entity
+  id: GarageTeleportMarker
+  parent: MarkerBase
+  name: garage clean warp
+  components:
+  - type: GarageTeleportMarker
+  - type: Sprite
+    state: pink
