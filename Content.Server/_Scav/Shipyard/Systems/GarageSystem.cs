@@ -244,75 +244,88 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
     private void StoreAllShips()
     {
-
         var persistenceTrackerQuery = EntityQueryEnumerator<ShuttlePersistenceTrackerComponent>();
         while (persistenceTrackerQuery.MoveNext(out var shuttleUid, out var persistence))
         {
-            //station records? probably best practice but we dont know what station to transfer to and the round is ending so it doesnt really matter anyway
-
-            var shuttleName = ToPrettyString(shuttleUid);
-            var shuttleNetEntity = _entityManager.GetNetEntity(shuttleUid);
-
-            //finddisableshipyardsaleobjects (actually no, i just made clean warp those objects too (wont affect other cases since the disable failstate happens first))
-
-            //presaleshuttlecheck equivalent
-            if (!HasComp<ShuttleComponent>(shuttleUid)
-                || !TryComp(shuttleUid, out TransformComponent? xform))
-            {
-                _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Extreme, $"Autosave for shuttle grid {ToPrettyString(shuttleUid)} as ship {persistence.ShipGuid} failed: shuttle is invalid. Admin intervention is necessary.");
-                continue;
-            }
-            //presaleshuttlecheck normally checks for organics at this stage, but that only checks for the presence of a Mind. player species and ghosts still get done by clean so just relying on that
-
-            if (TryGetNearestWarp(shuttleUid, out var warp))
-            {
-                _shipyardSystem.CleanGrid(shuttleUid, warp.Value); //this wants a uid to tp everything to
-            }
-            //else, teleport it somewhere else? idk
-
-            if (_station.GetOwningStation(shuttleUid) is { Valid: true } shuttleStationUid)
-            {
-                _station.DeleteStation(shuttleStationUid);
-            }
-
-            _docking.UndockDocks(shuttleUid);
-            RemComp<IFFComponent>(shuttleUid);
-            RemComp<NavMapComponent>(shuttleUid);
-            RemComp<ShuttleDeedComponent>(shuttleUid);
-            RemComp<StationMemberComponent>(shuttleUid);
-
-            if (!String.IsNullOrEmpty(persistence.ShipGuid))
-            {
-                var existingShipId = new Guid(persistence.ShipGuid);
-                var shipCacheIndex = Ships.FindIndex(s => s.ShipId == existingShipId);
-
-                var name = Ships[shipCacheIndex].ShipName;
-                var suffix = Ships[shipCacheIndex].ShipNameSuffix;
-
-                var filePath = "/ships/" + name + "_" + suffix + "_" + persistence.ShipGuid + ".yml";
-
-                var saveResult = _mapLoader.TrySaveGrid(shuttleUid, new ResPath(filePath));
-                if (!saveResult)
-                {
-                    _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Extreme, $"Autosave for shuttle grid {ToPrettyString(shuttleUid)} as ship {persistence.ShipGuid} failed. Admin intervention is necessary.");
-                    continue;
-                }
-
-                Ships[shipCacheIndex] = new ShipData { ShipId = existingShipId, ShipName = name, ShipNameSuffix = suffix, FilePath = filePath, ProfileData = Ships[shipCacheIndex].ProfileData, Active = false};
-                _db.UpdateShip(existingShipId, name, suffix, filePath);
-
-                _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Medium, $"Ship {shuttleName} autosaved to the garage");
-            }
-
-            QueueDel(shuttleUid);
-
-            _shuttleRecordsSystem.RefreshStateForAll(true);
-            _shuttleRecordsSystem.TrySetSaleTime(shuttleNetEntity);
-            //also how do we handle existing deeds to prevent it from failing
-
-            //also, might want to do something with active menus, maybe disable them?
+            TryStoreShip(shuttleUid, persistence);
         }
 
+    }
+
+    public bool TryStoreShip(EntityUid shuttleUid, ShuttlePersistenceTrackerComponent persistence)
+    {
+        if (String.IsNullOrEmpty(persistence.ShipGuid))
+        {
+            return false;
+        }
+        //station records? probably best practice but we dont know what station to transfer to
+
+        var shuttleName = ToPrettyString(shuttleUid);
+        var shuttleNetEntity = _entityManager.GetNetEntity(shuttleUid);
+
+        //this check already exists in presaleshuttlecheck, but need to repeat here to be safe
+        if (!HasComp<ShuttleComponent>(shuttleUid)
+            || !TryComp(shuttleUid, out TransformComponent? xform))
+        {
+            _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Extreme, $"Save for shuttle grid {ToPrettyString(shuttleUid)} as ship {persistence.ShipGuid} failed: shuttle is invalid. Admin intervention is necessary.");
+            return false;
+        }
+        //presaleshuttlecheck also normally checks for organics at this stage, but they get teleported off by Clean if that check is skipped anyway.
+
+        if (TryGetNearestWarp(shuttleUid, out var warp))
+        {
+            _shipyardSystem.CleanGrid(shuttleUid, warp.Value);
+        }
+        else
+        {
+            _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Extreme, $"Save for shuttle grid {ToPrettyString(shuttleUid)} failed because no garage clean warp points exist");
+            return false;
+        }
+
+        //checks are complete, start taking destructive actions
+        if (_station.GetOwningStation(shuttleUid) is { Valid: true } shuttleStationUid)
+        {
+            _station.DeleteStation(shuttleStationUid);
+        }
+
+        _docking.UndockDocks(shuttleUid);
+        RemComp<IFFComponent>(shuttleUid);
+        RemComp<NavMapComponent>(shuttleUid);
+        RemComp<ShuttleDeedComponent>(shuttleUid);
+        RemComp<StationMemberComponent>(shuttleUid);
+
+        if (!String.IsNullOrEmpty(persistence.ShipGuid))
+        {
+            var existingShipId = new Guid(persistence.ShipGuid);
+            var shipCacheIndex = Ships.FindIndex(s => s.ShipId == existingShipId);
+
+            var name = Ships[shipCacheIndex].ShipName;
+            var suffix = Ships[shipCacheIndex].ShipNameSuffix;
+
+            var filePath = "/ships/" + name + "_" + suffix + "_" + persistence.ShipGuid + ".yml";
+
+            var saveResult = _mapLoader.TrySaveGrid(shuttleUid, new ResPath(filePath));
+            if (!saveResult)
+            {
+                _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Extreme, $"Save for shuttle grid {ToPrettyString(shuttleUid)} as ship {persistence.ShipGuid} failed. Admin intervention is necessary.");
+                return false;
+            }
+
+            Ships[shipCacheIndex] = new ShipData { ShipId = existingShipId, ShipName = name, ShipNameSuffix = suffix, FilePath = filePath, ProfileData = Ships[shipCacheIndex].ProfileData, Active = false};
+            _db.UpdateShip(existingShipId, name, suffix, filePath);
+
+            _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Medium, $"Ship {shuttleName} saved to the garage");
+        }
+
+        QueueDel(shuttleUid);
+
+        _shuttleRecordsSystem.RefreshStateForAll(true);
+        _shuttleRecordsSystem.TrySetSaleTime(shuttleNetEntity);
+
+        //will existing deeds be a problem? in testing it seems like it wipes them automatically
+
+        //also, might want to do something with active menus, maybe disable them?
+        return true;
     }
 
     public void OnStoreMessage(EntityUid uid, GarageConsoleComponent component, GarageConsoleStoreMessage args)
