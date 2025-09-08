@@ -424,13 +424,13 @@ public sealed partial class GarageSystem : SharedGarageSystem
                 if (!saveResult)
                 {
                     ConsolePopup(player, Loc.GetString("garage-console-save-error")); //suffice it to say, if this happens, thats catastrophically bad, we've already deleted a bunch of stuff...
-                    _adminLogger.Add(LogType.ShipYardUsage, LogImpact.High, $"{ToPrettyString(player):actor} failed to save shuttle grid {ToPrettyString(shuttleUid)} as existing ship {persistence.ShipGuid} via {ToPrettyString(uid)}. Admin intervention is likely necessary.");
+                    _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Extreme, $"{ToPrettyString(player):actor} failed to save shuttle grid {ToPrettyString(shuttleUid)} as existing ship {persistence.ShipGuid} via {ToPrettyString(uid)}. Admin intervention is likely necessary.");
                     PlayDenySound(player, uid, component);
                     return;
                 }
 
                 var i = Ships.FindIndex(s => s.ShipId == existingShipId);
-                Ships[i] = new ShipData { ShipId = existingShipId, ShipName = name, ShipNameSuffix = suffix, FilePath = filePath, ProfileData = new List<ProfileIdentifier> { new ProfileIdentifier { UserId = userId!.Value.UserId, Slot = slot!.Value } }, Active = false};
+                Ships[i] = new ShipData { ShipId = existingShipId, ShipName = name, ShipNameSuffix = suffix, FilePath = filePath, ProfileData = Ships[i].ProfileData, Active = false};
                 _db.UpdateShip(existingShipId, name, suffix, filePath);
 
                 SendStoreMessage(uid, deed.ShuttleOwner, name + " " + suffix, component.ShipyardChannel, player);
@@ -445,7 +445,7 @@ public sealed partial class GarageSystem : SharedGarageSystem
                 if (!saveResult)
                 {
                     ConsolePopup(player, Loc.GetString("garage-console-save-error")); //suffice it to say, if this happens, thats catastrophically bad, we've already deleted a bunch of stuff...
-                    _adminLogger.Add(LogType.ShipYardUsage, LogImpact.High, $"{ToPrettyString(player):actor} failed to save shuttle grid {ToPrettyString(shuttleUid)} via {ToPrettyString(uid)}. Admin intervention is likely necessary.");
+                    _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Extreme, $"{ToPrettyString(player):actor} failed to save shuttle grid {ToPrettyString(shuttleUid)} via {ToPrettyString(uid)}. Admin intervention is likely necessary.");
                     PlayDenySound(player, uid, component);
                     return;
                 }
