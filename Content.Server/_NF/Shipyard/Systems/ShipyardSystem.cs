@@ -302,7 +302,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     // checks if something has the ShipyardPreserveOnSaleComponent and if it does, adds it to the list
     private void FindEntitiesToPreserve(EntityUid entity, ref List<EntityUid> output)
     {
-        if (TryComp<ShipyardSellConditionComponent>(entity, out var comp) && comp.PreserveOnSale == true
+        if (TryComp<ShipyardSellConditionComponent>(entity, out var comp) && (comp.PreserveOnSale || comp.BlockSale) // Scav: components that would normally block sale also get teleported. this check comes after that check in most cases that arent forcing the sale so its fine
             || ((TryComp(entity, out MetaDataComponent? meta) && meta.EntityPrototype?.MapSavable == false)  // Scav: teleport anything not map-savable off the ship
                 && (TryComp(entity, out TransformComponent? xform) && xform.GridTraversal))) // Scav: dont know if we need to check this too but just to be safe
         {
