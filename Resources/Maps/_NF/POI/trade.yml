@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/22/2025 03:55:40
-  entityCount: 6475
+  time: 09/09/2025 16:16:13
+  entityCount: 6479
 maps: []
 grids:
 - 1
@@ -3753,7 +3753,7 @@ entities:
       pos: 39.5,-1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -5614.6533
+      secondsUntilStateChange: -5699.575
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14743,6 +14743,28 @@ entities:
     components:
     - type: Transform
       pos: 55.343708,-18.591537
+      parent: 1
+- proto: GarageTeleportMarker
+  entities:
+  - uid: 6476
+    components:
+    - type: Transform
+      pos: -23.5,2.5
+      parent: 1
+  - uid: 6477
+    components:
+    - type: Transform
+      pos: 14.5,-17.5
+      parent: 1
+  - uid: 6478
+    components:
+    - type: Transform
+      pos: 56.5,21.5
+      parent: 1
+  - uid: 6479
+    components:
+    - type: Transform
+      pos: 80.5,-0.5
       parent: 1
 - proto: GasAnalyzer
   entities:

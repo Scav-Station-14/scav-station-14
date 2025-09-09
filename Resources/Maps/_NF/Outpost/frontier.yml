@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/22/2025 03:51:55
-  entityCount: 5521
+  time: 09/09/2025 16:19:42
+  entityCount: 5522
 maps:
 - 5691
 grids:
@@ -18336,6 +18336,13 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: GarageTeleportMarker
+  entities:
+  - uid: 2317
+    components:
+    - type: Transform
+      pos: -0.5,10.5
+      parent: 2173
 - proto: GasMixerOn
   entities:
   - uid: 1124
