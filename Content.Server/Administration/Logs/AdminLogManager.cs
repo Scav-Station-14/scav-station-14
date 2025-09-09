@@ -315,6 +315,10 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
         var adminSys = _entityManager.SystemOrNull<AdminSystem>();
         var logMessage = message;
 
+        // Scav: Moved this check outside the foreach loop. Extreme logs should still chat-notify even if there are no attached players
+        if (impact == LogImpact.Extreme) // Always chat-notify Extreme logs
+            adminLog = true;
+
         foreach (var id in players)
         {
             var player = new AdminLogPlayer
@@ -341,9 +345,6 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
 
             if (adminLog)
                 continue;
-
-            if (impact == LogImpact.Extreme) // Always chat-notify Extreme logs
-                adminLog = true;
 
             if (impact == LogImpact.High) // Only chat-notify High logs if the player is below a threshold playtime
             {

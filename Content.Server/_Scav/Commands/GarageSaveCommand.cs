@@ -7,9 +7,10 @@ using Robust.Shared.Console;
 namespace Content.Server._Scav.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class GarageSave : LocalizedCommands
+public sealed class GarageSave : LocalizedEntityCommands
 {
     [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private readonly GarageSystem _garage = default!;
 
     public override string Command => "garagesave";
 
@@ -38,7 +39,7 @@ public sealed class GarageSave : LocalizedCommands
 
         if (_ent.TryGetComponent<ShuttlePersistenceTrackerComponent>(uid, out var persistence) && !String.IsNullOrEmpty(persistence.ShipGuid))
         {
-            bool saveSuccess = _ent.System<GarageSystem>().TryStoreShip(uid, persistence);
+            bool saveSuccess = _garage.TryStoreShip(uid, persistence);
             if(saveSuccess)
             {
                 shell.WriteLine("Save successful.");
