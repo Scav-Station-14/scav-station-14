@@ -192,8 +192,6 @@ public sealed partial class GarageSystem : SharedGarageSystem
             }
         }
 
-        var voucherUsed = HasComp<ShipyardVoucherComponent>(targetId);
-
         var fullName = deed != null ? ShipyardSystem.GetFullName(deed) : null;
 
         RefreshState(uid, fullName, targetId, (GarageConsoleUiKey)args.UiKey, player);
@@ -244,12 +242,49 @@ public sealed partial class GarageSystem : SharedGarageSystem
 
     private void StoreAllShips()
     {
+        List<EntityUid?> persistentShips = new List<EntityUid?>();
+
         var persistenceTrackerQuery = EntityQueryEnumerator<ShuttlePersistenceTrackerComponent>();
         while (persistenceTrackerQuery.MoveNext(out var shuttleUid, out var persistence))
         {
             TryStoreShip(shuttleUid, persistence);
+            persistentShips.Add(shuttleUid);
         }
 
+        var garageConsoleQuery = EntityQueryEnumerator<GarageConsoleComponent>();
+        while (garageConsoleQuery.MoveNext(out var consoleUid, out var component))
+        {
+            var targetId = component.TargetIdSlot.ContainerSlot?.ContainedEntity;
+
+            if (TryComp<ShuttleDeedComponent>(targetId, out var deed))
+            {
+                if (Deleted(deed!.ShuttleUid) || (deed!.ShuttleUid != null && persistentShips.Contains(deed.ShuttleUid))) //since entities might be queued for deletion but not yet deleted, need to check the list as well
+                {
+                    RemComp<ShuttleDeedComponent>(targetId!.Value);
+                    deed = null;
+                }
+            }
+
+            var fullName = deed != null ? ShipyardSystem.GetFullName(deed) : null;
+
+            if (!TryComp<ActivatableUIComponent>(consoleUid, out var uiComp) || uiComp.Key == null)
+                return;
+
+            var uiUsers = _ui.GetActors(consoleUid, uiComp.Key);
+
+            foreach (var user in uiUsers)
+            {
+                if (user is not { Valid: true } player)
+                    continue;
+
+                RefreshState(consoleUid,
+                    fullName,
+                    targetId,
+                    (GarageConsoleUiKey)uiComp.Key,
+                    player);
+
+            }
+        }
     }
 
     public bool TryStoreShip(EntityUid shuttleUid, ShuttlePersistenceTrackerComponent persistence)
