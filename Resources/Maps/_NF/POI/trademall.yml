@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 09/09/2025 16:17:30
-  entityCount: 6321
+  time: 09/09/2025 16:45:32
+  entityCount: 6322
 maps: []
 grids:
 - 1
@@ -23004,6 +23004,11 @@ entities:
     components:
     - type: Transform
       pos: 50.5,-11.5
+      parent: 1
+  - uid: 6322
+    components:
+    - type: Transform
+      pos: -18.5,0.5
       parent: 1
 - proto: GasMixerOn
   entities:
