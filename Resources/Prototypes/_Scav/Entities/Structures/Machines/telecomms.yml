@@ -18,9 +18,6 @@
     containers:
       key_slots:
       - EncryptionKeyCommon
-      - EncryptionKeyPublic
-      - EncryptionKeyMedical
-      - EncryptionKeyTraffic
   - type: ApcPowerReceiver
     powerLoad: 500
   - type: Machine
@@ -37,6 +34,24 @@
     containers:
       key_slots:
       - EncryptionKeyCommon
+
+# Station servers for comms station
+- type: entity
+  parent: TelecomServer
+  id: TelecomServerFilledPublic
+  suffix: Syndicate
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
       - EncryptionKeyPublic
-      - EncryptionKeyMedical
+
+- type: entity
+  parent: TelecomServer
+  id: TelecomServerFilledTraffic
+  suffix: Syndicate
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
       - EncryptionKeyTraffic

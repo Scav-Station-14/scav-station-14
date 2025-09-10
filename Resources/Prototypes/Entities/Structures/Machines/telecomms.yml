@@ -93,18 +93,18 @@
   parent: TelecomServer
   id: TelecomServerFilledCommon
   suffix: Common
-  categories: [ HideSpawnMenu ] # Frontier
   components:
   - type: ContainerFill
     containers:
       key_slots:
       - EncryptionKeyCommon
+  - type: TelecomServer # Scav
+    range: 256
 
 - type: entity
   parent: TelecomServer
   id: TelecomServerFilledCargo
-  suffix: Cargo
-  categories: [ HideSpawnMenu ] # Frontier
+  suffix: Supply #Scav
   components:
   - type: ContainerFill
     containers:
@@ -126,7 +126,6 @@
   parent: TelecomServer
   id: TelecomServerFilledMedical
   suffix: Medical
-  categories: [ HideSpawnMenu ] # Frontier
   components:
   - type: ContainerFill
     containers:

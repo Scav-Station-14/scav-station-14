@@ -70,7 +70,7 @@
   keycode: 't'
   frequency: 1213
   color: "#8f4a4b"
-#  longRange: true # Frontier - Move to Syndicate Base
+  range: LongRange # Scav: new long range behavior is old short range
 
 - type: radioChannel
   id: Handheld
@@ -78,7 +78,7 @@
   frequency: 1330
   color: "#967101"
   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
-  range: LongRange
+  range: Global # Scav: Global is new long range
   showFrequency: true # Frontier
 
 - type: radioChannel
@@ -88,7 +88,7 @@
   frequency: 1001
   color: "#5ed7aa"
   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
-  range: LongRange
+  range: Global # Scav: Global is new long range
 
 - type: radioChannel
   id: Freelance
@@ -96,8 +96,7 @@
   keycode: 'f'
   frequency: 1984
   color: "#f6ce64"
-  # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
-  #longRange: true # Frontier - Move to server on cove
+  range: LongRange # Scav: new long range behavior is old short range
 
 - type: radioChannel
   abstract: true # Frontier
