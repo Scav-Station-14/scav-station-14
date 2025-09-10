@@ -154,7 +154,12 @@ public sealed class RadioSystem : EntitySystem
         // Scav: using new override
         var sourceMapId = Transform(radioSource).MapID;
         var sourceTransform = Transform(radioSource);
-        var sourceActiveServers = GetActiveServers(sourceTransform, channel.ID);
+        var sourceActiveServers = channel.Range switch
+        {
+            ChannelRange.ShortRange => GetActiveServers(sourceTransform, channel.ID, false),
+            ChannelRange.LongRange => GetActiveServers(sourceTransform, channel.ID , true),
+            _ => new List<EntityUid>()
+        };
         //End Scav
         var sourceServerExempt = _exemptQuery.HasComp(radioSource);
 
@@ -175,20 +180,23 @@ public sealed class RadioSystem : EntitySystem
             if (!HasComp<GhostComponent>(receiver) && GetFrequency(receiver, channel) != frequency) // Nuclear-14
                 continue; // Nuclear-14
 
-            if (!channel.LongRange && transform.MapID != sourceMapId && !radio.GlobalReceive)
-                continue;
+            // Scav: restructured all of this to just check channelrange == global first, because basically every step in here also checked that
+            if (channel.Range != ChannelRange.Global)
+            {
+                if (transform.MapID != sourceMapId && !radio.GlobalReceive)
+                    continue;
 
-            // don't need telecom server for long range channels or handheld radios and intercoms
-            var needServer = !channel.LongRange && !sourceServerExempt;
-            if (needServer && sourceActiveServers.Count == 0)
-                continue;
+                // don't need telecom server for handheld radios and intercoms
+                if (!sourceServerExempt && sourceActiveServers.Count == 0) //shouldnt this go before the reciever loop
+                    continue;
 
-            var recieverServerExempt = _exemptQuery.HasComp(receiver);
-            var recieverNeedServer = !channel.LongRange && !recieverServerExempt;
-            var recieverActiveServers = GetActiveServers(transform, channel.ID);
+                var recieverServerExempt = _exemptQuery.HasComp(receiver);
+                var recieverActiveServers = GetActiveServers(transform, channel.ID, channel.Range == ChannelRange.ShortRange);
 
-            if (recieverNeedServer && !(sourceActiveServers.Intersect(recieverActiveServers).Any()))
-                continue;
+                if (!recieverServerExempt && !(sourceActiveServers.Intersect(recieverActiveServers).Any()))
+                    continue;
+            }
+            // End Scav
 
             // check if message can be sent to specific receiver
             var attemptEv = new RadioReceiveAttemptEvent(channel, radioSource, receiver);
@@ -226,7 +234,7 @@ public sealed class RadioSystem : EntitySystem
         return false;
     }
 
-    //Scav: new override
+    //Scav: new helper functions
     private bool HasActiveServer(TransformComponent radioTransform, string channelId) //long term, non long-range channels should be filtered both by available encryption keys, AND the uid of the servers in range (possibly as a list of uids). this will likely require this funcitonality to move
     {
         var servers = EntityQuery<TelecomServerComponent, EncryptionKeyHolderComponent, ApcPowerReceiverComponent, TransformComponent>();
@@ -243,7 +251,7 @@ public sealed class RadioSystem : EntitySystem
         return false;
     }
 
-    private List<EntityUid> GetActiveServers(TransformComponent radioTransform, string channelId) //may want to make this a list of <telecomservercomponent, transformcomponent> instead of uid. we dont actually need the uids if we dont call this for both sender and reciever and just iterate over what the sender found
+    private List<EntityUid> GetActiveServers(TransformComponent radioTransform, string channelId, bool longRange = false) //may want to make this a list of <telecomservercomponent, transformcomponent> instead of uid. we dont actually need the uids if we dont call this for both sender and reciever and just iterate over what the sender found
     {
         var serverQuery = EntityQueryEnumerator<TelecomServerComponent, EncryptionKeyHolderComponent, ApcPowerReceiverComponent, TransformComponent>();
 
@@ -252,7 +260,7 @@ public sealed class RadioSystem : EntitySystem
         while (serverQuery.MoveNext(out var uid, out var server, out var keys, out var power, out var serverTransform))
         {
             if (serverTransform.MapID == radioTransform.MapID &&
-                (_transform.GetMapCoordinates(radioTransform).Position - _transform.GetMapCoordinates(serverTransform).Position).Length() <= server.range &&
+                (longRange || (_transform.GetMapCoordinates(radioTransform).Position - _transform.GetMapCoordinates(serverTransform).Position).Length() <= server.range) &&
                 power.Powered &&
                 keys.Channels.Contains(channelId))
             {
@@ -262,4 +270,5 @@ public sealed class RadioSystem : EntitySystem
 
         return activeServers;
     }
+    // End Scav
 }

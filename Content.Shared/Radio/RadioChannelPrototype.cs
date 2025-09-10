@@ -1,4 +1,5 @@
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Radio;
 
@@ -29,12 +30,12 @@ public sealed partial class RadioChannelPrototype : IPrototype
     [IdDataField, ViewVariables]
     public string ID { get; private set; } = default!;
 
+    // Scav: Replaced LongRange bool with enum
     /// <summary>
-    /// If channel is long range it doesn't require telecommunication server
-    /// and messages can be sent across different stations
+    /// Determines whether or not this channel requires a telecommunication server
     /// </summary>
-    [DataField("longRange"), ViewVariables]
-    public bool LongRange = false;
+    [DataField("range"), ViewVariables]
+    public ChannelRange Range = ChannelRange.ShortRange;
 
     // Frontier: radio channel frequencies
     /// <summary>
@@ -44,3 +45,25 @@ public sealed partial class RadioChannelPrototype : IPrototype
     public bool ShowFrequency = false;
     // End Frontier
 }
+
+// Scav: radio range enum, rather than bool
+/// <summary>
+/// Defines the range and behavior of a radio channel
+/// </summary>
+[Serializable, NetSerializable]
+public enum ChannelRange : byte
+{
+    /// <summary>
+    /// Only accessible to users within a physical distance from the radio server
+    /// </summary>
+    ShortRange,
+    /// <summary>
+    /// Available across the entire map, but requires at least one server providing the channel to exist somewhere on that map
+    /// </summary>
+    LongRange,
+    /// <summary>
+    /// Available everywhere with no restrictions
+    /// </summary>
+    Global
+}
+// End scav
