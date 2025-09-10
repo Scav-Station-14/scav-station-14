@@ -15367,7 +15367,7 @@ entities:
     - type: Transform
       pos: 0.5,7.5
       parent: 2
-- proto: NFTelecomServerFilled
+- proto: TelecomServerFilledCommon
   entities:
   - uid: 2481
     components:

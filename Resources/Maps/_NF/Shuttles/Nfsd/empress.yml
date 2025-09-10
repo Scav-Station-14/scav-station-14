@@ -14886,7 +14886,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 14.5,4.5
       parent: 1
-- proto: TelecomServerFilledNfsd
+- proto: TelecomServerFilledNfsdShip
   entities:
   - uid: 1155
     components:

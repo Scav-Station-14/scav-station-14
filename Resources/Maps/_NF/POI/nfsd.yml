@@ -14019,7 +14019,7 @@ entities:
     - type: Transform
       pos: 2.5,-3.5
       parent: 1
-- proto: NFTelecomServerFilled
+- proto: TelecomServerFilledNfsd
   entities:
   - uid: 1333
     components:

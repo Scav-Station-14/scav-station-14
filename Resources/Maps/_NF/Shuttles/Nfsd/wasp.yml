@@ -10211,7 +10211,7 @@ entities:
     - type: Transform
       pos: 5.5,-16.5
       parent: 1
-- proto: TelecomServerFilledNfsd
+- proto: TelecomServerFilledNfsdShip
   entities:
   - uid: 1504
     components:
