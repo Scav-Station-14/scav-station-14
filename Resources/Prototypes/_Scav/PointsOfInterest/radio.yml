@@ -1,0 +1,37 @@
+- type: pointOfInterest
+  id: Radio
+  parent: BasePOI
+  name: 'Radio Beacon'
+  minimumDistance: 1750
+  maximumDistance: 4000
+  gridPath: /Maps/_Scav/POI/radio.yml
+  addComponents:
+  - type: IFF
+    color: "#3737F8"
+  - type: StationTransit
+    routes:
+      MinorPointsOfInterest: 60
+  - type: SolarPoweredGrid
+    trackOnInit: true
+    doNotCull: true
+
+- type: gameMap
+  id: Radio
+  mapName: 'Radio Beacon'
+  mapPath: /Maps/_Scav/POI/radio.yml
+  minPlayers: 0
+  stations:
+    Radio:
+      stationProto: StandardFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Radio Beacon'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ -1, -1 ]
+        - type: StationDeadDrop
+          maxDeadDrops: 1 #Its a small station
+        - type: ExtraStationInformation
+          iconPath: /Textures/_NF/Markers/jobs.rsi/stc.png
+          stationSubtext: 'frontier-lobby-radio-subtext'
+          stationDescription: 'frontier-lobby-radio-description'

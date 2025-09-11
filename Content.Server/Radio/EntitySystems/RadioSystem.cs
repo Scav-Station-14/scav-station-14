@@ -191,7 +191,7 @@ public sealed class RadioSystem : EntitySystem
                     continue;
 
                 var recieverServerExempt = _exemptQuery.HasComp(receiver);
-                var recieverActiveServers = GetActiveServers(transform, channel.ID, channel.Range == ChannelRange.ShortRange);
+                var recieverActiveServers = GetActiveServers(transform, channel.ID, channel.Range == ChannelRange.LongRange);
 
                 if (!recieverServerExempt && !(sourceActiveServers.Intersect(recieverActiveServers).Any()))
                     continue;
