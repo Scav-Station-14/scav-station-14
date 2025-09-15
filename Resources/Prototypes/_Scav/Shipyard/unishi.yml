@@ -1,0 +1,35 @@
+- type: vessel
+  id: Verne
+  parent: BaseVessel
+  name: CTI Verne
+  description: "Mobile university ship designed for extended research voyages."
+  price: 125000 # Its about the same size as the Spectre but more livable, so slightly more expensive
+  category: Large
+  group: Shipyard
+  shuttlePath: /Maps/_Scav/Shuttles/unishi.yml
+  guidebookPage: Null
+  class:
+  - Science
+  - Civilian
+  engine:
+  - AME
+
+- type: gameMap
+  id: Verne
+  mapName: 'CTI Verne'
+  mapPath: /Maps/_Scav/Shuttles/unishi.yml
+  minPlayers: 0
+  stations:
+    Verne:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Verne {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            ContractorInterview: [ 0, 0 ]
+            PilotInterview: [ 0, 0 ]
+            MercenaryInterview: [ 0, 0 ]
