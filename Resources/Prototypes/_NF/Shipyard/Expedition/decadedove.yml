@@ -7,19 +7,19 @@
 # Discord: ???
 
 # Shuttle Notes:
-# 
+#
 - type: vessel
   id: DecadeDove
   parent: BaseVessel
   name: DYS Dove
-  description: Versatile expedition-capable multi-purpose light freighter.
+  description: Versatile multi-purpose light freighter.
   price: 78500 # ~60100$ on mapinit + ~18000$ from 30% markup
   category: Medium
-  group: Expedition
+  group: Shipyard
   shuttlePath: /Maps/_NF/Shuttles/Expedition/decadedove.yml
   guidebookPage: Null
   class:
-  - Expedition
+  - Cargo
   engine:
   - AME
 
@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     DecadeDove:
-      stationProto: StandardFrontierExpeditionVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Dove {1}'

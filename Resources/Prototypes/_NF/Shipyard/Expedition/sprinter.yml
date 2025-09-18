@@ -12,14 +12,14 @@
   id: Sprinter
   parent: BaseVessel
   name: KC Sprinter
-  description: A light freighter often picked by bounty hunters due to its quick acceleration, expedition capable.
+  description: A light freighter often picked by bounty hunters due to its quick acceleration.
   price: 56800 # ~$43700 on mapinit plus ~30% markup
   category: Medium
-  group: Expedition
+  group: Shipyard
   shuttlePath: /Maps/_NF/Shuttles/Expedition/sprinter.yml
   guidebookPage: Null
   class:
-  - Expedition
+  - Mercenary
   engine:
   - AME
 
@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Sprinter:
-      stationProto: StandardFrontierExpeditionVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Sprinter {1}'

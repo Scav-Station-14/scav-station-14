@@ -12,14 +12,13 @@
   id: Anchor
   parent: BaseVessel
   name: KC Anchor
-  description: A large luxury cruiser capable of long ranged travel acrossed the sector, expedition capable.
+  description: A large luxury cruiser capable of long ranged travel acrossed the sector.
   price: 140000 # $108432 after appraisal +30ish% (~32000)
   category: Large
-  group: Expedition
+  group: Shipyard
   shuttlePath: /Maps/_NF/Shuttles/Expedition/anchor.yml
   guidebookPage: Null
   class:
-  - Expedition
   - Civilian
   engine:
   - AME
@@ -31,7 +30,7 @@
   minPlayers: 0
   stations:
     Anchor:
-      stationProto: StandardFrontierExpeditionVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Anchor {1}'

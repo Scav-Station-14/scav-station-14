@@ -7,7 +7,7 @@
 # Discord: ???
 
 # Shuttle Notes:
-# 
+#
 - type: vessel
   id: Dragonfly
   parent: BaseVessel
@@ -15,11 +15,11 @@
   description: Highly modular salvaging vessel welded together from smaller re-purposed hulls.
   price: 81000 # ~62075$ on mapinit + ~18650$ from 30% markup
   category: Medium
-  group: Expedition
+  group: Shipyard
   shuttlePath: /Maps/_NF/Shuttles/Expedition/dragonfly.yml
   guidebookPage: Null
   class:
-  - Expedition
+  - Salvage
   engine:
   - AME
 
@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Dragonfly:
-      stationProto: StandardFrontierExpeditionVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Dragonfly {1}'
