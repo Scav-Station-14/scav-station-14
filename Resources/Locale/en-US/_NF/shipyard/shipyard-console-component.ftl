@@ -53,6 +53,7 @@ shipyard-console-class-Chemistry = Chemistry
 shipyard-console-class-Botany = Botany
 shipyard-console-class-Engineering = Engineering
 shipyard-console-class-Atmospherics = Atmospherics
+shipyard-console-class-Mercenary = Mercenary
 shipyard-console-class-Medical = Medical
 shipyard-console-class-Civilian = Civilian
 shipyard-console-class-Kitchen = Kitchen
