@@ -15,11 +15,11 @@
   description: A large luxury cruiser capable of long ranged travel acrossed the sector.
   price: 140000 # $108432 after appraisal +30ish% (~32000)
   category: Large
-  group: Shipyard
+  group: Shipyard # Scav: moved to normal shipyard
   shuttlePath: /Maps/_NF/Shuttles/Expedition/anchor.yml
   guidebookPage: Null
   class:
-  - Civilian
+  - Civilian # Scav: no longer expeditionary
   engine:
   - AME
 
@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Anchor:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierVessel # Scav: no longer expeditionary
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Anchor {1}'

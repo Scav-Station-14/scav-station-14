@@ -12,6 +12,7 @@
   class:
   - Capital
   - Detainment
+  # Scav: no longer expedition
   engine:
   - AME
 
@@ -22,7 +23,7 @@
   minPlayers: 0
   stations:
     Wasp:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierVessel # Scav: no longer expeditionary
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Wasp {1}'

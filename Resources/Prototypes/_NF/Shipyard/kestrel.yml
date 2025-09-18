@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Kestrel:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierVessel # Scav: no longer expeditionary, dunno why it still was tbh
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Kestrel {1}'

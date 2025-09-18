@@ -15,11 +15,11 @@
   description: Once a scout ship serving with the Nanotrasen Marine Expeditionary Forces, this now decommissioned ship can be yours!
   price: 52920
   category: Small
-  group: Shipyard
+  group: Shipyard # Scav: moved to normal shipyard
   shuttlePath: /Maps/_NF/Shuttles/Expedition/pathfinder.yml
   guidebookPage: ShipyardPathfinder
   class:
-  - Fighter
+  - Fighter # Scav: no longer expeditionary
   engine:
   - AME
 
@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Pathfinder:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierVessel # Scav: no longer expeditionary
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Pathfinder {1}'

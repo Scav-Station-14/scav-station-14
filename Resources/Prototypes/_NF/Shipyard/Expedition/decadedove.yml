@@ -15,11 +15,11 @@
   description: Versatile multi-purpose light freighter.
   price: 78500 # ~60100$ on mapinit + ~18000$ from 30% markup
   category: Medium
-  group: Shipyard
+  group: Shipyard # Scav: moved to normal shipyard
   shuttlePath: /Maps/_NF/Shuttles/Expedition/decadedove.yml
   guidebookPage: Null
   class:
-  - Cargo
+  - Cargo # Scav: no longer expeditionary
   engine:
   - AME
 
@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     DecadeDove:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierVessel # Scav: no longer expeditionary
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Dove {1}'

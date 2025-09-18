@@ -19,11 +19,11 @@
   # 627 total tiles
   # In light of the mid-range tile count and relatively narrow width I feel like Medium is more appropriate than Large even though it is technically one tile too long for the class.
   category: Medium
-  group: Shipyard
+  group: Shipyard # Scav: moved to normal shipyard
   shuttlePath: /Maps/_NF/Shuttles/Expedition/charon.yml
   guidebookPage: ShipyardCharon
   class:
-  - Cargo
+  - Cargo # Scav: no longer expeditionary
   engine:
   - AME
 
@@ -34,7 +34,7 @@
   minPlayers: 0
   stations:
     Charon:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierVessel # Scav: no longer expeditionary
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Charon {1}'

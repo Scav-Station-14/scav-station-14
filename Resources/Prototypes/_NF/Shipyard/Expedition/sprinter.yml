@@ -15,11 +15,11 @@
   description: A light freighter often picked by bounty hunters due to its quick acceleration.
   price: 56800 # ~$43700 on mapinit plus ~30% markup
   category: Medium
-  group: Shipyard
+  group: Shipyard # Scav: moved to normal shipyard
   shuttlePath: /Maps/_NF/Shuttles/Expedition/sprinter.yml
   guidebookPage: Null
   class:
-  - Mercenary
+  - Mercenary # Scav: no longer expeditionary
   engine:
   - AME
 
@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Sprinter:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierVessel # Scav: no longer expeditionary
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Sprinter {1}'
