@@ -2,6 +2,7 @@
   id: PersistentShipTemplate
   parent: BaseVessel
   name: Ship
+  group: Custom # This will prevent it from showing up in the default shipyard
   description: "Template for ship saved to the garage. This message should not appear."
   shuttlePath: /Maps/_Scav/Shuttles/template.yml
 
