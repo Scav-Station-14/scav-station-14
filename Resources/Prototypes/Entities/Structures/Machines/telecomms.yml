@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: TelecomServer
-  name: telecommunication server
-  description: When powered and filled with encryption keys it allows radio headset communication.
+  name: long-range telecommunications array # Scav: changed flavor text
+  description: Enables radio headset communication for the inserted encryption key, supports long-range channels.
   components:
   - type: Sprite
     sprite: Structures/Machines/telecomms.rsi
@@ -62,8 +62,9 @@
   - type: Pullable
   - type: EncryptionKeyHolder
     keysExtractionMethod: Prying
-    keySlots: 10
+    keySlots: 1 # Scav: we only want one channel per array
   - type: TelecomServer
+    longRange: true # Scav
     range: 256
   - type: ContainerContainer
     containers:
@@ -77,6 +78,9 @@
   suffix: Filled All
   categories: [ HideSpawnMenu ] # Frontier
   components:
+  - type: EncryptionKeyHolder # Scav: need to clarify this because this one still has multiple channels
+    keysExtractionMethod: Prying
+    keySlots: 10
   - type: ContainerFill
     containers:
       key_slots:

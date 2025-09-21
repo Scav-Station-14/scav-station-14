@@ -4,6 +4,9 @@
   categories: [ HideSpawnMenu ] # Scav
   suffix: Filled All
   components:
+  - type: EncryptionKeyHolder # Scav: need to clarify this because this one still has multiple channels
+    keysExtractionMethod: Prying
+    keySlots: 10
   - type: ContainerFill
     containers:
       key_slots:
@@ -27,35 +30,24 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyCommon
-      - EncryptionKeySecurity
       - EncryptionKeyNfsd
   - type: TelecomServer
 
 - type: entity # Scav: added this, split off from the normal one since an actual nfsd station server is added
-  parent: TelecomServer
+  parent: TelecomServerFilledShuttle
   id: TelecomServerFilledNfsdShip
   suffix: Ship, NFSD
   components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyCommon
-      - EncryptionKeySecurity # Security is being used as the short range nfsd channel
   - type: TelecomServer
-    range: 128 #Currently this server is only used on the Wasp, which is expedition-capable so should have the same values as expedition ships
+    range: 128 #Mothership, should have longer range
 
 - type: entity
-  parent: TelecomServer
+  parent: TelecomServerFilledShuttle
   id: TelecomServerFilledExpeditionShuttle # Scav: Renamed to ExpeditionShuttle to differentiate from the new shuttle telecomservers
   suffix: Ship, Expedition
   components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyCommon
   - type: TelecomServer
-    range: 128 #These are needed on away sites, so fairly large range desirable
+    range: 128 #These are needed on away sites, so should have longer range
 
 - type: entity
   parent: TelecomServer

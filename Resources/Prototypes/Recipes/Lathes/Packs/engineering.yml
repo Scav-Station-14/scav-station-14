@@ -92,6 +92,6 @@
   - PortableGeneratorSuperPacmanMachineCircuitboard
   - PortableGeneratorJrPacmanMachineCircuitboard
   - EmitterCircuitboard
-  - TelecomServerCircuitboard
+  # - TelecomServerCircuitboard # Scav: no access to station telecomms servers
   - SMESAdvancedMachineCircuitboard
   # - HolopadMachineCircuitboard # Frontier: use NF variant

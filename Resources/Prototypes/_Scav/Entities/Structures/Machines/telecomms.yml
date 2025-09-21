@@ -1,7 +1,8 @@
 - type: entity
   parent: TelecomServer
   id: TelecomServerShuttle
-  name: telecommunications array
+  name: short-range telecommunications array
+  description: Enables radio headset communication for the inserted encryption key, short-range channels only.
   suffix: Ship Empty
   components:
   - type: Sprite
@@ -23,6 +24,7 @@
   - type: Machine
     board: TelecomServerShuttleCircuitboard
   - type: TelecomServer
+    longRange: false
     range: 64 # Pretty small range since these are for normal shuttles
 
 - type: entity

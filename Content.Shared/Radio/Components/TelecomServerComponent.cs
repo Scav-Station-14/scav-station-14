@@ -10,7 +10,14 @@ namespace Content.Shared.Radio.Components;
 public sealed partial class TelecomServerComponent : Component
 {
     /// <summary>
-    ///     Range of the server.
+    ///     Range of short-range channels hosted from this server.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("longRange")]
+    public bool longRange = false;
+
+    /// <summary>
+    ///     Range of short-range channels hosted from this server.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("range")]

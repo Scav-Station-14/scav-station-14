@@ -52,7 +52,7 @@
   - SurveillanceWirelessCameraAnchoredCircuitboard
   - SurveillanceCameraMonitorCircuitboard
   - SurveillanceWirelessCameraMonitorCircuitboard
-  - TelecomServerCircuitboard
+#  - TelecomServerCircuitboard # Scav: no easy access to long range servers
   - TelecomServerShuttleCircuitboard
 #  - HolopadMachineCircuitboard # Frontier: needs work before use
   - NFHolopadShipMachineCircuitboard # Frontier
