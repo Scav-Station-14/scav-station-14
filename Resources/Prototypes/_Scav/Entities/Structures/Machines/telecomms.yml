@@ -3,7 +3,7 @@
   id: TelecomServerShuttle
   name: short-range telecommunications array
   description: Enables radio headset communication for the inserted encryption key, short-range channels only.
-  suffix: Ship Empty
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Scav/Structures/Machines/telecomms.rsi #custom sprite for these
@@ -30,7 +30,6 @@
 - type: entity
   parent: TelecomServerShuttle
   id: TelecomServerFilledShuttle
-  suffix: Ship
   components:
   - type: ContainerFill
     containers:

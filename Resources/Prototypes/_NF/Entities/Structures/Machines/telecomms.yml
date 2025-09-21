@@ -36,7 +36,7 @@
 - type: entity # Scav: added this, split off from the normal one since an actual nfsd station server is added
   parent: TelecomServerFilledShuttle
   id: TelecomServerFilledNfsdShip
-  suffix: Ship, NFSD
+  suffix: NFSD
   components:
   - type: TelecomServer
     range: 128 #Mothership, should have longer range
@@ -44,7 +44,7 @@
 - type: entity
   parent: TelecomServerFilledShuttle
   id: TelecomServerFilledExpeditionShuttle # Scav: Renamed to ExpeditionShuttle to differentiate from the new shuttle telecomservers
-  suffix: Ship, Expedition
+  suffix: Expedition
   components:
   - type: TelecomServer
     range: 128 #These are needed on away sites, so should have longer range
