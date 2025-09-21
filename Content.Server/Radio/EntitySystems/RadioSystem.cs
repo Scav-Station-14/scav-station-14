@@ -260,7 +260,7 @@ public sealed class RadioSystem : EntitySystem
         while (serverQuery.MoveNext(out var uid, out var server, out var keys, out var power, out var serverTransform))
         {
             if (serverTransform.MapID == radioTransform.MapID &&
-                (longRange || (_transform.GetMapCoordinates(radioTransform).Position - _transform.GetMapCoordinates(serverTransform).Position).Length() <= server.range) &&
+                ((longRange && server.longRange ) || (!longRange && (_transform.GetMapCoordinates(radioTransform).Position - _transform.GetMapCoordinates(serverTransform).Position).Length() <= server.range)) &&
                 power.Powered &&
                 keys.Channels.Contains(channelId))
             {
