@@ -17,6 +17,7 @@
     EncryptionKeyCargo: 3
     EncryptionKeyEngineering: 3
     EncryptionKeyScience: 3
+    EncryptionKeyPublic: 3 # Scav
 # Pilot drip
     ClothingBackpackPilot: 3
     ClothingBackpackDuffelPilot: 3
@@ -54,6 +55,7 @@
     EncryptionKeyCargo: 4294967295 # Infinite
     EncryptionKeyEngineering: 4294967295 # Infinite
     EncryptionKeyScience: 4294967295 # Infinite
+    EncryptionKeyPublic: 4294967295 # Infinite # Scav
 # Pilot drip
     ClothingBackpackPilot: 3
     ClothingBackpackDuffelPilot: 3

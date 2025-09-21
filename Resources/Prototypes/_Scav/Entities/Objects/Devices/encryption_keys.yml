@@ -1,7 +1,7 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyPublic
-  name: Public Channel encryption key
+  name: public channel encryption key
   categories: [ DoNotMap ]
   description: An encryption key for the public channel.
   components:

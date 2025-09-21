@@ -373,6 +373,7 @@
     - id: EncryptionKeyMedical
     - id: EncryptionKeyEngineering
     - id: EncryptionKeySecurity
+    - id: EncryptionKeyPublic # Scav
       weight: 0.5
     - id: EncryptionKeyCommand
       weight: 0.25
