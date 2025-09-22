@@ -28,6 +28,9 @@
         },
         {
             "name": "nfsd_label"
+        },
+        {
+            "name": "public_label"
         }
     ]
 }
