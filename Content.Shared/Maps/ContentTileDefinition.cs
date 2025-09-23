@@ -96,6 +96,14 @@ namespace Content.Shared.Maps
         [DataField("mobFriction")]
         public float? MobFriction { get; private set; }
 
+        // Mono
+        /// <summary>
+        /// Effective mass of this tile for grid impacts. Setting this to a higher mass means ramming deals more damage.
+        /// </summary>
+        [DataField]
+        public float Mass = 800f;
+        // End Mono
+
         /// <summary>
         ///     Accel override for mob mover in <see cref="SharedMoverController"/>
         /// </summary>
