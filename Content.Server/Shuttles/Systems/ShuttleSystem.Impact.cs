@@ -139,7 +139,9 @@ public sealed partial class ShuttleSystem
         if (!_enabled)
             return;
 
-        if (HasComp<ForceAnchorComponent>(args.OurEntity) || HasComp<ForceAnchorComponent>(args.OtherEntity)) // Check if either grid has ForceAnchor protection // Scav: we dont have GridGodModeComponent
+        var areGridsDocked = _dockSystem.AreGridsDocked(args.OurEntity, args.OtherEntity);
+
+        if (HasComp<ForceAnchorComponent>(args.OurEntity) || HasComp<ForceAnchorComponent>(args.OtherEntity) || areGridsDocked) // Check if either grid has ForceAnchor protection // Scav: we dont have GridGodModeComponent
             return;
 
         // Convert the collision point directly to tile indices
