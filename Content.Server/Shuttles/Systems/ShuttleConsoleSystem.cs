@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Shuttles.Components;
@@ -24,7 +25,11 @@ using Robust.Shared.Utility;
 using Content.Shared.UserInterface;
 using Robust.Shared.Prototypes;
 using Content.Shared.Access.Systems; // Frontier
-using Content.Shared.Construction.Components; // Frontier
+using Content.Shared.Construction.Components;
+using Microsoft.CodeAnalysis;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map.Components; // Frontier
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -42,13 +47,19 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedContentEyeSystem _eyeSystem = default!;
     [Dependency] private readonly AccessReaderSystem _access = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+
+    [Dependency] private readonly IMapManager _mapManager = default!;
 
     private EntityQuery<MetaDataComponent> _metaQuery;
     private EntityQuery<TransformComponent> _xformQuery;
+    private EntityQuery<MapGridComponent> _gridQuery;
 
     private readonly HashSet<Entity<ShuttleConsoleComponent>> _consoles = new();
 
     private static readonly ProtoId<TagPrototype> CanPilotTag = "CanPilot";
+
+    private SoundSpecifier WarningSound = new SoundPathSpecifier("/Audio/Effects/Shuttle/radar_ping.ogg");
 
     public override void Initialize()
     {
@@ -56,6 +67,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 
         _metaQuery = GetEntityQuery<MetaDataComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
+        _gridQuery = GetEntityQuery<MapGridComponent>();
 
         SubscribeLocalEvent<ShuttleConsoleComponent, ComponentShutdown>(OnConsoleShutdown);
         SubscribeLocalEvent<ShuttleConsoleComponent, PowerChangedEvent>(OnConsolePowerChange);
@@ -67,6 +79,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
             subs.Event<ShuttleConsoleFTLPositionMessage>(OnPositionFTLMessage);
             subs.Event<BoundUIClosedEvent>(OnConsoleUIClose);
         });
+        SubscribeLocalEvent<ShuttleConsoleComponent, ShuttleRequestCollisionAvoidanceEvent>(OnCollisionAvoidanceRequest);
 
         SubscribeLocalEvent<DroneConsoleComponent, ConsoleShuttleEvent>(OnCargoGetConsole);
         SubscribeLocalEvent<DroneConsoleComponent, AfterActivatableUIOpenEvent>(OnDronePilotConsoleOpen);
@@ -324,6 +337,50 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         foreach (var (uid, comp) in toRemove)
         {
             RemovePilot(uid, comp);
+        }
+
+        // Scav: request to check for imminent collisions
+        var consoleQuery = EntityQueryEnumerator<ShuttleConsoleComponent>();
+
+        while (consoleQuery.MoveNext(out var uid, out var comp))
+        {
+            if (comp.DampeningMode == InertiaDampeningMode.Off)
+            {
+                var ev = new ShuttleRequestCollisionAvoidanceEvent();
+                RaiseLocalEvent(uid, ref ev);
+            }
+
+        }
+        // End Scav
+    }
+
+    private void OnCollisionAvoidanceRequest(EntityUid consoleUid, ShuttleConsoleComponent console, ref ShuttleRequestCollisionAvoidanceEvent args)
+    {
+        if (!_xformQuery.TryGetComponent(consoleUid, out var consoleXform)
+            || !(consoleXform.ParentUid == consoleXform.GridUid)
+            || !_xformQuery.TryGetComponent(consoleXform.GridUid, out var xform)
+            || xform.MapID == MapId.Nullspace
+            || !_gridQuery.TryGetComponent(consoleXform.GridUid, out var gridComponent))
+        {
+            return;
+        }
+
+        /*
+        var checkBoxWorld = new Box2(
+            _mapSystem.LocalToWorld(consoleXform.GridUid.Value, gridComponent, gridComponent.LocalAABB.TopLeft),
+            _mapSystem.LocalToWorld(consoleXform.GridUid.Value, gridComponent,gridComponent.LocalAABB.TopRight + new Vector2(0, 256)));
+        */
+
+        var checkBoxWorld = xform.WorldMatrix.TransformBox(new Box2(gridComponent.LocalAABB.TopLeft.X, 0, gridComponent.LocalAABB.TopRight.X, 256));
+
+
+        var otherGrids = new List<Entity<MapGridComponent>>();
+        _mapManager.FindGridsIntersecting(xform.MapID, checkBoxWorld, ref otherGrids, approx: true, includeMap: false); //need to adjust the hitbox on this, also see if theres a "nearest query" option?
+
+
+        if (otherGrids.Count > 0)
+        {
+            _audio.PlayPvs(_audio.ResolveSound(WarningSound), consoleUid);
         }
     }
 
