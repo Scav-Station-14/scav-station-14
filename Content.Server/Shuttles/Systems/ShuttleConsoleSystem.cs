@@ -4,7 +4,8 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Systems;
-using Content.Shared._NF.Shuttles.Events; // Frontier
+using Content.Shared._NF.Shuttles.Events;
+using Content.Shared._Scav.Persistence; // Frontier
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.Popups;
@@ -29,7 +30,9 @@ using Content.Shared.Construction.Components;
 using Microsoft.CodeAnalysis;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map.Components; // Frontier
+using Robust.Shared.Map.Components;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Timing; // Frontier
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -50,10 +53,12 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     private EntityQuery<MetaDataComponent> _metaQuery;
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<MapGridComponent> _gridQuery;
+    private EntityQuery<PhysicsComponent> _physicsQuery;
 
     private readonly HashSet<Entity<ShuttleConsoleComponent>> _consoles = new();
 
@@ -68,6 +73,12 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         _metaQuery = GetEntityQuery<MetaDataComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
         _gridQuery = GetEntityQuery<MapGridComponent>();
+        _physicsQuery = GetEntityQuery<PhysicsComponent>();
+
+        SubscribeLocalEvent<ShuttleConsoleComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ShuttleConsoleComponent, EntityUnpausedEvent>(OnUnpaused);
+        SubscribeLocalEvent<ShuttleConsoleComponent, GridReInitEvent>(OnGridReInit);
+
 
         SubscribeLocalEvent<ShuttleConsoleComponent, ComponentShutdown>(OnConsoleShutdown);
         SubscribeLocalEvent<ShuttleConsoleComponent, PowerChangedEvent>(OnConsolePowerChange);
@@ -79,7 +90,6 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
             subs.Event<ShuttleConsoleFTLPositionMessage>(OnPositionFTLMessage);
             subs.Event<BoundUIClosedEvent>(OnConsoleUIClose);
         });
-        SubscribeLocalEvent<ShuttleConsoleComponent, ShuttleRequestCollisionAvoidanceEvent>(OnCollisionAvoidanceRequest);
 
         SubscribeLocalEvent<DroneConsoleComponent, ConsoleShuttleEvent>(OnCargoGetConsole);
         SubscribeLocalEvent<DroneConsoleComponent, AfterActivatableUIOpenEvent>(OnDronePilotConsoleOpen);
@@ -346,43 +356,60 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         {
             if (comp.DampeningMode == InertiaDampeningMode.Off)
             {
-                var ev = new ShuttleRequestCollisionAvoidanceEvent();
-                RaiseLocalEvent(uid, ref ev);
+                OnCollisionAvoidanceRequest(uid, comp);
             }
 
         }
         // End Scav
     }
 
-    private void OnCollisionAvoidanceRequest(EntityUid consoleUid, ShuttleConsoleComponent console, ref ShuttleRequestCollisionAvoidanceEvent args)
+    // Scav: Collision Avoidance Pings
+    private void OnCollisionAvoidanceRequest(EntityUid consoleUid, ShuttleConsoleComponent console)
     {
+        if (_gameTiming.CurTime < console.NextPing)
+            return;
+
+        console.NextPing = _gameTiming.CurTime + console.PingInterval; //may want to move this to the end and scale interval based on last proximity of an object
+
         if (!_xformQuery.TryGetComponent(consoleUid, out var consoleXform)
             || !(consoleXform.ParentUid == consoleXform.GridUid)
             || !_xformQuery.TryGetComponent(consoleXform.GridUid, out var xform)
             || xform.MapID == MapId.Nullspace
-            || !_gridQuery.TryGetComponent(consoleXform.GridUid, out var gridComponent))
+            || !_gridQuery.TryGetComponent(consoleXform.GridUid, out var gridComponent)
+            || !_physicsQuery.TryGetComponent(consoleXform.GridUid, out var gridBody)
+            || gridBody.LinearVelocity.Length() < 5)
         {
             return;
         }
 
-        /*
-        var checkBoxWorld = new Box2(
-            _mapSystem.LocalToWorld(consoleXform.GridUid.Value, gridComponent, gridComponent.LocalAABB.TopLeft),
-            _mapSystem.LocalToWorld(consoleXform.GridUid.Value, gridComponent,gridComponent.LocalAABB.TopRight + new Vector2(0, 256)));
-        */
-
-        var checkBoxWorld = xform.WorldMatrix.TransformBox(new Box2(gridComponent.LocalAABB.TopLeft.X, 0, gridComponent.LocalAABB.TopRight.X, 256));
-
+        var checkBoxWorld = xform.WorldMatrix.TransformBox(new Box2(gridComponent.LocalAABB.TopLeft.X, 0, gridComponent.LocalAABB.TopRight.X, gridBody.LinearVelocity.Length() * console.AvoidanceRangeModifier));
 
         var otherGrids = new List<Entity<MapGridComponent>>();
         _mapManager.FindGridsIntersecting(xform.MapID, checkBoxWorld, ref otherGrids, approx: true, includeMap: false); //need to adjust the hitbox on this, also see if theres a "nearest query" option?
 
+        otherGrids.RemoveAll(x => x.Owner == consoleXform.GridUid.Value);
 
         if (otherGrids.Count > 0)
         {
             _audio.PlayPvs(_audio.ResolveSound(WarningSound), consoleUid);
         }
     }
+
+    private void OnMapInit(Entity<ShuttleConsoleComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.NextPing = _gameTiming.CurTime + ent.Comp.PingInterval;
+    }
+
+    private void OnUnpaused(Entity<ShuttleConsoleComponent> ent, ref EntityUnpausedEvent args)
+    {
+        ent.Comp.NextPing += args.PausedTime;
+    }
+
+    private void OnGridReInit(Entity<ShuttleConsoleComponent> ent, ref GridReInitEvent args)
+    {
+        ent.Comp.NextPing = _gameTiming.CurTime + ent.Comp.PingInterval;
+    }
+    // End Scav
 
     protected override void HandlePilotShutdown(EntityUid uid, PilotComponent component, ComponentShutdown args)
     {

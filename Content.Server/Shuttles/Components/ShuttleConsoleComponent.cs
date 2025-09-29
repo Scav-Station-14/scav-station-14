@@ -42,5 +42,19 @@ namespace Content.Server.Shuttles.Components
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public InertiaDampeningMode DampeningMode = InertiaDampeningMode.Dampen;
         // End Frontier
+
+        // Scav: Collision-avoidance alarm timers
+        [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+        public TimeSpan NextPing;
+
+        [DataField]
+        public TimeSpan PingInterval = TimeSpan.FromSeconds(1);
+
+        /// <summary>
+        ///     The modifier applied to the range of the avoidance check, based on ship's current speed
+        /// </summary>
+        [DataField]
+        public float AvoidanceRangeModifier = 6f;
+        // End Scav
     }
 }
