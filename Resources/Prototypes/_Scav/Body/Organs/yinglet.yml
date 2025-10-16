@@ -1,6 +1,6 @@
 - type: entity
   id: OrganYingletStomach
-  parent: [OrganAnimalStomach, OrganHumanStomach]
+  parent: OrganHumanStomach
   name: yinglet stomach
   components:
   - type: Stomach
@@ -12,6 +12,7 @@
       - Pill
       - Crayon
       - Paper
+      - Vegetable
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -23,7 +24,7 @@
           Quantity: 3
   - type: Metabolizer
     maxReagents: 3
-    metabolizerTypes: [ Yinglet ]
+    metabolizerTypes: [Yinglet]
     removeEmpty: true
     groups:
       - id: Food
@@ -31,11 +32,11 @@
 
 - type: entity
   id: OrganYingletLiver
-  parent: OrganAnimalLiver
+  parent: OrganHumanLiver
   name: yinglet liver
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Yinglet ]
+    metabolizerTypes: [Yinglet]
 
 - type: entity
   id: OrganYingletTongue
@@ -45,3 +46,26 @@
 #  components:   #eventually, this will have a custom sprite (probably same for brain?)
 #  - type: Sprite
 #    state: tongue
+
+- type: entity
+  id: OrganYingletKidneys
+  parent: OrganHumanKidneys
+  name: yinglet kidneys
+  description: "Filters toxins from the bloodstream."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [Yinglet]
+
+
+- type: entity
+  id: OrganYingletHeart
+  parent: OrganHumanHeart
+  name: yinglet heart
+  description: "Small and weird heart."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [Yinglet]
+
+

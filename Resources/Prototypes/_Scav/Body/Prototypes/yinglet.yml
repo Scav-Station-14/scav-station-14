@@ -13,11 +13,11 @@
     torso:
       part: TorsoYinglet
       organs:
-        heart: OrganAnimalHeart
+        heart: OrganYingletHeart
         lungs: OrganHumanLungs
         stomach: OrganYingletStomach
         liver: OrganYingletLiver
-        kidneys: OrganHumanKidneys
+        kidneys: OrganYingletKidneys
       connections:
       - right arm
       - left arm
