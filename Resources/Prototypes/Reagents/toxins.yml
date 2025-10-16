@@ -453,7 +453,7 @@
           type: Yinglet
       - !type:Jitter
         Amplitude: 1.0
-        Frequency: 100.0
+        Frequency: 10.0
         Time: 4.0
         Probability: 1.0
         conditions:
