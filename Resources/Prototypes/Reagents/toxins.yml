@@ -35,21 +35,10 @@
   metabolisms:
     Poison:
       effects:
-      - !type:HealthChange  #scav
-        conditions:
-        - !type:OrganType
-          type: Yinglet
-          shouldHave: false
+      - !type:HealthChange
         damage:
           types:
             Poison: 4
-      - !type:HealthChange    #scav
-        conditions:
-        - !type:OrganType
-          type: Yinglet
-        damage:
-          types:
-            Poison: 2
       - !type:PopupMessage
         type: Local
         visualType: MediumCaution
