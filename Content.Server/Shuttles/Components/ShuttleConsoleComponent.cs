@@ -55,6 +55,9 @@ namespace Content.Server.Shuttles.Components
         /// </summary>
         [DataField]
         public float AvoidanceRangeModifier = 6f;
+
+        [DataField]
+        public bool AlertMuted = false;
         // End Scav
     }
 }

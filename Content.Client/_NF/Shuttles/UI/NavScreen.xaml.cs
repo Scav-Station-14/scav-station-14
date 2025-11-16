@@ -2,6 +2,7 @@
 // Copyright (c) 2024 New Frontiers Contributors
 // See AGPLv3.txt for details.
 using Content.Shared._NF.Shuttles.Events;
+using Content.Shared.Fax;
 using Content.Shared.Shuttles.Components;
 using Robust.Client.UserInterface.Controls;
 
@@ -12,6 +13,7 @@ namespace Content.Client.Shuttles.UI
         private readonly ButtonGroup _buttonGroup = new();
         public event Action<NetEntity?, InertiaDampeningMode>? OnInertiaDampeningModeChanged;
         public event Action<NetEntity?, ServiceFlags>? OnServiceFlagsChanged;
+        public event Action<NetEntity?, bool>? OnMuteTCASButtonPressed;
 
         private void NfInitialize()
         {
@@ -30,6 +32,10 @@ namespace Content.Client.Shuttles.UI
             DampenerOn.Group = _buttonGroup;
             AnchorOn.Group = _buttonGroup;
 
+            // Scav - TCAS Mute button
+            TCASMute.OnToggled += _ => ToggleMuteTCAS(TCASMute.Pressed);
+            TCASMute.Pressed = false;
+
             // Send off a request to get the current dampening mode.
             _entManager.TryGetNetEntity(_shuttleEntity, out var shuttle);
             OnInertiaDampeningModeChanged?.Invoke(shuttle, InertiaDampeningMode.Query);
@@ -37,6 +43,12 @@ namespace Content.Client.Shuttles.UI
             ServiceFlagServices.OnPressed += _ => ToggleServiceFlags(ServiceFlags.Services);
             ServiceFlagTrade.OnPressed += _ => ToggleServiceFlags(ServiceFlags.Trade);
             ServiceFlagSocial.OnPressed += _ => ToggleServiceFlags(ServiceFlags.Social);
+        }
+
+        private void ToggleMuteTCAS(bool isPressed)
+        {
+            _entManager.TryGetNetEntity(_consoleEntity, out var console);
+            OnMuteTCASButtonPressed?.Invoke(console, isPressed);
         }
 
         private void SetDampenerMode(InertiaDampeningMode mode)

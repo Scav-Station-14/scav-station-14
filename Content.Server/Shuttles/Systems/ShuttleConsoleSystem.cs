@@ -5,7 +5,8 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Systems;
 using Content.Shared._NF.Shuttles.Events;
-using Content.Shared._Scav.Persistence; // Frontier
+using Content.Shared._Scav.Persistence;
+using Content.Shared._Scav.Shuttles.Events; // Frontier
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.Popups;
@@ -90,6 +91,8 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
             subs.Event<ShuttleConsoleFTLPositionMessage>(OnPositionFTLMessage);
             subs.Event<BoundUIClosedEvent>(OnConsoleUIClose);
         });
+
+        SubscribeLocalEvent<ShuttleConsoleComponent, MuteTCASRequest>(OnMuteTCAS);
 
         SubscribeLocalEvent<DroneConsoleComponent, ConsoleShuttleEvent>(OnCargoGetConsole);
         SubscribeLocalEvent<DroneConsoleComponent, AfterActivatableUIOpenEvent>(OnDronePilotConsoleOpen);
@@ -366,6 +369,9 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     // Scav: Collision Avoidance Pings
     private void OnCollisionAvoidanceRequest(EntityUid consoleUid, ShuttleConsoleComponent console)
     {
+        if (console.AlertMuted)
+            return;
+
         if (_gameTiming.CurTime < console.NextPing)
             return;
 
@@ -408,6 +414,11 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     private void OnGridReInit(Entity<ShuttleConsoleComponent> ent, ref GridReInitEvent args)
     {
         ent.Comp.NextPing = _gameTiming.CurTime + ent.Comp.PingInterval;
+    }
+
+    private void OnMuteTCAS(EntityUid ent, ShuttleConsoleComponent comp, MuteTCASRequest args)
+    {
+        comp.AlertMuted = args.Muted;
     }
     // End Scav
 

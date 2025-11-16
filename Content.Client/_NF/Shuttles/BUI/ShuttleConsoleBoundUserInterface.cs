@@ -3,6 +3,7 @@
 // See AGPLv3.txt for details.
 using Content.Client.Shuttles.UI;
 using Content.Shared._NF.Shuttles.Events;
+using Content.Shared._Scav.Shuttles.Events;
 using Content.Shared.Shuttles.Components;
 
 namespace Content.Client.Shuttles.BUI
@@ -14,6 +15,7 @@ namespace Content.Client.Shuttles.BUI
             _window ??= new ShuttleConsoleWindow();
             _window.OnInertiaDampeningModeChanged += OnInertiaDampeningModeChanged;
             _window.OnServiceFlagsChanged += OnServiceFlagsChanged;
+            _window.OnMuteTCASButtonPressed += OnMuteTCASButtonPressed;
         }
         private void OnInertiaDampeningModeChanged(NetEntity? entityUid, InertiaDampeningMode mode)
         {
@@ -30,6 +32,15 @@ namespace Content.Client.Shuttles.BUI
             {
                 ShuttleEntityUid = entityUid,
                 ServiceFlags = flags,
+            });
+        }
+
+        private void OnMuteTCASButtonPressed(NetEntity? entityUid, bool muted)
+        {
+            SendMessage(new MuteTCASRequest
+            {
+                ConsoleEntityUid = entityUid,
+                Muted = muted,
             });
         }
 
