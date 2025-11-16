@@ -10,6 +10,7 @@ namespace Content.Client.Shuttles.UI
     {
         public event Action<NetEntity?, InertiaDampeningMode>? OnInertiaDampeningModeChanged;
         public event Action<NetEntity?, ServiceFlags>? OnServiceFlagsChanged;
+        public event Action<NetEntity?, bool>? OnMuteTCASButtonPressed;
 
         private void NfInitialize()
         {
@@ -20,6 +21,10 @@ namespace Content.Client.Shuttles.UI
             NavContainer.OnServiceFlagsChanged += (entity, flags) =>
             {
                 OnServiceFlagsChanged?.Invoke(entity, flags);
+            };
+            NavContainer.OnMuteTCASButtonPressed += (entity, muted) =>
+            {
+                OnMuteTCASButtonPressed?.Invoke(entity, muted);
             };
         }
 

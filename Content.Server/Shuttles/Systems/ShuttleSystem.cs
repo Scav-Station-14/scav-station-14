@@ -1,6 +1,7 @@
 using Content.Server._NF.Shuttles.Components; // Frontier
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
+using Content.Server.Buckle.Systems;
 using Content.Server.Doors.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Parallax;
@@ -9,7 +10,10 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Systems;
 using Content.Server.Stunnable;
+using Content.Shared.Buckle.Components;
+using Content.Shared.Damage;
 using Content.Shared.GameTicking;
+using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Salvage;
@@ -47,10 +51,13 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
     [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
     [Dependency] private readonly BiomeSystem _biomes = default!;
     [Dependency] private readonly BodySystem _bobby = default!;
+    [Dependency] private readonly BuckleSystem _buckle = default!; // Mono
+    [Dependency] private readonly DamageableSystem _damageSys = default!; // Mono
     [Dependency] private readonly DockingSystem _dockSystem = default!;
     [Dependency] private readonly DungeonSystem _dungeon = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly FixtureSystem _fixtures = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!; // Mono
     [Dependency] private readonly MapLoaderSystem _loader = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly PvsOverrideSystem _pvs = default!;
@@ -66,7 +73,12 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly GameTicker _ticker = default!; //frontier edit to get the main map in FTL
 
+    private EntityQuery<BuckleComponent> _buckleQuery; // Mono: moved here from ShuttleSystem.FasterThanLight
     private EntityQuery<MapGridComponent> _gridQuery;
+    private EntityQuery<PhysicsComponent> _physicsQuery; // Mono
+    private EntityQuery<TransformComponent> _xformQuery; // Mono
+
+
 
     public const float TileMassMultiplier = 0.5f;
 
@@ -74,7 +86,10 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
     {
         base.Initialize();
 
+        _buckleQuery = GetEntityQuery<BuckleComponent>(); // Mono: moved here from ShuttleSystem.FasterThanLight
         _gridQuery = GetEntityQuery<MapGridComponent>();
+        _physicsQuery = GetEntityQuery<PhysicsComponent>(); // Mono
+        _xformQuery = GetEntityQuery<TransformComponent>(); // Mono
 
         InitializeFTL();
         InitializeGridFills();

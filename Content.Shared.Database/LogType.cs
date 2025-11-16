@@ -508,6 +508,13 @@ public enum LogType
     #endregion Frontier Values
     // Frontier End
 
+    // Mono
+    /// <summary>
+    /// Damaging grid collision has occurred.
+    /// </summary>
+    ShuttleImpact = 102,
+    // End Mono
+
     // DeltaV Station Specific
     #region DeltaV Values
     /// <summary>
