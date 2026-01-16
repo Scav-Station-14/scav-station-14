@@ -3,13 +3,29 @@
                Title="{Loc 'general-station-record-console-window-title'}"
                MinSize="800 500"> <!-- Frontier: width 750<800, add graphics namespace -->
     <BoxContainer Orientation="Vertical">
-        <BoxContainer Margin="5 5 5 10" HorizontalExpand="True">
+        <BoxContainer Margin="5 5 5 10" HorizontalExpand="True" Visible="False"> <!-- Scav hide filters to prevent interaction due to causing issues with persistence-->
             <OptionButton Name="StationRecordsFilterType" MinWidth="200" Margin="0 0 10 0"/>
             <LineEdit Name="StationRecordsFiltersValue"
                 PlaceHolder="{Loc 'general-station-record-for-filter-line-placeholder'}" HorizontalExpand="True"/>
             <Button Name="StationRecordsFilters" Text="{Loc 'general-station-record-console-search-records'}"/>
             <Button Name="StationRecordsFiltersReset" Text="{Loc 'general-station-record-console-reset-filters'}"/>
         </BoxContainer>
+        <BoxContainer Margin="5 5 5 10" Visible="True"> <!-- Scav bulk jobs open and close buttons-->
+            <Label Name="mainlabel" Text="Open Ship hiring" ToolTip="hiring" Visible="True" />
+            <Button Name="OpenJobsButton"
+                    Access="Public"
+                    ToolTip="Open hiring"
+                    Text="Open"
+                    Visible="True"
+                    StyleClasses="OptionLeft" />
+            <Button Name="CloseJobsButton"
+                    Access="Public"
+                    ToolTip="Close hiring"
+                    Text="Close"
+                    Visible="True"
+                    StyleClasses="OptionRight" />
+            <Label Name="HiringStatusLabel" Text="" ToolTip="hiring" Visible="True" />
+        </BoxContainer><!-- Scav end -->
         <BoxContainer VerticalExpand="True">
             <!-- Record listing -->
             <BoxContainer Orientation="Vertical" Margin="5" MinWidth="328" MaxWidth="360">
@@ -21,7 +37,8 @@
                     <BoxContainer Name="JobListing"
                                   Orientation="Vertical"
                                   HorizontalExpand="True"
-                                  VerticalExpand="True">
+                                  VerticalExpand="True"
+                                  Visible="False"> <!-- Scav -->
                     </BoxContainer>
                 </ScrollContainer>
             </BoxContainer>

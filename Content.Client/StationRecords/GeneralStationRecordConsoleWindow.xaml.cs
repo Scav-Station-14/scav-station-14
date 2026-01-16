@@ -25,7 +25,8 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
     private string? _lastAdvertisement; // Frontier
     private bool _advertisementEdited; // Frontier
     public const int MaxAdvertisementLength = 500; // Frontier
-
+    public event Action? OpenJobsButtonPressed; //Scav
+    public event Action? CloseJobsButtonPressed; //Scav
     private bool _isPopulating;
 
     private StationRecordFilterType _currentFilterType;
@@ -35,6 +36,18 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this); // Frontier
 
+
+        //scav open all jobs buttons
+
+        OpenJobsButton.OnPressed += _ =>
+        {
+            OpenJobsButtonPressed?.Invoke();
+        };
+        CloseJobsButton.OnPressed += _ =>
+        {
+            CloseJobsButtonPressed?.Invoke();
+        };
+         //Scav end
         _currentFilterType = StationRecordFilterType.Name;
 
         foreach (var item in Enum.GetValues<StationRecordFilterType>())
@@ -123,13 +136,20 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
                 StationRecordsFiltersValue.Text = state.Filter.Value;
             }
         }
-
+        if (state.HiringStatus == true) // Scav jobs status
+        {
+            HiringStatusLabel.Text = Loc.GetString("general-station-record-console-hiring-open");
+        }
+        else
+        {
+            HiringStatusLabel.Text = Loc.GetString("general-station-record-console-hiring-closed");
+        }  // Scav end
         StationRecordsFilterType.SelectId((int)_currentFilterType);
 
         // Frontier: job list, ship advertisements
         if (state.JobList != null)
         {
-            JobListing.Visible = true;
+            //JobListing.Visible = true; // Scav,  removed job listing visibiily, original code kept for compatibility with future merges from upstream
             PopulateJobsContainer(state.JobList);
         }
 

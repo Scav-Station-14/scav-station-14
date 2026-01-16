@@ -26,6 +26,8 @@ public sealed class GeneralStationRecordConsoleBoundUserInterface : BoundUserInt
             SendMessage(new SetStationRecordFilter(type, filterValue));
         _window.OnJobAdd += OnJobsAdd; // Frontier: job modification buttons
         _window.OnJobSubtract += OnJobsSubtract; // Frontier: job modification buttons
+        _window.OpenJobsButtonPressed += OnJobsOpen; // Scav hiring changes
+        _window.CloseJobsButtonPressed += OnJobsClose; // Scav hiring changes
         _window.OnDeleted += id => SendMessage(new DeleteStationRecord(id));
         _window.OnAdvertisementChanged += OnAdvertisementChanged; // Frontier: job modification buttons
     }
@@ -53,4 +55,17 @@ public sealed class GeneralStationRecordConsoleBoundUserInterface : BoundUserInt
 
         _window?.UpdateState(cast);
     }
+
+    private void OnJobsOpen() // Scav
+    {
+    SendMessage(new SetStationJobMsg(-1));
+    }
+
+
+    private void OnJobsClose() // Scav
+    {
+    SendMessage(new SetStationJobMsg(0));
+    }
 }
+
+
