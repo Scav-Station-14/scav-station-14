@@ -149,6 +149,15 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
         // Frontier: job list, ship advertisements
         if (state.JobList != null)
         {
+            if (state.HiringStatus == null)
+            {
+                JobListing.Visible = true;
+                JobsButtons.Visible = false;
+                FiltersContainer.Visible = true;
+            }
+            else
+                JobListing.Visible = false;
+
             //JobListing.Visible = true; // Scav,  removed job listing visibiily, original code kept for compatibility with future merges from upstream
             PopulateJobsContainer(state.JobList);
         }

@@ -145,7 +145,11 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
         {
             jobList = _stationJobsSystem.GetJobs(owningStation.Value);
             if (TryComp<ExtraShuttleInformationComponent>(owningStation, out var extraVessel))
+            {
                 advertisement = extraVessel.Advertisement;
+                _ui.SetUiState(uid, GeneralStationRecordConsoleKey.Key, new GeneralStationRecordConsoleState(null, null, null, jobList, console.Filter, ent.Comp.CanDeleteEntries, advertisement, null)); // Frontier: add as many args as we can, scav too
+
+            }
         }
 
         if (!TryComp<StationRecordsComponent>(owningStation, out var stationRecords))

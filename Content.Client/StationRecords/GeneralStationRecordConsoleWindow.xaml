@@ -3,14 +3,14 @@
                Title="{Loc 'general-station-record-console-window-title'}"
                MinSize="800 500"> <!-- Frontier: width 750<800, add graphics namespace -->
     <BoxContainer Orientation="Vertical">
-        <BoxContainer Margin="5 5 5 10" HorizontalExpand="True" Visible="False"> <!-- Scav hide filters to prevent interaction due to causing issues with persistence-->
+        <BoxContainer Name="FiltersContainer" Margin="5 5 5 10" HorizontalExpand="True" Visible="False"> <!-- Scav hide filters to prevent interaction due to causing issues with persistence-->
             <OptionButton Name="StationRecordsFilterType" MinWidth="200" Margin="0 0 10 0"/>
             <LineEdit Name="StationRecordsFiltersValue"
                 PlaceHolder="{Loc 'general-station-record-for-filter-line-placeholder'}" HorizontalExpand="True"/>
             <Button Name="StationRecordsFilters" Text="{Loc 'general-station-record-console-search-records'}"/>
             <Button Name="StationRecordsFiltersReset" Text="{Loc 'general-station-record-console-reset-filters'}"/>
         </BoxContainer>
-        <BoxContainer Margin="5 5 5 10" Visible="True"> <!-- Scav bulk jobs open and close buttons-->
+        <BoxContainer Name="JobsButtons" Margin="5 5 5 10" Visible="True"> <!-- Scav bulk jobs open and close buttons-->
             <Label Name="mainlabel" Text="Open Ship hiring" ToolTip="hiring" Visible="True" />
             <Button Name="OpenJobsButton"
                     Access="Public"
