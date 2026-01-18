@@ -25,9 +25,9 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
     private string? _lastAdvertisement; // Frontier
     private bool _advertisementEdited; // Frontier
     public const int MaxAdvertisementLength = 500; // Frontier
-    public event Action? OpenJobsButtonPressed; //Scav
-    public event Action? CloseJobsButtonPressed; //Scav
+    public event Action<bool>? OpenJobsButtonPressed; //Scav
     private bool _isPopulating;
+    public bool AllJobsAvalible;
 
     private StationRecordFilterType _currentFilterType;
 
@@ -41,11 +41,7 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
 
         OpenJobsButton.OnPressed += _ =>
         {
-            OpenJobsButtonPressed?.Invoke();
-        };
-        CloseJobsButton.OnPressed += _ =>
-        {
-            CloseJobsButtonPressed?.Invoke();
+            OpenJobsButtonPressed?.Invoke(AllJobsAvalible);
         };
          //Scav end
         _currentFilterType = StationRecordFilterType.Name;
@@ -124,6 +120,7 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
 
     public void UpdateState(GeneralStationRecordConsoleState state)
     {
+        AllJobsAvalible=state.AllJobsAvalible;
         if (state.Filter != null)
         {
             if (state.Filter.Type != _currentFilterType)
@@ -136,27 +133,33 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
                 StationRecordsFiltersValue.Text = state.Filter.Value;
             }
         }
-        if (state.HiringStatus == true) // Scav jobs status
+        if (state.AllJobsAvalible == true) // Scav jobs status
         {
-            HiringStatusLabel.Text = Loc.GetString("general-station-record-console-hiring-open");
+            AllJobsAvalibleLabel.Text = Loc.GetString("general-station-record-console-hiring-open");
+            OpenJobsButton.Pressed = true;
         }
         else
         {
-            HiringStatusLabel.Text = Loc.GetString("general-station-record-console-hiring-closed");
+            AllJobsAvalibleLabel.Text = Loc.GetString("general-station-record-console-hiring-closed");
+            OpenJobsButton.Pressed = false;
         }  // Scav end
         StationRecordsFilterType.SelectId((int)_currentFilterType);
 
         // Frontier: job list, ship advertisements
         if (state.JobList != null)
         {
-            if (state.HiringStatus == null)
+            if (state.UseAllJobsToggle == true)
+            {
+                JobListing.Visible = false;
+                JobsButtons.Visible = true;
+                FiltersContainer.Visible = false;
+            }
+            else
             {
                 JobListing.Visible = true;
                 JobsButtons.Visible = false;
                 FiltersContainer.Visible = true;
             }
-            else
-                JobListing.Visible = false;
 
             //JobListing.Visible = true; // Scav,  removed job listing visibiily, original code kept for compatibility with future merges from upstream
             PopulateJobsContainer(state.JobList);
@@ -280,4 +283,5 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
         return advertisementText;
     }
     // End Frontier: job container
+
 }

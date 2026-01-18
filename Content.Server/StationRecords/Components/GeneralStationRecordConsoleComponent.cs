@@ -29,5 +29,11 @@ public sealed partial class GeneralStationRecordConsoleComponent : Component
     /// Whether the station is currently hiring or not.
     /// </summary>
     [DataField]
-    public bool? HiringStatus; //scav
+    public bool AllJobsAvalible; //scav'
+
+    /// <summary>
+    /// Whether the console is ship or station one.
+    /// </summary>
+    [DataField]
+    public bool UseAllJobsToggle; //scav
 }

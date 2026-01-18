@@ -29,11 +29,11 @@ public sealed class SetStationAdvertisementMsg : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public sealed class SetStationJobMsg : BoundUserInterfaceMessage //scav message for setting jobs
 {
-    public int Amount { get; }
+    public bool State { get; }
 
-    public SetStationJobMsg( int amount)
+    public SetStationJobMsg( bool state)
     {
 
-        Amount = amount;
+        State = state;
     }
 }
