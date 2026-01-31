@@ -1,0 +1,182 @@
+#T1
+- type: loadout
+  id: ClothingHandsGlovesColorYellow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 1500
+  equipment:
+    gloves: ClothingHandsGlovesColorYellow
+
+- type: loadout
+  id: ClothingHandsGlovesLeather
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 300
+  equipment:
+    gloves: ClothingHandsGlovesLeather
+
+- type: loadout
+  id: ClothingHandsGlovesFingerless
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 300
+  equipment:
+    gloves: ClothingHandsGlovesFingerless
+
+- type: loadout
+  id: ClothingHandsGlovesLatex
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 300
+  equipment:
+    gloves: ClothingHandsGlovesLatex
+
+- type: loadout
+  id: ClothingHandsGlovesNitrile
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 300
+  equipment:
+    gloves: ClothingHandsGlovesNitrile
+
+- type: loadout
+  id: ClothingHandsGlovesRobohands
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 300
+  equipment:
+    gloves: ClothingHandsGlovesRobohands
+
+- type: loadout
+  id: ClothingHandsGlovesColorBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 300
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: ClothingHandsGlovesColorBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 300
+  equipment:
+    gloves: ClothingHandsGlovesColorBlue
+
+- type: loadout
+  id: ClothingHandsGlovesColorGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 300
+  equipment:
+    gloves: ClothingHandsGlovesColorGreen
+
+- type: loadout
+  id: ClothingHandsGlovesColorGray
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 300
+  equipment:
+    gloves: ClothingHandsGlovesColorGray
+
+- type: loadout
+  id: ClothingHandsGlovesColorBrown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 300
+  equipment:
+    gloves: ClothingHandsGlovesColorBrown
+
+- type: loadout
+  id: ClothingHandsGlovesColorLightBrown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 300
+  equipment:
+    gloves: ClothingHandsGlovesColorLightBrown
+
+- type: loadout
+  id: ClothingHandsGlovesColorOrange
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 300
+  equipment:
+    gloves: ClothingHandsGlovesColorOrange
+
+- type: loadout
+  id: ClothingHandsGlovesColorPurple
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 300
+  equipment:
+    gloves: ClothingHandsGlovesColorPurple
+
+- type: loadout
+  id: ClothingHandsGlovesColorRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 300
+  equipment:
+    gloves: ClothingHandsGlovesColorRed
+
+#T2
+- type: loadout
+  id: ClothingHandsGlovesBoxingGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 600
+  equipment:
+    gloves: ClothingHandsGlovesBoxingGreen
+
+- type: loadout
+  id: ClothingHandsGlovesBoxingBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 600
+  equipment:
+    gloves: ClothingHandsGlovesBoxingBlue
+
+- type: loadout
+  id: ClothingHandsGlovesBoxingRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 600
+  equipment:
+    gloves: ClothingHandsGlovesBoxingRed
+
+- type: loadout
+  id: ClothingHandsGlovesBoxingYellow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 600
+  equipment:
+    gloves: ClothingHandsGlovesBoxingYellow
+
+#T3 for lols
+- type: loadout
+  id: ClothingHandsGlovesColorWhite
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  price: 2000
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite

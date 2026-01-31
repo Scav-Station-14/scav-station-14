@@ -1,0 +1,361 @@
+#T1
+- type: loadout
+  id: ClothingNeckScarfStripedBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckScarfStripedBlack
+
+- type: loadout
+  id: ClothingNeckScarfStripedBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckScarfStripedBlue
+
+- type: loadout
+  id: ClothingNeckScarfStripedBrown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckScarfStripedBrown
+
+- type: loadout
+  id: ClothingNeckScarfStripedGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckScarfStripedGreen
+
+- type: loadout
+  id: ClothingNeckTieBH
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckTieBH
+
+- type: loadout
+  id: ClothingNeckTieRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckTieRed
+
+- type: loadout
+  id: ClothingNeckTieSci
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckTieSci
+
+- type: loadout
+  id: ClothingNeckLawyerbadge
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckLawyerbadge
+
+- type: loadout
+  id: ClothingMultipleHeadphones
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingMultipleHeadphones
+
+- type: loadout
+  id: ClothingNeckCrucifix
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckCrucifix
+
+- type: loadout
+  id: ClothingNeckBellCollar
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckBellCollar
+
+- type: loadout
+  id: CDDogtags
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: CDDogtags
+
+- type: loadout
+  id: ClothingNeckStethoscope
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckStethoscope
+
+- type: loadout
+  id: ClothingOuterPoncho
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingOuterPoncho
+
+- type: loadout
+  id: ClothingOuterPonchoClassic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingOuterPonchoClassic
+
+#T2
+- type: loadout
+  id: ClothingNeckCloakMoth
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckCloakMoth
+
+- type: loadout
+  id: ClothingNeckScarfChaplainStole
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckScarfChaplainStole
+
+- type: loadout
+  id: ClothingNeckStoleChaplain
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckStoleChaplain
+
+- type: loadout
+  id: ClothingNeckCloakTrans
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckCloakTrans
+  groupBy: "flagCloaks"
+
+- type: loadout
+  id: ClothingNeckCloakAro
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckCloakAro
+  groupBy: "flagCloaks"
+
+- type: loadout
+  id: ClothingNeckCloakAce
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckCloakAce
+  groupBy: "flagCloaks"
+
+- type: loadout
+  id: ClothingNeckCloakAroace
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckCloakAroace
+  groupBy: "flagCloaks"
+
+- type: loadout
+  id: ClothingNeckCloakBi
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckCloakBi
+  groupBy: "flagCloaks"
+
+- type: loadout
+  id: ClothingNeckCloakIntersex
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckCloakIntersex
+  groupBy: "flagCloaks"
+
+- type: loadout
+  id: ClothingNeckCloakEnby
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckCloakEnby
+  groupBy: "flagCloaks"
+
+- type: loadout
+  id: ClothingNeckCloakPan
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckCloakPan
+  groupBy: "flagCloaks"
+
+- type: loadout
+  id: ClothingNeckCloakGay
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckCloakGay
+  groupBy: "flagCloaks"
+
+- type: loadout
+  id: ClothingNeckCloakLesbian
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckCloakLesbian
+  groupBy: "flagCloaks"
+
+- type: loadout
+  id: BedsheetRainbow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: BedsheetRainbow
+
+- type: loadout
+  id: ClothingNeckIFFNeutral
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckIFFNeutral
+  groupBy: "IFFstrobe"
+
+- type: loadout
+  id: ClothingNeckIFFGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckIFFGreen
+  groupBy: "IFFstrobe"
+
+- type: loadout
+  id: ClothingNeckIFFRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckIFFRed
+  groupBy: "IFFstrobe"
+
+- type: loadout
+  id: ClothingNeckIFFBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckIFFBlue
+  groupBy: "IFFstrobe"
+
+- type: loadout
+  id: ClothingNeckIFFCyan
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckIFFCyan
+  groupBy: "IFFstrobe"
+
+- type: loadout
+  id: ClothingNeckIFFOrange
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckIFFOrange
+  groupBy: "IFFstrobe"
+
+- type: loadout
+  id: ClothingNeckIFFPurple
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  equipment:
+    neck: ClothingNeckIFFPurple
+  groupBy: "IFFstrobe"
+
+#T3 for lols
+- type: loadout
+  id: ClothingNeckCloakVoid
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  price: 2500
+  equipment:
+    neck: ClothingNeckCloakVoid
+
+- type: loadout
+  id: ClothingNeckBling
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  price: 7500
+  equipment:
+    neck: ClothingNeckBling

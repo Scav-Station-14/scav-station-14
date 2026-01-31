@@ -1,0 +1,35 @@
+#T0
+- type: loadout
+  id: EncryptionKeyTraffic
+  encryptionKeys:
+  - EncryptionKeyTraffic
+
+- type: loadout
+  id: EncryptionKeyMedical
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFNotDoc
+  price: 20
+  encryptionKeys:
+  - EncryptionKeyMedical
+
+- type: loadout
+  id: EncryptionKeyCargo
+  price: 20
+  encryptionKeys:
+  - EncryptionKeyCargo
+
+- type: loadout
+  id: EncryptionKeyEngineering
+  price: 20
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFNotEngineering
+  encryptionKeys:
+  - EncryptionKeyEngineering
+
+- type: loadout
+  id: EncryptionKeyScience
+  price: 20
+  encryptionKeys:
+  - EncryptionKeyScience

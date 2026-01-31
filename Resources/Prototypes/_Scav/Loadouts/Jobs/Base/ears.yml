@@ -1,0 +1,5 @@
+- type: loadout
+  id: ClothingHeadsetGreyCommon
+  price: 0
+  equipment:
+    ears: ClothingHeadsetGreyCommon

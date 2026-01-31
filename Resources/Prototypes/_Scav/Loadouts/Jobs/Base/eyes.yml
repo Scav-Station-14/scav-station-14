@@ -1,0 +1,111 @@
+#T0
+- type: loadout
+  id: ClothingEyesGlasses
+  price: 200
+  equipment:
+    eyes: ClothingEyesGlasses
+
+- type: loadout
+  id: ClothingEyesGlassesCheapSunglasses
+  price: 200
+  equipment:
+    eyes: ClothingEyesGlassesCheapSunglasses
+
+- type: loadout
+  id: ClothingEyesBlindfold
+  price: 200
+  equipment:
+    eyes: ClothingEyesBlindfold
+
+- type: loadout
+  id: ClothingEyesEyepatch
+  price: 200
+  equipment:
+    eyes: ClothingEyesEyepatch
+
+#T1
+- type: loadout
+  id: ClothingEyesGlassesJamjar
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    eyes: ClothingEyesGlassesJamjar
+
+- type: loadout
+  id: ClothingEyesGlassesChemical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 750
+  equipment:
+    eyes: ClothingEyesGlassesChemical
+
+- type: loadout
+  id: ClothingEyesHudDiagnostic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 750
+  equipment:
+    eyes: ClothingEyesHudDiagnostic
+
+- type: loadout
+  id: ClothingEyesGlassesMeson
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 750
+  equipment:
+    eyes: ClothingEyesGlassesMeson
+
+- type: loadout
+  id: ClothingEyesHudMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 750
+  equipment:
+    eyes: ClothingEyesHudMedical
+
+- type: loadout
+  id: ClothingEyesPunkGoggles
+  name: punk goggles (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 750
+  equipment:
+    eyes: ClothingEyesPunkGoggles
+
+- type: loadout
+  id: ClothingEyesPunkInfoShades
+  name: punk infoshades (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 750
+  equipment:
+    eyes: ClothingEyesPunkInfoShades
+
+
+#T2
+- type: loadout
+  id: ClothingEyesEyepatchHudDiag
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1250
+  equipment:
+    eyes: ClothingEyesEyepatchHudDiag
+
+- type: loadout
+  id: ClothingEyesEyepatchHudMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1250
+  equipment:
+    eyes: ClothingEyesEyepatchHudMedical
+
