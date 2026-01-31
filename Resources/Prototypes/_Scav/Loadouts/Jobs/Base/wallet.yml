@@ -1,0 +1,12 @@
+#T0
+- type: loadout
+  id: ClothingWalletLeatherBrown
+  price: 0
+  equipment:
+    wallet: ClothingWalletLeatherBrown
+
+- type: loadout
+  id: ClothingWalletLeatherBlack
+  price: 0
+  equipment:
+    wallet: ClothingWalletLeatherBlack

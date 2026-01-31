@@ -45,8 +45,8 @@
     - Flash
 
 - type: chameleonOutfit
-  id: ChiefMedicalOfficerChameleonOutfit
-  job: ChiefMedicalOfficer
+  id: ChiefTacticalOfficerChameleonOutfit
+  job: ChiefTacticalOfficer
   hasMindShield: true
   equipment:
     head: ClothingHeadHatBeretCommander

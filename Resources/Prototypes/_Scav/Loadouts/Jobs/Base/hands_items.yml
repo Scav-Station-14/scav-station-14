@@ -1,0 +1,243 @@
+#T1
+- type: loadout
+  id: BriefcaseBrownFilled
+  name: brown briefcase (empty)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  inhand:
+  - BriefcaseBrownFilled
+
+- type: loadout
+  id: ToolboxEmergency
+  name: emergency toolbox (empty)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  inhand:
+  - ToolboxEmergency
+
+- type: loadout
+  id: ToolboxMechanical
+  name: mechanical toolbox (empty)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  inhand:
+  - ToolboxMechanical
+
+#T2
+- type: loadout
+  id: Cane
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  inhand:
+  - Cane
+
+- type: loadout
+  id: LGBTQHandyFlag
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 1000
+  inhand:
+  - LGBTQHandyFlag
+
+- type: loadout
+  id: NTHandyFlag
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 5000
+  inhand:
+  - NTHandyFlag
+
+- type: loadout
+  id: BalloonNT
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 5000
+  inhand:
+  - BalloonNT
+
+#T3 Ballin'
+- type: loadout
+  id: FlashlightUmbrella
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  price: 10000
+  inhand:
+  - FlashlightUmbrella
+
+- type: loadout
+  id: DawInstrumentFlatpack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  price: 20000
+  inhand:
+  - DawInstrumentFlatpack
+
+- type: loadout
+  id: HoverbikeFlatpack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  price: 35000
+  inhand:
+  - HoverbikeFlatpack
+
+- type: loadout
+  id: EmotionalPetCarrier
+  name: emotional support pet
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  price: 10000
+  inhand:
+  - PetCarrierNPCEmotionalSupportSafe
+
+# Tools
+#T1
+- type: loadout
+  id: AppraisalTool
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 350
+  inhand:
+    - AppraisalTool
+
+- type: loadout
+  id: Pickaxe
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 350
+  inhand:
+    - Pickaxe
+
+- type: loadout
+  id: HandheldGPSBasic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 350
+  inhand:
+    - HandheldGPSBasic
+
+- type: loadout
+  id: RadioHandheld
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 550
+  inhand:
+    - RadioHandheldNF
+
+- type: loadout
+  id: NetworkConfigurator
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 350
+  inhand:
+    - NetworkConfigurator
+
+- type: loadout
+  id: HandheldHealthAnalyzerUnpowered
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 350
+  inhand:
+    - HandheldHealthAnalyzerUnpowered
+
+- type: loadout
+  id: AnomalyScanner
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 350
+  inhand:
+    - AnomalyScanner
+
+- type: loadout
+  id: Bucket
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 350
+  inhand:
+    - Bucket
+
+- type: loadout
+  id: GeigerCounter
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 350
+  inhand:
+    - GeigerCounter
+
+#T2
+- type: loadout
+  id: WeaponProtoKineticAccelerator
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 3000
+  inhand:
+    - NFWeaponPka
+
+- type: loadout
+  id: PinpointerUniversal
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 2000
+  inhand:
+    - PinpointerUniversal
+
+- type: loadout
+  id: ShipyardRCD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 5000
+  inhand:
+    - ShipyardRCD
+
+- type: loadout
+  id: ShipyardDoorRemote
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 2000
+  inhand:
+    - DoorRemoteShipyard
+
+- type: loadout
+  id: HandheldCrewMonitor
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 2000
+  inhand:
+    - HandheldCrewMonitor
+
+- type: loadout
+  id: HypoMini
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 5000
+  inhand:
+    - HypoMini
