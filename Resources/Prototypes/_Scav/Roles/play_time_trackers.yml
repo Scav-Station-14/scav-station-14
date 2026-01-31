@@ -1,2 +1,5 @@
 - type: playTimeTracker
   id: JobIvenmothRecruit
+
+- type: playTimeTracker
+  id: JobChiefTacticalOfficer

@@ -66,7 +66,8 @@
   - ChiefEngineer
   - ChiefMedicalOfficer
   - HeadOfPersonnel
-  - HeadOfSecurity # Frontier
+  # - HeadOfSecurity # Scav
+  - ChiefTacticalOfficer # Scav
   - ResearchDirector
   - Quartermaster
   # - CentralCommandOfficial # Frontier
@@ -90,8 +91,6 @@
   name: department-Engineering
   description: department-Engineering-description
   color: "#EFB341"
-  weight: -94
-  primary: false
   roles:
   - AtmosphericTechnician # Frontier
   - ChiefEngineer # Frontier
