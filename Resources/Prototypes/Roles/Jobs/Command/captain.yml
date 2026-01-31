@@ -3,7 +3,6 @@
   name: job-name-captain
   description: job-description-captain
   playTimeTracker: JobCaptain
-  setPreference: false # Frontier
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering

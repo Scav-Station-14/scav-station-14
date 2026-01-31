@@ -3,7 +3,6 @@
   name: job-name-rd
   description: job-description-rd
   playTimeTracker: JobResearchDirector
-  setPreference: false # Frontier
   requirements:
   - !type:RoleTimeRequirement
     role: JobScientist

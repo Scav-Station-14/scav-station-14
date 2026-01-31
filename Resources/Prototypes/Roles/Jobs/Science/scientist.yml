@@ -3,7 +3,6 @@
   name: job-name-scientist
   description: job-description-scientist
   playTimeTracker: JobScientist
-  setPreference: false # Frontier
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
