@@ -3,7 +3,6 @@
   name: job-name-qm
   description: job-description-qm
   playTimeTracker: JobQuartermaster
-  setPreference: false # Frontier
   requirements:
     - !type:RoleTimeRequirement
       role: JobCargoTechnician

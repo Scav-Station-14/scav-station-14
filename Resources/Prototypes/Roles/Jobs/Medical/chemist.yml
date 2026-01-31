@@ -3,7 +3,6 @@
   name: job-name-chemist
   description: job-description-chemist
   playTimeTracker: JobChemist
-  setPreference: false # Frontier
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical

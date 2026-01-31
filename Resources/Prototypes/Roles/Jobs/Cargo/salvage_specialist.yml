@@ -3,7 +3,6 @@
   name: job-name-salvagespec
   description: job-description-salvagespec
   playTimeTracker: JobSalvageSpecialist
-  setPreference: false # Frontier
   requirements:
     - !type:DepartmentTimeRequirement
       department: Cargo

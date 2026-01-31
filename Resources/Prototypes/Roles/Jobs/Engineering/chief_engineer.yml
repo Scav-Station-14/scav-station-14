@@ -3,7 +3,6 @@
   name: job-name-ce
   description: job-description-ce
   playTimeTracker: JobChiefEngineer
-  setPreference: false # Frontier
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician

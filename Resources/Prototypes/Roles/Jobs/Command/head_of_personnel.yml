@@ -2,7 +2,7 @@
   id: HeadOfPersonnel
   name: job-name-hop
   description: job-description-hop
-  playTimeTracker: JobHeadOfPersonnelOld # Frontier
+  playTimeTracker: JobHeadOfPersonnel
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
@@ -61,7 +61,6 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-  setPreference: false # Frontier
 
 - type: startingGear
   id: HoPGear
