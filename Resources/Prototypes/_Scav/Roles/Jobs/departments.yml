@@ -3,6 +3,6 @@
   name: department-Tactical
   description: department-Tactical-description # Frontier
   color: "#5C7D4D"
-  weight: 20
   roles:
   - Mercenary
+  - ChiefTacticalOfficer
