@@ -1,0 +1,59 @@
+- type: gameMap
+  id: MinistationOkapi
+  mapName: 'Ministation Okapi'
+  mapPath: /Maps/_Scav/ministationokapi.yml
+  minPlayers: 0
+  maxPlayers: 50
+  stations:
+    MinistationOkapi:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Ministation Okapi {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'IM'
+        # - type: StationEmergencyShuttle
+        #   emergencyShuttlePath: /Maps/Shuttles/emergency_meta.yml
+        - type: ExtraStationInformation
+          iconPath: /Textures/_NF/Logo/icon/icon-256x256.png # used the biggest one, looks better when downscaling than upscaling
+          stationSubtext: 'frontier-lobby-frontier-subtext'
+          stationDescription: 'frontier-lobby-frontier-description'
+          lobbySortOrder: 1
+        - type: StationJobs
+          availableJobs: # 68 jobs total w/o latejoins & interns, 95 jobs total w/ latejoins & interns
+            #command (7)
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefTacticalOfficer: [ 1, 1 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            ResearchDirector: [ 1, 1 ]
+            Quartermaster: [ 1, 1 ]
+            #service (9 - 11)
+            Bartender: [ 2, 2 ]
+            Botanist: [ 2, 3 ]
+            Chef: [ 2, 2 ]
+            Janitor: [ 2, 3 ]
+            Librarian: [ 1, 1 ]
+            #engineering (8 - 10)
+            AtmosphericTechnician: [ 3, 3 ]
+            StationEngineer: [ 5, 7 ]
+            TechnicalAssistant: [ 4, 4 ] #intern, not counted
+            #medical (7 - 10)
+            Chemist: [ 2, 2 ]
+            MedicalDoctor: [ 4, 6 ]
+            MedicalIntern: [ 4, 4 ] #intern, not counted
+            #science (6 - 8)
+            Scientist: [ 6, 8 ]
+            ResearchAssistant: [ 4, 4 ] #intern, not counted
+            #tactical (7)
+            Mercenary: [ 7, 7 ]
+            #supply (7 - 9)
+            SalvageSpecialist: [ 3, 3 ]
+            CargoTechnician: [ 4, 6 ]
+            #civilian (3+)
+            Passenger: [ -1, -1 ] #infinite, not counted
+            #silicon (5)
+            StationAi: [ 1, 1 ]
+            Borg: [ 4, 4 ]

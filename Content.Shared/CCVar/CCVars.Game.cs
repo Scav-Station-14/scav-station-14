@@ -69,7 +69,7 @@ public sealed partial class CCVars
     ///     Controls the game map prototype to load. SS14 stores these prototypes in Prototypes/Maps.
     /// </summary>
     public static readonly CVarDef<string>
-        GameMap = CVarDef.Create("game.map", "Frontier", CVar.SERVERONLY); // Frontier: string.Empty<Frontier
+        GameMap = CVarDef.Create("game.map", "MinistationOkapi", CVar.SERVERONLY); // Frontier: string.Empty<Frontier
 
     /// <summary>
     ///     Controls whether to use world persistence or not.
@@ -88,7 +88,7 @@ public sealed partial class CCVars
     ///     Prototype to use for map pool.
     /// </summary>
     public static readonly CVarDef<string>
-        GameMapPool = CVarDef.Create("game.map_pool", "NFMapPool", CVar.SERVERONLY); // Frontier: DefaultMapPool<NFMapPool
+        GameMapPool = CVarDef.Create("game.map_pool", "ScavMapPool", CVar.SERVERONLY); // Scav: DefaultMapPool<ScavMapPool
 
     /// <summary>
     ///     The depth of the queue used to calculate which map is next in rotation.
