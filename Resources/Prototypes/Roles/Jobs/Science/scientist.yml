@@ -9,7 +9,10 @@
       time: 9000 #2.5 hrs
   startingGear: ScientistGear
   icon: "JobIconScientist"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-rd
+  access:
+  - Research
+  - Maintenance
   accessGroups: # Frontier
   - GeneralAccess # Frontier
 

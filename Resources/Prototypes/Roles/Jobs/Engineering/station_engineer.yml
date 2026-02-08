@@ -9,7 +9,13 @@
       time: 9000 #2.5 hrs
   startingGear: StationEngineerGear
   icon: "JobIconStationEngineer"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-ce
+  access:
+  - Maintenance
+  - Engineering
+  - External
+  extendedAccess:
+  - Atmospherics
   accessGroups: # Frontier
   - GeneralAccess # Frontier
 

@@ -11,7 +11,7 @@
     time: 18000  # 5 hrs
   canBeAntag: false
   icon: JobIconStationAi
-  supervisors: job-supervisors-hire # Frontier: rd<hire
+  supervisors: job-supervisors-departmenthead # Scav: rd<departmenthead
   jobEntity: StationAiBrain
   jobPreviewEntity: PlayerStationAiPreview
   applyTraits: false
@@ -24,9 +24,9 @@
   setPreference: true
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 43200 # 12 hrs # Frontier: 10<12 hrs
+      time: 36000 # 10 hrs
   canBeAntag: false
   icon: JobIconBorg
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-departmenthead # Scav
   jobEntity: PlayerBorgBattery
   applyTraits: false

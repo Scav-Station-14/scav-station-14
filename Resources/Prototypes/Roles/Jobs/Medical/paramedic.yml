@@ -10,9 +10,13 @@
     time: 9000 #2.5 hrs
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
-  supervisors: job-supervisors-hire # Frontier
-  accessGroups: # Frontier
-  - GeneralAccess # Frontier
+  supervisors: job-supervisors-cmo
+  access:
+  - Medical
+  - Maintenance
+  extendedAccess:
+  - Chemistry
+
 
 - type: startingGear
   id: ParamedicGear

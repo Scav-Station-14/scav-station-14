@@ -9,7 +9,12 @@
       time: 9000 #2.5 hrs
   startingGear: DoctorGear
   icon: "JobIconMedicalDoctor"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-cmo
+  access:
+  - Medical
+  - Maintenance
+  extendedAccess:
+  - Chemistry
   accessGroups: # Frontier
   - GeneralAccess # Frontier
   # special: # Frontier

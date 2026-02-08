@@ -8,7 +8,12 @@
       time: 10800
   startingGear: CargoTechGear
   icon: "JobIconCargoTechnician"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-qm
+  access:
+  - Cargo
+  - Maintenance
+  extendedAccess:
+  - Salvage
   accessGroups: # Frontier
   - GeneralAccess # Frontier
   special:
