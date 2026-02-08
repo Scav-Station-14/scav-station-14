@@ -12,13 +12,13 @@
   supervisors: job-supervisors-service
   accessGroups: # Frontier
   - GeneralAccess # Frontier
-  # access: # Frontier
-  # - Service # Frontier
-  # - Maintenance # Frontier
-  # - Bar # Frontier
-  # - Kitchen # Frontier
-  # extendedAccess: # Frontier
-  # - Hydroponics # Frontier
+  access:
+  - Service
+  - Maintenance
+  - Bar
+  - Kitchen
+  extendedAccess:
+  - Hydroponics
 
 - type: startingGear
   id: ServiceWorkerGear

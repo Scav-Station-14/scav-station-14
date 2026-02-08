@@ -9,7 +9,12 @@
       time: 9000 # 2.5 hrs
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-qm
+  access:
+  - Cargo
+  - Salvage
+  - Maintenance
+  - External
   accessGroups: # Frontier
   - GeneralAccess # Frontier
 

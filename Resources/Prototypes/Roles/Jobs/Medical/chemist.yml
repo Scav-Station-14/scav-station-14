@@ -9,7 +9,11 @@
       time: 18000 #5 hrs
   startingGear: ChemistGear
   icon: "JobIconChemist"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-cmo
+  access:
+  - Medical
+  - Chemistry
+  - Maintenance
   accessGroups: # Frontier
   - GeneralAccess # Frontier
 

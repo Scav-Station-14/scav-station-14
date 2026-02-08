@@ -6,10 +6,10 @@
   setPreference: false # Frontier
   startingGear: ReporterGear
   icon: "JobIconReporter"
-  supervisors: job-supervisors-hop
-#  access: # Frontier
-#  - Service # Frontier
-#  - Maintenance # Frontier
+  #supervisors: job-supervisors-hop #Scav: reporters answer to no one
+  access:
+  - Service
+  - Maintenance
   accessGroups: # Frontier
   - GeneralAccess # Frontier
 

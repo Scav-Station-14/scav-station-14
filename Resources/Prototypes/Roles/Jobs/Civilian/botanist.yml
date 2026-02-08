@@ -8,9 +8,14 @@
       time: 10800
   startingGear: BotanistGear
   icon: "JobIconBotanist"
-  supervisors: job-supervisors-hire # Frontier
-  accessGroups: # Frontier
-  - GeneralAccess # Frontier
+  supervisors: job-supervisors-hop
+  access:
+  - Service
+  - Maintenance
+  - Hydroponics
+  extendedAccess:
+  - Kitchen
+  - Bar
   special:
   - !type:GiveItemOnHolidaySpecial
     holiday: FourTwenty

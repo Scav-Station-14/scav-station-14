@@ -21,25 +21,23 @@
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-captain
   canBeAntag: false
-  ## Frontier: commented out stuff below
-  # access:
-  # - HeadOfSecurity
-  # - Command
-  # - Brig
-  # - Security
-  # - Armory
-  # - Maintenance
-  # - Service
-  # - External
-  # - Detective
-  # - Cryogenics
-  # special:
-  # - !type:AddImplantSpecial
-  #   implants: [ MindShieldImplant ]
-  # - !type:AddComponentSpecial
-  #   components:
-  #     - type: CommandStaff
-  ## Frontier: commented out stuff above
+  access:
+  - HeadOfSecurity
+  - Command
+  - Brig
+  - Security
+  - Armory
+  - Maintenance
+  - Service
+  - External
+  - Detective
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
   setPreference: false # Frontier
   accessGroups: # Frontier
   - GeneralAccess # Frontier

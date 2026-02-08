@@ -9,9 +9,14 @@
       time: 1800 #0.5 hr
   startingGear: ChefGear
   icon: "JobIconChef"
-  supervisors: job-supervisors-hire # Frontier
-  accessGroups: # Frontier
-  - GeneralAccess # Frontier
+  supervisors: job-supervisors-hop
+  access:
+  - Service
+  - Maintenance
+  - Kitchen
+  extendedAccess:
+  - Hydroponics
+  - Bar
   special:
   - !type:AddComponentSpecial
     components:
