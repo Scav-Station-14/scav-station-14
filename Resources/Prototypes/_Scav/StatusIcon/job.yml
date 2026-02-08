@@ -1,13 +1,5 @@
 - type: jobIcon
   parent: JobIcon
-  id: JobIconIvenmothRecruit
-  icon:
-    sprite: /Textures/_Scav/Interface/Misc/job_icons.rsi
-    state: ivenmothrecruit
-  jobName: job-name-ivenmothrecruit
-
-- type: jobIcon
-  parent: JobIcon
   id: JobIconChiefTacticalOfficer
   icon:
     sprite: /Textures/_Scav/Interface/Misc/job_icons.rsi
