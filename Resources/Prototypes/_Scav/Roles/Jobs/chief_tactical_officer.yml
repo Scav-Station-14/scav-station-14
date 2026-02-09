@@ -15,22 +15,23 @@
   icon: "JobIconChiefTacticalOfficer"
   supervisors: job-supervisors-captain
   canBeAntag: false
-  ## Frontier: commented everything below out
-  # access:
-  # - Medical
-  # - Command
-  # - Maintenance
-  # - Chemistry
-  # - ChiefMedicalOfficer
-  # - Brig
-  # - Cryogenics
-  # special:
-  # - !type:AddImplantSpecial
-  #   implants: [ MindShieldImplant ]
-  # - !type:AddComponentSpecial
-  #   components:
-  #     - type: CommandStaff
-  ## Frontier: commented everything above out
+  access:
+  - HeadOfSecurity
+  - Command
+  - Brig
+  - Security
+  - Armory
+  - Maintenance
+  - Service
+  - External
+  - Detective
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff
   accessGroups: # Frontier
   - GeneralAccess # Frontier
 
