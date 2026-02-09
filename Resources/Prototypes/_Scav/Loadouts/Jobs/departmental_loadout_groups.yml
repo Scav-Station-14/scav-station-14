@@ -39,6 +39,8 @@
   - CaptainBackpack
   - CaptainSatchel
   - CaptainDuffel
+  subgroups:
+  - BaseBackpack
 
 - type: loadoutGroup
   id: CaptainOuterClothing
@@ -46,6 +48,8 @@
   loadouts:
   - CaptainOuterClothing
   - CaptainWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: HoPHead
@@ -83,6 +87,8 @@
   - CommonSatchel
   - CommonDuffel
   - HoPBackpackIan
+  subgroups:
+  - BaseBackpack
 
 - type: loadoutGroup
   id: HoPOuterClothing
@@ -90,6 +96,8 @@
   minLimit: 0
   loadouts:
   - HoPWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 # Civilian
 - type: loadoutGroup
@@ -106,10 +114,12 @@
 
 - type: loadoutGroup
   id: PassengerFace
-  name: loadout-group-mask
+  name: loadout-group-face
   minLimit: 0
   loadouts:
   - PassengerFace
+  subgroups:
+  - BaseFace
 
 - type: loadoutGroup
   id: PassengerGloves
@@ -117,6 +127,8 @@
   minLimit: 0
   loadouts:
   - PassengerGloves
+  subgroups:
+  - BaseGloves
 
 - type: loadoutGroup
   id: CommonBackpack
@@ -141,6 +153,8 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -148,6 +162,8 @@
   loadouts:
   - BlackShoes
   - WinterBoots
+  subgroups:
+  - BaseShoes
 
 - type: loadoutGroup
   id: BartenderHead
@@ -177,6 +193,8 @@
   - BartenderVest
   - BartenderApron
   - BartenderWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: ChefHead
@@ -189,10 +207,12 @@
 
 - type: loadoutGroup
   id: ChefMask
-  name: loadout-group-mask
+  name: loadout-group-face
   minLimit: 0
   loadouts:
   - ChefMask
+  subgroups:
+  - BaseFace
 
 - type: loadoutGroup
   id: ChefJumpsuit
@@ -211,6 +231,8 @@
   - ChefApron
   - ChefJacket
   - ChefWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: LibrarianJumpsuit
@@ -264,10 +286,12 @@
 
 - type: loadoutGroup
   id: ChaplainMask
-  name: loadout-group-mask
+  name: loadout-group-face
   minLimit: 0
   loadouts:
   - ChaplainMask
+  subgroups:
+  - BaseFace
 
 - type: loadoutGroup
   id: ChaplainJumpsuit
@@ -289,6 +313,8 @@
   - ChaplainNunRobe
   - ChaplainBlackHoodie
   - ChaplainHoodie
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: ChaplainNeck
@@ -336,6 +362,8 @@
   - JanitorRubberGloves
   - OrangeGloves
   - PurpleGloves
+  subgroups:
+  - BaseGloves
 
 - type: loadoutGroup
   id: JanitorOuterClothing
@@ -343,6 +371,8 @@
   minLimit: 0
   loadouts:
   - JanitorWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: JanitorPlunger
@@ -378,6 +408,8 @@
   - BotanistBackpack
   - BotanistSatchel
   - BotanistDuffel
+  subgroups:
+  - BaseBackpack
 
 - type: loadoutGroup
   id: BotanistOuterClothing
@@ -386,6 +418,8 @@
   loadouts:
   - BotanistApron
   - BotanistWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: ClownHead
@@ -415,6 +449,8 @@
   - ClownBackpack
   - ClownSatchel
   - ClownDuffel
+  subgroups:
+  - BaseBackpack
 
 - type: loadoutGroup
   id: ClownOuterClothing
@@ -423,6 +459,8 @@
   loadouts:
   - ClownRobes
   - ClownWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: ClownShoes
@@ -430,6 +468,8 @@
   loadouts:
   - ClownShoes
   - JesterShoes
+  subgroups:
+  - BaseShoes
 
 - type: loadoutGroup
   id: SurvivalClown
@@ -440,6 +480,8 @@
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
+  subgroups:
+  - BaseBoxSurvival
 
 - type: loadoutGroup
   id: MimeHead
@@ -454,11 +496,13 @@
 
 - type: loadoutGroup
   id: MimeMask
-  name: loadout-group-mask
+  name: loadout-group-face
   loadouts:
   - MimeMask
   - MimeMaskSad
   - MimeMaskScared
+  subgroups:
+  - BaseFace
 
 - type: loadoutGroup
   id: MimeJumpsuit
@@ -476,6 +520,8 @@
   - MimeBackpack
   - MimeSatchel
   - MimeDuffel
+  subgroups:
+  - BaseBackpack
 
 - type: loadoutGroup
   id: MimeOuterClothing
@@ -483,6 +529,8 @@
   minLimit: 0
   loadouts:
   - MimeWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: MimeBelt
@@ -490,6 +538,8 @@
   loadouts:
   - MimeSuspendersRed
   - MimeSuspendersBlack
+  subgroups:
+  - BaseBelt
 
 - type: loadoutGroup
   id: SurvivalMime
@@ -501,6 +551,8 @@
   - EmergencyOxygenMime
   - EmergencySpeciesMothMime
   - LoadoutSpeciesVoxNitrogen
+  subgroups:
+  - BaseBoxSurvival
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -517,6 +569,8 @@
   minLimit: 0
   loadouts:
   - MusicianWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 
 # Cargo
@@ -558,6 +612,8 @@
   minLimit: 0
   loadouts:
   - QuartermasterWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: QuartermasterShoes
@@ -565,6 +621,8 @@
   loadouts:
   - BrownShoes
   - CargoWinterBoots
+  subgroups:
+  - BaseShoes
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -591,6 +649,8 @@
   - CargoTechnicianBackpack
   - CargoTechnicianSatchel
   - CargoTechnicianDuffel
+  subgroups:
+  - BaseBackpack
 
 - type: loadoutGroup
   id: CargoTechnicianOuterClothing
@@ -598,6 +658,8 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: CargoTechnicianShoes
@@ -605,6 +667,8 @@
   loadouts:
   - BlackShoes
   - CargoWinterBoots
+  subgroups:
+  - BaseShoes
 
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
@@ -613,6 +677,8 @@
   - SalvageSpecialistBackpack
   - SalvageSpecialistSatchel
   - SalvageSpecialistDuffel
+  subgroups:
+  - BaseBackpack
 
 - type: loadoutGroup
   id: SalvageSpecialistOuterClothing
@@ -620,6 +686,8 @@
   minLimit: 0
   loadouts:
   - SalvageSpecialistWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: SalvageSpecialistShoes
@@ -627,6 +695,8 @@
   loadouts:
   - SalvageBoots
   - CargoWinterBoots
+  subgroups:
+  - BaseShoes
 
 # Engineering
 - type: loadoutGroup
@@ -666,6 +736,8 @@
   minLimit: 0
   loadouts:
   - ChiefEngineerWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: ChiefEngineerShoes
@@ -673,6 +745,8 @@
   loadouts:
   - BrownShoes
   - EngineeringWinterBoots
+  subgroups:
+  - BaseShoes
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -714,6 +788,8 @@
   - StationEngineerBackpack
   - StationEngineerSatchel
   - StationEngineerDuffel
+  subgroups:
+  - BaseBackpack
 
 - type: loadoutGroup
   id: StationEngineerOuterClothing
@@ -722,6 +798,8 @@
   loadouts:
   - StationEngineerOuterVest
   - StationEngineerWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: StationEngineerShoes
@@ -729,6 +807,8 @@
   loadouts:
   - WorkBoots
   - EngineeringWinterBoots
+  subgroups:
+  - BaseShoes
 
 - type: loadoutGroup
   id: StationEngineerID
@@ -753,6 +833,8 @@
   minLimit: 0
   loadouts:
   - AtmosphericTechnicianWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: AtmosphericTechnicianBackpack
@@ -761,6 +843,8 @@
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianSatchel
   - AtmosphericTechnicianDuffel
+  subgroups:
+  - BaseBackpack
 
 - type: loadoutGroup
   id: AtmosphericTechnicianShoes
@@ -768,6 +852,8 @@
   loadouts:
   - WhiteShoes
   - EngineeringWinterBoots
+  subgroups:
+  - BaseShoes
 
 - type: loadoutGroup
   id: SurvivalExtended
@@ -778,6 +864,8 @@
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
   - LoadoutSpeciesVoxNitrogen
+  subgroups:
+  - BaseBoxSurvival
 
 # Science
 - type: loadoutGroup
@@ -815,6 +903,8 @@
   loadouts:
   - ResearchDirectorLabCoat
   - ResearchDirectorWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: ResearchDirectorShoes
@@ -822,6 +912,8 @@
   loadouts:
   - BrownShoes
   - ScienceWinterBoots
+  subgroups:
+  - BaseShoes
 
 - type: loadoutGroup
   id: ScientistHead
@@ -862,6 +954,8 @@
   - ScientistBackpack
   - ScientistSatchel
   - ScientistDuffel
+  subgroups:
+  - BaseBackpack
 
 - type: loadoutGroup
   id: ScientistOuterClothing
@@ -874,6 +968,8 @@
   - RoboticistLabCoat
   - RoboticistWintercoat
   - SeniorResearcherLabCoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -882,6 +978,8 @@
   - WhiteShoes
   - BlackShoes
   - ScienceWinterBoots
+  subgroups:
+  - BaseShoes
 
 - type: loadoutGroup
   id: ScientistGloves
@@ -891,6 +989,8 @@
   - LatexGloves
   - PurpleGloves
   - RobohandsGloves
+  subgroups:
+  - BaseGloves
 
 - type: loadoutGroup
   id: ScientistPDA
@@ -898,6 +998,8 @@
   loadouts:
   - ScientistPDA
   - SeniorResearcherPDA
+  subgroups:
+  - BasePDA
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
@@ -951,6 +1053,8 @@
   loadouts:
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: WardenHead
@@ -977,6 +1081,8 @@
   loadouts:
   - WardenCoat
   - WardenArmoredWinterCoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1011,6 +1117,8 @@
   - SecurityBackpack
   - SecuritySatchel
   - SecurityDuffel
+  subgroups:
+  - BaseBackpack
 
 - type: loadoutGroup
   id: SecurityBelt
@@ -1018,6 +1126,8 @@
   loadouts:
   - SecurityBelt
   - SecurityWebbing
+  subgroups:
+  - BaseBelt
 
 - type: loadoutGroup
   id: SecurityOuterClothing
@@ -1026,6 +1136,8 @@
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1033,6 +1145,8 @@
   loadouts:
   - JackBoots
   - SecurityWinterBoots
+  subgroups:
+  - BaseShoes
 
 - type: loadoutGroup
   id: SecurityPDA
@@ -1040,6 +1154,8 @@
   loadouts:
   - SecurityPDA
   - SeniorOfficerPDA
+  subgroups:
+  - BasePDA
 
 - type: loadoutGroup
   id: DetectiveHead
@@ -1078,6 +1194,8 @@
   - DetectiveArmorVest
   - DetectiveCoat
   - DetectiveCoatGrey
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
@@ -1100,6 +1218,8 @@
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
+  subgroups:
+  - BaseBoxSurvival
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1137,6 +1257,8 @@
   loadouts:
   - ChiefMedicalOfficerLabCoat
   - ChiefMedicalOfficerWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerNeck
@@ -1154,6 +1276,8 @@
   loadouts:
   - BrownShoes
   - MedicalWinterBoots
+  subgroups:
+  - BaseShoes
 
 - type: loadoutGroup
   id: MedicalDoctorHead
@@ -1192,6 +1316,8 @@
   - RegularLabCoat
   - MedicalDoctorWintercoat
   - SeniorPhysicianLabCoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: MedicalBackpack
@@ -1200,6 +1326,8 @@
   - MedicalDoctorBackpack
   - MedicalDoctorSatchel
   - MedicalDoctorDuffel
+  subgroups:
+  - BaseBackpack
 
 - type: loadoutGroup
   id: MedicalShoes
@@ -1207,6 +1335,8 @@
   loadouts:
   - WhiteShoes
   - MedicalWinterBoots
+  subgroups:
+  - BaseShoes
 
 - type: loadoutGroup
   id: MedicalDoctorPDA
@@ -1214,6 +1344,8 @@
   loadouts:
   - MedicalDoctorPDA
   - SeniorPhysicianPDA
+  subgroups:
+  - BasePDA
 
 - type: loadoutGroup
   id: MedicalGloves
@@ -1222,13 +1354,17 @@
   loadouts:
   - LatexGloves
   - NitrileGloves
+  subgroups:
+  - BaseGloves
 
 - type: loadoutGroup
   id: MedicalMask
-  name: loadout-group-mask
+  name: loadout-group-face
   minLimit: 0
   loadouts:
   - SterileMask
+  subgroups:
+  - BaseFace
 
 - type: loadoutGroup
   id: MedicalInternJumpsuit
@@ -1259,6 +1395,8 @@
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: ChemistBackpack
@@ -1267,6 +1405,8 @@
   - ChemistBackpack
   - ChemistSatchel
   - ChemistDuffel
+  subgroups:
+  - BaseBackpack
 
 - type: loadoutGroup
   id: ParamedicHead
@@ -1274,6 +1414,8 @@
   minLimit: 0
   loadouts:
   - ParamedicHead
+  subgroups:
+  - BaseHead
 
 - type: loadoutGroup
   id: ParamedicJumpsuit
@@ -1291,6 +1433,8 @@
   loadouts:
   - ParamedicWindbreaker
   - ParamedicWintercoat
+  subgroups:
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: ParamedicShoes
@@ -1299,6 +1443,8 @@
   - BlueShoes
   - WhiteShoes
   - MedicalWinterBoots
+  subgroups:
+  - BaseShoes
 
 - type: loadoutGroup
   id: MedicalEyewear
@@ -1310,6 +1456,8 @@
   - Glasses
   - GlassesJamjar
   - GlassesJensen
+  subgroups:
+  - BaseGlasses
 
 - type: loadoutGroup
   id: SurvivalMedical
@@ -1320,6 +1468,8 @@
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
+  subgroups:
+  - BaseBoxSurvival
 
 # Wildcards
 - type: loadoutGroup
@@ -1357,3 +1507,5 @@
   - BlueBoxingGloves
   - GreenBoxingGloves
   - YellowBoxingGloves
+  subgroups:
+  - BaseGloves
