@@ -385,7 +385,7 @@
     board: MedicalRecordsComputerCircuitboard
 
 - type: entity
-  parent: [BaseStructureIndestructible, BaseComputerAiAccess] # Frontier: added BaseStructureIndestructible
+  parent: [BaseComputerAiAccess] # Frontier: added BaseStructureIndestructible #Scav: removed
   id: ComputerCriminalRecords
   name: criminal records computer
   description: This can be used to check criminal records. Only security can modify them.
@@ -516,7 +516,7 @@
   - type: UserInterface
     interfaces:
       enum.ResearchConsoleUiKey.Key:
-        type: ResearchConsoleFrontierBoundUserInterface # Frontier: ResearchConsole<ResearchConsoleFrontier
+        type: ResearchConsoleBoundUserInterface # Frontier: ResearchConsole<ResearchConsoleFrontier #Scav: reverted
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
       enum.WiresUiKey.Key:
@@ -526,7 +526,7 @@
   - type: Computer
     board: ResearchComputerCircuitboard
   - type: AccessReader
-#    access: [["Research"]]
+    access: [["Research"]]
   - type: PointLight
     radius: 1.5
     energy: 4.0
@@ -585,7 +585,7 @@
     - Xenoarchaeology
 
 - type: entity
-  parent: [BaseStructureIndestructible, BaseComputerAiAccess] # Frontier: added BaseStructureIndestructible
+  parent: [BaseComputerAiAccess] # Frontier: added BaseStructureIndestructible # Scav: removed
   id: ComputerId
   name: ID card computer
   description: Terminal for programming Nanotrasen employee ID cards to access parts of the station.
@@ -886,7 +886,7 @@
 
 - type: entity
   id: ComputerCargoOrders
-  parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, BaseComputerAiAccess] # Frontier: add BaseStructureDisableToolUse, BaseStructureIndestructible
+  parent: [BaseComputerAiAccess] # Frontier: add BaseStructureDisableToolUse, BaseStructureIndestructible # Scav: revert
   name: cargo request computer
   description: Used to purchase supplies in from central command. # Frontier
   components:
@@ -902,16 +902,13 @@
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
-  - type: NFCargoOrderConsole # Frontier: use NF component
-    taxAccounts: # Frontier
-      Frontier: 0.25 # Frontier
-      Nfsd: 0.15 # Frontier
-    # removeLimitAccess: [ "Quartermaster" ] # Frontier
-  # - type: ActiveRadio # Frontier
-  #   channels: # Frontier
-  #   - Supply # Frontier
+  - type: CargoOrderConsole # Frontier: use NF component # Scav: revert
+    removeLimitAccess: [ "Quartermaster" ]
+  - type: ActiveRadio
+    channels:
+    - Supply
   - type: ActivatableUI
-    key: enum.NFCargoConsoleUiKey.Orders # Frontier: use NF version
+    key: enum.CargoConsoleUiKey.Orders # Frontier: use NF version # Scav: revert
   - type: UserInterface
     interfaces:
       enum.NFCargoConsoleUiKey.Orders:
@@ -925,12 +922,12 @@
     energy: 4.0
     color: "#b89f25"
   - type: AccessReader
-    #access: [["Cargo"]] # Frontier
+    access: [["Cargo"]]
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
-#  - type: WirelessNetworkConnection # Frontier
-#    range: 200 # Frontier
+  - type: WirelessNetworkConnection
+    range: 200
   - type: DeviceLinkSource
     range: 200
     ports:
@@ -1115,7 +1112,6 @@
   parent: BaseComputerAiAccess
   name: cargo bounty computer
   description: Used to manage currently active bounties.
-  categories: [HideSpawnMenu] # Frontier
   components:
   - type: Sprite
     layers:
@@ -1156,7 +1152,6 @@
   id: ComputerFundingAllocation
   name: funding allocation computer
   description: Terminal for controlling the distribution of funds and pay to departments.
-  categories: [HideSpawnMenu] # Frontier
   components:
   - type: Sprite
     layers:
@@ -1247,6 +1242,7 @@
   id: ComputerSalvageJobBoard
   name: salvage job board
   description: Console for accessing salvage jobs, if you're tough enough.
+  categories: [HideSpawnMenu, DoNotMap] # Scav
   components:
   - type: Sprite
     layers:
@@ -1394,8 +1390,8 @@
     deviceNetId: Wireless
     receiveFrequencyId: SurveillanceCamera
     transmitFrequencyId: SurveillanceCamera
-#  - type: WirelessNetworkConnection
-#    range: 200
+  - type: WirelessNetworkConnection
+    range: 200
   - type: DeviceNetworkRequiresPower
   - type: Speech
     speechVerb: Robotic
@@ -1416,7 +1412,6 @@
   parent: BaseComputerAiAccess
   name: cargo sale computer
   description: Used to sell goods loaded onto cargo pallets.
-  categories: [HideSpawnMenu, DoNotMap] # Frontier
   components:
   - type: Sprite
     layers:
@@ -1448,8 +1443,6 @@
     radius: 1.5
     energy: 4.0
     color: "#b89f25"
-  - type: MarketModifier # In the case someone got a computer board from QM locker, they can use it to sell on a ship if they have the grids, just to make sure its useless.
-    mod: 0
   # - type: GuideHelp # Frontier: guidebook removed
   #   guides: # Frontier: guidebook removed
   #   - Cargo # Frontier: guidebook removed

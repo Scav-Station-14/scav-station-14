@@ -1003,11 +1003,23 @@
 - type: Tag
   id: OreBananium
 
+- type: Tag # Scav
+  id: OreQuartz
+
 - type: Tag
   id: OreGold
 
+- type: Tag # Scav
+  id: OreIron
+
 - type: Tag
   id: OrePlasma
+
+- type: Tag # Scav
+  id: OreQuartz
+
+- type: Tag # Scav
+  id: OreSalt
 
 - type: Tag
   id: OreSilver

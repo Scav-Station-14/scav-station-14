@@ -15,6 +15,10 @@
   - type: PhysicalComposition
     materialComposition:
       RawBluespace: 100
+  - type: Tag #Scav
+    tags:
+    - Ore
+    - OreBluespace
 
 - type: entity
   parent: BluespaceOre
