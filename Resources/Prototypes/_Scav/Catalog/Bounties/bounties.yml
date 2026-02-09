@@ -1,0 +1,200 @@
+# Scrap Loot
+- type: cargoBounty
+  id: BountySalvageScrap
+  reward: 5000
+  description: bounty-description-salvage-scrap
+  entries:
+  - name: bounty-item-scrap
+    amount: 10
+    whitelist:
+      tags:
+      - SalvageScrap
+
+- type: cargoBounty
+  id: BountyArtifact
+  reward: 2500
+  description: bounty-description-artifact
+  entries:
+  - name: bounty-item-artifact
+    amount: 1
+    whitelist:
+      components:
+      - XenoArtifact
+
+# Ores
+- type: cargoBounty
+  id: BountySalvageOreIron
+  reward: 5000
+  description: bounty-description-ore-iron
+  entries:
+  - name: bounty-item-ore-iron
+    amount: 90
+    whitelist:
+      tags:
+      - OreIron
+
+- type: cargoBounty
+  id: BountySalvageOreQuartz
+  reward: 5000
+  description: bounty-description-ore-quartz
+  entries:
+  - name: bounty-item-ore-quartz
+    amount: 45
+    whitelist:
+      tags:
+      - OreQuartz
+
+- type: cargoBounty
+  id: BountySalvageOreCoal
+  reward: 5000
+  description: bounty-description-ore-coal
+  entries:
+  - name: bounty-item-ore-coal
+    amount: 120
+    whitelist:
+      tags:
+      - OreCoal
+
+- type: cargoBounty
+  id: BountySalvageOreSalt
+  reward: 7500
+  description: bounty-description-ore-salt
+  entries:
+  - name: bounty-item-ore-salt
+    amount: 90
+    whitelist:
+      tags:
+      - OreSalt
+
+- type: cargoBounty
+  id: BountySalvageOreGold
+  reward: 7500
+  description: bounty-description-salvage-ore-gold
+  entries:
+  - name: bounty-item-ore-gold
+    amount: 45
+    whitelist:
+      tags:
+      - OreGold
+
+- type: cargoBounty
+  id: BountySalvageOreSilver
+  reward: 7500
+  description: bounty-description-salvage-ore-silver
+  entries:
+  - name: bounty-item-ore-silver
+    amount: 45
+    whitelist:
+      tags:
+      - OreSilver
+
+- type: cargoBounty
+  id: BountySalvageOrePlasma
+  reward: 12500
+  description: bounty-description-salvage-ore-plasma
+  entries:
+  - name: bounty-item-ore-plasma
+    amount: 45
+    whitelist:
+      tags:
+      - OrePlasma
+
+- type: cargoBounty
+  id: BountySalvageOreUranium
+  reward: 12500
+  description: bounty-description-salvage-ore-uranium
+  entries:
+  - name: bounty-item-ore-uranium
+    amount: 30
+    whitelist:
+      tags:
+      - OreUranium
+
+- type: cargoBounty
+  id: BountySalvageOreBananium
+  reward: 12500
+  description: bounty-description-salvage-ore-bananium
+  entries:
+  - name: bounty-item-ore-bananium
+    amount: 30
+    whitelist:
+      tags:
+      - OreBananium
+
+- type: cargoBounty
+  id: BountySalvageDiamond
+  reward: 20000
+  description: bounty-description-diamond
+  entries:
+  - name: bounty-item-diamond
+    amount: 3
+    whitelist:
+      tags:
+      - Diamond
+
+- type: cargoBounty
+  id: BountySalvageBluespace
+  reward: 30000
+  description: bounty-description-ore-salt
+  entries:
+  - name: bounty-item-ore-bluespace
+    amount: 3
+    whitelist:
+      tags:
+      - OreBluespace
+
+
+# Carp Hunting
+- type: cargoBounty
+  id: BountyTeethSpaceCarp
+  reward: 7500
+  description: bounty-description-tooth-space-carp
+  entries:
+  - name: bounty-item-tooth-space-carp
+    amount: 10
+    whitelist:
+      tags:
+      - ToothSpaceCarp
+
+- type: cargoBounty
+  id: BountyTeethSharkminnow
+  reward: 12500
+  description: bounty-description-tooth-sharkminnow
+  entries:
+  - name: bounty-item-tooth-sharkminnow
+    amount: 3
+    whitelist:
+      tags:
+      - ToothSharkminnow
+
+
+# Boss Loot
+#- type: cargoBounty
+#  id: BountyGoliathPlates
+#  reward: 20000
+#  description: bounty-description-plates
+#  group: SalvageJobTier3
+#  sprite:
+#    sprite: Mobs/Aliens/Asteroid/goliath.rsi
+#    state: goliath
+#  entries:
+#  - name: bounty-item-plates
+#    amount: 6
+#    whitelist:
+#      tags:
+#      - GoliathPlate
+#
+#- type: cargoBounty
+#  id: BountyHivelordRemains
+#  reward: 20000
+#  description: bounty-description-remains
+#  group: SalvageJobTier3
+#  sprite:
+#    sprite: Mobs/Aliens/Asteroid/hivelord.rsi
+#    state: hivelord
+#  entries:
+#  - name: bounty-item-remains
+#    amount: 3
+#    whitelist:
+#      tags:
+#      - HivelordRemains
