@@ -164,7 +164,7 @@
   id: ClothingHeadRastaHat
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -176,7 +176,7 @@
   id: ClothingHeadHatSombrero
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -188,7 +188,7 @@
   id: ClothingHeadFishCap
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -200,7 +200,7 @@
   id: ClothingHeadHatTrucker
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -212,7 +212,7 @@
   id: ClothingHeadHatCasa
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -224,7 +224,7 @@
   id: ClothingHeadHatBowlerHat
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -236,7 +236,7 @@
   id: ClothingHeadHatGreyFlatcap
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -248,7 +248,7 @@
   id: ClothingHeadHatBrownFlatcap
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -260,7 +260,7 @@
   id: ClothingHeadHatSurgcapGreen
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -272,7 +272,7 @@
   id: ClothingHeadHatSurgcapBlue
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -284,7 +284,7 @@
   id: ClothingHeadHatSurgcapPurple
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -296,7 +296,7 @@
   id: ClothingHeadHatFedoraGrey
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -308,7 +308,7 @@
   id: ClothingHeadHatFedoraBrown
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -322,7 +322,7 @@
   id: ClothingHeadTinfoil
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -334,7 +334,7 @@
   id: ClothingHeadHatCardinal
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -346,7 +346,7 @@
   id: ClothingHeadHatHoodNunHood
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -358,7 +358,7 @@
   id: ClothingHeadSafari
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -370,7 +370,7 @@
   id: ClothingHeadHatJester
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -382,7 +382,7 @@
   id: ClothingHeadHatJesterAlt
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -394,7 +394,7 @@
   id: ClothingHeadHatBeret
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -406,7 +406,7 @@
   id: ClothingHeadHatBeretFrench
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -418,7 +418,7 @@
   id: ClothingHeadHatMimesoft
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -430,7 +430,7 @@
   id: ClothingHeadHatPilgrim
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -442,7 +442,7 @@
   id: ClothingHeadHatStrawHat
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -454,7 +454,7 @@
   id: ClothingHeadHatCowboyBlack
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -466,7 +466,7 @@
   id: ClothingHeadHatCowboyBrown
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -478,7 +478,7 @@
   id: ClothingHeadHatCowboyGrey
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -490,7 +490,7 @@
   id: ClothingHeadHatCowboyBountyHunter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -502,7 +502,7 @@
   id: ClothingHeadHatBH
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -514,7 +514,7 @@
   id: ClothingHeadHatCowboyRed
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -526,7 +526,7 @@
   id: ClothingHeadHatCowboyWhite
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -538,7 +538,7 @@
   id: ClothingHeadHatWideBrimmed
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -550,7 +550,7 @@
   id: ClothingHeadHatWitchhunter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -562,7 +562,7 @@
   id: ClothingHeadHatBishopMitre
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -574,7 +574,7 @@
   id: ClothingHeadHatKippah
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -586,7 +586,7 @@
   id: ClothingHeadHatPlaguedoctor
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -599,7 +599,7 @@
   id: Plunger
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -611,7 +611,7 @@
   id: ClothingHeadHatCone
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -623,7 +623,7 @@
   id: ClothingHeadBandGold
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable
@@ -635,7 +635,7 @@
   id: ClothingHeadHatTophat
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFHeadwearCapable

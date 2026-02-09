@@ -1,19 +1,19 @@
 # Base
 
-loadout-group-gloves = gloves
-loadout-group-head = head
-loadout-group-ears = ears
-loadout-group-jumpsuit = jumpsuit
-loadout-group-outerclothing = outer clothing
-loadout-group-belt = belt
-loadout-group-shoes = shoes
-loadout-group-neck = neck
+loadout-group-gloves = Gloves
+loadout-group-head = Head
+loadout-group-ears = Ears
+loadout-group-jumpsuit = Jumpsuit
+loadout-group-outerclothing = Outer Clothing
+loadout-group-belt = Belt
+loadout-group-shoes = Shoes
+loadout-group-neck = Neck
 loadout-group-pda = PDA
-loadout-group-face = mask
-loadout-group-backpack-items = backpack items
-loadout-group-hand-items = in-hand items
-loadout-group-encryption-key = encryption keys
-loadout-group-survival-box = survival box
-loadout-group-cartridge = PDA cartridges
-loadout-group-wallet = wallet
-loadout-group-implanter = implanters
+loadout-group-face = Face
+loadout-group-backpack-items = Backpack Items
+loadout-group-hand-items = In-hand Items
+loadout-group-encryption-key = Encryption Keys
+loadout-group-survival-box = Survival Box
+loadout-group-cartridge = PDA Cartridges
+loadout-group-wallet = Wallet
+loadout-group-implanter = Implanters

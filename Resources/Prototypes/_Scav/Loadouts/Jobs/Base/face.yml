@@ -17,7 +17,7 @@
   id: ClothingMaskSterile
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 200
   storage:
     back: 
@@ -27,7 +27,7 @@
   id: ClothingMaskGas
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 300
   storage:
     back:
@@ -38,7 +38,7 @@
   name: punk halfmask (random)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 500
   storage:
     back:
@@ -49,7 +49,7 @@
   id: ClothingMaskGasExplorer
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 1000
   storage:
     back:
@@ -59,58 +59,8 @@
   id: ClothingMaskPlague
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 1500
   storage:
     back:
     - ClothingMaskPlague
-
-- type: loadout
-  id: ClothingMaskMime
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  price: 1500
-  storage:
-    back: 
-    - ClothingMaskMime
-
-- type: loadout
-  id: ClothingMaskScaredMime
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  price: 1500
-  storage:
-    back:
-    - ClothingMaskScaredMime
-
-- type: loadout
-  id: ClothingMaskSadMime
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  price: 1500
-  storage:
-    back:
-    - ClothingMaskSadMime
-
-- type: loadout
-  id: ClothingMaskClown
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  price: 2500
-  storage:
-    back:
-    - ClothingMaskClown
-
-- type: loadout
-  id: ClothingMaskClownBald
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  price: 2500
-  storage:
-    back:
-    - ClothingMaskClownBald

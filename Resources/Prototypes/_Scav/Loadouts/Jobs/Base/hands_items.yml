@@ -4,7 +4,7 @@
   name: brown briefcase (empty)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 500
   inhand:
   - BriefcaseBrownFilled
@@ -14,7 +14,7 @@
   name: emergency toolbox (empty)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 500
   inhand:
   - ToolboxEmergency
@@ -24,7 +24,7 @@
   name: mechanical toolbox (empty)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 500
   inhand:
   - ToolboxMechanical
@@ -34,7 +34,7 @@
   id: Cane
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 1000
   inhand:
   - Cane
@@ -43,7 +43,7 @@
   id: LGBTQHandyFlag
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 1000
   inhand:
   - LGBTQHandyFlag
@@ -52,7 +52,7 @@
   id: NTHandyFlag
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 5000
   inhand:
   - NTHandyFlag
@@ -61,7 +61,7 @@
   id: BalloonNT
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 5000
   inhand:
   - BalloonNT
@@ -71,7 +71,7 @@
   id: FlashlightUmbrella
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   price: 10000
   inhand:
   - FlashlightUmbrella
@@ -80,7 +80,7 @@
   id: DawInstrumentFlatpack
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   price: 20000
   inhand:
   - DawInstrumentFlatpack
@@ -89,7 +89,7 @@
   id: HoverbikeFlatpack
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   price: 35000
   inhand:
   - HoverbikeFlatpack
@@ -99,7 +99,7 @@
   name: emotional support pet
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   price: 10000
   inhand:
   - PetCarrierNPCEmotionalSupportSafe
@@ -110,7 +110,7 @@
   id: AppraisalTool
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 350
   inhand:
     - AppraisalTool
@@ -119,7 +119,7 @@
   id: Pickaxe
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 350
   inhand:
     - Pickaxe
@@ -128,7 +128,7 @@
   id: HandheldGPSBasic
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 350
   inhand:
     - HandheldGPSBasic
@@ -137,7 +137,7 @@
   id: RadioHandheld
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 550
   inhand:
     - RadioHandheldNF
@@ -146,7 +146,7 @@
   id: NetworkConfigurator
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 350
   inhand:
     - NetworkConfigurator
@@ -155,7 +155,7 @@
   id: HandheldHealthAnalyzerUnpowered
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 350
   inhand:
     - HandheldHealthAnalyzerUnpowered
@@ -164,7 +164,7 @@
   id: AnomalyScanner
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 350
   inhand:
     - AnomalyScanner
@@ -173,7 +173,7 @@
   id: Bucket
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 350
   inhand:
     - Bucket
@@ -182,7 +182,7 @@
   id: GeigerCounter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 350
   inhand:
     - GeigerCounter
@@ -192,7 +192,7 @@
   id: WeaponProtoKineticAccelerator
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 3000
   inhand:
     - NFWeaponPka
@@ -201,7 +201,7 @@
   id: PinpointerUniversal
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 2000
   inhand:
     - PinpointerUniversal
@@ -210,7 +210,7 @@
   id: ShipyardRCD
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 5000
   inhand:
     - ShipyardRCD
@@ -219,7 +219,7 @@
   id: ShipyardDoorRemote
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 2000
   inhand:
     - DoorRemoteShipyard
@@ -228,7 +228,7 @@
   id: HandheldCrewMonitor
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 2000
   inhand:
     - HandheldCrewMonitor
@@ -237,7 +237,7 @@
   id: HypoMini
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 5000
   inhand:
     - HypoMini

@@ -1,0 +1,27 @@
+# Tier 1 generic playtime. 12 hours, 2 full shifts.
+- type: loadoutEffectGroup
+  id: PlaytimeT1
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 10800 # Scav: 12 hrs < 3 hrs
+
+# Tier 2 generic playtime. 30 hours, 5 full shifts.
+- type: loadoutEffectGroup
+  id: PlaytimeT2
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 43200 # Scav: 30 hrs < 12 hrs
+
+# Tier 3 generic playtime. 50 hours, 8+ full shifts. Premium toy rewards.
+- type: loadoutEffectGroup
+  id: PlaytimeT3
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 18000 # Scav: 50 hrs < 30 hrs
+

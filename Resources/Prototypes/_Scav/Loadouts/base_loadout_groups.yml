@@ -1,6 +1,6 @@
 - type: loadoutGroup
   id: BaseJumpsuit
-  name: loadout-group-base-jumpsuit
+  name: loadout-group-jumpsuit
   loadouts:
   - ClothingUniformJumpsuitColorGrey
   - ClothingUniformJumpskirtColorGrey
@@ -111,9 +111,6 @@
   - ClothingUniformJumpsuitSafari
   - UniformShortsRed
   - UniformShortsRedWithTop
-  - ClothingUniformJumpsuitClown
-  - ClothingUniformJumpsuitMime
-  - ClothingUniformJumpskirtMime
   - ClothingUniformJumpsuitTshirtJeans
   - ClothingUniformJumpsuitTshirtJeansGray
   - ClothingUniformJumpsuitTshirtJeansPeach
@@ -153,7 +150,7 @@
 
 - type: loadoutGroup
   id: BaseBackpack
-  name: loadout-group-base-backpack
+  name: loadout-group-backpack
   loadouts:
   - ClothingBackpack
   - ClothingBackpackDuffel
@@ -179,20 +176,12 @@
   - ClothingBackpackMessengerColorBrownLight
   - ClothingBackpackMessengerColorBrown
   - ClothingBackpackMessengerColorRandom
-  - ClothingBackpackClown
-  - ClothingBackpackDuffelClown
-  - ClothingBackpackSatchelClown
-  - ClothingBackpackMessengerClown
-  - ClothingBackpackMime
-  - ClothingBackpackDuffelMime
-  - ClothingBackpackSatchelMime
-  - ClothingBackpackMessengerMime
   fallbacks:
   - ClothingBackpack
 
 - type: loadoutGroup
   id: BaseOuterClothing
-  name: loadout-group-base-outerclothing
+  name: loadout-group-outerclothing
   minLimit: 0
   loadouts:
   - ClothingOuterHoodieGrey
@@ -206,8 +195,6 @@
   - ClothingOuterCoatLab
   - ClothingOuterWinterCoat
   - ClothingOuterWinterCoatLong
-  - ClothingOuterWinterClown
-  - ClothingOuterWinterMime
   - ClothingOuterFlannelRed
   - ClothingOuterFlannelBlue
   - ClothingOuterFlannelGreen
@@ -244,7 +231,7 @@
 
 - type: loadoutGroup
   id: BaseBelt
-  name: loadout-group-base-belt
+  name: loadout-group-belt
   minLimit: 0
   loadouts:
   - ClothingBeltPlant
@@ -280,7 +267,7 @@
 
 - type: loadoutGroup
   id: BaseShoes
-  name: loadout-group-base-shoes
+  name: loadout-group-shoes
   loadouts:
   - ClothingShoesColorBlack
   - ClothingShoesClothwrap
@@ -312,10 +299,6 @@
   - ClothingShoesSnakeskinBoots
   - ClothingShoesHighheelBoots
   - ClothingShoesBootsCowboyFancy
-  - ClothingShoesBootsWinterClown
-  - ClothingShoesBootsWinterMime
-  - ClothingShoesClown
-  - ClothingShoesJester
   - ClothingShoesBootsPerformer
   - ClothingShoesSkates
   - ClothingShoesClownLarge
@@ -325,7 +308,7 @@
 
 - type: loadoutGroup
   id: BaseHead
-  name: loadout-group-base-head
+  name: loadout-group-head
   minLimit: 0
   loadouts:
   - ClothingHeadBandBlack
@@ -389,7 +372,7 @@
 
 - type: loadoutGroup
   id: BaseEars
-  name: loadout-group-base-ears
+  name: loadout-group-ears
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -399,7 +382,7 @@
 
 - type: loadoutGroup
   id: BaseGloves
-  name: loadout-group-base-gloves
+  name: loadout-group-gloves
   minLimit: 0
   loadouts:
   - ClothingHandsGlovesColorYellow
@@ -425,7 +408,7 @@
 
 - type: loadoutGroup
   id: BaseNeck
-  name: loadout-group-base-neck
+  name: loadout-group-neck
   minLimit: 0
   loadouts:
   - ClothingNeckScarfStripedBlack
@@ -487,19 +470,16 @@
 
 - type: loadoutGroup
   id: BasePDA
-  name: loadout-group-base-pda
+  name: loadout-group-pda
   loadouts:
-  - PDA
   - ContractorPDA
   - ClearNFPDA
-  - ClownPDA
-  - MimePDA
   fallbacks:
-  - PDA
+  - ContractorPDA
 
 - type: loadoutGroup
   id: BaseGlasses
-  name: loadout-group-base-glasses
+  name: loadout-group-glasses
   minLimit: 0
   loadouts:
   - ClothingEyesGlasses
@@ -518,7 +498,7 @@
 
 - type: loadoutGroup
   id: BaseBackpackItems
-  name: loadout-group-base-backpack-items
+  name: loadout-group-backpack-items
   minLimit: 0
   maxLimit: 6 # Caveat emptor - enjoy picking stuff up off the ground
   loadouts:
@@ -579,7 +559,7 @@
 
 - type: loadoutGroup
   id: BaseHandItems
-  name: loadout-group-base-hand-items
+  name: loadout-group-hand-items
   minLimit: 0
   maxLimit: 2 # One per hand
   loadouts:
@@ -613,7 +593,7 @@
 
 - type: loadoutGroup
   id: BaseFace
-  name: loadout-group-base-face
+  name: loadout-group-face
   loadouts:
   - ClothingMaskBreath
   - ClothingMaskBreathMedical
@@ -622,17 +602,12 @@
   - ClothingMaskPunkHalf # Punkish (Randomized visuals)
   - ClothingMaskGasExplorer
   - ClothingMaskPlague
-  - ClothingMaskMime
-  - ClothingMaskScaredMime
-  - ClothingMaskSadMime
-  - ClothingMaskClown
-  - ClothingMaskClownBald
   fallbacks:
   - ClothingMaskBreath
 
 - type: loadoutGroup
   id: BaseBoxSurvival
-  name: loadout-group-base-survival-box
+  name: loadout-group-survival-box
   minLimit: 1
   loadouts:
   - NFBoxSurvival
@@ -648,7 +623,7 @@
 
 - type: loadoutGroup
   id: BaseEncryptionKey
-  name: loadout-group-base-encryption-key
+  name: loadout-group-encryption-key
   minLimit: 0
   maxLimit: 5
   loadouts:
@@ -662,7 +637,7 @@
 
 - type: loadoutGroup
   id: BaseWallet
-  name: loadout-group-base-wallet
+  name: loadout-group-wallet
   loadouts:
   - ClothingWalletLeatherBrown
   - ClothingWalletLeatherBlack
@@ -671,7 +646,7 @@
 
 - type: loadoutGroup
   id: BaseCartridge
-  name: loadout-group-base-cartridge
+  name: loadout-group-cartridge
   minLimit: 0
   maxLimit: 5
   loadouts:
@@ -682,7 +657,7 @@
 
 - type: loadoutGroup
   id: BaseImplanter
-  name: loadout-group-base-implanter
+  name: loadout-group-implanter
   minLimit: 0
   maxLimit: 2
   loadouts:

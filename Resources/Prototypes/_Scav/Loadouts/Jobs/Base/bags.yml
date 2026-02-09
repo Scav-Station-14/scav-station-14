@@ -26,7 +26,7 @@
   id: NFClothingBackpackDuffelColorBlack
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 750
   equipment:
     back: NFClothingBackpackDuffelColorBlack
@@ -35,7 +35,7 @@
   id: NFClothingBackpackDuffelColorBlue
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 750
   equipment:
     back: NFClothingBackpackDuffelColorBlue
@@ -44,7 +44,7 @@
   id: NFClothingBackpackDuffelColorGreen
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 750
   equipment:
     back: NFClothingBackpackDuffelColorGreen
@@ -53,7 +53,7 @@
   id: NFClothingBackpackDuffelColorOrange
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 750
   equipment:
     back: NFClothingBackpackDuffelColorOrange
@@ -62,7 +62,7 @@
   id: NFClothingBackpackDuffelColorRed
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 750
   equipment:
     back: NFClothingBackpackDuffelColorRed
@@ -71,7 +71,7 @@
   id: NFClothingBackpackDuffelColorPurple
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 750
   equipment:
     back: NFClothingBackpackDuffelColorPurple
@@ -80,7 +80,7 @@
   id: NFClothingBackpackDuffelColorBrownLight
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 750
   equipment:
     back: NFClothingBackpackDuffelColorBrownLight
@@ -89,7 +89,7 @@
   id: NFClothingBackpackDuffelColorBrown
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 750
   equipment:
     back: NFClothingBackpackDuffelColorBrown
@@ -98,7 +98,7 @@
   id: NFClothingBackpackDuffelColorWhite
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 750
   equipment:
     back: NFClothingBackpackDuffelColorWhite
@@ -107,7 +107,7 @@
   id: NFClothingBackpackDuffelColorRandom
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 750
   equipment:
     back: NFClothingBackpackDuffelColorRandom
@@ -116,7 +116,7 @@
   id: ClothingBackpackMessengerColorBlack
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   equipment:
     back: ClothingBackpackMessengerColorBlack
@@ -125,7 +125,7 @@
   id: ClothingBackpackMessengerColorWhite
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   equipment:
     back: ClothingBackpackMessengerColorWhite
@@ -134,7 +134,7 @@
   id: ClothingBackpackMessengerColorBlue
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   equipment:
     back: ClothingBackpackMessengerColorBlue
@@ -143,7 +143,7 @@
   id: ClothingBackpackMessengerColorGreen
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   equipment:
     back: ClothingBackpackMessengerColorGreen
@@ -152,7 +152,7 @@
   id: ClothingBackpackMessengerColorOrange
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   equipment:
     back: ClothingBackpackMessengerColorOrange
@@ -161,7 +161,7 @@
   id: ClothingBackpackMessengerColorRed
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   equipment:
     back: ClothingBackpackMessengerColorRed
@@ -170,7 +170,7 @@
   id: ClothingBackpackMessengerColorPurple
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   equipment:
     back: ClothingBackpackMessengerColorPurple
@@ -179,7 +179,7 @@
   id: ClothingBackpackMessengerColorBrownLight
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   equipment:
     back: ClothingBackpackMessengerColorBrownLight
@@ -188,7 +188,7 @@
   id: ClothingBackpackMessengerColorBrown
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   equipment:
     back: ClothingBackpackMessengerColorBrown
@@ -197,80 +197,7 @@
   id: ClothingBackpackMessengerColorRandom
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   equipment:
     back: ClothingBackpackMessengerColorRandom
-
-#T2
-- type: loadout
-  id: ClothingBackpackClown
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: T2
-  price: 1250
-  equipment:
-    back: ClothingBackpackClown
-
-- type: loadout
-  id: ClothingBackpackDuffelClown
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: T2
-  price: 2000
-  equipment:
-    back: ClothingBackpackDuffelClown
-
-- type: loadout
-  id: ClothingBackpackSatchelClown
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: T2
-  price: 1250
-  equipment:
-    back: ClothingBackpackSatchelClown
-
-- type: loadout
-  id: ClothingBackpackMessengerClown
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: T2
-  price: 1250
-  equipment:
-    back: ClothingBackpackMessengerClown
-
-- type: loadout
-  id: ClothingBackpackMime
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: T2
-  price: 1250
-  equipment:
-    back: ClothingBackpackMime
-
-- type: loadout
-  id: ClothingBackpackDuffelMime
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: T2
-  price: 2000
-  equipment:
-    back: ClothingBackpackDuffelMime
-
-- type: loadout
-  id: ClothingBackpackSatchelMime
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: T2
-  price: 1250
-  equipment:
-    back: ClothingBackpackSatchelMime
-
-- type: loadout
-  id: ClothingBackpackMessengerMime
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: T2
-  price: 1250
-  equipment:
-    back: ClothingBackpackMessengerMime

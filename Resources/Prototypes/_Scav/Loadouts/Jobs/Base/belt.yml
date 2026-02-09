@@ -87,7 +87,7 @@
   id: BoxFolderClipboard
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 500
   equipment:
     belt: BoxFolderClipboard
@@ -96,7 +96,7 @@
   id: ClothingBeltPilot
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 750
   equipment:
     belt: ClothingBeltPilot
@@ -106,7 +106,7 @@
   name: pilot webbing (filled)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 1500
   equipment:
     belt: ClothingBeltPilotFilled
@@ -115,7 +115,7 @@
   id: ClothingBeltBandolier
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 750
   equipment:
     belt: ClothingBeltBandolier
@@ -124,7 +124,7 @@
   id: ClothingBeltHolster
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 750
   equipment:
     belt: ClothingBeltHolster
@@ -133,7 +133,7 @@
   id: ClothingBeltChaplainSash
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 750
   equipment:
     belt: ClothingBeltChaplainSash
@@ -143,7 +143,7 @@
   name: chaplain sash (filled)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 1500
   equipment:
     belt: ClothingBeltChaplainSashFilled
@@ -152,7 +152,7 @@
   id: BooksBag
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 750
   equipment:
     belt: BooksBag
@@ -161,7 +161,7 @@
   id: ChemBag
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 750
   equipment:
     belt: ChemBag
@@ -170,7 +170,7 @@
   id: OreBag
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 750
   equipment:
     belt: OreBag
@@ -179,7 +179,7 @@
   id: PlantBag
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 750
   equipment:
     belt: PlantBag
@@ -188,7 +188,7 @@
   id: ConstructionBag
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 750
   equipment:
     belt: ConstructionBag
@@ -198,7 +198,7 @@
   id: ClothingBeltMartialBlack
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 1000
   equipment:
     belt: ClothingBeltMartialBlack
@@ -208,7 +208,7 @@
   name: punk belt (random)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 1000
   equipment:
     belt: ClothingBeltPunkRandomized
@@ -218,7 +218,7 @@
   name: punk belt (random, filled)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 1500
   equipment:
     belt: ClothingBeltPunkRandomizedFilled
@@ -228,7 +228,7 @@
   id: ClothingBeltChampion
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   price: 5000
   equipment:
     belt: ClothingBeltChampion
@@ -238,7 +238,7 @@
   name: sabre sheath (with hilt)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFNotStationRep
