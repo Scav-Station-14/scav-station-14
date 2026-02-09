@@ -501,6 +501,28 @@
   - BaseHandItems
   - NFSpeciesSpecific
 
+#Tactical
+- type: roleLoadout
+  id: JobChiefTacticalOfficer
+  groups:
+  - MercenaryHead
+  - MercenaryGlasses
+  - MercenaryEars
+  - MercenaryFace
+  - BaseNeck
+  - MercenaryJumpsuit
+  - MercenaryOuterClothing
+  - MercenaryGloves
+  - MercenaryShoes
+  - MercenaryBackpack
+  - MercenaryBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+  - MercenaryPDA
+
 # Security
 - type: roleLoadout
   id: JobHeadOfSecurity
