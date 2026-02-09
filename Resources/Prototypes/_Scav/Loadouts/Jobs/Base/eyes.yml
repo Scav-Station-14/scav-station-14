@@ -28,7 +28,7 @@
   id: ClothingEyesGlassesJamjar
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 500
   equipment:
     eyes: ClothingEyesGlassesJamjar
@@ -37,7 +37,7 @@
   id: ClothingEyesGlassesChemical
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 750
   equipment:
     eyes: ClothingEyesGlassesChemical
@@ -46,7 +46,7 @@
   id: ClothingEyesHudDiagnostic
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 750
   equipment:
     eyes: ClothingEyesHudDiagnostic
@@ -55,7 +55,7 @@
   id: ClothingEyesGlassesMeson
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 750
   equipment:
     eyes: ClothingEyesGlassesMeson
@@ -64,7 +64,7 @@
   id: ClothingEyesHudMedical
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 750
   equipment:
     eyes: ClothingEyesHudMedical
@@ -74,7 +74,7 @@
   name: punk goggles (random)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 750
   equipment:
     eyes: ClothingEyesPunkGoggles
@@ -84,7 +84,7 @@
   name: punk infoshades (random)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 750
   equipment:
     eyes: ClothingEyesPunkInfoShades
@@ -95,7 +95,7 @@
   id: ClothingEyesEyepatchHudDiag
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 1250
   equipment:
     eyes: ClothingEyesEyepatchHudDiag
@@ -104,7 +104,7 @@
   id: ClothingEyesEyepatchHudMedical
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 1250
   equipment:
     eyes: ClothingEyesEyepatchHudMedical

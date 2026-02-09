@@ -26,53 +26,47 @@
 
 - type: roleLoadout
   id: JobPilot
-  groups:
+  groups: # Scav: reordered, replaced unwanted ones
   - PilotHead
+  - PilotGlasses
+  - PilotEars
+  - PilotFace
   - PilotNeck
   - PilotJumpsuit
-  - PilotGloves
-  - PilotBackpack
   - PilotOuterClothing
   - PilotForcedOuterClothing
+  - PilotGloves
   - PilotShoes
-  - PilotFace
-  - PilotGlasses
-  - ContractorBelt
-  - PilotEars
-  - ContractorEncryptionKey
-  - ContractorBoxSurvival
-  - PilotPDA
-  - ContractorWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - PilotBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
   - NFSpeciesSpecific
+  - PilotPDA
 
 - type: roleLoadout
   id: JobMercenary
-  groups:
+  groups: # Scav: reordered, replaced unwanted ones
   - MercenaryHead
-  - ContractorNeck
+  - MercenaryGlasses
+  - MercenaryEars
+  - MercenaryFace
+  - BaseNeck
   - MercenaryJumpsuit
-  - MercenaryGloves
-  - MercenaryBackpack
   - MercenaryOuterClothing
   - MercenaryForcedOuterClothing
+  - MercenaryGloves
   - MercenaryShoes
-  - MercenaryFace
-  - MercenaryGlasses
+  - MercenaryBackpack
   - MercenaryBelt
-  - MercenaryEars
-  - ContractorEncryptionKey
-  - ContractorBoxSurvival
-  - MercenaryPDA
-  - ContractorWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
   - NFSpeciesSpecific
+  - MercenaryPDA
 
 # region Frontier
 - type: roleLoadout

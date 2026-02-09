@@ -110,7 +110,7 @@
   id: ClothingShoesColorWhite
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -124,7 +124,7 @@
   id: ClothingShoesBootsMag
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -136,7 +136,7 @@
   id: ClothingShoesBootsWinter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -148,7 +148,7 @@
   id: ClothingShoesBootsJack
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -160,7 +160,7 @@
   id: ClothingShoesLeather
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -172,7 +172,7 @@
   id: ClothingShoesBootsLaceup
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFNotDocOrStc
@@ -186,7 +186,7 @@
   id: ClothingShoesSlippers
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -198,7 +198,7 @@
   id: ClothingShoeSlippersDuck
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -210,7 +210,7 @@
   id: ClothingShoesFlippers
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -223,7 +223,7 @@
   name: punk boots (random)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -236,7 +236,7 @@
   id: ClothingShoesDameDane
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -248,7 +248,7 @@
   id: ClothingShoesBootsWork
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -260,7 +260,7 @@
   id: ClothingShoesBootsCowboyBlack
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -272,7 +272,7 @@
   id: ClothingShoesBootsCowboyBrown
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -284,7 +284,7 @@
   id: ClothingShoesBootsCowboyWhite
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -296,7 +296,7 @@
   id: ClothingShoesSnakeskinBoots
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -308,7 +308,7 @@
   id: ClothingShoesHighheelBoots
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -320,7 +320,7 @@
   id: ClothingShoesBootsCowboyFancy
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -329,58 +329,10 @@
     shoes: ClothingShoesBootsCowboyFancy
 
 - type: loadout
-  id: ClothingShoesBootsWinterClown
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  hideEffects:
-  - !type:GroupLoadoutEffect
-    proto: ShoesCapableNF
-  price: 1200
-  equipment:
-    shoes: ClothingShoesBootsWinterClown
-
-- type: loadout
-  id: ClothingShoesBootsWinterMime
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  hideEffects:
-  - !type:GroupLoadoutEffect
-    proto: ShoesCapableNF
-  price: 1200
-  equipment:
-    shoes: ClothingShoesBootsWinterMime
-
-- type: loadout
-  id: ClothingShoesClown
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  hideEffects:
-  - !type:GroupLoadoutEffect
-    proto: ShoesCapableNF
-  price: 1200
-  equipment:
-    shoes: ClothingShoesClown
-
-- type: loadout
-  id: ClothingShoesJester
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  hideEffects:
-  - !type:GroupLoadoutEffect
-    proto: ShoesCapableNF
-  price: 1200
-  equipment:
-    shoes: ClothingShoesJester
-
-- type: loadout
   id: ClothingShoesBootsPerformer
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -392,7 +344,7 @@
   id: ClothingShoesSkates
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -405,7 +357,7 @@
   id: ClothingShoesClownLarge
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
@@ -417,7 +369,7 @@
   id: ClothingShoesBling
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF

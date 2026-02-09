@@ -3,7 +3,7 @@
   id: ClothingHandsGlovesColorYellow
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 1500
   equipment:
     gloves: ClothingHandsGlovesColorYellow
@@ -12,7 +12,7 @@
   id: ClothingHandsGlovesLeather
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 300
   equipment:
     gloves: ClothingHandsGlovesLeather
@@ -21,7 +21,7 @@
   id: ClothingHandsGlovesFingerless
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 300
   equipment:
     gloves: ClothingHandsGlovesFingerless
@@ -30,7 +30,7 @@
   id: ClothingHandsGlovesLatex
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 300
   equipment:
     gloves: ClothingHandsGlovesLatex
@@ -39,7 +39,7 @@
   id: ClothingHandsGlovesNitrile
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 300
   equipment:
     gloves: ClothingHandsGlovesNitrile
@@ -48,7 +48,7 @@
   id: ClothingHandsGlovesRobohands
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 300
   equipment:
     gloves: ClothingHandsGlovesRobohands
@@ -57,7 +57,7 @@
   id: ClothingHandsGlovesColorBlack
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 300
   equipment:
     gloves: ClothingHandsGlovesColorBlack
@@ -66,7 +66,7 @@
   id: ClothingHandsGlovesColorBlue
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 300
   equipment:
     gloves: ClothingHandsGlovesColorBlue
@@ -75,7 +75,7 @@
   id: ClothingHandsGlovesColorGreen
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 300
   equipment:
     gloves: ClothingHandsGlovesColorGreen
@@ -84,7 +84,7 @@
   id: ClothingHandsGlovesColorGray
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 300
   equipment:
     gloves: ClothingHandsGlovesColorGray
@@ -93,7 +93,7 @@
   id: ClothingHandsGlovesColorBrown
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 300
   equipment:
     gloves: ClothingHandsGlovesColorBrown
@@ -102,7 +102,7 @@
   id: ClothingHandsGlovesColorLightBrown
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 300
   equipment:
     gloves: ClothingHandsGlovesColorLightBrown
@@ -111,7 +111,7 @@
   id: ClothingHandsGlovesColorOrange
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 300
   equipment:
     gloves: ClothingHandsGlovesColorOrange
@@ -120,7 +120,7 @@
   id: ClothingHandsGlovesColorPurple
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 300
   equipment:
     gloves: ClothingHandsGlovesColorPurple
@@ -129,7 +129,7 @@
   id: ClothingHandsGlovesColorRed
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 300
   equipment:
     gloves: ClothingHandsGlovesColorRed
@@ -139,7 +139,7 @@
   id: ClothingHandsGlovesBoxingGreen
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 600
   equipment:
     gloves: ClothingHandsGlovesBoxingGreen
@@ -148,7 +148,7 @@
   id: ClothingHandsGlovesBoxingBlue
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 600
   equipment:
     gloves: ClothingHandsGlovesBoxingBlue
@@ -157,7 +157,7 @@
   id: ClothingHandsGlovesBoxingRed
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 600
   equipment:
     gloves: ClothingHandsGlovesBoxingRed
@@ -166,7 +166,7 @@
   id: ClothingHandsGlovesBoxingYellow
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 600
   equipment:
     gloves: ClothingHandsGlovesBoxingYellow
@@ -176,7 +176,7 @@
   id: ClothingHandsGlovesColorWhite
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   price: 2000
   equipment:
     gloves: ClothingHandsGlovesColorWhite

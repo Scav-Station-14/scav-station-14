@@ -11,7 +11,7 @@
   name: light implanter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 1000
   implants:
   - LightImplanter
@@ -21,7 +21,7 @@
   name: bike horn implanter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 1000
   implants:
   - BikeHornImplanter
@@ -31,7 +31,7 @@
   name: sad trombone implanter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 1000
   implants:
   - SadTromboneImplanter
@@ -43,7 +43,7 @@
   description: For the budding mime. Take your vow today.
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 5000
   implants:
   - MimePowersImplanter
@@ -54,7 +54,7 @@
   description: For the budding chaplain. Perform miracles, proselytize, and grow your flock.
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   price: 5000
   implants:
   - BibleUserImplanter

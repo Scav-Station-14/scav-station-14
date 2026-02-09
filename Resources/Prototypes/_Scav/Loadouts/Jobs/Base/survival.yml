@@ -35,7 +35,7 @@
   name: extended-oxygen survival box
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFOxygenBreather
@@ -49,7 +49,7 @@
   name: extended-nitrogen survival box
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFNitrogenBreather
@@ -63,7 +63,7 @@
   name: extended-oxygen survival box
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFSheleg

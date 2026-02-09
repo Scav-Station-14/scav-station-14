@@ -48,7 +48,7 @@
   id: ClothingOuterHoodieBlack
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -60,7 +60,7 @@
   id: ClothingOuterCoatJensen
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -72,7 +72,7 @@
   id: ClothingOuterCoatGentle
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -84,7 +84,7 @@
   id: ClothingOuterHoodieChaplain
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -96,7 +96,7 @@
   id: ClothingOuterNunRobe
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -108,7 +108,7 @@
   id: ClothingOuterCoatLab
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -120,7 +120,7 @@
   id: ClothingOuterWinterCoat
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -132,7 +132,7 @@
   id: ClothingOuterWinterCoatLong
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -142,34 +142,10 @@
 
 #T2
 - type: loadout
-  id: ClothingOuterWinterClown
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  hideEffects:
-  - !type:GroupLoadoutEffect
-    proto: NFCoatCapable
-  price: 1200
-  equipment:
-    outerClothing: ClothingOuterWinterClown
-
-- type: loadout
-  id: ClothingOuterWinterMime
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  hideEffects:
-  - !type:GroupLoadoutEffect
-    proto: NFCoatCapable
-  price: 1200
-  equipment:
-    outerClothing: ClothingOuterWinterMime
-
-- type: loadout
   id: ClothingOuterFlannelRed
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -181,7 +157,7 @@
   id: ClothingOuterFlannelBlue
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -193,7 +169,7 @@
   id: ClothingOuterFlannelGreen
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -205,7 +181,7 @@
   id: ClothingOuterCoatHyenhSweater
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -217,7 +193,7 @@
   id: ClothingOuterCoatInspector
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -229,7 +205,7 @@
   id: ClothingOuterCoatTrench
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -241,7 +217,7 @@
   id: ClothingOuterDameDane
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -253,7 +229,7 @@
   id: ClothingOuterWinterCoatPlaid
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -265,7 +241,7 @@
   id: ClothingOuterCoatBomber
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -277,7 +253,7 @@
   id: ClothingOuterPlagueSuit
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -289,7 +265,7 @@
   id: ClothingOuterCoatBishop
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -301,7 +277,7 @@
   id: ClothingOuterCoatWitchHunter
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -313,7 +289,7 @@
   id: ClothingOuterCoatCardinal
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -326,7 +302,7 @@
   id: ClothingOuterCoatBomberPunkRed
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -338,7 +314,7 @@
   id: ClothingOuterCoatJacketLeather
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -350,7 +326,7 @@
   id: ClothingOuterCoatJacketBiker
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -362,7 +338,7 @@
   id: ClothingOuterCoatJacketJamrock
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -374,7 +350,7 @@
   id: ClothingOuterCoatBomberAerostatic
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -386,7 +362,7 @@
   id: ClothingOuterCoatJacketLettermanBlue
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -398,7 +374,7 @@
   id: ClothingOuterCoatJacketLettermanBrown
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -410,7 +386,7 @@
   id: ClothingOuterCoatJacketLettermanRed
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -422,7 +398,7 @@
   id: ClothingOuterCoatJacketLettermanMagenta
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -434,7 +410,7 @@
   id: ClothingOuterCoatBomberPinkSleeves
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -447,7 +423,7 @@
   name: punk jacket (random)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -460,7 +436,7 @@
   name: punk coat (random)
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -472,7 +448,7 @@
   id: ClothingOuterCoatAcidRaincoat
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -484,7 +460,7 @@
   id: ClothingOuterCoatAcidRaincoatBlue
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -496,7 +472,7 @@
   id: ClothingOuterCoatAcidRaincoatGreen
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -508,7 +484,7 @@
   id: ClothingOuterCoatAcidRaincoatMagenta
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -520,7 +496,7 @@
   id: ClothingOuterCoatAcidRaincoatYellow
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT2
+    proto: PlaytimeT2
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -534,7 +510,7 @@
   id: WetFloorSign
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -546,7 +522,7 @@
   id: ClothingOuterCoatExpensive
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
@@ -558,7 +534,7 @@
   id: ClothingOuterCoatSpaceAsshole
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT3
+    proto: PlaytimeT3
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable

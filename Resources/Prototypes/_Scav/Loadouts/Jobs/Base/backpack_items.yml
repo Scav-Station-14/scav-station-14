@@ -3,7 +3,7 @@
   id: NFAshtray
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 200
   storage:
     back:
@@ -13,7 +13,7 @@
   id: TapeRecorder
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 600
   storage:
     back:
@@ -24,7 +24,7 @@
   id: SmokingPipeFilledTobacco
   effects:
   - !type:GroupLoadoutEffect
-    proto: T2
+    proto: PlaytimeT2
   price: 600
   storage:
     back:
@@ -34,7 +34,7 @@
   id: TobaccoPouchBrownFilled
   effects:
   - !type:GroupLoadoutEffect
-    proto: T2
+    proto: PlaytimeT2
   price: 600
   storage:
     back:
@@ -44,7 +44,7 @@
   id: TobaccoPouchBlueFilled
   effects:
   - !type:GroupLoadoutEffect
-    proto: T2
+    proto: PlaytimeT2
   price: 600
   storage:
     back:
@@ -54,7 +54,7 @@
   id: TobaccoPouchRedFilled
   effects:
   - !type:GroupLoadoutEffect
-    proto: T2
+    proto: PlaytimeT2
   price: 800
   storage:
     back:
@@ -64,7 +64,7 @@
   id: TobaccoPouchPurpleFilled
   effects:
   - !type:GroupLoadoutEffect
-    proto: T2
+    proto: PlaytimeT2
   price: 600
   storage:
     back:
@@ -74,7 +74,7 @@
   id: Vape
   effects:
   - !type:GroupLoadoutEffect
-    proto: T2
+    proto: PlaytimeT2
   price: 600
   storage:
     back:
@@ -85,7 +85,7 @@
   id: CigarGoldCase
   effects:
   - !type:GroupLoadoutEffect
-    proto: T3
+    proto: PlaytimeT3
   price: 2000
   storage:
     back:
@@ -105,7 +105,7 @@
   id: FlippoLighter
   effects:
   - !type:GroupLoadoutEffect
-    proto: T2
+    proto: PlaytimeT2
   price: 500
   storage:
     back:
@@ -116,7 +116,7 @@
   id: FlippoEngravedLighter
   effects:
   - !type:GroupLoadoutEffect
-    proto: T3
+    proto: PlaytimeT3
   price: 5000
   storage:
     back:
@@ -136,7 +136,7 @@
   id: DrinkShinyFlask
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   storage:
     back:
@@ -147,7 +147,7 @@
   id: DrinkFlask
   effects:
   - !type:GroupLoadoutEffect
-    proto: T2
+    proto: PlaytimeT2
   price: 1000
   storage:
     back:
@@ -158,7 +158,7 @@
   id: DrinkVacuumFlask
   effects:
   - !type:GroupLoadoutEffect
-    proto: T3
+    proto: PlaytimeT3
   price: 2000
   storage:
     back:
@@ -192,7 +192,7 @@
   id: Basketball
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 300
   storage:
     back:
@@ -202,7 +202,7 @@
   id: Football
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 300
   storage:
     back:
@@ -212,7 +212,7 @@
   id: BeachBall
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 300
   storage:
     back:
@@ -223,7 +223,7 @@
   id: CrayonBox
   effects:
   - !type:GroupLoadoutEffect
-    proto: T2
+    proto: PlaytimeT2
   price: 600
   storage:
     back:
@@ -233,7 +233,7 @@
   id: SoapNT
   effects:
   - !type:GroupLoadoutEffect
-    proto: T2
+    proto: PlaytimeT2
   price: 800
   storage:
     back:
@@ -243,7 +243,7 @@
   id: CardBoxBlack
   effects:
   - !type:GroupLoadoutEffect
-    proto: T2
+    proto: PlaytimeT2
   price: 2000
   storage:
     back:
@@ -254,7 +254,7 @@
   id: WristwatchGold
   effects:
   - !type:GroupLoadoutEffect
-    proto: T3
+    proto: PlaytimeT3
   price: 2500
   storage:
     back:
@@ -264,7 +264,7 @@
   id: SilverRing
   effects:
   - !type:GroupLoadoutEffect
-    proto: T3
+    proto: PlaytimeT3
   price: 2750
   storage:
     back:
@@ -274,7 +274,7 @@
   id: GoldRing
   effects:
   - !type:GroupLoadoutEffect
-    proto: T3
+    proto: PlaytimeT3
   price: 3000
   storage:
     back:
@@ -285,7 +285,7 @@
   id: MonkeyCubeWrapped
   effects:
   - !type:GroupLoadoutEffect
-    proto: T2
+    proto: PlaytimeT2
   price: 500
   storage:
     back:
@@ -295,7 +295,7 @@
   id: KoboldCubeWrapped
   effects:
   - !type:GroupLoadoutEffect
-    proto: T2
+    proto: PlaytimeT2
   price: 500
   storage:
     back:
@@ -307,7 +307,7 @@
   id: PlushieSharkGrey
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   storage:
     back:
@@ -317,7 +317,7 @@
   id: PlushieSharkBlue
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   storage:
     back:
@@ -327,7 +327,7 @@
   id: PlushieSharkPink
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   storage:
     back:
@@ -337,7 +337,7 @@
   id: HarmonicaInstrument
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   storage:
     back:
@@ -347,7 +347,7 @@
   id: SaxophoneInstrument
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   storage:
     back:
@@ -357,7 +357,7 @@
   id: AcousticGuitarInstrument
   effects:
   - !type:GroupLoadoutEffect
-    proto: T1
+    proto: PlaytimeT1
   price: 500
   storage:
     back:
@@ -368,7 +368,7 @@
   id: PonderingOrb
   effects:
   - !type:GroupLoadoutEffect
-    proto: T2
+    proto: PlaytimeT2
   price: 5000
   storage:
     back:
@@ -379,7 +379,7 @@
   id: PlushieRGBee
   effects:
   - !type:GroupLoadoutEffect
-    proto: T3
+    proto: PlaytimeT3
   price: 10000
   storage:
     back:
@@ -389,7 +389,7 @@
   id: MysterySpaceBladeBox
   effects:
   - !type:GroupLoadoutEffect
-    proto: T3
+    proto: PlaytimeT3
   price: 2400
   storage:
     back:
@@ -399,7 +399,7 @@
   id: HoloGraffitiProjector
   effects:
   - !type:GroupLoadoutEffect
-    proto: T3
+    proto: PlaytimeT3
   price: 10000
   storage:
     back:
@@ -409,7 +409,7 @@
   id: CrayonMagic
   effects:
   - !type:GroupLoadoutEffect
-    proto: T3
+    proto: PlaytimeT3
   price: 30000
   storage:
     back:
@@ -419,7 +419,7 @@
   id: SprayPainterMagic
   effects:
   - !type:GroupLoadoutEffect
-    proto: T3
+    proto: PlaytimeT3
   price: 30000
   storage:
     back:

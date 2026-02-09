@@ -3,7 +3,7 @@
   id: AppraisalCartridge
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 1000
   cartridges:
   - AppraisalCartridge
@@ -12,7 +12,7 @@
   id: MedTekCartridge
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 1000
   cartridges:
   - MedTekCartridge
@@ -21,7 +21,7 @@
   id: NetProbeCartridge
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 1000
   cartridges:
   - NetProbeCartridge
@@ -30,7 +30,7 @@
   id: LogProbeCartridge
   effects:
   - !type:GroupLoadoutEffect
-    proto: ContractorT1
+    proto: PlaytimeT1
   price: 1000
   cartridges:
   - LogProbeCartridge
