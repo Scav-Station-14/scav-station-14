@@ -1,12 +1,12 @@
 - type: vessel
-  id: Bee
+  id: Bulldog
   parent: BaseVessel
-  name: IMS Bee
-  description: Small landing and salvage craft. Hardy, with external bays for additional storage space.
-  price: 25000
+  name: NC Bulldog
+  description: An extremely versatile runabout suitable for combat, cargo, or medical operations.
+  price: 16000
   category: Small
   group: Scav
-  shuttlePath: /Maps/_Scav/Shuttles/bee.yml
+  shuttlePath: /Maps/_Scav/Shuttles/bulldog.yml
   guidebookPage: Null
   class:
   - Salvage
@@ -14,16 +14,16 @@
   - Uranium
 
 - type: gameMap
-  id: Bee
-  mapName: 'IMS Bee'
-  mapPath: /Maps/_Scav/Shuttles/bee.yml
+  id: Bulldog
+  mapName: 'NC Bulldog'
+  mapPath: /Maps/_Scav/Shuttles/bulldog.yml
   minPlayers: 0
   stations:
-    Bee:
+    Bulldog:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Bee {1}'
+          mapNameTemplate: 'Bulldog {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

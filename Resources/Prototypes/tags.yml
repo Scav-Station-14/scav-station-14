@@ -1004,7 +1004,10 @@
   id: OreBananium
 
 - type: Tag # Scav
-  id: OreQuartz
+  id: OreBluespace
+
+- type: Tag # Scav
+  id: OreCoal
 
 - type: Tag
   id: OreGold
