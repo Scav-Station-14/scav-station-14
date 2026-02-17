@@ -174,7 +174,7 @@
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
       - !type:NestedSelector
-        tableId: NFBasicCalmEventsTable
+        tableId: ScavBasicCalmEventsTable # Scav: NFBasicCalmEventsTable < ScavBasicCalmEventsTable
       - !type:NestedSelector
         tableId: NFCalmPestEventsTable
 

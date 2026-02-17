@@ -1,0 +1,23 @@
+- type: entityTable
+  id: ScavBasicCalmEventsTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: AnomalySpawn
+    - id: BluespaceArtifact
+    - id: BluespaceLocker
+    - id: BreakerFlip
+    - id: BureaucraticError
+    - id: ClericalError
+    - id: GasLeak
+    - id: GreytideVirus
+    - id: NFIonStorm # its calm like 90% of the time smh
+    - id: KudzuGrowth
+    - id: MassHallucinations
+    - id: MimicVendorRule
+    - id: PowerGridCheck
+    - id: RandomSentience
+    - id: SlimesSpawn
+    - id: NFSolarFlare
+    - id: SnakeSpawn
+    - id: SpiderSpawn
+    - id: VentClog

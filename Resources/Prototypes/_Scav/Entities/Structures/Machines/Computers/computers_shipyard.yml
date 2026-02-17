@@ -1,0 +1,25 @@
+- type: entity
+  id: ComputerShipyardScav
+  parent: [ComputerShipyardBase]
+  name: shipyard console
+  suffix: Scavstation
+  description: Used to purchase and sell shuttles.
+  components:
+  - type: ActivatableUI
+    key: enum.ShipyardConsoleUiKey.Scav
+  - type: UserInterface
+    interfaces:
+      enum.ShipyardConsoleUiKey.Scav:
+        type: ShipyardConsoleBoundUserInterface
+  - type: Sprite
+    sprite: _NF/Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: shipyard
+    - map: ["computerLayerKeys"]
+      state: telesci_key
+  - type: ShipyardConsole

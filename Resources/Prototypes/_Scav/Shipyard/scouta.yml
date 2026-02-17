@@ -1,12 +1,12 @@
 - type: vessel
-  id: Bee
+  id: ScoutA
   parent: BaseVessel
-  name: IMS Bee
-  description: Small landing and salvage craft. Hardy, with external bays for additional storage space.
-  price: 25000
-  category: Small
+  name: NC Scout (Model A)
+  description: A small craft meant for short-range operations.
+  price: 10000
+  category: Micro
   group: Scav
-  shuttlePath: /Maps/_Scav/Shuttles/bee.yml
+  shuttlePath: /Maps/_Scav/Shuttles/scouta.yml
   guidebookPage: Null
   class:
   - Salvage
@@ -14,16 +14,16 @@
   - Uranium
 
 - type: gameMap
-  id: Bee
-  mapName: 'IMS Bee'
-  mapPath: /Maps/_Scav/Shuttles/bee.yml
+  id: ScoutA
+  mapName: 'NC Scout (Model A)'
+  mapPath: /Maps/_Scav/Shuttles/scouta.yml
   minPlayers: 0
   stations:
-    Bee:
+    ScoutA:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Bee {1}'
+          mapNameTemplate: 'ScoutA {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
