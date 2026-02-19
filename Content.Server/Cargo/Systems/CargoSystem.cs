@@ -1,3 +1,4 @@
+using Content.Server._Scav.Cargo.Components;
 using Content.Server.Cargo.Components;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Popups;
@@ -48,6 +49,7 @@ public sealed partial class CargoSystem : SharedCargoSystem
     private EntityQuery<CargoSellBlacklistComponent> _blacklistQuery;
     private EntityQuery<MobStateComponent> _mobQuery;
     private EntityQuery<TradeStationComponent> _tradeQuery;
+    private EntityQuery<CargoLabelComponent> _cargoLabelQuery;
 
     private HashSet<EntityUid> _setEnts = new();
     private List<EntityUid> _listEnts = new();
@@ -61,6 +63,7 @@ public sealed partial class CargoSystem : SharedCargoSystem
         _blacklistQuery = GetEntityQuery<CargoSellBlacklistComponent>();
         _mobQuery = GetEntityQuery<MobStateComponent>();
         _tradeQuery = GetEntityQuery<TradeStationComponent>();
+        _cargoLabelQuery = GetEntityQuery<CargoLabelComponent>();
 
         InitializeConsole();
         InitializeShuttle();

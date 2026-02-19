@@ -664,6 +664,7 @@
 - type: entity
   parent: [BaseStructureIndestructible, BaseStructureComputerTabletop, ComputerPalletConsoleNFHighMarket]
   id: ComputerTabletopPalletConsoleNFHighMarket
+  categories: [HideSpawnMenu, DoNotMap] # Scav
   suffix: High, Tabletop
   components:
   - type: Sprite
@@ -688,6 +689,7 @@
 - type: entity
   parent: [BaseStructureIndestructible, BaseStructureComputerTabletop, ComputerPalletConsoleNFNormalMarket]
   id: ComputerTabletopPalletConsoleNFNormalMarket
+  categories: [HideSpawnMenu, DoNotMap] # Scav
   suffix: Normal, Tabletop
   components:
   - type: Sprite
@@ -697,6 +699,7 @@
 - type: entity
   parent: [BaseStructureIndestructible, BaseStructureComputerTabletop, ComputerPalletConsoleNFLowMarket]
   id: ComputerTabletopPalletConsoleNFLowMarket
+  categories: [HideSpawnMenu, DoNotMap] # Scav
   suffix: Low, Tabletop
   components:
   - type: Sprite
@@ -706,6 +709,7 @@
 - type: entity
   parent: [BaseStructureComputerTabletop, ComputerPalletConsoleNFVeryLowMarket]
   id: ComputerTabletopPalletConsoleNFVeryLowMarket
+  categories: [HideSpawnMenu, DoNotMap] # Scav
   suffix: VeryLow, Tabletop
   components:
   - type: Sprite
