@@ -1,0 +1,32 @@
+- type: entity
+  id: CargoLabelPrinter
+  parent: BaseMachinePowered
+  name: salvage tag printer
+  description: Prints forms to allow the sale of miscellaneous salvage.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/fax_machine.rsi
+    drawdepth: SmallObjects
+    layers:
+    - state: icon
+      map: [ "enum.FaxMachineVisuals.VisualState" ]
+  - type: Icon
+    sprite: Structures/Machines/fax_machine.rsi
+    state: icon
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 25
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer
+  - type: CargoLabelPrinter
+  - type: StationAiWhitelist
+  - type: ApcPowerReceiver
+    powerLoad: 250
