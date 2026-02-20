@@ -38,7 +38,7 @@
   parent: BaseShipVoucher
   id: ShipVoucherIvenmoth
   name: Ivenmoth Shipyard Voucher
-  description: Per the Tradehouse's arrangement with Nanotrasen, all Tradehouse employees are afforded a free ship purchase.
+  description: Allows for the purchase of a free ship, courtesy of the Tradehouse Ivenmoth
   components:
   - type: Sprite
     sprite: _Scav/Objects/Misc/shipyard_voucher.rsi
@@ -49,7 +49,7 @@
     heldPrefix: ivenmoth
   - type: ShipyardVoucher
     destroyOnEmpty: true
-    consoleType: Shipyard
+    consoleType: Scav
     accessGroups:
     - GeneralAccess
 
@@ -57,7 +57,7 @@
   parent: ShipVoucherIvenmoth
   id: ShipVoucherIvenmothExpedition
   name: Ivenmoth Expeditionary Shipyard Voucher
-  description: Per the Tradehouse's arrangement with Nanotrasen, all Tradehouse employees are afforded a free ship purchase.
+  description: Allows for the purchase of a free ship, courtesy of the Tradehouse Ivenmoth
   components:
   - type: ShipyardVoucher
     destroyOnEmpty: true
@@ -69,10 +69,29 @@
   parent: ShipVoucherIvenmoth
   id: ShipVoucherIvenmothMedical
   name: Ivenmoth Medical Shipyard Voucher
-  description: Per the Tradehouse's arrangement with Nanotrasen, all Tradehouse employees are afforded a free ship purchase.
+  description: Allows for the purchase of a free ship, courtesy of the Tradehouse Ivenmoth
   components:
   - type: ShipyardVoucher
     destroyOnEmpty: true
     consoleType: Medical
+    accessGroups:
+    - GeneralAccess
+
+- type: entity
+  parent: BaseShipVoucher
+  id: ShipVoucherStation
+  name: Shipyard Voucher
+  suffix: Station
+  description: Allows for one free ship purchase. Destroyed on sale.
+  components:
+  - type: Sprite
+    layers:
+    - state: blue
+    - state: vouchergeneral
+  - type: Item
+    heldPrefix: blue
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Scav
     accessGroups:
     - GeneralAccess
