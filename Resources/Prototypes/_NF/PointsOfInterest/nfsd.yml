@@ -8,20 +8,20 @@
 
 # Notes:
 #
-- type: pointOfInterest
-  id: Nfsd
-  parent: BasePOI
-  name: 'NFSD Outpost'
-  minimumDistance: 750
-  maximumDistance: 1000
-  spawnGroup: Required
-  gridPath: /Maps/_NF/POI/nfsd.yml
-  addComponents:
-  - type: IFF
-    color: "#ae7d57"
-  - type: StationTransit
-    routes:
-      SpawnPoints: 10
+# - type: pointOfInterest
+#   id: Nfsd
+#   parent: BasePOI
+#   name: 'NFSD Outpost'
+#   minimumDistance: 750
+#   maximumDistance: 1000
+#   spawnGroup: Required
+#   gridPath: /Maps/_NF/POI/nfsd.yml
+#   addComponents:
+#   - type: IFF
+#     color: "#ae7d57"
+#   - type: StationTransit
+#     routes:
+#       SpawnPoints: 10
 
 - type: gameMap
   id: Nfsd
