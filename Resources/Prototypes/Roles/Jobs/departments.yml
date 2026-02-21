@@ -6,7 +6,7 @@
   roles:
   - CargoTechnician
   - Quartermaster
-  - SalvageSpecialist
+  #- SalvageSpecialist # Scav
   - Pilot # Scav
 
 - type: department
@@ -29,6 +29,7 @@
   # - Mime # Frontier
   # - Musician # Frontier
   # - Passenger # Frontier
+  - CrewMember # Scav
   # - Reporter # Frontier
   # - Visitor # Frontier
   # - Zookeeper # Frontier
