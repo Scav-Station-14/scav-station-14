@@ -53,6 +53,26 @@
 
 # Civilian
 - type: roleLoadout
+  id: JobCrewMember
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - BaseEars
+  - PassengerFace
+  - PassengerNeck
+  - PassengerJumpsuit
+  - PassengerOuterClothing
+  - PassengerGloves
+  - PassengerShoes
+  - BaseBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
   id: JobPassenger
   groups:
   - BaseHead

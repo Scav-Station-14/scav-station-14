@@ -1,0 +1,2 @@
+job-description-cto = Manage tactical operations and give orders to the tactical department's mercenaries.
+job-description-crewmember = Go on away missions, join a department, or mess around on-station.

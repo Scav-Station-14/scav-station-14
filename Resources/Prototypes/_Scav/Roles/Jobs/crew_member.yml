@@ -1,0 +1,14 @@
+- type: job
+  id: CrewMember
+  name: job-name-crewmember
+  description: job-description-crewmember
+  playTimeTracker: JobPassenger
+  icon: "JobIconContractor"
+  supervisors: job-supervisors-everyone
+  displayWeight: 40 # Top
+  accessGroups:
+  - GeneralAccess
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
