@@ -911,8 +911,8 @@
     key: enum.CargoConsoleUiKey.Orders # Frontier: use NF version # Scav: revert
   - type: UserInterface
     interfaces:
-      enum.NFCargoConsoleUiKey.Orders:
-        type: CargoOrderConsoleNFBoundUserInterface
+      enum.CargoConsoleUiKey.Orders:
+        type: CargoOrderConsoleBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: Computer
