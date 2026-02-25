@@ -1,0 +1,59 @@
+- type: loadout
+  id: CommandHeadset
+  equipment:
+    ears: ClothingHeadsetCommandCommon
+
+- type: loadout
+  id: CommandHeadsetAlt
+  equipment:
+    ears: ClothingHeadsetAltCommandCommon
+
+- type: loadout
+  id: ServiceHeadset
+  equipment:
+    ears: ClothingHeadsetService
+
+- type: loadout
+  id: CargoHeadset
+  equipment:
+    ears: ClothingHeadsetCargo
+
+- type: loadout
+  id: CargoHeadsetAlt
+  equipment:
+    ears: ClothingHeadsetAltCargo
+
+- type: loadout
+  id: QuartermasterHeadset
+  equipment:
+    ears: ClothingHeadsetQM
+
+- type: loadout
+  id: EngineeringHeadset
+  equipment:
+    ears: ClothingHeadsetEngineering
+
+- type: loadout
+  id: EngineeringHeadsetAlt
+  equipment:
+    ears: ClothingHeadsetAltEngineering
+
+- type: loadout
+  id: ChiefEngineerHeadset
+  equipment:
+    ears: ClothingHeadsetCE
+
+- type: loadout
+  id: ScienceHeadset
+  equipment:
+    ears: ClothingHeadsetScience
+
+- type: loadout
+  id: ScienceHeadsetAlt
+  equipment:
+    ears: ClothingHeadsetAltScience
+
+- type: loadout
+  id: ResearchDirectorHeadset
+  equipment:
+    ears: ClothingHeadsetRD

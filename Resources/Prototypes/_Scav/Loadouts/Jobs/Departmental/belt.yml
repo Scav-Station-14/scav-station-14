@@ -1,0 +1,19 @@
+- type: loadout
+  id: ChefBelt
+  equipment:
+    gloves: ClothingBeltChefFilled
+
+- type: loadout
+  id: JanitorBelt
+  equipment:
+    gloves: ClothingBeltJanitorFilled
+
+- type: loadout
+  id: BotanistBelt
+  equipment:
+    gloves: ClothingBeltPlantFilled
+
+- type: loadout
+  id: EngineerBelt
+  equipment:
+    gloves: ClothingBeltUtilityEngineering

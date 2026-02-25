@@ -6,10 +6,6 @@
   - ClothingUniformJumpskirtColorGrey
   - ClothingUniformJumpsuitMilitaryContractor
   - ClothingUniformJumpsuitMilitaryContractorTac
-  - ClothingUniformJumpsuitBartender
-  - ClothingUniformJumpskirtBartender
-  - ClothingUniformJumpsuitChef
-  - ClothingUniformJumpskirtChef
   - ClothingUniformJumpsuitColorWhite
   - ClothingUniformJumpskirtColorWhite
   - ClothingUniformJumpsuitColorBlack
@@ -53,7 +49,6 @@
   - ClothingUniformJumpskirtCasualPurple
   - ClothingUniformJumpsuitCasualRed
   - ClothingUniformJumpskirtCasualRed
-  - ClothingUniformJumpsuitBartenderPurple
   - ClothingUniformOveralls
   - ClothingUniformJumpsuitChaplain
   - ClothingUniformJumpskirtChaplain
@@ -484,13 +479,14 @@
   loadouts:
   - ClothingEyesGlasses
   - ClothingEyesGlassesCheapSunglasses
+  - ClothingEyesGlassesSunglasses
   - ClothingEyesBlindfold
   - ClothingEyesEyepatch
   - ClothingEyesGlassesJamjar
   - ClothingEyesGlassesChemical
+  - ClothingEyesGlassesJensen
   - ClothingEyesHudDiagnostic
   - ClothingEyesGlassesMeson
-  - ClothingEyesHudMedical
   - ClothingEyesPunkGoggles # Punkish (Randomized visuals)
   - ClothingEyesPunkInfoShades # Punkish (Randomized visuals)
   - ClothingEyesEyepatchHudDiag

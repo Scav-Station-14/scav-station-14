@@ -1,6 +1,25 @@
 
 # Command
 - type: loadoutGroup
+  id: CommandEars
+  name: loadout-group-ears
+  loadouts:
+  - CommandHeadset
+  - CommandHeadsetAlt
+  subgroups:
+  - BaseEars
+
+- type: loadoutGroup
+  id: CommandBackpackItems
+  name: loadout-group-backpack-items
+  minLimit: 0
+  maxLimit: 6 # Caveat emptor - enjoy picking stuff up off the ground
+  loadouts:
+  - Flash
+  subgroups:
+  - BaseBackpackItems
+
+- type: loadoutGroup
   id: CaptainHead
   name: loadout-group-head
   minLimit: 0
@@ -52,6 +71,14 @@
   - BaseOuterClothing
 
 - type: loadoutGroup
+  id: CaptainGloves
+  name: loadout-group-gloves
+  loadouts:
+  - CaptainGloves
+  subgroups:
+  - BaseGloves
+
+- type: loadoutGroup
   id: HoPHead
   name: loadout-group-head
   minLimit: 0
@@ -99,7 +126,23 @@
   subgroups:
   - BaseOuterClothing
 
+- type: loadoutGroup
+  id: HoPGloves
+  name: loadout-group-gloves
+  loadouts:
+  - HoPGloves
+  subgroups:
+  - BaseGloves
+
 # Civilian
+- type: loadoutGroup
+  id: ServiceEars
+  name: loadout-group-ears
+  loadouts:
+  - ServiceHeadset
+  subgroups:
+  - BaseEars
+
 - type: loadoutGroup
   id: PassengerJumpsuit
   name: loadout-group-jumpsuit
@@ -233,6 +276,15 @@
   - ChefWintercoat
   subgroups:
   - BaseOuterClothing
+
+- type: loadoutGroup
+  id: ChefBelt
+  name: loadout-group-belt
+  minLimit: 1
+  loadouts:
+  - ChefBelt
+  subgroups:
+  - BaseBelt
 
 - type: loadoutGroup
   id: LibrarianJumpsuit
@@ -375,6 +427,15 @@
   - BaseOuterClothing
 
 - type: loadoutGroup
+  id: JanitorBelt
+  name: loadout-group-belt
+  minLimit: 1
+  loadouts:
+  - JanitorBelt
+  subgroups:
+  - BaseBelt
+
+- type: loadoutGroup
   id: JanitorPlunger
   name: loadout-group-plunger
   minLimit: 0
@@ -410,6 +471,15 @@
   - BotanistDuffel
   subgroups:
   - BaseBackpack
+
+- type: loadoutGroup
+  id: BotanistBelt
+  name: loadout-group-belt
+  minLimit: 1
+  loadouts:
+  - BotanistBelt
+  subgroups:
+  - BaseBelt
 
 - type: loadoutGroup
   id: BotanistOuterClothing
@@ -575,6 +645,15 @@
 
 # Cargo
 - type: loadoutGroup
+  id: CargoEars
+  name: loadout-group-ears
+  loadouts:
+  - CargoHeadset
+  - CargoHeadsetAlt
+  subgroups:
+  - BaseEars
+
+- type: loadoutGroup
   id: QuartermasterHead
   name: loadout-group-head
   minLimit: 0
@@ -605,6 +684,14 @@
   - QuartermasterMantle
   subgroups:
   - BaseNeck
+
+- type: loadoutGroup
+  id: QuartermasterEars
+  name: loadout-group-ears
+  loadouts:
+  - QuartermasterHeadset
+  subgroups:
+  - CargoEars
 
 - type: loadoutGroup
   id: QuartermasterOuterClothing
@@ -671,6 +758,14 @@
   - BaseShoes
 
 - type: loadoutGroup
+  id: SalvageSpecialistJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - ClothingUniformJumpsuitSalvageSpecialist
+  subgroups:
+  - BaseJumpsuit
+
+- type: loadoutGroup
   id: SalvageSpecialistBackpack
   name: loadout-group-backpack
   loadouts:
@@ -700,6 +795,15 @@
 
 # Engineering
 - type: loadoutGroup
+  id: EngineeringEars
+  name: loadout-group-ears
+  loadouts:
+  - EngineeringHeadset
+  - EngineeringHeadsetAlt
+  subgroups:
+  - BaseEars
+
+- type: loadoutGroup
   id: ChiefEngineerHead
   name: loadout-group-head
   minLimit: 0
@@ -708,6 +812,14 @@
   - ChiefEngineerBeret
   subgroups:
   - BaseHead
+
+- type: loadoutGroup
+  id: ChiefEngineerEars
+  name: loadout-group-ears
+  loadouts:
+  - ChiefEngineerHeadset
+  subgroups:
+  - EngineeringEars
 
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit
@@ -869,6 +981,15 @@
 
 # Science
 - type: loadoutGroup
+  id: ScienceEars
+  name: loadout-group-ears
+  loadouts:
+  - ScienceHeadset
+  - ScienceHeadsetAlt
+  subgroups:
+  - BaseEars
+
+- type: loadoutGroup
   id: ResearchDirectorHead
   name: loadout-group-head
   minLimit: 0
@@ -877,6 +998,14 @@
   subgroups:
   - BaseHead
 
+- type: loadoutGroup
+  id: ResearchDirectorEars
+  name: loadout-group-ears
+  loadouts:
+  - ResearchDirectorHeadset
+  subgroups:
+  - ScienceEars
+  
 - type: loadoutGroup
   id: ResearchDirectorNeck
   name: loadout-group-neck
@@ -1451,11 +1580,8 @@
   name: loadout-group-glasses
   minLimit: 0
   loadouts:
-  - MedicalHud
-  - MedicalEyePatchHud
-  - Glasses
-  - GlassesJamjar
-  - GlassesJensen
+  - ClothingEyesHudMedical
+  - ClothingEyesEyepatchHudDiag
   subgroups:
   - BaseGlasses
 

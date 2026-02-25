@@ -1,0 +1,9 @@
+- type: loadout
+  id: CaptainGloves
+  equipment:
+    gloves: ClothingHandsGlovesCaptain
+
+- type: loadout
+  id: HoPGloves
+  equipment:
+    gloves: ClothingHandsGlovesHop

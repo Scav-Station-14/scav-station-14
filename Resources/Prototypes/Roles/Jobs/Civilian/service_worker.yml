@@ -23,12 +23,7 @@
 - type: startingGear
   id: ServiceWorkerGear
   equipment:
-    shoes: ClothingShoesColorBlack
     id: ServiceWorkerPDA
-    ears: ClothingHeadsetService
-  #storage:
-    #back:
-    #- Stuff
 
 - type: chameleonOutfit
   id: ServiceWorkerChameleonOutfit

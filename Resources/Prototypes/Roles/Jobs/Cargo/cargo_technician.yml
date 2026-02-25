@@ -25,11 +25,6 @@
   id: CargoTechGear
   equipment:
     id: CargoPDA
-    ears: ClothingHeadsetCargo
-    pocket1: AppraisalTool
-  #storage:
-    #back:
-    #- Stuff
 
 - type: chameleonOutfit
   id: CargoTechnicianChameleonOutfit
