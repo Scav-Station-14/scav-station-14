@@ -21,12 +21,7 @@
 - type: startingGear
   id: BartenderGear
   equipment:
-    shoes: ClothingShoesColorBlack
     id: BartenderPDA
-    ears: ClothingHeadsetService
-  #storage:
-    #back:
-    #- Stuff
 
 - type: chameleonOutfit
   id: BartenderChameleonOutfit

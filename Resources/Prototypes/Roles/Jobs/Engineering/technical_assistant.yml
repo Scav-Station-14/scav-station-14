@@ -24,14 +24,8 @@
 - type: startingGear
   id: TechnicalAssistantGear
   equipment:
-    shoes: ClothingShoesBootsWork
     id: TechnicalAssistantPDA
-#    belt: ClothingBeltUtilityEngineering # Frontier - Moved to locker
-    ears: ClothingHeadsetEngineering
     pocket2: BookEngineersHandbook
-  #storage:
-    #back:
-    #- Stuff
 
 - type: chameleonOutfit
   id: TechnicalAssistantChameleonOutfit

@@ -16,14 +16,6 @@
   accessGroups: # Frontier
   - GeneralAccess # Frontier
 
-- type: startingGear
-  id: ScientistGear
-  equipment:
-    ears: ClothingHeadsetScience
-  #storage:
-    #back:
-    #- Stuff
-
 - type: chameleonOutfit
   id: ScientistChameleonOutfit
   job: Scientist

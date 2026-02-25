@@ -22,21 +22,13 @@
   equipment:
     shoes: ClothingShoesGaloshes
     id: JanitorPDA
-    ears: ClothingHeadsetService
-    belt: ClothingBeltJanitorFilled
-  #storage:
-    #back:
-    #- Stuff
 
 - type: startingGear
   id: JanitorMaidGear
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanimaid
     id: JanitorPDA
-    gloves: ClothingHandsGlovesJanitor
     head: ClothingHeadHatCatEars
-    ears: ClothingHeadsetService
-    belt: ClothingBeltJanitorFilled
 
 - type: chameleonOutfit
   id: JanitorChameleonOutfit

@@ -40,15 +40,7 @@
 - type: startingGear
   id: CaptainGear
   equipment:
-    shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesSunglasses
-    gloves: ClothingHandsGlovesCaptain
     id: CaptainPDA
-    ears: ClothingHeadsetAltCommand
-  storage:
-    back:
-    - Flash
-    # - StationCharter
 
 - type: chameleonOutfit
   id: CaptainChameleonOutfit

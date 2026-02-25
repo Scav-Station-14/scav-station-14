@@ -1,28 +1,4 @@
 - type: loadout
-  id: ClothingUniformJumpsuitBartender
-  price: 200
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitBartender
-
-- type: loadout
-  id: ClothingUniformJumpskirtBartender
-  price: 200
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtBartender
-
-- type: loadout
-  id: ClothingUniformJumpsuitChef
-  price: 200
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitChef
-
-- type: loadout
-  id: ClothingUniformJumpskirtChef
-  price: 200
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtChef
-
-- type: loadout
   id: ClothingUniformJumpsuitColorGrey
   price: 0
   equipment:
@@ -349,15 +325,6 @@
   price: 500
   equipment:
     jumpsuit: ClothingUniformJumpskirtCasualRed
-
-- type: loadout
-  id: ClothingUniformJumpsuitBartenderPurple
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: PlaytimeT1
-  price: 500
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitBartenderPurple
 
 - type: loadout
   id: ClothingUniformOveralls

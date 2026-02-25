@@ -25,13 +25,7 @@
 - type: startingGear
   id: AtmosphericTechnicianGear
   equipment:
-    eyes: ClothingEyesGlassesMeson
     id: AtmosPDA
-#    belt: ClothingBeltUtilityEngineering # Frontier - Moved to locker
-    ears: ClothingHeadsetEngineering
-  #storage:
-    #back:
-    #- Stuff
 
 - type: chameleonOutfit
   id: AtmosphericTechnicianChameleonOutfit

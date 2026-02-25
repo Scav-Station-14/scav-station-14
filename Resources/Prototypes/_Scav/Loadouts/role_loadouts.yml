@@ -4,18 +4,18 @@
   groups:
   - CaptainHead
   - BaseGlasses
-  - BaseEars
+  - CommandEars
   - BaseFace
   - CaptainNeck
   - CaptainJumpsuit
   - CaptainOuterClothing
-  - BaseGloves
+  - CaptainGloves
   - BaseShoes
   - CaptainBackpack
   - BaseBelt
   - BaseWallet
   - BaseBoxSurvival
-  - BaseBackpackItems
+  - CommandBackpackItems
   - BaseHandItems
   - NFSpeciesSpecific
 
@@ -24,18 +24,18 @@
   groups:
   - HoPHead
   - BaseGlasses
-  - BaseEars
+  - CommandEars
   - BaseFace
   - HoPNeck
   - HoPJumpsuit
   - HoPOuterClothing
-  - BaseGloves
+  - HoPGloves
   - BaseShoes
   - HoPBackpack
   - BaseBelt
   - BaseWallet
   - BaseBoxSurvival
-  - BaseBackpackItems
+  - CommandBackpackItems
   - BaseHandItems
   - NFSpeciesSpecific
 
@@ -97,7 +97,7 @@
   groups:
   - BartenderHead
   - BaseGlasses
-  - BaseEars
+  - ServiceEars
   - BaseFace
   - BaseNeck
   - BartenderJumpsuit
@@ -117,7 +117,7 @@
   groups:
   - BaseHead
   - BaseGlasses
-  - BaseEars
+  - ServiceEars
   - BaseFace
   - BaseNeck
   - BartenderJumpsuit
@@ -137,7 +137,7 @@
   groups:
   - ChefHead
   - BaseGlasses
-  - BaseEars
+  - ServiceEars
   - ChefMask
   - BaseNeck
   - ChefJumpsuit
@@ -145,7 +145,7 @@
   - BaseGloves
   - BaseShoes
   - BaseBackpack
-  - BaseBelt
+  - ChefBelt
   - BaseWallet
   - BaseBoxSurvival
   - BaseBackpackItems
@@ -157,7 +157,7 @@
   groups:
   - BaseHead
   - BaseGlasses
-  - BaseEars
+  - ServiceEars
   - BaseFace
   - BaseNeck
   - LibrarianJumpsuit
@@ -218,7 +218,7 @@
   groups:
   - JanitorHead
   - BaseGlasses
-  - BaseEars
+  - ServiceEars
   - BaseFace
   - BaseNeck
   - JanitorJumpsuit
@@ -226,7 +226,7 @@
   - JanitorGloves
   - BaseShoes
   - BaseBackpack
-  - BaseBelt
+  - JanitorBelt
   - BaseWallet
   - BaseBoxSurvival
   - BaseBackpackItems
@@ -238,7 +238,7 @@
   groups:
   - BotanistHead
   - BaseGlasses
-  - BaseEars
+  - ServiceEars
   - BaseFace
   - BaseNeck
   - BotanistJumpsuit
@@ -246,7 +246,7 @@
   - BaseGloves
   - BaseShoes
   - BotanistBackpack
-  - BaseBelt
+  - BotanistBelt
   - BaseWallet
   - BaseBoxSurvival
   - BaseBackpackItems
@@ -322,7 +322,7 @@
   groups:
   - QuartermasterHead
   - BaseGlasses
-  - BaseEars
+  - QuartermasterEars
   - BaseFace
   - QuartermasterNeck
   - QuartermasterJumpsuit
@@ -333,7 +333,7 @@
   - BaseBelt
   - BaseWallet
   - BaseBoxSurvival
-  - BaseBackpackItems
+  - CommandBackpackItems
   - BaseHandItems
   - NFSpeciesSpecific
 
@@ -342,7 +342,7 @@
   groups:
   - CargoTechnicianHead
   - BaseGlasses
-  - BaseEars
+  - CargoEars
   - BaseFace
   - BaseNeck
   - CargoTechnicianJumpsuit
@@ -362,10 +362,10 @@
   groups:
   - BaseHead
   - BaseGlasses
-  - BaseEars
+  - CargoEars
   - BaseFace
   - BaseNeck
-  - BaseJumpsuit
+  - SalvageSpecialistJumpsuit
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
   - BaseGloves
@@ -383,7 +383,7 @@
   groups:
   - ChiefEngineerHead
   - BaseGlasses
-  - BaseEars
+  - ChiefEngineerEars
   - BaseFace
   - ChiefEngineerNeck
   - ChiefEngineerJumpsuit
@@ -391,7 +391,7 @@
   - BaseGloves
   - ChiefEngineerShoes
   - StationEngineerBackpack
-  - BaseBelt
+  - EngineerBelt
   - BaseWallet
   - BaseBoxSurvival
   - BaseBackpackItems
@@ -403,7 +403,7 @@
   groups:
   - BaseHead
   - BaseGlasses
-  - BaseEars
+  - EngineeringEars
   - BaseFace
   - BaseNeck
   - TechnicalAssistantJumpsuit
@@ -411,7 +411,7 @@
   - BaseGloves
   - BaseShoes
   - StationEngineerBackpack
-  - BaseBelt
+  - EngineerBelt
   - BaseWallet
   - BaseBoxSurvival
   - BaseBackpackItems
@@ -423,7 +423,7 @@
   groups:
   - StationEngineerHead
   - BaseGlasses
-  - BaseEars
+  - EngineeringEars
   - BaseFace
   - BaseNeck
   - StationEngineerJumpsuit
@@ -431,7 +431,7 @@
   - BaseGloves
   - StationEngineerShoes
   - StationEngineerBackpack
-  - BaseBelt
+  - EngineerBelt
   - BaseWallet
   - BaseBoxSurvival
   - BaseBackpackItems
@@ -444,7 +444,7 @@
   groups:
   - BaseHead
   - BaseGlasses
-  - BaseEars
+  - EngineeringEars
   - BaseFace
   - BaseNeck
   - AtmosphericTechnicianJumpsuit
@@ -452,7 +452,7 @@
   - BaseGloves
   - AtmosphericTechnicianShoes
   - AtmosphericTechnicianBackpack
-  - BaseBelt
+  - EngineerBelt
   - BaseWallet
   - BaseBoxSurvival
   - BaseBackpackItems
@@ -465,7 +465,7 @@
   groups:
   - ResearchDirectorHead
   - BaseGlasses
-  - BaseEars
+  - ResearchDirectorEars
   - BaseFace
   - ResearchDirectorNeck
   - ResearchDirectorJumpsuit
@@ -485,7 +485,7 @@
   groups:
   - ScientistHead
   - BaseGlasses
-  - BaseEars
+  - ScienceEars
   - BaseFace
   - ScientistNeck
   - ScientistJumpsuit
@@ -506,7 +506,7 @@
   groups:
   - BaseHead
   - BaseGlasses
-  - BaseEars
+  - ScienceEars
   - BaseFace
   - BaseNeck
   - ResearchAssistantJumpsuit
