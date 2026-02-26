@@ -1,0 +1,16 @@
+- type: gamePreset
+  id: ScavAdventure
+  alias:
+    - scavadventure
+    - adventure
+  name: nf-adventure-title
+  description: nf-adventure-description
+  showInVote: true
+  rules:
+    - ScavAdventure # Worldgen rules, based roughly on NFAdventure but with new spawning logic for main stations
+    - NFBasicStationEventScheduler
+    - BluespaceEventScheduler
+    - BluespaceDungeonEventScheduler
+    - BluespaceSalvageEventScheduler
+    - SmugglingEventScheduler
+    - NFRoundstartVariation #Random scattering of trash etc
