@@ -1,0 +1,7 @@
+- type: entity
+  id: ScavAdventure
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ScavAdventureRule
+# Setup for antags would go here, but they're not a thing at present

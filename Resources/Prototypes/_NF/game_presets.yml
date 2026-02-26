@@ -2,7 +2,7 @@
   id: NFAdventure
   alias:
     - nfadventure
-    - adventure
+    #- adventure # Scav
   name: nf-adventure-title
   description: nf-adventure-description
   showInVote: true
