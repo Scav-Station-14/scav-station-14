@@ -47,6 +47,7 @@ namespace Content.Server.Database
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
         public DbSet<Ship> Ship { get; set; } = null!;
+        public DbSet<Station> Station { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -478,6 +479,15 @@ namespace Content.Server.Database
         public string FallbackFilePath { get; set; } = null!;
         public byte Size { get; set; } //This will be converted to a VesselSize enum in practice. A value of 0 will be treated as invalid
 
+    }
+
+    [Table("station")]
+    public class Station
+    {
+        public int Id { get; set; }
+        public string StationName { get; set; } = null!;
+        public string StationPrototypeId { get; set; } = null!;
+        public int BankBalance { get; set; }
     }
 
     #region Loadouts
