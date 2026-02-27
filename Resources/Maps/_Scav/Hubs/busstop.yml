@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 02/26/2026 03:07:51
-  entityCount: 431
+  time: 02/27/2026 01:07:59
+  entityCount: 440
 maps:
 - 1
 grids:
@@ -26,6 +26,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
+      name: Map Entity
     - type: Transform
     - type: Map
       mapPaused: True
@@ -92,8 +93,6 @@ entities:
       dampingModifier: 0.25
     - type: ImplicitRoof
     - type: GridPathfinding
-    - type: BecomesStation
-      id: BusStop
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
@@ -954,6 +953,46 @@ entities:
     components:
     - type: Transform
       pos: 3.5,-13.5
+      parent: 2
+  - uid: 433
+    components:
+    - type: Transform
+      pos: 13.5,-1.5
+      parent: 2
+  - uid: 434
+    components:
+    - type: Transform
+      pos: 19.5,-3.5
+      parent: 2
+  - uid: 435
+    components:
+    - type: Transform
+      pos: 14.5,-6.5
+      parent: 2
+  - uid: 436
+    components:
+    - type: Transform
+      pos: 8.5,-4.5
+      parent: 2
+  - uid: 437
+    components:
+    - type: Transform
+      pos: 1.5,-4.5
+      parent: 2
+  - uid: 438
+    components:
+    - type: Transform
+      pos: -4.5,-6.5
+      parent: 2
+  - uid: 439
+    components:
+    - type: Transform
+      pos: -3.5,-1.5
+      parent: 2
+  - uid: 440
+    components:
+    - type: Transform
+      pos: -9.5,-3.5
       parent: 2
 - proto: CableHVUncuttable
   entities:
@@ -1970,6 +2009,13 @@ entities:
     - type: Transform
       pos: 2.5,-14.5
       parent: 2
+- proto: GravityGeneratorMini
+  entities:
+  - uid: 432
+    components:
+    - type: Transform
+      pos: 5.5,-14.5
+      parent: 2
 - proto: Grille
   entities:
   - uid: 4
@@ -2687,11 +2733,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 4.5,-14.5
       parent: 2
+- proto: ToolboxElectricalFilled
+  entities:
   - uid: 313
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 5.5,-14.5
+      pos: 4.4270835,-14.43696
       parent: 2
 - proto: VendingMachineAutoTuneVend
   entities:
