@@ -3,7 +3,7 @@
   abstract: true
   minimumDistance: 2000 # Some sane defaults
   maximumDistance: 4000
-  spawnGamePreset: [ NFAdventure, NFPirate ]
+  spawnGamePreset: [ NFAdventure, NFPirate, ScavAdventure ] # Scav: added ScavAdventure
   spawnGroup: Optional
   addComponents:
   - type: IFF

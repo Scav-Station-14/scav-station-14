@@ -8,7 +8,7 @@
   maxRandomOffset: 0
   stations:
     BusStop:
-      stationProto: StandardNanotrasenStation
+      stationProto: StandardFrontierStation # Serves a comparable purpose to Frontier Outpost, makes the most sense.
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Rift Transit Hub'
