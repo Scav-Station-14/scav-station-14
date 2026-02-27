@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 02/26/2026 23:35:23
-  entityCount: 8616
+  time: 02/27/2026 01:08:45
+  entityCount: 8617
 maps: []
 grids:
 - 1
@@ -4095,6 +4095,9 @@ entities:
     - type: Transform
       pos: 10.5,9.5
       parent: 1
+    - type: Door
+      secondsUntilStateChange: -7115.787
+      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -5715,6 +5718,13 @@ entities:
     components:
     - type: Transform
       pos: 34.54396,7.3900356
+      parent: 1
+- proto: BusScheduleRoute1
+  entities:
+  - uid: 7495
+    components:
+    - type: Transform
+      pos: -17.5,-8.5
       parent: 1
 - proto: ButtonFrameCaution
   entities:
@@ -23948,6 +23958,9 @@ entities:
     - type: Transform
       pos: -5.5,-43.5
       parent: 1
+    - type: Door
+      secondsUntilStateChange: -58857.195
+      state: Closing
     - type: DeviceNetwork
       deviceLists:
       - 7083
