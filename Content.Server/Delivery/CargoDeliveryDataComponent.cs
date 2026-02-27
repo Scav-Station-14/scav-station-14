@@ -18,13 +18,13 @@ public sealed partial class CargoDeliveryDataComponent : Component
     /// Minimum cooldown after a delivery spawns.
     /// </summary>
     [DataField]
-    public TimeSpan MinDeliveryCooldown = TimeSpan.FromMinutes(3);
+    public TimeSpan MinDeliveryCooldown = TimeSpan.FromMinutes(12); // Scav: 3 < 12
 
     /// <summary>
     /// Maximum cooldown after a delivery spawns.
     /// </summary>
     [DataField]
-    public TimeSpan MaxDeliveryCooldown = TimeSpan.FromMinutes(7);
+    public TimeSpan MaxDeliveryCooldown = TimeSpan.FromMinutes(36); // Scav: 7 < 36
 
 
     /// <summary>
