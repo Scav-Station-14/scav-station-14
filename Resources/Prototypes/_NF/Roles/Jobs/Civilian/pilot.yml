@@ -5,7 +5,7 @@
   playTimeTracker: JobPilot
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 43200
+      time: 9000 # Scav: 108000 < 9000
   icon: "JobIconPilot"
   supervisors: job-supervisors-hire
   weight: 2 # Prioritize station & department jobs
@@ -25,7 +25,7 @@
   playTimeTracker: JobPilotInterview
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 43200
+      time: 9000 # Scav: 108000 < 9000
   setPreference: false
   startingGear: PilotHologramGear
   icon: "JobIconPilot"
