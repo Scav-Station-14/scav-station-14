@@ -17,7 +17,7 @@
   minPlayers: 0
   stations:
     MinistationOkapi:
-      stationProto: StandardNanotrasenStation
+      stationProto: StandardScavStation
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} Ministation Okapi {1}'
