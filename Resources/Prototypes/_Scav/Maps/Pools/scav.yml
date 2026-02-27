@@ -1,4 +1,4 @@
 - type: gameMapPool
   id: ScavMapPool
   maps:
-  - MinistationOkapi
+  - BusStop

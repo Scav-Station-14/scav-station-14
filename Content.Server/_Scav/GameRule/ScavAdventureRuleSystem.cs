@@ -235,9 +235,7 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
 
         var currentPreset = _ticker.CurrentPreset?.ID ?? _fallbackPresetID;
 
-#pragma warning disable RA0004
-        var dbStations = _db.GetStations().Result;
-#pragma warning restore RA0004
+        var dbStations = Task.Run(() => _db.GetStations()).GetAwaiter().GetResult();
 
         foreach (var station in dbStations)
         {

@@ -1,9 +1,20 @@
+- type: stationMap
+  id: MinistationOkapi
+  parent: BaseStationMap
+  name: "Ministation Okapi"
+  minimumDistance: 1200
+  maximumDistance: 4600
+  gridPath: /Maps/_Scav/Stations/ministationokapi.yml
+  addComponents:
+  - type: StationTransit
+    routes:
+      SpawnPoints: 10
+
 - type: gameMap
   id: MinistationOkapi
   mapName: 'Ministation Okapi'
-  mapPath: /Maps/_Scav/ministationokapi.yml
+  mapPath: /Maps/_Scav/Stations/ministationokapi.yml
   minPlayers: 0
-  maxPlayers: 50
   stations:
     MinistationOkapi:
       stationProto: StandardNanotrasenStation
@@ -19,7 +30,7 @@
           iconPath: /Textures/_NF/Logo/icon/icon-256x256.png # used the biggest one, looks better when downscaling than upscaling
           stationSubtext: 'frontier-lobby-frontier-subtext'
           stationDescription: 'frontier-lobby-frontier-description'
-          lobbySortOrder: 1
+          lobbySortOrder: 2
         - type: StationJobs
           availableJobs: # 34 jobs total w/o latejoins & interns, 53 jobs total w/ latejoins & interns
             #command (7)

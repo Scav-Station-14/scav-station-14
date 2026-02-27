@@ -1,0 +1,10 @@
+- type: stationMap
+  id: BaseStationMap
+  abstract: true
+  minimumDistance: 2000 # Some sane defaults
+  maximumDistance: 4000
+  spawnGamePreset: [ ScavAdventure ]
+  addComponents:
+  - type: IFF
+    color: "#00ffa6"
+    readOnly: true
