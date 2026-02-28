@@ -43,41 +43,41 @@ public sealed partial class IdCardConsoleComponent : Component
     public List<ProtoId<AccessLevelPrototype>> AccessLevels = new()
     {
         "Armory",
-        //"Atmospherics",
-        "Bailiff", // Frontier
-        //"Bar",
+        "Atmospherics",
+        //"Bailiff", // Frontier // Scav: removed
+        "Bar",
         "Brig",
-        "Brigmedic", // Frontier
+        //"Brigmedic", // Frontier // Scav: removed
         "Captain",
-        //"Cargo",
-        //"Chapel",
-        //"Chemistry",
-        //"ChiefMedicalOfficer",
+        "Cargo",
+        //"Chapel", // Scav: removed
+        "Chemistry",
+        "ChiefEngineer",
+        "ChiefMedicalOfficer",
         "Command",
         //"Cryogenics",
-        "Detective", // Frontier: moved into alphabetical order
+        //"Detective", // Frontier: moved into alphabetical order // Scav: removed
         "Engineering",
         "External",
-        "Frontier", // Frontier
-        //"Hydroponics",
+        //"Frontier", // Frontier // Scav: removed
+        "HeadOfPersonnel",
+        "HeadOfSecurity",
+        "Hydroponics",
         "Janitor",
-        //"Kitchen",
+        "Kitchen",
         //"Lawyer",
-        "Mail", // Frontier
+        //"Mail", // Frontier // Scav: removed (for now)
         "Maintenance",
         "Medical",
         "Mercenary", // Frontier
-        "ChiefEngineer", // Frontier: moved down, alphabetic w.r.t. "Plant Manager"
-        //"Quartermaster",
-        //"Research",
-        //"ResearchDirector",
-        //"Salvage",
+        "Quartermaster",
+        "Research",
+        "ResearchDirector",
+        "Salvage",
         "Security",
-        "Sergeant", // Frontier
+        //"Sergeant", // Frontier // Scav: removed
         "Service",
-        "HeadOfSecurity", // Frontier: moved down, alphabetic w.r.t. "Sheriff"
-        "HeadOfPersonnel", // Frontier: moved down, alphabetic w.r.t. "Station Representative"
-        "StationTrafficController", // Frontier
+        //"StationTrafficController", // Frontier // Scav: removed
         //"Theatre",
     };
 
