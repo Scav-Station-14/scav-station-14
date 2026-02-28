@@ -178,10 +178,16 @@ public sealed partial class CargoSystem
                 // - anything already being sold
                 // - anything anchored (e.g. light fixtures)
                 // - anything blacklisted (e.g. players).
-                if ((alreadySold.Contains(ent) ||
-                    _xformQuery.TryGetComponent(ent, out var xform) &&
-                    (xform.Anchored || !CanSell(ent, xform)))
-                    || (!TryGetLabel(ent, out _, out var label) && label!.AssociatedStationId != null)) //Scav: added requirement for cargo label
+                if (alreadySold.Contains(ent) ||
+                    _xformQuery.TryGetComponent(ent, out var xform) && (xform.Anchored || !CanSell(ent, xform)))
+                    continue;
+
+                if (!TryGetLabel(ent, out var labelEnt, out CargoLabelComponent? label)) //label's type HAS to be specified. If it isn't, the function will crash! Dont ask me why but it does.
+                {
+                    continue;
+                }
+
+                if (label.AssociatedStationId is null)
                 {
                     continue;
                 }
