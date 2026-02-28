@@ -79,8 +79,7 @@ JobCentralCommandOfficial = Central Command Official
 JobChaplain = Chaplain
 JobChef = Chef
 JobChemist = Chemist
-# Frontier: Chief Engineer<Plant Manager
-JobChiefEngineer = Plant Manager
+JobChiefEngineer = Chief Engineer
 JobChiefMedicalOfficer = Chief Medical Officer
 JobClown = Clown
 JobDetective = Detective
@@ -91,10 +90,8 @@ JobERTJanitor = ERT Janitor
 JobERTLeader = ERT Leader
 JobERTMedical = ERT Medical
 JobERTSecurity = ERT Security
-# Frontier: Head of Personnel<Station Representative
-JobHeadOfPersonnel = Station Representative
-# Frontier: Head of Security<Sheriff
-JobHeadOfSecurity = Sheriff
+JobHeadOfPersonnel = Head of Personnel
+JobHeadOfSecurity = Head of Security
 JobJanitor = Janitor
 JobLawyer = Lawyer
 JobLibrarian = Librarian
@@ -103,8 +100,7 @@ JobMedicalIntern = Medical intern
 JobMime = Mime
 JobMusician = Musician
 JobParamedic = Paramedic
-# Frontier: Passenger<Contractor
-JobPassenger = Contractor
+JobPassenger = Passenger
 JobPsychologist = Psychologist
 JobQuartermaster = Quartermaster
 JobReporter = Reporter
