@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 261.2.0
+  engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 10/21/2025 19:48:06
+  time: 02/28/2026 03:07:16
   entityCount: 1120
 maps: []
 grids:
@@ -3637,31 +3637,31 @@ entities:
     - type: Transform
       pos: 4.5,10.5
       parent: 10
-- proto: ComputerPalletConsoleNFLowMarket
+- proto: ComputerPalletConsole
   entities:
   - uid: 893
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 6.5,-2.5
+      rot: -1.5707963267948966 rad
+      pos: -5.5,-2.5
       parent: 10
   - uid: 894
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 6.5,3.5
-      parent: 10
-  - uid: 895
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -5.5,3.5
       parent: 10
+  - uid: 895
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,3.5
+      parent: 10
   - uid: 930
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -5.5,-2.5
+      rot: 1.5707963267948966 rad
+      pos: 6.5,-2.5
       parent: 10
 - proto: ComputerTabletopAlert
   entities:
