@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 02/27/2026 01:07:59
-  entityCount: 440
+  time: 02/28/2026 02:52:55
+  entityCount: 448
 maps:
 - 1
 grids:
@@ -143,10 +143,22 @@ entities:
           decals:
             60: 3.3040304,-4.068094
         - node:
+            angle: 0.4188790204786391 rad
+            color: '#FFFFFFFF'
+            id: Caution
+          decals:
+            67: -4.8413587,-8.228226
+        - node:
             color: '#FFFFFFFF'
             id: Flowerspv2
           decals:
             64: 5.7519474,-4.0576773
+        - node:
+            angle: 0.4188790204786391 rad
+            color: '#FFFFFFFF'
+            id: skull
+          decals:
+            68: -4.049692,-8.040726
     - type: GridAtmosphere
       version: 2
       data:
@@ -595,6 +607,52 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 4.5,-15.5
+      parent: 2
+- proto: AtmosDeviceFanDirectional
+  entities:
+  - uid: 441
+    components:
+    - type: Transform
+      pos: -4.5,-8.5
+      parent: 2
+  - uid: 442
+    components:
+    - type: Transform
+      pos: -3.5,-8.5
+      parent: 2
+  - uid: 443
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -4.5,0.5
+      parent: 2
+  - uid: 444
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,0.5
+      parent: 2
+  - uid: 445
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,0.5
+      parent: 2
+  - uid: 446
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 14.5,0.5
+      parent: 2
+  - uid: 447
+    components:
+    - type: Transform
+      pos: 14.5,-8.5
+      parent: 2
+  - uid: 448
+    components:
+    - type: Transform
+      pos: 13.5,-8.5
       parent: 2
 - proto: AtmosFixNitrogenMarker
   entities:
