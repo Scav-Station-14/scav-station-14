@@ -1,0 +1,15 @@
+- type: cargoAccount
+  id: Payroll
+  name: cargo-account-payroll-name
+  code: cargo-account-payroll-code
+  color: "#334e6d"
+  radioChannel: Command
+  acquisitionSlip: PaperAcquisitionSlipCargo
+
+- type: cargoAccount
+  id: Savings
+  name: cargo-account-savings-name
+  code: cargo-account-savings-code
+  color: "#539c00"
+  radioChannel: Command
+  acquisitionSlip: PaperAcquisitionSlipCargo
