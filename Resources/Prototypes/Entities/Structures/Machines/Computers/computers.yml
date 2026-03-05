@@ -1167,14 +1167,14 @@
       state: generic_panel_open
   - type: FundingAllocationConsole
   - type: ActivatableUI
-    key: enum.FundingAllocationConsoleUiKey.Key
+    key: enum.FundManagementConsoleUiKey.Key
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
     access: [["HeadOfPersonnel"]]
   - type: UserInterface
     interfaces:
-      enum.FundingAllocationConsoleUiKey.Key:
-        type: FundingAllocationConsoleBoundUserInterface
+      enum.FundManagementConsoleUiKey.Key:
+        type: FundManagementConsoleBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: Computer
