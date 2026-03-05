@@ -33,10 +33,6 @@ namespace Content.Client.Cargo.UI
         public event Action<ButtonEventArgs>? OnOrderApproved;
         public event Action<ButtonEventArgs>? OnOrderCanceled;
 
-        public event Action<ProtoId<CargoAccountPrototype>?, int>? OnAccountAction;
-
-        public event Action<ButtonEventArgs>? OnToggleUnboundedLimit;
-
         private readonly List<string> _categoryStrings = new();
         private string? _category;
 

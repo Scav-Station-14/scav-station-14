@@ -1,6 +1,8 @@
 using System.Linq;
 using Content.Shared._Scav.Cargo;
+using Content.Shared._Scav.Cargo.Components;
 using Content.Shared.Cargo.Components;
+using Content.Shared.Cargo.Prototypes;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Emag.Systems;
@@ -16,24 +18,26 @@ public sealed partial class CargoSystem
 
     public void InitializeFunds()
     {
-        SubscribeLocalEvent<CargoOrderConsoleComponent, CargoConsoleWithdrawFundsMessage>(OnWithdrawFunds);
-        SubscribeLocalEvent<CargoOrderConsoleComponent, CargoConsoleToggleLimitMessage>(OnToggleLimit);
-        SubscribeLocalEvent<FundingAllocationConsoleComponent, SetFundingAllocationBuiMessage>(OnSetFundingAllocation);
-        SubscribeLocalEvent<FundingAllocationConsoleComponent, BeforeActivatableUIOpenEvent>(OnFundAllocationBuiOpen);
+        SubscribeLocalEvent<FundManagementConsoleComponent, FundManagementConsoleWithdrawFundsMessage>(OnWithdrawFunds);
+        SubscribeLocalEvent<FundManagementConsoleComponent, SetFundingAllocationBuiMessage>(OnSetFundingAllocation);
+        SubscribeLocalEvent<FundManagementConsoleComponent, BeforeActivatableUIOpenEvent>(OnFundAllocationBuiOpen);
 
         _cfg.OnValueChanged(CCVars.AllowPrimaryAccountAllocation, enabled => { _allowPrimaryAccountAllocation = enabled; }, true);
         _cfg.OnValueChanged(CCVars.AllowPrimaryCutAdjustment, enabled => { _allowPrimaryCutAdjustment = enabled; }, true);
     }
 
-    private void OnWithdrawFunds(Entity<CargoOrderConsoleComponent> ent, ref CargoConsoleWithdrawFundsMessage args)
+    private void OnWithdrawFunds(Entity<FundManagementConsoleComponent> ent, ref FundManagementConsoleWithdrawFundsMessage args)
     {
         if (_station.GetOwningStation(ent) is not { } station ||
             !TryComp<StationBankAccountComponent>(station, out var bank))
             return;
 
-        if (args.Account == ent.Comp.Account ||
-            args.Amount <= 0 ||
-            args.Amount > GetBalanceFromAccount((station, bank), ent.Comp.Account) * ent.Comp.TransferLimit)
+        if (args.SourceAccount is null)
+            return;
+        var sourceAccount = args.SourceAccount!.Value;
+
+        if (args.Amount <= 0 ||
+            args.Amount > GetBalanceFromAccount((station, bank), sourceAccount))
             return;
 
         if (Timing.CurTime < ent.Comp.NextAccountActionTime)
@@ -46,65 +50,53 @@ public sealed partial class CargoSystem
             return;
         }
 
+        if (!_protoMan.TryIndex(sourceAccount, out var sourceAccountProto) ||
+            (args.DestinationAccount is not null && !_protoMan.TryIndex(args.DestinationAccount.Value, out _)))
+        {
+            PlayDenySound(ent, ent.Comp);
+            return;
+        }
+
         ent.Comp.NextAccountActionTime = Timing.CurTime + ent.Comp.AccountActionDelay;
-        UpdateBankAccount((station, bank), -args.Amount,  ent.Comp.Account, dirty: false);
+        UpdateBankAccount((station, bank), -args.Amount,  sourceAccount, dirty: true);
         _audio.PlayPvs(ApproveSound, ent);
 
         var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(ent, args.Actor);
         RaiseLocalEvent(tryGetIdentityShortInfoEvent);
 
-        var ourAccount = _protoMan.Index(ent.Comp.Account);
-        if (args.Account == null)
+        if (args.DestinationAccount == null)
         {
             var stackPrototype = _protoMan.Index(ent.Comp.CashType);
             _stack.Spawn(args.Amount, stackPrototype, Transform(ent).Coordinates);
 
-            if (!_emag.CheckFlag(ent, EmagType.Interaction))
-            {
-                var msg = Loc.GetString("cargo-console-fund-withdraw-broadcast",
-                    ("name", tryGetIdentityShortInfoEvent.Title ?? Loc.GetString("cargo-console-fund-transfer-user-unknown")),
-                    ("amount", args.Amount),
-                    ("name1", Loc.GetString(ourAccount.Name)),
-                    ("code1", Loc.GetString(ourAccount.Code)));
-                _radio.SendRadioMessage(ent, msg, ourAccount.RadioChannel, ent, escapeMarkup: false);
-            }
+            var msg = Loc.GetString("cargo-console-fund-withdraw-broadcast",
+                ("name", tryGetIdentityShortInfoEvent.Title ?? Loc.GetString("cargo-console-fund-transfer-user-unknown")),
+                ("amount", args.Amount),
+                ("name1", Loc.GetString(sourceAccountProto.Name)),
+                ("code1", Loc.GetString(sourceAccountProto.Code)));
+            _radio.SendRadioMessage(ent, msg, sourceAccountProto.RadioChannel, ent, escapeMarkup: false);
         }
         else
         {
-            var otherAccount = _protoMan.Index(args.Account.Value);
-            UpdateBankAccount((station, bank), args.Amount, args.Account.Value);
+            var otherAccount = args.DestinationAccount!.Value;
+            var otherAccountProto = _protoMan.Index(otherAccount);
+            UpdateBankAccount((station, bank), args.Amount, otherAccount, dirty: true);
 
-            if (!_emag.CheckFlag(ent, EmagType.Interaction))
-            {
-                var msg = Loc.GetString("cargo-console-fund-transfer-broadcast",
-                    ("name", tryGetIdentityShortInfoEvent.Title ?? Loc.GetString("cargo-console-fund-transfer-user-unknown")),
-                    ("amount", args.Amount),
-                    ("name1", Loc.GetString(ourAccount.Name)),
-                    ("code1", Loc.GetString(ourAccount.Code)),
-                    ("name2", Loc.GetString(otherAccount.Name)),
-                    ("code2", Loc.GetString(otherAccount.Code)));
-                _radio.SendRadioMessage(ent, msg, ourAccount.RadioChannel, ent, escapeMarkup: false);
-                _radio.SendRadioMessage(ent, msg, otherAccount.RadioChannel, ent, escapeMarkup: false);
-            }
-        }
-    }
-
-    private void OnToggleLimit(Entity<CargoOrderConsoleComponent> ent, ref CargoConsoleToggleLimitMessage args)
-    {
-        if (!_accessReaderSystem.FindAccessTags(args.Actor).Intersect(ent.Comp.RemoveLimitAccess).Any())
-        {
-            ConsolePopup(args.Actor, Loc.GetString("cargo-console-order-not-allowed"));
-            PlayDenySound(ent, ent.Comp);
-            return;
+            var msg = Loc.GetString("cargo-console-fund-transfer-broadcast",
+                ("name", tryGetIdentityShortInfoEvent.Title ?? Loc.GetString("cargo-console-fund-transfer-user-unknown")),
+                ("amount", args.Amount),
+                ("name1", Loc.GetString(sourceAccountProto.Name)),
+                ("code1", Loc.GetString(sourceAccountProto.Code)),
+                ("name2", Loc.GetString(otherAccountProto.Name)),
+                ("code2", Loc.GetString(otherAccountProto.Code)));
+            _radio.SendRadioMessage(ent, msg, sourceAccountProto.RadioChannel, ent, escapeMarkup: false);
+            _radio.SendRadioMessage(ent, msg, otherAccountProto.RadioChannel, ent, escapeMarkup: false);
         }
 
-        _audio.PlayPvs(ent.Comp.ToggleLimitSound, ent);
-        ent.Comp.TransferUnbounded = !ent.Comp.TransferUnbounded;
-        Dirty(ent);
+        _uiSystem.SetUiState(ent.Owner, FundManagementConsoleUiKey.Key, new FundManagementConsoleBuiState(GetNetEntity(station)));
     }
 
-
-    private void OnSetFundingAllocation(Entity<FundingAllocationConsoleComponent> ent, ref SetFundingAllocationBuiMessage args)
+    private void OnSetFundingAllocation(Entity<FundManagementConsoleComponent> ent, ref SetFundingAllocationBuiMessage args)
     {
         if (_station.GetOwningStation(ent) is not { } station ||
             !TryComp<StationBankAccountComponent>(station, out var bank))
@@ -160,7 +152,7 @@ public sealed partial class CargoSystem
             $"{ToPrettyString(args.Actor):player} set station {ToPrettyString(station)} fund distribution: {string.Join(',', bank.RevenueDistribution.Select(p => $"{p.Key}: {p.Value}").ToList())}, primary cut: {bank.PrimaryCut}, lockbox cut: {bank.LockboxCut}");
     }
 
-    private void OnFundAllocationBuiOpen(Entity<FundingAllocationConsoleComponent> ent, ref BeforeActivatableUIOpenEvent args)
+    private void OnFundAllocationBuiOpen(Entity<FundManagementConsoleComponent> ent, ref BeforeActivatableUIOpenEvent args)
     {
         if (_station.GetOwningStation(ent) is { } station)
             _uiSystem.SetUiState(ent.Owner, FundManagementConsoleUiKey.Key, new FundManagementConsoleBuiState(GetNetEntity(station)));

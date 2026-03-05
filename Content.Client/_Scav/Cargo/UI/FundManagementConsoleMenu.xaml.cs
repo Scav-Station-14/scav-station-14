@@ -323,6 +323,12 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
         if (!_bankQuery.TryComp(_station, out var bankAccount))
             return;
 
+        foreach (var key in _accounts.Keys)
+        {
+            _accounts[key] = bankAccount.Accounts[key];
+        }
+        BalanceLabel.Text = _accounts.TryGetValue(_selectedAccount, out var selectedAccount) ? Loc.GetString("cargo-console-menu-points-amount", ("amount", selectedAccount)) : Loc.GetString("bank-atm-menu-no-bank");
+
         foreach (var (account, label) in _balanceLabels)
         {
             label.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", bankAccount.Accounts[account]));

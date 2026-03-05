@@ -100,16 +100,6 @@ namespace Content.Client.Cargo.BUI
                 }
             };
 
-            _menu.OnAccountAction += (account, amount) =>
-            {
-                SendMessage(new CargoConsoleWithdrawFundsMessage(account, amount));
-            };
-
-            _menu.OnToggleUnboundedLimit += _ =>
-            {
-                SendMessage(new CargoConsoleToggleLimitMessage());
-            };
-
             _menu.OpenCentered();
         }
 

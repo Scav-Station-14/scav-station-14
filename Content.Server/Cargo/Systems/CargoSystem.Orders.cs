@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Cargo.Components;
 using Content.Server.Station.Components;
+using Content.Shared._Scav.Cargo.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.BUI;
 using Content.Shared.Cargo.Components;
@@ -457,6 +458,15 @@ namespace Content.Server.Cargo.Systems
         }
 
         private void PlayDenySound(EntityUid uid, CargoOrderConsoleComponent component)
+        {
+            if (_timing.CurTime >= component.NextDenySoundTime)
+            {
+                component.NextDenySoundTime = _timing.CurTime + component.DenySoundDelay;
+                _audio.PlayPvs(_audio.ResolveSound(component.ErrorSound), uid);
+            }
+        }
+
+        private void PlayDenySound(EntityUid uid, FundManagementConsoleComponent component)
         {
             if (_timing.CurTime >= component.NextDenySoundTime)
             {

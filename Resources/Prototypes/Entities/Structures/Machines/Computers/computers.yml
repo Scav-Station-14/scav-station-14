@@ -903,7 +903,7 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: CargoOrderConsole # Frontier: use NF component # Scav: revert
-    removeLimitAccess: [ "Quartermaster" ]
+    #removeLimitAccess: [ "Quartermaster" ] # Scav: removed, fund transfer moved to fund management console
   - type: ActiveRadio
     channels:
     - Supply
@@ -1165,7 +1165,7 @@
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
-  - type: FundingAllocationConsole
+  - type: FundManagementConsole # Scav: Swapped FundingAllocationConsole for FundManagementConsole
   - type: ActivatableUI
     key: enum.FundManagementConsoleUiKey.Key
   - type: ActivatableUIRequiresAccess
