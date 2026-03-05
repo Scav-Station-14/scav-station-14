@@ -6,6 +6,7 @@
   - /Audio/Announcements/RoundEnd/notevenpaidforthis.ogg
   - /Audio/_Scav/Announcements/RoundEnd/whackhispeepee.mp3 # Scav
   - /Audio/_NF/Announcements/RoundEnd/snake_frontierfm.ogg # Frontier
+  - /Audio/_NF/Announcements/RoundEnd/honkannounce.ogg # Frontier
 
 - type: soundCollection
   id: PowerOn
