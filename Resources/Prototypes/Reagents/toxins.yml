@@ -429,8 +429,6 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 1.50
         sprintSpeedModifier: 2.00
-        StatusLifetime: 2.0
-        Probability: 1.0
         conditions:
         - !type:OrganType
           type: Yinglet
@@ -443,10 +441,9 @@
         - !type:OrganType
           type: Yinglet
       - !type:Jitter
-        Amplitude: 1.0
-        Frequency: 10.0
-        Time: 4.0
-        Probability: 1.0
+        amplitude: 1.5
+        frequency: 10.0
+        time: 4.0
         conditions:
         - !type:OrganType
           type: Yinglet  #end scav

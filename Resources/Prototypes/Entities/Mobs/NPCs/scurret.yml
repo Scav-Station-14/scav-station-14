@@ -130,11 +130,12 @@
             sprite: Mobs/Animals/scurret/displacement.rsi
             state: back
   - type: Hands
-    leftHandDisplacement:
-      sizeMaps:
-        32:
-          sprite: Mobs/Animals/scurret/displacement.rsi
-          state: hand
+    handDisplacements:
+      Left:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/scurret/displacement.rsi
+            state: hand
 
   - type: InventorySlots
   - type: Food
