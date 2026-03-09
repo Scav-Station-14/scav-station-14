@@ -2,10 +2,10 @@
   id: Bee
   parent: BaseVessel
   name: IMS Bee
-  description: Small landing and salvage craft.
+  description: Small landing and salvage craft. Hardy, with external bays for additional storage space.
   price: 25000
   category: Small
-  group: Shipyard
+  group: Scav
   shuttlePath: /Maps/_Scav/Shuttles/bee.yml
   guidebookPage: Null
   class:

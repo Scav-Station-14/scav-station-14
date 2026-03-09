@@ -1,0 +1,22 @@
+- type: entity
+  id: StandardScavStation # What are we, some kind of Scav Station?
+  parent:
+  - BaseStation
+  - BaseStationCargo
+  - BaseStationJobsSpawning
+  - BaseStationRecords
+  - BaseStationSiliconLawFrontierStation
+  # - BaseStationGateway
+  # - BaseStationCentcomm
+  # - BaseStationEvacuation
+  - BaseStationAlertLevels
+  - BaseStationExpeditions
+  - BaseStationAllEventsEligible
+  - BaseStationNanotrasen # TODO: CHANGE THIS TO NEW NPC FACTION, PROBABLY DB BASED
+  - BaseStationDeliveries # Wizden mail system
+  - BaseStationRenameFaxes
+  - BaseStationRenameHolopads
+  - BaseStationRenameWarpPoints
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Transform

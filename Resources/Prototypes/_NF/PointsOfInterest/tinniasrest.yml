@@ -19,7 +19,7 @@
   addComponents:
   - type: StationTransit
     routes:
-      MinorPointsOfInterest: 10
+      TradeExpress: 30
   - type: SolarPoweredGrid
     trackOnInit: true
     doNotCull: true

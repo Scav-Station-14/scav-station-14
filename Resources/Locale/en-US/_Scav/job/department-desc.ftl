@@ -1,0 +1,1 @@
+department-Tactical-description = Defend the station, fight threats on away missions, kick ass

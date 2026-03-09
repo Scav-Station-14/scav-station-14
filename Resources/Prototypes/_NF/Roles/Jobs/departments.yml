@@ -12,6 +12,8 @@
   - NFJanitor
   - MailCarrier # nyano
   - SecurityGuard
+  primary: false # Scav
+  editorHidden: true # Scav
 
 - type: department
   id: Antag
@@ -23,4 +25,4 @@
   - NFPirateCaptain
   - NFPirateFirstMate
   - NFPirate
-  - Prisoner #nyano
+  # - Prisoner # Scav, for now

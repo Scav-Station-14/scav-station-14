@@ -1,6 +1,6 @@
 - type: loadoutGroup
   id: MercenaryJumpsuit
-  name: loadout-group-contractor-jumpsuit
+  name: loadout-group-jumpsuit
   loadouts: #First Section: Role specific freebies/discounts/rewards
   - MercenaryClothingUniformJumpsuitMercenary
   - MercenaryClothingUniformJumpskirtMercenary
@@ -14,14 +14,14 @@
   - MercenaryClothingUniformJumpsuitMilitaryTurtleneckBlueMercenaryCaptain
   subgroups:
   - PilotJumpsuit
-  - ContractorJumpsuit
+  - BaseJumpsuit
   fallbacks:
   - MercenaryClothingUniformJumpsuitMercenary
   - MercenaryClothingUniformJumpskirtMercenary
 
 - type: loadoutGroup
   id: MercenaryBackpack
-  name: loadout-group-contractor-backpack
+  name: loadout-group-backpack
   loadouts:
   - MercenaryClothingBackpackMercenary
   - MercenaryClothingBackpackDuffelMercenary
@@ -34,13 +34,13 @@
   - SecurityDuffel
   subgroups:
   - PilotBackpack
-  - ContractorBackpack
+  - BaseBackpack
   fallbacks:
   - MercenaryClothingBackpackMercenary
 
 - type: loadoutGroup
   id: MercenaryOuterClothing
-  name: loadout-group-contractor-outerclothing
+  name: loadout-group-outerclothing
   minLimit: 0
   loadouts:
   - MercenaryClothingOuterVestWebMercenary
@@ -52,11 +52,11 @@
   - MercenaryClothingOuterArmorCaptainCarapace
   subgroups:
   - PilotOuterClothing
-  - ContractorOuterClothing
+  - BaseOuterClothing
 
 - type: loadoutGroup
   id: MercenaryShoes
-  name: loadout-group-contractor-shoes
+  name: loadout-group-shoes
   loadouts:
   - MercenaryClothingShoesBootsMercenary
   - MercenaryClothingShoesBootsJack
@@ -65,13 +65,13 @@
   - MercenaryClothingShoesMagSecurity
   subgroups:
   - PilotShoes
-  - ContractorShoes
+  - BaseShoes
   fallbacks:
   - MercenaryClothingShoesBootsMercenary
 
 - type: loadoutGroup
   id: MercenaryHead
-  name: loadout-group-contractor-head
+  name: loadout-group-head
   minLimit: 0
   loadouts:
   - MercenaryClothingHeadHelmetMercenary
@@ -85,11 +85,11 @@
   - SecurityGuardTrooperHat
   subgroups:
   - PilotHead
-  - ContractorHead
+  - BaseHead
 
 - type: loadoutGroup
   id: MercenaryEars
-  name: loadout-group-contractor-ears
+  name: loadout-group-ears
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -99,11 +99,11 @@
   - MercenaryClothingHeadsetAltSecurityCommon
   subgroups:
   - PilotEars
-  - ContractorEars
+  - BaseEars
 
 - type: loadoutGroup
   id: MercenaryGloves
-  name: loadout-group-contractor-gloves
+  name: loadout-group-gloves
   minLimit: 0
   loadouts:
   - MercenaryClothingHandsGlovesMercFingerless
@@ -111,46 +111,46 @@
   - MercenaryClothingHandsGlovesCombat
   subgroups:
   - PilotGloves
-  - ContractorGloves
+  - BaseGloves
 
 - type: loadoutGroup
   id: MercenaryPDA
-  name: loadout-group-contractor-pda
+  name: loadout-group-pda
   loadouts:
   - MercenaryMercenaryPDA
   subgroups:
   - PilotPDA
-  - ContractorPDA
+  - BasePDA
   fallbacks:
   - MercenaryMercenaryPDA
 
 - type: loadoutGroup
   id: MercenaryGlasses
-  name: loadout-group-contractor-glasses
+  name: loadout-group-glasses
   minLimit: 0
   loadouts:
   - MercenaryClothingEyesGlassesMercenary
   - MercenaryClothingEyesGlassesSunglasses
   subgroups:
   - PilotGlasses
-  - ContractorGlasses
+  - BaseGlasses
 
 - type: loadoutGroup
   id: MercenaryFace
-  name: loadout-group-contractor-face
+  name: loadout-group-face
   loadouts:
   - MercenaryClothingMaskGasMercenary
   - MercenaryClothingMaskGasSecurity
   - MercenaryClothingMaskBalaclavaBlack
   subgroups:
   - PilotFace
-  - ContractorFace
+  - BaseFace
   fallbacks:
   - MercenaryClothingMaskGasMercenary
 
 - type: loadoutGroup
   id: MercenaryBelt
-  name: loadout-group-contractor-belt
+  name: loadout-group-belt
   minLimit: 0
   loadouts:
   - MercenaryClothingBeltMercenaryWebbing
@@ -158,4 +158,4 @@
   - MercenaryClothingBeltMilitaryWebbingMed
   - MercenaryClothingBeltSecurity
   subgroups:
-  - ContractorBelt
+  - BaseBelt

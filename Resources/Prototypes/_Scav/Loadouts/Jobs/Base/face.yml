@@ -1,0 +1,66 @@
+#T0
+- type: loadout
+  id: ClothingMaskBreath
+  storage:
+    back: 
+    - ClothingMaskBreath
+
+- type: loadout
+  id: ClothingMaskBreathMedical
+  price: 200
+  storage:
+    back: 
+    - ClothingMaskBreathMedical
+
+#T1
+- type: loadout
+  id: ClothingMaskSterile
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 200
+  storage:
+    back: 
+    - ClothingMaskSterile
+
+- type: loadout
+  id: ClothingMaskGas
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 300
+  storage:
+    back:
+    - ClothingMaskGas
+
+- type: loadout
+  id: ClothingMaskPunkHalf
+  name: punk halfmask (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  storage:
+    back:
+    - ClothingMaskPunkHalf
+
+#T2
+- type: loadout
+  id: ClothingMaskGasExplorer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  storage:
+    back:
+    - ClothingMaskGasExplorer
+
+- type: loadout
+  id: ClothingMaskPlague
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1500
+  storage:
+    back:
+    - ClothingMaskPlague

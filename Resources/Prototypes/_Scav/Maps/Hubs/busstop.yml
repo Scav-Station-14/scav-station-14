@@ -1,0 +1,24 @@
+- type: gameMap
+  id: BusStop
+  mapName: 'Rift Transit Hub'
+  mapPath: /Maps/_Scav/Hubs/busstop.yml
+  minPlayers: 0
+  maxPlayers: 100
+  randomRotation: false
+  maxRandomOffset: 0
+  stations:
+    BusStop:
+      stationProto: StandardFrontierStation # Serves a comparable purpose to Frontier Outpost, makes the most sense.
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Rift Transit Hub'
+        # - type: StationEmergencyShuttle
+        #   emergencyShuttlePath: /Maps/Shuttles/emergency_meta.yml
+        - type: ExtraStationInformation
+          iconPath: /Textures/_NF/Logo/icon/icon-256x256.png # used the biggest one, looks better when downscaling than upscaling
+          stationSubtext: 'frontier-lobby-frontier-subtext'
+          stationDescription: 'frontier-lobby-frontier-description'
+          lobbySortOrder: 1
+        - type: StationJobs
+          availableJobs:
+            Passenger: [-1, -1]

@@ -120,6 +120,10 @@
           Quantity: 10
   - type: Item
     heldPrefix: iron
+  - type: Tag # Scav
+    tags:
+    - Ore
+    - OreIron
 
 - type: entity
   id: SteelOre1
@@ -233,6 +237,10 @@
           Quantity: 10
   - type: Item
     heldPrefix: spacequartz
+  - type: Tag # Scav
+    tags:
+    - Ore
+    - OreQuartz
 
 - type: entity
   parent: SpaceQuartz
@@ -367,6 +375,10 @@
       Coal: 100
   - type: Item
     heldPrefix: coal
+  - type: Tag # Scav
+    tags:
+    - Ore
+    - OreCoal
 
 - type: entity
   parent: Coal
@@ -426,6 +438,10 @@
           Quantity: 5
   - type: Item
     heldPrefix: salt
+  - type: Tag # Scav
+    tags:
+    - Ore
+    - OreSalt
 
 - type: entity
   parent: SaltOre

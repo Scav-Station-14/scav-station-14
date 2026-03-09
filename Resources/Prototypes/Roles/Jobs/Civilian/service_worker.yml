@@ -12,23 +12,18 @@
   supervisors: job-supervisors-service
   accessGroups: # Frontier
   - GeneralAccess # Frontier
-  # access: # Frontier
-  # - Service # Frontier
-  # - Maintenance # Frontier
-  # - Bar # Frontier
-  # - Kitchen # Frontier
-  # extendedAccess: # Frontier
-  # - Hydroponics # Frontier
+  access:
+  - Service
+  - Maintenance
+  - Bar
+  - Kitchen
+  extendedAccess:
+  - Hydroponics
 
 - type: startingGear
   id: ServiceWorkerGear
   equipment:
-    shoes: ClothingShoesColorBlack
     id: ServiceWorkerPDA
-    ears: ClothingHeadsetService
-  #storage:
-    #back:
-    #- Stuff
 
 - type: chameleonOutfit
   id: ServiceWorkerChameleonOutfit

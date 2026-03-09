@@ -3,7 +3,6 @@
   name: job-name-qm
   description: job-description-qm
   playTimeTracker: JobQuartermaster
-  setPreference: false # Frontier
   requirements:
     - !type:RoleTimeRequirement
       role: JobCargoTechnician
@@ -19,15 +18,15 @@
   icon: "JobIconQuarterMaster"
   supervisors: job-supervisors-captain
   canBeAntag: false
-  # access: # Frontier
-  # - Cargo # Frontier
-  # - Salvage # Frontier
-  # - Quartermaster # Frontier
-  # - Maintenance # Frontier
-  # - External # Frontier
-  # - Command # Frontier
-  # - Brig # Frontier
-  # - Cryogenics # Frontier
+  access:
+  - Cargo
+  - Salvage
+  - Quartermaster
+  - Maintenance
+  - External
+  - Command
+  - Brig
+  - Cryogenics
   accessGroups: # Frontier
   - GeneralAccess # Frontier
   special:
@@ -41,12 +40,6 @@
   id: QuartermasterGear
   equipment:
     id: QuartermasterPDA
-    ears: ClothingHeadsetQM
-    belt: BoxFolderClipboard
-    pocket1: AppraisalTool
-  storage:
-    back:
-    - Flash
 
 - type: chameleonOutfit
   id: QuartermasterChameleonOutfit

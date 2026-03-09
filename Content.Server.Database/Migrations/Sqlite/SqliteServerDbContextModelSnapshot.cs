@@ -1325,6 +1325,33 @@ namespace Content.Server.Database.Migrations.Sqlite
                         });
                 });
 
+            modelBuilder.Entity("Content.Server.Database.Station", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("station_id");
+
+                    b.Property<int>("BankBalance")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("bank_balance");
+
+                    b.Property<string>("StationName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("station_name");
+
+                    b.Property<string>("StationPrototypeId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("station_prototype_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_station");
+
+                    b.ToTable("station", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
                 {
                     b.Property<int>("Id")

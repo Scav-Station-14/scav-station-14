@@ -12,10 +12,9 @@
   icon: "JobIconResearchAssistant"
   supervisors: job-supervisors-science
   canBeAntag: false
-  # access: # Frontier
-  # - Research # Frontier
-  # - Maintenance # Frontier
-  setPreference: false # Frontier
+  access:
+  - Research
+  - Maintenance
   accessGroups: # Frontier
   - GeneralAccess # Frontier
 

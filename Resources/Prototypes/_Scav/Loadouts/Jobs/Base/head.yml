@@ -1,0 +1,644 @@
+- type: loadout
+  id: ClothingHeadBandBlack
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadBandBlack
+
+- type: loadout
+  id: ClothingHeadBandBlue
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadBandBlue
+
+- type: loadout
+  id: ClothingHeadBandGreen
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadBandGreen
+
+- type: loadout
+  id: ClothingHeadBandRed
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadBandRed
+
+- type: loadout
+  id: ClothingHeadBandSkull
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadBandSkull
+
+- type: loadout
+  id: ClothingHeadHatGreysoft
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadHatGreysoft
+
+- type: loadout
+  id: ClothingHeadHatBluesoft
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadHatBluesoft
+
+- type: loadout
+  id: ClothingHeadHatYellowsoft
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadHatYellowsoft
+
+- type: loadout
+  id: ClothingHeadHatGreensoft
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadHatGreensoft
+
+- type: loadout
+  id: ClothingHeadHatOrangesoft
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadHatOrangesoft
+
+- type: loadout
+  id: ClothingHeadHatRedsoft
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadHatRedsoft
+
+- type: loadout
+  id: ClothingHeadHatBlacksoft
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadHatBlacksoft
+
+- type: loadout
+  id: ClothingHeadHatPurplesoft
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadHatPurplesoft
+
+- type: loadout
+  id: ClothingHeadHatCorpsoft
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadHatCorpsoft
+
+- type: loadout
+  id: ClothingHeadBandGrey
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadBandGrey
+
+- type: loadout
+  id: ClothingHeadHatUshanka
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadHatUshanka
+
+- type: loadout
+  id: ClothingHeadHatHardhatYellow
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadHatHardhatYellow
+
+- type: loadout
+  id: ClothingHeadHatChef
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 250
+  equipment:
+    head: ClothingHeadHatChef
+
+- type: loadout
+  id: ClothingHeadRastaHat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 650
+  equipment:
+    head: ClothingHeadRastaHat
+
+- type: loadout
+  id: ClothingHeadHatSombrero
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 650
+  equipment:
+    head: ClothingHeadHatSombrero
+
+- type: loadout
+  id: ClothingHeadFishCap
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 650
+  equipment:
+    head: ClothingHeadFishCap
+
+- type: loadout
+  id: ClothingHeadHatTrucker
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 650
+  equipment:
+    head: ClothingHeadHatTrucker
+
+- type: loadout
+  id: ClothingHeadHatCasa
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 650
+  equipment:
+    head: ClothingHeadHatCasa
+
+- type: loadout
+  id: ClothingHeadHatBowlerHat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 650
+  equipment:
+    head: ClothingHeadHatBowlerHat
+
+- type: loadout
+  id: ClothingHeadHatGreyFlatcap
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 650
+  equipment:
+    head: ClothingHeadHatGreyFlatcap
+
+- type: loadout
+  id: ClothingHeadHatBrownFlatcap
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 650
+  equipment:
+    head: ClothingHeadHatBrownFlatcap
+
+- type: loadout
+  id: ClothingHeadHatSurgcapGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 650
+  equipment:
+    head: ClothingHeadHatSurgcapGreen
+
+- type: loadout
+  id: ClothingHeadHatSurgcapBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 650
+  equipment:
+    head: ClothingHeadHatSurgcapBlue
+
+- type: loadout
+  id: ClothingHeadHatSurgcapPurple
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 650
+  equipment:
+    head: ClothingHeadHatSurgcapPurple
+
+- type: loadout
+  id: ClothingHeadHatFedoraGrey
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 650
+  equipment:
+    head: ClothingHeadHatFedoraGrey
+
+- type: loadout
+  id: ClothingHeadHatFedoraBrown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 650
+  equipment:
+    head: ClothingHeadHatFedoraBrown
+
+
+#T2
+- type: loadout
+  id: ClothingHeadTinfoil
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadTinfoil
+
+- type: loadout
+  id: ClothingHeadHatCardinal
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatCardinal
+
+- type: loadout
+  id: ClothingHeadHatHoodNunHood
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatHoodNunHood
+
+- type: loadout
+  id: ClothingHeadSafari
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadSafari
+
+- type: loadout
+  id: ClothingHeadHatJester
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatJester
+
+- type: loadout
+  id: ClothingHeadHatJesterAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatJesterAlt
+
+- type: loadout
+  id: ClothingHeadHatBeret
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatBeret
+
+- type: loadout
+  id: ClothingHeadHatBeretFrench
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatBeretFrench
+
+- type: loadout
+  id: ClothingHeadHatMimesoft
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatMimesoft
+
+- type: loadout
+  id: ClothingHeadHatPilgrim
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatPilgrim
+
+- type: loadout
+  id: ClothingHeadHatStrawHat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatStrawHat
+
+- type: loadout
+  id: ClothingHeadHatCowboyBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatCowboyBlack
+
+- type: loadout
+  id: ClothingHeadHatCowboyBrown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatCowboyBrown
+
+- type: loadout
+  id: ClothingHeadHatCowboyGrey
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatCowboyGrey
+
+- type: loadout
+  id: ClothingHeadHatCowboyBountyHunter
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatCowboyBountyHunter
+
+- type: loadout
+  id: ClothingHeadHatBH
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatBH
+
+- type: loadout
+  id: ClothingHeadHatCowboyRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatCowboyRed
+
+- type: loadout
+  id: ClothingHeadHatCowboyWhite
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatCowboyWhite
+
+- type: loadout
+  id: ClothingHeadHatWideBrimmed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatWideBrimmed
+
+- type: loadout
+  id: ClothingHeadHatWitchhunter
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatWitchhunter
+
+- type: loadout
+  id: ClothingHeadHatBishopMitre
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatBishopMitre
+
+- type: loadout
+  id: ClothingHeadHatKippah
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatKippah
+
+- type: loadout
+  id: ClothingHeadHatPlaguedoctor
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatPlaguedoctor
+
+#T3 for lols
+- type: loadout
+  id: Plunger
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: Plunger
+
+- type: loadout
+  id: ClothingHeadHatCone
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatCone
+
+- type: loadout
+  id: ClothingHeadBandGold
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 2500
+  equipment:
+    head: ClothingHeadBandGold
+
+- type: loadout
+  id: ClothingHeadHatTophat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 5000
+  equipment:
+    head: ClothingHeadHatTophat

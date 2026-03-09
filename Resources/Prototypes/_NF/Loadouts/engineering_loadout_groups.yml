@@ -142,7 +142,7 @@
   - PlantManagerClothingHeadsetAltEngineeringPlantManager
 
 - type: loadoutGroup
-  id: EngineeringEars
+  id: EngineeringEarsOld
   name: loadout-group-contractor-ears
   hidden: true
   loadouts:

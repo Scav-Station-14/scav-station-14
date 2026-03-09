@@ -1,4 +1,6 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server._Scav.Cargo.Components;
 using Content.Server.Cargo.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.BUI;
@@ -6,8 +8,10 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Events;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.CCVar;
+using Content.Shared.Labels.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Cargo.Systems;
 
@@ -41,11 +45,11 @@ public sealed partial class CargoSystem
                 new CargoPalletConsoleInterfaceState(0, 0, false));
             return;
         }
-        GetPalletGoods(gridUid, out var toSell, out var goods);
+        GetPalletGoods(gridUid, out var goods);
         var totalAmount = goods.Sum(t => t.Item3);
         _uiSystem.SetUiState(uid,
             CargoPalletConsoleUiKey.Sale,
-            new CargoPalletConsoleInterfaceState((int) totalAmount, toSell.Count, true));
+            new CargoPalletConsoleInterfaceState((int) totalAmount, goods.Count, true));
     }
 
     private void OnPalletUIOpen(EntityUid uid, CargoPalletConsoleComponent component, BoundUIOpenedEvent args)
@@ -131,28 +135,32 @@ public sealed partial class CargoSystem
 
     #region Station
 
-    private bool SellPallets(EntityUid gridUid, EntityUid station, out HashSet<(EntityUid, OverrideSellComponent?, double)> goods)
+    private bool TryGetLabel(EntityUid uid,
+        [NotNullWhen(true)] out EntityUid? labelEnt,
+        [NotNullWhen(true)] out CargoLabelComponent? labelComp)
     {
-        GetPalletGoods(gridUid, out var toSell, out goods);
-
-        if (toSell.Count == 0)
+        labelEnt = null;
+        labelComp = null;
+        if (!_containerQuery.TryGetComponent(uid, out var containerMan))
             return false;
 
-        var ev = new EntitySoldEvent(toSell, station);
-        RaiseLocalEvent(ref ev);
+        // make sure this label was actually applied to a crate.
+        if (!_container.TryGetContainer(uid, LabelSystem.ContainerName, out var container, containerMan))
+            return false;
 
-        foreach (var ent in toSell)
-        {
-            Del(ent);
-        }
+        if (container.ContainedEntities.FirstOrNull() is not { } label ||
+            !_cargoLabelQuery.TryGetComponent(label, out var component))
+            return false;
 
+        labelEnt = label;
+        labelComp = component;
         return true;
     }
 
-    private void GetPalletGoods(EntityUid gridUid, out HashSet<EntityUid> toSell,  out HashSet<(EntityUid, OverrideSellComponent?, double)> goods)
+    private void GetPalletGoods(EntityUid gridUid, out HashSet<(EntityUid, OverrideSellComponent?, double, EntityUid)> goods)
     {
-        goods = new HashSet<(EntityUid, OverrideSellComponent?, double)>();
-        toSell = new HashSet<EntityUid>();
+        goods = new HashSet<(EntityUid, OverrideSellComponent?, double, EntityUid)>();
+        var alreadySold = new HashSet<EntityUid>();
 
         foreach (var (palletUid, _, _) in GetCargoPallets(gridUid, BuySellType.Sell))
         {
@@ -170,9 +178,16 @@ public sealed partial class CargoSystem
                 // - anything already being sold
                 // - anything anchored (e.g. light fixtures)
                 // - anything blacklisted (e.g. players).
-                if (toSell.Contains(ent) ||
-                    _xformQuery.TryGetComponent(ent, out var xform) &&
-                    (xform.Anchored || !CanSell(ent, xform)))
+                if (alreadySold.Contains(ent) ||
+                    _xformQuery.TryGetComponent(ent, out var xform) && (xform.Anchored || !CanSell(ent, xform)))
+                    continue;
+
+                if (!TryGetLabel(ent, out var labelEnt, out CargoLabelComponent? label)) //label's type HAS to be specified. If it isn't, the function will crash! Dont ask me why but it does.
+                {
+                    continue;
+                }
+
+                if (label.AssociatedStationId is null)
                 {
                     continue;
                 }
@@ -183,8 +198,8 @@ public sealed partial class CargoSystem
                 var price = _pricing.GetPrice(ent);
                 if (price == 0)
                     continue;
-                toSell.Add(ent);
-                goods.Add((ent, CompOrNull<OverrideSellComponent>(ent), price));
+                alreadySold.Add(ent);
+                goods.Add((ent, CompOrNull<OverrideSellComponent>(ent), price, label.AssociatedStationId!.Value));
             }
         }
     }
@@ -216,8 +231,7 @@ public sealed partial class CargoSystem
     {
         var xform = Transform(uid);
 
-        if (_station.GetOwningStation(uid) is not { } station ||
-            !TryComp<StationBankAccountComponent>(station, out var bankAccount))
+        if (_station.GetOwningStation(uid) is not { } tradeStation )
         {
             return;
         }
@@ -230,31 +244,48 @@ public sealed partial class CargoSystem
             return;
         }
 
-        if (!SellPallets(gridUid, station, out var goods))
+        GetPalletGoods(gridUid, out var goods);
+        if (goods.Count == 0)
             return;
 
-        var baseDistribution = CreateAccountDistribution((station, bankAccount));
-        foreach (var (_, sellComponent, value) in goods)
+        var goodsByStation = goods.GroupBy(x => x.Item4).ToDictionary(g => g.Key, g => g.ToList());
+
+        foreach (var targetStation in goodsByStation.Keys)
         {
-            Dictionary<ProtoId<CargoAccountPrototype>, double> distribution;
-            if (sellComponent != null)
+            if (!TryComp<StationBankAccountComponent>(targetStation, out var bankAccount))
             {
-                var cut = _lockboxCutEnabled ? bankAccount.LockboxCut : bankAccount.PrimaryCut;
-                distribution = new Dictionary<ProtoId<CargoAccountPrototype>, double>
-                {
-                    { sellComponent.OverrideAccount, cut },
-                    { bankAccount.PrimaryAccount, 1.0 - cut },
-                };
-            }
-            else
-            {
-                distribution = baseDistribution;
+                continue;
             }
 
-            UpdateBankAccount((station, bankAccount), (int) Math.Round(value), distribution, false);
+            var ev = new EntitySoldEvent(goodsByStation[targetStation].Select(x => x.Item1).ToHashSet(), targetStation);
+            RaiseLocalEvent(ref ev);
+
+            var baseDistribution = CreateAccountDistribution((targetStation, bankAccount));
+            foreach (var (ent, sellComponent, value, _) in goods)
+            {
+                Del(ent);
+
+                Dictionary<ProtoId<CargoAccountPrototype>, double> distribution;
+                if (sellComponent != null)
+                {
+                    var cut = _lockboxCutEnabled ? bankAccount.LockboxCut : bankAccount.PrimaryCut;
+                    distribution = new Dictionary<ProtoId<CargoAccountPrototype>, double>
+                    {
+                        { sellComponent.OverrideAccount, cut },
+                        { bankAccount.PrimaryAccount, 1.0 - cut },
+                    };
+                }
+                else
+                {
+                    distribution = baseDistribution;
+                }
+
+                UpdateBankAccount((targetStation, bankAccount), (int) Math.Round(value), distribution, false);
+            }
+
+            Dirty(targetStation, bankAccount);
         }
 
-        Dirty(station, bankAccount);
         _audio.PlayPvs(ApproveSound, uid);
         UpdatePalletConsoleInterface(uid);
     }

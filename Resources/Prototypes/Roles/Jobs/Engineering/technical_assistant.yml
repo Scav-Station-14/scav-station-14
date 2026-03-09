@@ -12,23 +12,20 @@
       inverted: true # stop playing intern if you're good at engineering!
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-engineering
   canBeAntag: false
+  access:
+  - Maintenance
+  - Engineering
+  - External
   accessGroups: # Frontier
   - GeneralAccess # Frontier
-  setPreference: false # Frontier
 
 - type: startingGear
   id: TechnicalAssistantGear
   equipment:
-    shoes: ClothingShoesBootsWork
     id: TechnicalAssistantPDA
-#    belt: ClothingBeltUtilityEngineering # Frontier - Moved to locker
-    ears: ClothingHeadsetEngineering
     pocket2: BookEngineersHandbook
-  #storage:
-    #back:
-    #- Stuff
 
 - type: chameleonOutfit
   id: TechnicalAssistantChameleonOutfit

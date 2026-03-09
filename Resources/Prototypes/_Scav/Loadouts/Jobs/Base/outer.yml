@@ -1,0 +1,543 @@
+- type: loadout
+  id: ForcedClothingOuterEVASuitContractor
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NFOuterSuitRequired
+  price: 0
+  equipment:
+    outerClothing: ClothingOuterEVASuitContractor
+
+- type: loadout
+  id: ClothingOuterHoodieGrey
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 200
+  equipment:
+    outerClothing: ClothingOuterHoodieGrey
+
+- type: loadout
+  id: ClothingOuterVestHazard
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 200
+  equipment:
+    outerClothing: ClothingOuterVestHazard
+
+- type: loadout
+  id: ClothingOuterApron
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 200
+  equipment:
+    outerClothing: ClothingOuterApron
+
+- type: loadout
+  id: ClothingOuterApronChef
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 200
+  equipment:
+    outerClothing: ClothingOuterApronChef
+
+#T1
+- type: loadout
+  id: ClothingOuterHoodieBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 800
+  equipment:
+    outerClothing: ClothingOuterHoodieBlack
+
+- type: loadout
+  id: ClothingOuterCoatJensen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 800
+  equipment:
+    outerClothing: ClothingOuterCoatJensen
+
+- type: loadout
+  id: ClothingOuterCoatGentle
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 800
+  equipment:
+    outerClothing: ClothingOuterCoatGentle
+
+- type: loadout
+  id: ClothingOuterHoodieChaplain
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 800
+  equipment:
+    outerClothing: ClothingOuterHoodieChaplain
+
+- type: loadout
+  id: ClothingOuterNunRobe
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 800
+  equipment:
+    outerClothing: ClothingOuterNunRobe
+
+- type: loadout
+  id: ClothingOuterCoatLab
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 800
+  equipment:
+    outerClothing: ClothingOuterCoatLab
+
+- type: loadout
+  id: ClothingOuterWinterCoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 800
+  equipment:
+    outerClothing: ClothingOuterWinterCoat
+
+- type: loadout
+  id: ClothingOuterWinterCoatLong
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 800
+  equipment:
+    outerClothing: ClothingOuterWinterCoatLong
+
+#T2
+- type: loadout
+  id: ClothingOuterFlannelRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterFlannelRed
+
+- type: loadout
+  id: ClothingOuterFlannelBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterFlannelBlue
+
+- type: loadout
+  id: ClothingOuterFlannelGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterFlannelGreen
+
+- type: loadout
+  id: ClothingOuterCoatHyenhSweater
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatHyenhSweater
+
+- type: loadout
+  id: ClothingOuterCoatInspector
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatDetectiveLoadout
+
+- type: loadout
+  id: ClothingOuterCoatTrench
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatTrench
+
+- type: loadout
+  id: ClothingOuterDameDane
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterDameDane
+
+- type: loadout
+  id: ClothingOuterWinterCoatPlaid
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterWinterCoatPlaid
+
+- type: loadout
+  id: ClothingOuterCoatBomber
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatBomber
+
+- type: loadout
+  id: ClothingOuterPlagueSuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterPlagueSuit
+
+- type: loadout
+  id: ClothingOuterCoatBishop
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatBishop
+
+- type: loadout
+  id: ClothingOuterCoatWitchHunter
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatWitchHunter
+
+- type: loadout
+  id: ClothingOuterCoatCardinal
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatCardinal
+
+# Punk stuff
+- type: loadout
+  id: ClothingOuterCoatBomberPunkRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatBomberPunkRed
+
+- type: loadout
+  id: ClothingOuterCoatJacketLeather
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatJacketLeather
+
+- type: loadout
+  id: ClothingOuterCoatJacketBiker
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatJacketBiker
+
+- type: loadout
+  id: ClothingOuterCoatJacketJamrock
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatJacketJamrock
+
+- type: loadout
+  id: ClothingOuterCoatBomberAerostatic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatBomberAerostatic
+
+- type: loadout
+  id: ClothingOuterCoatJacketLettermanBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatJacketLettermanBlue
+
+- type: loadout
+  id: ClothingOuterCoatJacketLettermanBrown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatJacketLettermanBrown
+
+- type: loadout
+  id: ClothingOuterCoatJacketLettermanRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatJacketLettermanRed
+
+- type: loadout
+  id: ClothingOuterCoatJacketLettermanMagenta
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatJacketLettermanMagenta
+
+- type: loadout
+  id: ClothingOuterCoatBomberPinkSleeves
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatBomberPinkSleeves
+
+- type: loadout
+  id: ClothingOuterCoatBomberRandomized
+  name: punk jacket (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatBomberRandomized
+
+- type: loadout
+  id: ClothingOuterCoatRandomized
+  name: punk coat (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatRandomized
+
+- type: loadout
+  id: ClothingOuterCoatAcidRaincoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatAcidRaincoat
+
+- type: loadout
+  id: ClothingOuterCoatAcidRaincoatBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatAcidRaincoatBlue
+
+- type: loadout
+  id: ClothingOuterCoatAcidRaincoatGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatAcidRaincoatGreen
+
+- type: loadout
+  id: ClothingOuterCoatAcidRaincoatMagenta
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatAcidRaincoatMagenta
+
+- type: loadout
+  id: ClothingOuterCoatAcidRaincoatYellow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: ClothingOuterCoatAcidRaincoatYellow
+
+
+#T3 for lols
+- type: loadout
+  id: WetFloorSign
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 1200
+  equipment:
+    outerClothing: WetFloorSign
+
+- type: loadout
+  id: ClothingOuterCoatExpensive
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 6000
+  equipment:
+    outerClothing: ClothingOuterCoatExpensive
+
+- type: loadout
+  id: ClothingOuterCoatSpaceAsshole
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 8000
+  equipment:
+    outerClothing: ClothingOuterCoatSpaceAsshole

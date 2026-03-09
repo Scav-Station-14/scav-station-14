@@ -1,0 +1,11 @@
+- type: loadout
+  id: ContractorPDA
+  price: 0
+  equipment:
+    id: ContractorPDA
+
+- type: loadout
+  id: ClearNFPDA
+  price: 0
+  equipment:
+    id: ClearNFPDA

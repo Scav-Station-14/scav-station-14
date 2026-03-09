@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server._Scav.Cargo.Components;
 using Content.Server.Cargo.Components;
 using Content.Server.NameIdentifier;
 using Content.Shared._NF.Bank; // Frontier
@@ -112,12 +113,13 @@ public sealed partial class CargoSystem
         _audio.PlayPvs(component.SkipSound, uid);
     }
 
-    public void SetupBountyLabel(EntityUid uid, EntityUid stationId, CargoBountyData bounty, PaperComponent? paper = null, CargoBountyLabelComponent? label = null)
+    public void SetupBountyLabel(EntityUid uid, EntityUid stationId, CargoBountyData bounty, PaperComponent? paper = null, CargoBountyLabelComponent? bountyLabel = null, CargoLabelComponent? label = null)
     {
-        if (!Resolve(uid, ref paper, ref label) || !_protoMan.TryIndex<CargoBountyPrototype>(bounty.Bounty, out var prototype))
+        if (!Resolve(uid, ref paper, ref bountyLabel, ref label) || !_protoMan.TryIndex<CargoBountyPrototype>(bounty.Bounty, out var prototype))
             return;
 
-        label.Id = bounty.Id;
+        bountyLabel.Id = bounty.Id;
+        bountyLabel.AssociatedStationId = stationId;
         label.AssociatedStationId = stationId;
         var msg = new FormattedMessage();
         msg.AddText(Loc.GetString("bounty-manifest-header", ("id", bounty.Id)));

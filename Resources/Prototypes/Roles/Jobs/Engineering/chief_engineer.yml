@@ -3,7 +3,6 @@
   name: job-name-ce
   description: job-description-ce
   playTimeTracker: JobChiefEngineer
-  setPreference: false # Frontier
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
@@ -19,23 +18,21 @@
   icon: "JobIconChiefEngineer"
   supervisors: job-supervisors-captain
   canBeAntag: false
-  ## Frontier: commented everything below out
-  # access:
-  # - Maintenance
-  # - Engineering
-  # - Command
-  # - External
-  # - ChiefEngineer
-  # - Atmospherics
-  # - Brig
-  # - Cryogenics
-  # special:
-  # - !type:AddImplantSpecial
-  #   implants: [ MindShieldImplant ]
-  # - !type:AddComponentSpecial
-  #   components:
-  #     - type: CommandStaff
-  ## End Frontier: commented everything above out
+  access:
+  - Maintenance
+  - Engineering
+  - Command
+  - External
+  - ChiefEngineer
+  - Atmospherics
+  - Brig
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
   accessGroups: # Frontier
   - GeneralAccess # Frontier
 
@@ -43,12 +40,6 @@
   id: ChiefEngineerGear
   equipment:
     id: CEPDA
-    eyes: ClothingEyesGlassesMeson
-    ears: ClothingHeadsetCE
-    belt: ClothingBeltUtilityEngineering
-  storage:
-    back:
-    - Flash
 
 - type: chameleonOutfit
   id: ChiefEngineerChameleonOutfit

@@ -2,15 +2,14 @@
   id: Janitor
   name: job-name-janitor
   description: job-description-janitor
-  playTimeTracker: JobJanitorOld
-  setPreference: false # Frontier
+  playTimeTracker: JobJanitor
   startingGear: JanitorGear
   icon: "JobIconJanitor"
   supervisors: job-supervisors-hop
-  # access: # Frontier
-  # - Service # Frontier
-  # - Janitor # Frontier
-  # - Maintenance # Frontier
+  access:
+  - Service
+  - Janitor
+  - Maintenance
   accessGroups: # Frontier
   - GeneralAccess # Frontier
   special:
@@ -23,21 +22,13 @@
   equipment:
     shoes: ClothingShoesGaloshes
     id: JanitorPDA
-    ears: ClothingHeadsetService
-    belt: ClothingBeltJanitorFilled
-  #storage:
-    #back:
-    #- Stuff
 
 - type: startingGear
   id: JanitorMaidGear
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanimaid
     id: JanitorPDA
-    gloves: ClothingHandsGlovesJanitor
     head: ClothingHeadHatCatEars
-    ears: ClothingHeadsetService
-    belt: ClothingBeltJanitorFilled
 
 - type: chameleonOutfit
   id: JanitorChameleonOutfit

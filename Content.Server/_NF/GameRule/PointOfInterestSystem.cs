@@ -43,7 +43,7 @@ public sealed class PointOfInterestSystem : EntitySystem
         _stationCoords.Clear();
     }
 
-    private void AddStationCoordsToSet(Vector2 coords, float minClearance)
+    public void AddStationCoordsToSet(Vector2 coords, float minClearance)
     {
         _stationCoords.Add((coords, minClearance));
     }
@@ -270,7 +270,7 @@ public sealed class PointOfInterestSystem : EntitySystem
         return true;
     }
 
-    private Vector2 GetRandomPOICoord(float unscaledMinRange, float unscaledMaxRange, float clearance)
+    public Vector2 GetRandomPOICoord(float unscaledMinRange, float unscaledMaxRange, float clearance)
     {
         int numRetries = int.Max(_cfg.GetCVar(NFCCVars.POIPlacementRetries), 0);
 

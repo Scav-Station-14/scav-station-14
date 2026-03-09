@@ -1,0 +1,34 @@
+- type: vessel
+  id: ScoutA
+  parent: BaseVessel
+  name: NC Scout (Model A)
+  description: A small craft meant for short-range operations.
+  price: 10000
+  category: Micro
+  group: Scav
+  shuttlePath: /Maps/_Scav/Shuttles/scouta.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: ScoutA
+  mapName: 'NC Scout (Model A)'
+  mapPath: /Maps/_Scav/Shuttles/scouta.yml
+  minPlayers: 0
+  stations:
+    ScoutA:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'ScoutA {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            ContractorInterview: [ 0, 0 ]
+            PilotInterview: [ 0, 0 ]
+            MercenaryInterview: [ 0, 0 ]

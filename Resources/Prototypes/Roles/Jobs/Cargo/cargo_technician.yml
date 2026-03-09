@@ -3,13 +3,17 @@
   name: job-name-cargotech
   description: job-description-cargotech
   playTimeTracker: JobCargoTechnician
-  setPreference: false # Frontier
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 10800
   startingGear: CargoTechGear
   icon: "JobIconCargoTechnician"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-qm
+  access:
+  - Cargo
+  - Maintenance
+  extendedAccess:
+  - Salvage
   accessGroups: # Frontier
   - GeneralAccess # Frontier
   special:
@@ -21,11 +25,6 @@
   id: CargoTechGear
   equipment:
     id: CargoPDA
-    ears: ClothingHeadsetCargo
-    pocket1: AppraisalTool
-  #storage:
-    #back:
-    #- Stuff
 
 - type: chameleonOutfit
   id: CargoTechnicianChameleonOutfit

@@ -1,0 +1,34 @@
+- type: vessel
+  id: Bulldog
+  parent: BaseVessel
+  name: NC Bulldog
+  description: An extremely versatile runabout suitable for combat, cargo, or medical operations.
+  price: 16000
+  category: Small
+  group: Scav
+  shuttlePath: /Maps/_Scav/Shuttles/bulldog.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Bulldog
+  mapName: 'NC Bulldog'
+  mapPath: /Maps/_Scav/Shuttles/bulldog.yml
+  minPlayers: 0
+  stations:
+    Bulldog:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Bulldog {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            ContractorInterview: [ 0, 0 ]
+            PilotInterview: [ 0, 0 ]
+            MercenaryInterview: [ 0, 0 ]

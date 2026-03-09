@@ -3,14 +3,18 @@
   name: job-name-atmostech
   description: job-description-atmostech
   playTimeTracker: JobAtmosphericTechnician
-  setPreference: false # Frontier
   requirements:
   - !type:DepartmentTimeRequirement
     department: Engineering
     time: 9000 #2.5 hrs
   startingGear: AtmosphericTechnicianGear
   icon: "JobIconAtmosphericTechnician"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-ce
+  access:
+  - Maintenance
+  - Engineering
+  - External
+  - Atmospherics
   accessGroups: # Frontier
   - GeneralAccess # Frontier
   special:
@@ -21,13 +25,7 @@
 - type: startingGear
   id: AtmosphericTechnicianGear
   equipment:
-    eyes: ClothingEyesGlassesMeson
     id: AtmosPDA
-#    belt: ClothingBeltUtilityEngineering # Frontier - Moved to locker
-    ears: ClothingHeadsetEngineering
-  #storage:
-    #back:
-    #- Stuff
 
 - type: chameleonOutfit
   id: AtmosphericTechnicianChameleonOutfit

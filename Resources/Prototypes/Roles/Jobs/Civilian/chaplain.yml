@@ -10,6 +10,9 @@
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hire # Frontier
+  access:
+  - Chapel
+  - Maintenance
   accessGroups: # Frontier
   - GeneralAccess # Frontier
   special:

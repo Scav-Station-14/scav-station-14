@@ -20,40 +20,40 @@
     - type: AccessOverrider
       accessLevels:
       - Armory
-      # - Atmospherics # Frontier
-      # - Bar # Frontier
-      - Bailiff # Frontier
+      - Atmospherics
+      - Bar
+      #- Bailiff # Frontier
       - Brig
-      - Brigmedic # Frontier
+      #- Brigmedic # Frontier
       - Captain
-      # - Cargo # Frontier
+      - Cargo
       # - Chapel # Frontier
-      # - Chemistry # Frontier
-      # - ChiefMedicalOfficer # Frontier
+      - Chemistry
+      - ChiefEngineer
+      - ChiefMedicalOfficer
       - Command
-      - Detective # Frontier - moved down
+      #- Detective # Frontier - moved down # Scav: disabled
       - Engineering
       - External
-      - Frontier # Frontier
-      # - Hydroponics # Frontier
+      #- Frontier # Frontier # Scav: disabled
+      - HeadOfPersonnel
+      - HeadOfSecurity
+      - Hydroponics
       - Janitor
-      # - Kitchen # Frontier
+      - Kitchen
       # - Lawyer # Frontier
-      - Mail # Frontier
+      #- Mail # Frontier # Scav: disabled
       - Maintenance
       - Medical
       - Mercenary # Frontier
-      - ChiefEngineer # Frontier: reordered for "Plant Manager"
-      # - Quartermaster # Frontier
-      # - Research # Frontier
-      # - ResearchDirector # Frontier
-      # - Salvage # Frontier
+      - Quartermaster
+      - Research
+      - ResearchDirector
+      - Salvage
       - Security
-      - Sergeant # Frontier
+      #- Sergeant # Frontier # Scav: disabled
       - Service
-      - HeadOfSecurity # Frontier: reordered for "Sheriff"
-      - HeadOfPersonnel # Frontier: reordered for "Station Representative"
-      - StationTrafficController # Frontier
+      #- StationTrafficController # Frontier # Scav: disabled
       # - Theatre # Frontier
       - GenpopEnter
       - GenpopLeave

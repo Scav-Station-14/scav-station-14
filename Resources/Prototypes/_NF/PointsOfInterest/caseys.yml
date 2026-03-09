@@ -18,7 +18,7 @@
   addComponents:
   - type: StationTransit
     routes:
-      MinorPointsOfInterest: 20
+      TradeExpress: 20
 
 - type: gameMap
   id: CaseysCasino

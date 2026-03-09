@@ -361,6 +361,11 @@ namespace Content.Server.Database
         // End Scav
         #endregion
 
+        #region Stations
+
+        Task<List<Station>> GetStations();
+        #endregion
+
         #region DB Notifications
 
         void SubscribeToNotifications(Action<DatabaseNotification> handler);
@@ -1127,6 +1132,12 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.GetShipsByUser(userId));
+        }
+
+        public Task<List<Station>> GetStations()
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetStations());
         }
         // End Scav
 

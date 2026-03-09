@@ -14,13 +14,13 @@
   name: "Bahama Mama's"
   minimumDistance: 1200
   maximumDistance: 2900
-  spawnGamePreset: [ NFAdventure, NFPirate ]
+  spawnGamePreset: [ NFAdventure, NFPirate, ScavAdventure ] # Scav: added ScavAdventure
   spawnGroup: RestStop
   gridPath: /Maps/_NF/POI/bahama.yml
   addComponents:
   - type: StationTransit
     routes:
-      MinorPointsOfInterest: 10
+      TradeExpress: 40
   - type: SolarPoweredGrid
     trackOnInit: true
     doNotCull: true

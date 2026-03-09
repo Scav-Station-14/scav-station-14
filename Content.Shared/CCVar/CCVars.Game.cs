@@ -33,7 +33,7 @@ public sealed partial class CCVars
     ///     Controls the default game preset.
     /// </summary>
     public static readonly CVarDef<string>
-        GameLobbyDefaultPreset = CVarDef.Create("game.defaultpreset", "nfpirate", CVar.ARCHIVE); // Frontier: secret<nfpirate
+        GameLobbyDefaultPreset = CVarDef.Create("game.defaultpreset", "scavadventure", CVar.ARCHIVE); // Scav: secret<scavadventure
 
     /// <summary>
     ///     Controls if the game can force a different preset if the current preset's criteria are not met.
@@ -69,7 +69,7 @@ public sealed partial class CCVars
     ///     Controls the game map prototype to load. SS14 stores these prototypes in Prototypes/Maps.
     /// </summary>
     public static readonly CVarDef<string>
-        GameMap = CVarDef.Create("game.map", "Frontier", CVar.SERVERONLY); // Frontier: string.Empty<Frontier
+        GameMap = CVarDef.Create("game.map", "BusStop", CVar.SERVERONLY); // Scav: string.Empty<BusStop
 
     /// <summary>
     ///     Controls whether to use world persistence or not.
@@ -88,7 +88,7 @@ public sealed partial class CCVars
     ///     Prototype to use for map pool.
     /// </summary>
     public static readonly CVarDef<string>
-        GameMapPool = CVarDef.Create("game.map_pool", "NFMapPool", CVar.SERVERONLY); // Frontier: DefaultMapPool<NFMapPool
+        GameMapPool = CVarDef.Create("game.map_pool", "ScavMapPool", CVar.SERVERONLY); // Scav: DefaultMapPool<ScavMapPool
 
     /// <summary>
     ///     The depth of the queue used to calculate which map is next in rotation.

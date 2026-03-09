@@ -1,25 +1,822 @@
-# Contractor
+# Command
 - type: roleLoadout
-  id: JobIvenmothRecruit
+  id: JobCaptain
   groups:
-  - ContractorHead
-  - ContractorNeck
-  - ContractorJumpsuit
-  - ContractorGloves
-  - ContractorBackpack
-  - IvenmothRecruitOuterClothing
-  - ContractorForcedOuterClothing
-  - ContractorShoes
-  - ContractorFace
-  - ContractorGlasses
-  - ContractorBelt
-  - ContractorEars
-  - ContractorEncryptionKey
-  - ContractorBoxSurvival
-  - ContractorPDA
-  - ContractorWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - CaptainHead
+  - BaseGlasses
+  - CommandEars
+  - BaseFace
+  - CaptainNeck
+  - CaptainJumpsuit
+  - CaptainOuterClothing
+  - CaptainGloves
+  - BaseShoes
+  - CaptainBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - CommandBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobHeadOfPersonnel
+  groups:
+  - HoPHead
+  - BaseGlasses
+  - CommandEars
+  - BaseFace
+  - HoPNeck
+  - HoPJumpsuit
+  - HoPOuterClothing
+  - HoPGloves
+  - BaseShoes
+  - HoPBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - CommandBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+
+# Silicons
+- type: roleLoadout
+  id: JobBorg
+  nameDataset: NFNamesBorg # Frontier: use NF variant
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobStationAi
+  nameDataset: NamesAI
+  canCustomizeName: true
+
+# Civilian
+- type: roleLoadout
+  id: JobCrewMember
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - BaseEars
+  - PassengerFace
+  - PassengerNeck
+  - PassengerJumpsuit
+  - PassengerOuterClothing
+  - PassengerGloves
+  - PassengerShoes
+  - BaseBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobPassenger
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - BaseEars
+  - PassengerFace
+  - PassengerNeck
+  - PassengerJumpsuit
+  - PassengerOuterClothing
+  - PassengerGloves
+  - PassengerShoes
+  - BaseBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobBartender
+  groups:
+  - BartenderHead
+  - BaseGlasses
+  - ServiceEars
+  - BaseFace
+  - BaseNeck
+  - BartenderJumpsuit
+  - BartenderOuterClothing
+  - BaseGloves
+  - BaseShoes
+  - BaseBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobServiceWorker
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - ServiceEars
+  - BaseFace
+  - BaseNeck
+  - BartenderJumpsuit
+  - BaseOuterClothing
+  - BaseGloves
+  - BaseShoes
+  - BaseBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobChef
+  groups:
+  - ChefHead
+  - BaseGlasses
+  - ServiceEars
+  - ChefMask
+  - BaseNeck
+  - ChefJumpsuit
+  - ChefOuterClothing
+  - BaseGloves
+  - BaseShoes
+  - BaseBackpack
+  - ChefBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobLibrarian
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - ServiceEars
+  - BaseFace
+  - BaseNeck
+  - LibrarianJumpsuit
+  - BaseOuterClothing
+  - BaseGloves
+  - BaseShoes
+  - BaseBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobLawyer
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - BaseEars
+  - BaseFace
+  - LawyerNeck
+  - LawyerJumpsuit
+  - BaseOuterClothing
+  - BaseGloves
+  - BaseShoes
+  - BaseBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobChaplain
+  groups:
+  - ChaplainHead
+  - BaseGlasses
+  - BaseEars
+  - ChaplainMask
+  - ChaplainNeck
+  - ChaplainJumpsuit
+  - ChaplainOuterClothing
+  - BaseGloves
+  - BaseShoes
+  - BaseBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+  - ChaplainBible
+
+- type: roleLoadout
+  id: JobJanitor
+  groups:
+  - JanitorHead
+  - BaseGlasses
+  - ServiceEars
+  - BaseFace
+  - BaseNeck
+  - JanitorJumpsuit
+  - JanitorOuterClothing
+  - JanitorGloves
+  - BaseShoes
+  - BaseBackpack
+  - JanitorBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobBotanist
+  groups:
+  - BotanistHead
+  - BaseGlasses
+  - ServiceEars
+  - BaseFace
+  - BaseNeck
+  - BotanistJumpsuit
+  - BotanistOuterClothing
+  - BaseGloves
+  - BaseShoes
+  - BotanistBackpack
+  - BotanistBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobClown
+  canCustomizeName: true
+  groups:
+  - ClownHead
+  - BaseGlasses
+  - BaseEars
+  - BaseFace
+  - BaseNeck
+  - ClownJumpsuit
+  - ClownOuterClothing
+  - BaseGloves
+  - ClownShoes
+  - ClownBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobMime
+  canCustomizeName: true
+  groups:
+  - MimeHead
+  - BaseGlasses
+  - BaseEars
+  - MimeMask
+  - BaseNeck
+  - MimeJumpsuit
+  - MimeOuterClothing
+  - BaseGloves
+  - BaseShoes
+  - MimeBackpack
+  - MimeBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobMusician
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - BaseEars
+  - BaseFace
+  - BaseNeck
+  - MusicianJumpsuit
+  - MusicianOuterClothing
+  - BaseGloves
+  - BaseShoes
+  - BaseBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+  - Instruments
+
+# Cargo
+- type: roleLoadout
+  id: JobQuartermaster
+  groups:
+  - QuartermasterHead
+  - BaseGlasses
+  - QuartermasterEars
+  - BaseFace
+  - QuartermasterNeck
+  - QuartermasterJumpsuit
+  - QuartermasterOuterClothing
+  - BaseGloves
+  - QuartermasterShoes
+  - CargoTechnicianBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - CommandBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobCargoTechnician
+  groups:
+  - CargoTechnicianHead
+  - BaseGlasses
+  - CargoEars
+  - BaseFace
+  - BaseNeck
+  - CargoTechnicianJumpsuit
+  - CargoTechnicianOuterClothing
+  - BaseGloves
+  - CargoTechnicianShoes
+  - CargoTechnicianBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobSalvageSpecialist
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - CargoEars
+  - BaseFace
+  - BaseNeck
+  - SalvageSpecialistJumpsuit
+  - SalvageSpecialistOuterClothing
+  - SalvageSpecialistShoes
+  - BaseGloves
+  - SalvageSpecialistBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+# Engineering
+- type: roleLoadout
+  id: JobChiefEngineer
+  groups:
+  - ChiefEngineerHead
+  - BaseGlasses
+  - ChiefEngineerEars
+  - BaseFace
+  - ChiefEngineerNeck
+  - ChiefEngineerJumpsuit
+  - ChiefEngineerOuterClothing
+  - BaseGloves
+  - ChiefEngineerShoes
+  - StationEngineerBackpack
+  - EngineerBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobTechnicalAssistant
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - EngineeringEars
+  - BaseFace
+  - BaseNeck
+  - TechnicalAssistantJumpsuit
+  - BaseOuterClothing
+  - BaseGloves
+  - BaseShoes
+  - StationEngineerBackpack
+  - EngineerBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobStationEngineer
+  groups:
+  - StationEngineerHead
+  - BaseGlasses
+  - EngineeringEars
+  - BaseFace
+  - BaseNeck
+  - StationEngineerJumpsuit
+  - StationEngineerOuterClothing
+  - BaseGloves
+  - StationEngineerShoes
+  - StationEngineerBackpack
+  - EngineerBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+  - StationEngineerID
+
+- type: roleLoadout
+  id: JobAtmosphericTechnician
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - EngineeringEars
+  - BaseFace
+  - BaseNeck
+  - AtmosphericTechnicianJumpsuit
+  - AtmosphericTechnicianOuterClothing
+  - BaseGloves
+  - AtmosphericTechnicianShoes
+  - AtmosphericTechnicianBackpack
+  - EngineerBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+# Science
+- type: roleLoadout
+  id: JobResearchDirector
+  groups:
+  - ResearchDirectorHead
+  - BaseGlasses
+  - ResearchDirectorEars
+  - BaseFace
+  - ResearchDirectorNeck
+  - ResearchDirectorJumpsuit
+  - ResearchDirectorOuterClothing
+  - ScientistGloves
+  - ResearchDirectorShoes
+  - ScientistBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobScientist
+  groups:
+  - ScientistHead
+  - BaseGlasses
+  - ScienceEars
+  - BaseFace
+  - ScientistNeck
+  - ScientistJumpsuit
+  - ScientistOuterClothing
+  - ScientistGloves
+  - ScientistShoes
+  - ScientistBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+  - ScientistPDA
+
+- type: roleLoadout
+  id: JobResearchAssistant
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - ScienceEars
+  - BaseFace
+  - BaseNeck
+  - ResearchAssistantJumpsuit
+  - BaseOuterClothing
+  - BaseGloves
+  - BaseShoes
+  - ScientistBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+#Tactical
+- type: roleLoadout
+  id: JobChiefTacticalOfficer
+  groups:
+  - MercenaryHead
+  - MercenaryGlasses
+  - MercenaryEars
+  - MercenaryFace
+  - BaseNeck
+  - MercenaryJumpsuit
+  - MercenaryOuterClothing
+  - MercenaryGloves
+  - MercenaryShoes
+  - MercenaryBackpack
+  - MercenaryBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+  - MercenaryPDA
+
+# Security
+- type: roleLoadout
+  id: JobHeadOfSecurity
+  groups:
+  - HeadofSecurityHead
+  - BaseGlasses
+  - BaseEars
+  - BaseFace
+  - HeadofSecurityNeck
+  - HeadofSecurityJumpsuit
+  - HeadofSecurityOuterClothing
+  - BaseGloves
+  - SecurityShoes
+  - SecurityBackpack
+  - SecurityBelt
+  - BaseWallet
+  - SurvivalSecurity
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+  - SecurityStar
+
+- type: roleLoadout
+  id: JobWarden
+  groups:
+  - WardenHead
+  - BaseGlasses
+  - BaseEars
+  - BaseFace
+  - BaseNeck
+  - WardenJumpsuit
+  - WardenOuterClothing
+  - BaseGloves
+  - SecurityShoes
+  - SecurityBackpack
+  - SecurityBelt
+  - BaseWallet
+  - SurvivalSecurity
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+  - SecurityStar
+
+- type: roleLoadout
+  id: JobSecurityOfficer
+  groups:
+  - SecurityHead
+  - BaseGlasses
+  - BaseEars
+  - BaseFace
+  - BaseNeck
+  - SecurityJumpsuit
+  - SecurityOuterClothing
+  - BaseGloves
+  - SecurityShoes
+  - SecurityBackpack
+  - SecurityBelt
+  - BaseWallet
+  - SurvivalSecurity
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+  - SecurityPDA
+  - SecurityStar
+
+- type: roleLoadout
+  id: JobDetective
+  groups:
+  - DetectiveHead
+  - BaseGlasses
+  - BaseEars
+  - BaseFace
+  - DetectiveNeck
+  - DetectiveJumpsuit
+  - DetectiveOuterClothing
+  - BaseGloves
+  - SecurityShoes
+  - SecurityBackpack
+  - BaseBelt
+  - BaseWallet
+  - SurvivalSecurity
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+  - SecurityStar
+
+- type: roleLoadout
+  id: JobSecurityCadet
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - BaseEars
+  - BaseFace
+  - BaseNeck
+  - SecurityCadetJumpsuit
+  - BaseOuterClothing
+  - BaseGloves
+  - BaseShoes
+  - SecurityBackpack
+  - BaseBelt
+  - BaseWallet
+  - SurvivalSecurity
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+# Medical
+- type: roleLoadout
+  id: JobChiefMedicalOfficer
+  groups:
+  - ChiefMedicalOfficerHead
+  - MedicalEyewear
+  - BaseEars
+  - MedicalMask
+  - ChiefMedicalOfficerNeck
+  - ChiefMedicalOfficerJumpsuit
+  - ChiefMedicalOfficerOuterClothing
+  - MedicalGloves
+  - ChiefMedicalOfficerShoes
+  - MedicalBackpack
+  - BaseBelt
+  - BaseWallet
+  - SurvivalMedical
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobMedicalDoctor
+  groups:
+  - MedicalDoctorHead
+  - MedicalEyewear
+  - BaseEars
+  - MedicalMask
+  - BaseNeck
+  - MedicalDoctorJumpsuit
+  - MedicalDoctorOuterClothing
+  - MedicalGloves
+  - MedicalShoes
+  - MedicalBackpack
+  - BaseBelt
+  - BaseWallet
+  - SurvivalMedical
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+  - MedicalDoctorPDA
+
+- type: roleLoadout
+  id: JobMedicalIntern
+  groups:
+  - MedicalInternJumpsuit
+  - MedicalBackpack
+  - MedicalEyewear
+  - SurvivalMedical
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecificMedical
+
+- type: roleLoadout
+  id: JobChemist
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - BaseEars
+  - MedicalMask
+  - BaseNeck
+  - ChemistJumpsuit
+  - ChemistOuterClothing
+  - MedicalGloves
+  - MedicalShoes
+  - ChemistBackpack
+  - BaseBelt
+  - BaseWallet
+  - SurvivalMedical
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobParamedic
+  groups:
+  - ParamedicHead
+  - MedicalEyewear
+  - BaseEars
+  - MedicalMask
+  - BaseNeck
+  - ParamedicJumpsuit
+  - ParamedicOuterClothing
+  - MedicalGloves
+  - ParamedicShoes
+  - MedicalBackpack
+  - SurvivalMedical
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+# Wildcards
+- type: roleLoadout
+  id: JobZookeeper
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - BaseEars
+  - BaseFace
+  - BaseNeck
+  - BaseJumpsuit
+  - BaseOuterClothing
+  - BaseGloves
+  - BaseShoes
+  - BaseBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobReporter
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - BaseEars
+  - BaseFace
+  - BaseNeck
+  - ReporterJumpsuit
+  - BaseOuterClothing
+  - BaseGloves
+  - BaseShoes
+  - BaseBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobPsychologist
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - BaseEars
+  - BaseFace
+  - BaseNeck
+  - PsychologistJumpsuit
+  - BaseOuterClothing
+  - BaseGloves
+  - BaseShoes
+  - MedicalBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobBoxer
+  groups:
+  - BaseHead
+  - BaseGlasses
+  - BaseEars
+  - BaseFace
+  - BaseNeck
+  - BoxerJumpsuit
+  - BaseOuterClothing
+  - BoxerGloves
+  - BaseShoes
+  - BaseBackpack
+  - BaseBelt
+  - BaseWallet
+  - BaseBoxSurvival
+  - BaseBackpackItems
+  - BaseHandItems
   - NFSpeciesSpecific

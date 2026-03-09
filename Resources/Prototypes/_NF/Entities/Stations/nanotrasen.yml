@@ -8,7 +8,7 @@
   - BaseStationRecords
   - BaseStationSiliconLawFrontierStation
   - BaseStationSectorNews
-  - BaseStationMail # Mail
+  #- BaseStationMail # Scav: disabled because we're using station mail currently
   - BaseStationSectorServices # Hosts all sector-wide services
   - BaseStationDampening
   - BaseStationDeadDropHintExempt # No hints

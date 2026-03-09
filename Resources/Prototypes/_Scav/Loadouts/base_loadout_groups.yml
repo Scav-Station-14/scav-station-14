@@ -1,0 +1,667 @@
+- type: loadoutGroup
+  id: BaseJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - ClothingUniformJumpsuitColorGrey
+  - ClothingUniformJumpskirtColorGrey
+  - ClothingUniformJumpsuitMilitaryContractor
+  - ClothingUniformJumpsuitMilitaryContractorTac
+  - ClothingUniformJumpsuitColorWhite
+  - ClothingUniformJumpskirtColorWhite
+  - ClothingUniformJumpsuitColorBlack
+  - ClothingUniformJumpskirtColorBlack
+  - ClothingUniformJumpsuitColorBlue
+  - ClothingUniformJumpskirtColorBlue
+  - ClothingUniformJumpsuitColorYellow
+  - ClothingUniformJumpskirtColorYellow
+  - ClothingUniformJumpsuitColorGreen
+  - ClothingUniformJumpskirtColorGreen
+  - ClothingUniformJumpsuitColorOrange
+  - ClothingUniformJumpskirtColorOrange
+  - ClothingUniformJumpsuitColorRed
+  - ClothingUniformJumpskirtColorRed
+  - ClothingUniformJumpsuitColorMaroon
+  - ClothingUniformJumpskirtColorMaroon
+  - ClothingUniformJumpsuitColorPurple
+  - ClothingUniformJumpskirtColorPurple
+  - ClothingUniformJumpsuitColorLightBrown
+  - ClothingUniformJumpskirtColorLightBrown
+  - ClothingUniformJumpsuitColorBrown
+  - ClothingUniformJumpskirtColorBrown
+  - ClothingUniformJumpsuitColorPink
+  - ClothingUniformJumpskirtColorPink
+  - ClothingUniformJumpsuitColorDarkBlue
+  - ClothingUniformJumpskirtColorDarkBlue
+  - ClothingUniformJumpsuitColorDarkGreen
+  - ClothingUniformJumpskirtColorDarkGreen
+  - ClothingUniformJumpsuitColorTeal
+  - ClothingUniformJumpskirtColorTeal
+  - ClothingUniformColorRainbow
+  - ClothingUniformJumpskirtColorRainbow
+  - ClothingUniformJumpsuitHawaiBlack
+  - ClothingUniformJumpsuitHawaiBlue
+  - ClothingUniformJumpsuitHawaiRed
+  - ClothingUniformJumpsuitHawaiYellow
+  - ClothingUniformJumpsuitFlannel
+  - ClothingUniformJumpsuitCasualBlue
+  - ClothingUniformJumpskirtCasualBlue
+  - ClothingUniformJumpsuitCasualPurple
+  - ClothingUniformJumpskirtCasualPurple
+  - ClothingUniformJumpsuitCasualRed
+  - ClothingUniformJumpskirtCasualRed
+  - ClothingUniformOveralls
+  - ClothingUniformJumpsuitChaplain
+  - ClothingUniformJumpskirtChaplain
+  - ClothingUniformJumpsuitCurator
+  - ClothingUniformJumpskirtCurator
+  - ClothingUniformJumpsuitLibrarian
+  - ClothingUniformJumpskirtLibrarian
+  - ClothingUniformJumpsuitReporter
+  - ClothingUniformJumpsuitBH
+  - ClothingUniformJumpskirtBH
+  - ClothingUniformJumpsuitBHGrey
+  - ClothingUniformJumpskirtBHGrey
+  - UniformScrubsColorGreen
+  - UniformScrubsColorBlue
+  - UniformScrubsColorPurple
+  - ClothingUniformJumpsuitLawyerBlue
+  - ClothingUniformJumpskirtLawyerBlue
+  - ClothingUniformJumpsuitLawyerPurple
+  - ClothingUniformJumpskirtLawyerPurple
+  - ClothingUniformJumpsuitLawyerRed
+  - ClothingUniformJumpskirtLawyerRed
+  - ClothingUniformJumpsuitLawyerBlack
+  - ClothingUniformJumpskirtLawyerBlack
+  - ClothingUniformJumpsuitLawyerGood
+  - ClothingUniformJumpskirtLawyerGood
+  - ClothingUniformRandomPunkCroptop # Punkish (Randomized visuals)
+  - ClothingUniformRandomPunkTanktop # Punkish (Randomized visuals)
+  - ClothingUniformRandomPunkCroptopShorts # Punkish (Randomized visuals)
+  - ClothingUniformRandomPunkTanktopShorts # Punkish (Randomized visuals)
+  - ClothingUniformRandomPunkPantsOnly # Punkish (Randomized visuals)
+  - ClothingUniformRandomPunkShortsOnly # Punkish (Randomized visuals)
+  - ClothingUniformRandomArmlessNoSkirt # Punkish (Randomized visuals)
+  - ClothingUniformRandomArmless
+  - ClothingUniformRandomStandard
+  - ClothingUniformRandomShorts
+  - ClothingUniformRandomShirt
+  - ClothingSkirtUniformRandomArmless
+  - ClothingSkirtUniformRandomStandard
+  - ClothingSkirtUniformRandomBra
+  - ClothingSkirtUniformRandomShorts
+  - ClothingSkirtUniformRandomShirt
+  - ClothingUniformJumpsuitMonasticRobeDark
+  - ClothingUniformJumpsuitMonasticRobeLight
+  - ClothingUniformJumpsuitChaplainPilgrimVest
+  - ClothingUniformJumpsuitJester
+  - ClothingUniformJumpsuitJesterAlt
+  - ClothingUniformJumpsuitKilt
+  - ClothingUniformJumpsuitDameDane
+  - ClothingUniformJumpsuitKimono
+  - ClothingKimonoBlue
+  - ClothingKimonoPink
+  - ClothingUniformJumpsuitGladiator
+  - ClothingUniformJumpskirtPerformer
+  - ClothingUniformJumpskirtJanimaid
+  - ClothingUniformJumpsuitSafari
+  - UniformShortsRed
+  - UniformShortsRedWithTop
+  - ClothingUniformJumpsuitTshirtJeans
+  - ClothingUniformJumpsuitTshirtJeansGray
+  - ClothingUniformJumpsuitTshirtJeansPeach
+  - ClothingUniformJumpsuitMilitaryColorGrey
+  - ClothingUniformJumpsuitMilitaryColorBlack
+  - ClothingUniformJumpsuitMilitaryColorBlue
+  - ClothingUniformJumpsuitMilitaryColorDarkBlue
+  - ClothingUniformJumpsuitMilitaryColorTeal
+  - ClothingUniformJumpsuitMilitaryColorGreen
+  - ClothingUniformJumpsuitMilitaryColorDarkGreen
+  - ClothingUniformJumpsuitMilitaryColorOrange
+  - ClothingUniformJumpsuitMilitaryColorPink
+  - ClothingUniformJumpsuitMilitaryColorRed
+  - ClothingUniformJumpsuitMilitaryColorYellow
+  - ClothingUniformJumpsuitMilitaryColorPurple
+  - ClothingUniformJumpsuitMilitaryColorLightBrown
+  - ClothingUniformJumpsuitMilitaryColorBrown
+  - ClothingUniformJumpskirtBlackElegantDress
+  - ClothingUniformJumpskirtRedElegantDress
+  - ClothingUniformJumpskirtGreenElegantDress
+  - ClothingUniformJumpskirtBlueElegantDress
+  - ClothingUniformJumpskirtPurpleElegantDress
+  - ClothingUniformJumpskirtCyanStripedDress
+  - ClothingUniformJumpskirtRedStripedDress
+  - ClothingUniformJumpskirtGreenStripedDress
+  - ClothingUniformJumpskirtPinkStripedDress
+  - ClothingUniformJumpskirtOrangeStripedDress
+  - ClothingUniformJumpskirtPurpleTurtleneckDress
+  - ClothingUniformJumpskirtRedTurtleneckDress
+  - ClothingUniformJumpskirtGreenTurtleneckDress
+  - ClothingUniformJumpskirtBlueTurtleneckDress
+  - ClothingUniformJumpskirtYellowTurtleneckDress
+  - ClothingUniformJumpskirtYellowOldDress
+  fallbacks:
+  - ClothingUniformJumpsuitColorGrey
+  - ClothingUniformJumpskirtColorGrey
+
+- type: loadoutGroup
+  id: BaseBackpack
+  name: loadout-group-backpack
+  loadouts:
+  - ClothingBackpack
+  - ClothingBackpackDuffel
+  - ClothingBackpackSatchel
+  - ClothingBackpackMessenger
+  - NFClothingBackpackDuffelColorBlack
+  - NFClothingBackpackDuffelColorWhite
+  - NFClothingBackpackDuffelColorBlue
+  - NFClothingBackpackDuffelColorGreen
+  - NFClothingBackpackDuffelColorOrange
+  - NFClothingBackpackDuffelColorRed
+  - NFClothingBackpackDuffelColorPurple
+  - NFClothingBackpackDuffelColorBrownLight
+  - NFClothingBackpackDuffelColorBrown
+  - NFClothingBackpackDuffelColorRandom
+  - ClothingBackpackMessengerColorBlack
+  - ClothingBackpackMessengerColorWhite
+  - ClothingBackpackMessengerColorBlue
+  - ClothingBackpackMessengerColorGreen
+  - ClothingBackpackMessengerColorOrange
+  - ClothingBackpackMessengerColorRed
+  - ClothingBackpackMessengerColorPurple
+  - ClothingBackpackMessengerColorBrownLight
+  - ClothingBackpackMessengerColorBrown
+  - ClothingBackpackMessengerColorRandom
+  fallbacks:
+  - ClothingBackpack
+
+- type: loadoutGroup
+  id: BaseOuterClothing
+  name: loadout-group-outerclothing
+  minLimit: 0
+  loadouts:
+  - ClothingOuterHoodieGrey
+  - ClothingOuterVestHazard
+  - ClothingOuterApron
+  - ClothingOuterHoodieBlack
+  - ClothingOuterCoatJensen
+  - ClothingOuterCoatGentle
+  - ClothingOuterHoodieChaplain
+  - ClothingOuterNunRobe
+  - ClothingOuterCoatLab
+  - ClothingOuterWinterCoat
+  - ClothingOuterWinterCoatLong
+  - ClothingOuterFlannelRed
+  - ClothingOuterFlannelBlue
+  - ClothingOuterFlannelGreen
+  - ClothingOuterCoatHyenhSweater
+  - ClothingOuterCoatInspector
+  - ClothingOuterCoatTrench
+  - ClothingOuterDameDane
+  - ClothingOuterWinterCoatPlaid
+  - ClothingOuterCoatBomber
+  - ClothingOuterCoatBomberPunkRed # Punkish (Static visuals)
+  - ClothingOuterCoatJacketLeather # Punkish (Static visuals)
+  - ClothingOuterCoatJacketBiker # Punkish (Static visuals)
+  - ClothingOuterCoatJacketJamrock # Punkish (Static visuals)
+  - ClothingOuterCoatBomberAerostatic # Punkish (Static visuals)
+  - ClothingOuterCoatJacketLettermanBlue # Punkish (Static visuals)
+  - ClothingOuterCoatJacketLettermanBrown # Punkish (Static visuals)
+  - ClothingOuterCoatJacketLettermanRed # Punkish (Static visuals)
+  - ClothingOuterCoatJacketLettermanMagenta # Punkish (Static visuals)
+  - ClothingOuterCoatBomberPinkSleeves # Punkish (Static visuals)
+  - ClothingOuterCoatBomberRandomized # Punkish (Randomized visuals)
+  - ClothingOuterCoatRandomized # Punkish (Randomized visuals)
+  - ClothingOuterCoatAcidRaincoat # Punkish (Static visuals)
+  - ClothingOuterCoatAcidRaincoatBlue # Punkish (Static visuals)
+  - ClothingOuterCoatAcidRaincoatGreen # Punkish (Static visuals)
+  - ClothingOuterCoatAcidRaincoatYellow # Punkish (Static visuals)
+  - ClothingOuterCoatAcidRaincoatMagenta # Punkish (Static visuals)
+  - ClothingOuterCoatBishop
+  - ClothingOuterCoatWitchHunter
+  - ClothingOuterCoatCardinal
+  - ClothingOuterPlagueSuit
+  - WetFloorSign
+  - ClothingOuterCoatExpensive
+  - ClothingOuterCoatSpaceAsshole
+
+- type: loadoutGroup
+  id: BaseBelt
+  name: loadout-group-belt
+  minLimit: 0
+  loadouts:
+  - ClothingBeltPlant
+  - ClothingBeltPlantFilled
+  - ClothingBeltChef
+  - ClothingBeltChefFilled
+  - ClothingBeltStorageWaistbag
+  - ClothingBeltMedical
+  - ClothingBeltMedicalFilled
+  - ClothingBeltMedicalEMT
+  - ClothingBeltMedicalEMTFilled
+  - ClothingBeltUtility
+  - ClothingBeltUtilityFilled
+  - ClothingBeltSalvageWebbing
+  - ClothingBeltSalvageWebbingFilledNF
+  - BoxFolderClipboard
+  - ClothingBeltPilot
+  - ClothingBeltPilotFilled
+  - ClothingBeltBandolier
+  - ClothingBeltHolster
+  - ClothingBeltChaplainSash
+  - ClothingBeltChaplainSashFilled
+  - BooksBag
+  - ChemBag
+  - OreBag
+  - PlantBag
+  - ConstructionBag
+  - ClothingBeltMartialBlack
+  - ClothingBeltPunkRandomized # Punkish (Randomized visuals)
+  - ClothingBeltPunkRandomizedFilled # Punkish (Randomized visuals)
+  - ClothingBeltSheathFilledHilt
+  - ClothingBeltChampion
+
+- type: loadoutGroup
+  id: BaseShoes
+  name: loadout-group-shoes
+  loadouts:
+  - ClothingShoesColorBlack
+  - ClothingShoesClothwrap
+  - ClothingShoesTourist
+  - ClothingShoesBootsSalvage
+  - ClothingShoesChef
+  - ClothingShoesColorBlue
+  - ClothingShoesColorOrange
+  - ClothingShoesColorPurple
+  - ClothingShoesColorRed
+  - ClothingShoesColorBrown
+  - ClothingShoesColorGreen
+  - ClothingShoesColorYellow
+  - ClothingShoesColorWhite
+  - ClothingShoesBootsMag
+  - ClothingShoesBootsWinter
+  - ClothingShoesBootsJack
+  - ClothingShoesLeather
+  - ClothingShoesBootsLaceup
+  - ClothingShoesSlippers
+  - ClothingShoeSlippersDuck
+  - ClothingShoesFlippers
+  - ClothingShoesBootsPunkRandomized # Punkish (Randomized visuals)
+  - ClothingShoesDameDane
+  - ClothingShoesBootsWork
+  - ClothingShoesBootsCowboyBlack
+  - ClothingShoesBootsCowboyBrown
+  - ClothingShoesBootsCowboyWhite
+  - ClothingShoesSnakeskinBoots
+  - ClothingShoesHighheelBoots
+  - ClothingShoesBootsCowboyFancy
+  - ClothingShoesBootsPerformer
+  - ClothingShoesSkates
+  - ClothingShoesClownLarge
+  - ClothingShoesBling
+  fallbacks:
+  - ClothingShoesColorBlack
+
+- type: loadoutGroup
+  id: BaseHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - ClothingHeadBandBlack
+  - ClothingHeadBandBlue
+  - ClothingHeadBandGreen
+  - ClothingHeadBandRed
+  - ClothingHeadBandSkull
+  - ClothingHeadHatGreysoft
+  - ClothingHeadHatBluesoft
+  - ClothingHeadHatYellowsoft
+  - ClothingHeadHatGreensoft
+  - ClothingHeadHatOrangesoft
+  - ClothingHeadHatRedsoft
+  - ClothingHeadHatBlacksoft
+  - ClothingHeadHatPurplesoft
+  - ClothingHeadHatCorpsoft
+  - ClothingHeadBandGrey
+  - ClothingHeadHatUshanka
+  - ClothingHeadHatHardhatYellow
+  - ClothingHeadHatChef
+  - ClothingHeadRastaHat
+  - ClothingHeadHatSombrero
+  - ClothingHeadFishCap
+  - ClothingHeadHatTrucker
+  - ClothingHeadHatCasa
+  - ClothingHeadHatBowlerHat
+  - ClothingHeadHatGreyFlatcap
+  - ClothingHeadHatBrownFlatcap
+  - ClothingHeadHatSurgcapGreen
+  - ClothingHeadHatSurgcapBlue
+  - ClothingHeadHatSurgcapPurple
+  - ClothingHeadHatFedoraGrey
+  - ClothingHeadHatFedoraBrown
+  - ClothingHeadTinfoil
+  - ClothingHeadHatCardinal
+  - ClothingHeadHatHoodNunHood
+  - ClothingHeadSafari
+  - ClothingHeadHatJester
+  - ClothingHeadHatJesterAlt
+  - ClothingHeadHatBeret
+  - ClothingHeadHatBeretFrench
+  - ClothingHeadHatMimesoft
+  - ClothingHeadHatPilgrim
+  - ClothingHeadHatStrawHat
+  - ClothingHeadHatCowboyBlack
+  - ClothingHeadHatCowboyBrown
+  - ClothingHeadHatCowboyGrey
+  - ClothingHeadHatCowboyBountyHunter
+  - ClothingHeadHatBH
+  - ClothingHeadHatCowboyRed
+  - ClothingHeadHatCowboyWhite
+  - ClothingHeadHatWideBrimmed
+  - ClothingHeadHatWitchhunter
+  - ClothingHeadHatBishopMitre
+  - ClothingHeadHatKippah
+  - ClothingHeadHatPlaguedoctor
+  - Plunger
+  - ClothingHeadHatCone
+  - ClothingHeadBandGold
+  - ClothingHeadHatTophat
+
+- type: loadoutGroup
+  id: BaseEars
+  name: loadout-group-ears
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClothingHeadsetGreyCommon
+  fallbacks:
+  - ClothingHeadsetGreyCommon
+
+- type: loadoutGroup
+  id: BaseGloves
+  name: loadout-group-gloves
+  minLimit: 0
+  loadouts:
+  - ClothingHandsGlovesColorYellow
+  - ClothingHandsGlovesLeather
+  - ClothingHandsGlovesFingerless
+  - ClothingHandsGlovesLatex
+  - ClothingHandsGlovesNitrile
+  - ClothingHandsGlovesRobohands
+  - ClothingHandsGlovesColorBlack
+  - ClothingHandsGlovesColorBlue
+  - ClothingHandsGlovesColorGreen
+  - ClothingHandsGlovesColorGray
+  - ClothingHandsGlovesColorBrown
+  - ClothingHandsGlovesColorLightBrown
+  - ClothingHandsGlovesColorOrange
+  - ClothingHandsGlovesColorPurple
+  - ClothingHandsGlovesColorRed
+  - ClothingHandsGlovesBoxingGreen
+  - ClothingHandsGlovesBoxingBlue
+  - ClothingHandsGlovesBoxingRed
+  - ClothingHandsGlovesBoxingYellow
+  - ClothingHandsGlovesColorWhite
+
+- type: loadoutGroup
+  id: BaseNeck
+  name: loadout-group-neck
+  minLimit: 0
+  loadouts:
+  - ClothingNeckScarfStripedBlack
+  - ClothingNeckScarfStripedBlue
+  - ClothingNeckScarfStripedBrown
+  - ClothingNeckScarfStripedGreen
+  - ClothingNeckTieBH
+  - ClothingNeckTieRed
+  - ClothingNeckTieSci
+  - ClothingNeckLawyerbadge
+  - ClothingMultipleHeadphones
+  - ClothingNeckCrucifix
+  - ClothingNeckBellCollar
+  - CDDogtags
+  - ClothingNeckStethoscope
+  - ClothingOuterPoncho
+  - ClothingOuterPonchoClassic
+  - ClothingNeckCloakMoth
+  - ClothingNeckScarfChaplainStole
+  - ClothingNeckStoleChaplain
+  - ClothingNeckCloakTrans
+  - ClothingNeckCloakAro
+  - ClothingNeckCloakAce
+  - ClothingNeckCloakAroace
+  - ClothingNeckCloakBi
+  - ClothingNeckCloakIntersex
+  - ClothingNeckCloakEnby
+  - ClothingNeckCloakPan
+  - ClothingNeckCloakGay
+  - ClothingNeckCloakLesbian
+  - BedsheetRainbow
+  - ClothingNeckLGBTPin
+  - ClothingNeckAllyPin
+  - ClothingNeckAromanticPin
+  - ClothingNeckAsexualPin
+  - ClothingNeckAroacePin
+  - ClothingNeckBisexualPin
+  - ClothingNeckGayPin
+  - ClothingNeckIntersexPin
+  - ClothingNeckLesbianPin
+  - ClothingNeckNonBinaryPin
+  - ClothingNeckPansexualPin
+  - ClothingNeckPluralPin
+  - ClothingNeckOmnisexualPin
+  - ClothingNeckGenderqueerPin
+  - ClothingNeckGenderfluidPin
+  - ClothingNeckTransPin
+  - ClothingNeckAutismPin
+  - ClothingNeckGoldAutismPin
+  - ClothingNeckIFFNeutral
+  - ClothingNeckIFFGreen
+  - ClothingNeckIFFRed
+  - ClothingNeckIFFBlue
+  - ClothingNeckIFFCyan
+  - ClothingNeckIFFOrange
+  - ClothingNeckIFFPurple
+  - ClothingNeckCloakVoid
+  - ClothingNeckBling
+
+- type: loadoutGroup
+  id: BasePDA
+  name: loadout-group-pda
+  loadouts:
+  - ContractorPDA
+  - ClearNFPDA
+  fallbacks:
+  - ContractorPDA
+
+- type: loadoutGroup
+  id: BaseGlasses
+  name: loadout-group-glasses
+  minLimit: 0
+  loadouts:
+  - ClothingEyesGlasses
+  - ClothingEyesGlassesCheapSunglasses
+  - ClothingEyesGlassesSunglasses
+  - ClothingEyesBlindfold
+  - ClothingEyesEyepatch
+  - ClothingEyesGlassesJamjar
+  - ClothingEyesGlassesChemical
+  - ClothingEyesGlassesJensen
+  - ClothingEyesHudDiagnostic
+  - ClothingEyesGlassesMeson
+  - ClothingEyesPunkGoggles # Punkish (Randomized visuals)
+  - ClothingEyesPunkInfoShades # Punkish (Randomized visuals)
+  - ClothingEyesEyepatchHudDiag
+  - ClothingEyesEyepatchHudMedical
+
+- type: loadoutGroup
+  id: BaseBackpackItems
+  name: loadout-group-backpack-items
+  minLimit: 0
+  maxLimit: 6 # Caveat emptor - enjoy picking stuff up off the ground
+  loadouts:
+  - MonkeyCubeWrapped
+  - KoboldCubeWrapped
+  - CigPackBlue
+  - CigPackRed
+  - CigPackBlack
+  - CigPackGreen
+  - CigarCase
+  - NFAshtray
+  - TapeRecorder
+  - SmokingPipeFilledTobacco
+  - TobaccoPouchBrownFilled
+  - TobaccoPouchBlueFilled
+  - TobaccoPouchRedFilled
+  - TobaccoPouchPurpleFilled
+  - Vape
+  - CigarGoldCase
+  - Matchbox
+  - Lighter
+  - FlippoLighter
+  - FlippoEngravedLighter
+  - DrinkFlaskOld
+  - DrinkShinyFlask
+  - DrinkFlask
+  - DrinkVacuumFlask
+  - FlashlightLantern
+  - CardBoxBlack
+  - Wristwatch
+  - WristwatchGold
+  - SilverRing
+  - GoldRing
+  - UrnMortuary
+  - Basketball
+  - Football
+  - BeachBall
+  - CrayonBox
+  - SoapNT
+  - PlushieLizard
+  - PlushieSharkGrey
+  - PlushieSharkBlue
+  - PlushieSharkPink
+  - HarmonicaInstrument
+  - SaxophoneInstrument
+  - AcousticGuitarInstrument
+  - PonderingOrb
+  - PlushieRGBee
+  - MysterySpaceBladeBox
+  - HoloGraffitiProjector # Punkish (might be annoying)
+  - CrayonMagic
+  - SprayPainterMagic
+    # Bureaucracy
+  - BoxFolderMedicalDoctor
+  - BrbSign
+  - HandLabeler
+  - StampsApprovedDenied
+
+- type: loadoutGroup
+  id: BaseHandItems
+  name: loadout-group-hand-items
+  minLimit: 0
+  maxLimit: 2 # One per hand
+  loadouts:
+  - BriefcaseBrownFilled
+  - ToolboxEmergency
+  - ToolboxMechanical
+  - Cane
+  - LGBTQHandyFlag
+  - NTHandyFlag
+  - BalloonNT
+  - FlashlightUmbrella
+  - DawInstrumentFlatpack
+  - HoverbikeFlatpack
+  - EmotionalPetCarrier
+  - AppraisalTool
+  - Pickaxe
+  - HandheldGPSBasic
+  - RadioHandheld
+  - NetworkConfigurator
+  - HandheldHealthAnalyzerUnpowered
+  - AnomalyScanner
+  - Bucket
+  - GeigerCounter
+  - WeaponProtoKineticAccelerator
+  - PinpointerUniversal
+  - ShipyardRCD
+  - ShipyardDoorRemote
+  - HandheldCrewMonitor
+  - HypoMini
+  - Bible
+
+- type: loadoutGroup
+  id: BaseFace
+  name: loadout-group-face
+  loadouts:
+  - ClothingMaskBreath
+  - ClothingMaskBreathMedical
+  - ClothingMaskSterile
+  - ClothingMaskGas
+  - ClothingMaskPunkHalf # Punkish (Randomized visuals)
+  - ClothingMaskGasExplorer
+  - ClothingMaskPlague
+  fallbacks:
+  - ClothingMaskBreath
+
+- type: loadoutGroup
+  id: BaseBoxSurvival
+  name: loadout-group-survival-box
+  minLimit: 1
+  loadouts:
+  - NFBoxSurvival
+  - NFBoxSurvivalNitrogen
+  - NFBoxSurvivalExtended
+  - NFBoxSurvivalExtendedNitrogen
+  - NFBoxSurvivalSheleg
+  - NFBoxSurvivalExtendedSheleg
+  fallbacks:
+  - NFBoxSurvival
+  - NFBoxSurvivalNitrogen
+  - NFBoxSurvivalSheleg
+
+- type: loadoutGroup
+  id: BaseEncryptionKey
+  name: loadout-group-encryption-key
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - EncryptionKeyTraffic
+  - EncryptionKeyMedical
+  - EncryptionKeyCargo
+  - EncryptionKeyEngineering
+  - EncryptionKeyScience
+  fallbacks:
+  - EncryptionKeyTraffic
+
+- type: loadoutGroup
+  id: BaseWallet
+  name: loadout-group-wallet
+  loadouts:
+  - ClothingWalletLeatherBrown
+  - ClothingWalletLeatherBlack
+  fallbacks:
+  - ClothingWalletLeatherBrown
+
+- type: loadoutGroup
+  id: BaseCartridge
+  name: loadout-group-cartridge
+  minLimit: 0
+  maxLimit: 5
+  loadouts:
+  - AppraisalCartridge
+  - MedTekCartridge
+  - NetProbeCartridge
+  - LogProbeCartridge
+
+- type: loadoutGroup
+  id: BaseImplanter
+  name: loadout-group-implanter
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - MedicalTrackingImplanter
+  - LightImplanter
+  - BikeHornImplanter
+  - SadTromboneImplanter
+  - MimePowersImplanter
+  - BibleUserImplanter
+  fallbacks:
+  - MedicalTrackingImplanter

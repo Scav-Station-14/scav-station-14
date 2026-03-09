@@ -20,7 +20,7 @@
   addComponents:
   - type: StationTransit
     routes:
-      SpawnPoints: 50
+      MinorPointsOfInterest: 20
 
 - type: gameMap
   id: McHobo

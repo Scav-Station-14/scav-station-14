@@ -1,0 +1,1248 @@
+- type: loadout
+  id: ClothingUniformJumpsuitColorGrey
+  price: 0
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorGrey
+  price: 0
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorGrey
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorWhite
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorWhite
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorWhite
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorWhite
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorBlack
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorBlack
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorBlack
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorBlue
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlue
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorBlue
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorBlue
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorYellow
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorYellow
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorYellow
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorYellow
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorGreen
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGreen
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorGreen
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorGreen
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorOrange
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorOrange
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorOrange
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorOrange
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorRed
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorRed
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorRed
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorRed
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorMaroon
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorMaroon
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorMaroon
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorMaroon
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorPurple
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorPurple
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorPurple
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorPurple
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorLightBrown
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorLightBrown
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorLightBrown
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorLightBrown
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorBrown
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBrown
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorBrown
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorBrown
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorPink
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorPink
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorPink
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorPink
+
+#T1
+- type: loadout
+  id: ClothingUniformJumpsuitColorDarkBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorDarkBlue
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorDarkBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorDarkBlue
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorDarkGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorDarkGreen
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorDarkGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorDarkGreen
+
+- type: loadout
+  id: ClothingUniformJumpsuitColorTeal
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorTeal
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorTeal
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorTeal
+
+- type: loadout
+  id: ClothingUniformColorRainbow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformColorRainbow
+
+- type: loadout
+  id: ClothingUniformJumpskirtColorRainbow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorRainbow
+
+- type: loadout
+  id: ClothingUniformJumpsuitHawaiBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack
+
+- type: loadout
+  id: ClothingUniformJumpsuitHawaiBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlue
+
+- type: loadout
+  id: ClothingUniformJumpsuitHawaiRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiRed
+
+- type: loadout
+  id: ClothingUniformJumpsuitHawaiYellow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiYellow
+
+- type: loadout
+  id: ClothingUniformJumpsuitFlannel
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitFlannel
+
+- type: loadout
+  id: ClothingUniformJumpsuitCasualBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualBlue
+
+- type: loadout
+  id: ClothingUniformJumpskirtCasualBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCasualBlue
+
+- type: loadout
+  id: ClothingUniformJumpsuitCasualPurple
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualPurple
+
+- type: loadout
+  id: ClothingUniformJumpskirtCasualPurple
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCasualPurple
+
+- type: loadout
+  id: ClothingUniformJumpsuitCasualRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualRed
+
+- type: loadout
+  id: ClothingUniformJumpskirtCasualRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCasualRed
+
+- type: loadout
+  id: ClothingUniformOveralls
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformOveralls
+
+- type: loadout
+  id: ClothingUniformJumpsuitChaplain
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChaplain
+
+- type: loadout
+  id: ClothingUniformJumpskirtChaplain
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtChaplain
+
+- type: loadout
+  id: ClothingUniformJumpsuitCurator
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCurator
+
+- type: loadout
+  id: ClothingUniformJumpskirtCurator
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCurator
+
+- type: loadout
+  id: ClothingUniformJumpsuitLibrarian
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLibrarian
+
+- type: loadout
+  id: ClothingUniformJumpskirtLibrarian
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtLibrarian
+
+- type: loadout
+  id: ClothingUniformJumpsuitReporter
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitReporter
+
+- type: loadout
+  id: ClothingUniformJumpsuitBH
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBH
+
+- type: loadout
+  id: ClothingUniformJumpskirtBH
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBH
+
+- type: loadout
+  id: ClothingUniformJumpsuitBHGrey
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBHGrey
+
+- type: loadout
+  id: ClothingUniformJumpskirtBHGrey
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBHGrey
+
+- type: loadout
+  id: UniformScrubsColorGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: UniformScrubsColorGreen
+
+- type: loadout
+  id: UniformScrubsColorBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: UniformScrubsColorBlue
+
+- type: loadout
+  id: UniformScrubsColorPurple
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: UniformScrubsColorPurple
+
+- type: loadout
+  id: ClothingUniformJumpsuitLawyerBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLawyerBlue
+
+- type: loadout
+  id: ClothingUniformJumpskirtLawyerBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtLawyerBlue
+
+- type: loadout
+  id: ClothingUniformJumpsuitLawyerPurple
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLawyerPurple
+
+- type: loadout
+  id: ClothingUniformJumpskirtLawyerPurple
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtLawyerPurple
+
+- type: loadout
+  id: ClothingUniformJumpsuitLawyerRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLawyerRed
+
+- type: loadout
+  id: ClothingUniformJumpskirtLawyerRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtLawyerRed
+
+- type: loadout
+  id: ClothingUniformJumpsuitLawyerBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLawyerBlack
+
+- type: loadout
+  id: ClothingUniformJumpskirtLawyerBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtLawyerBlack
+
+- type: loadout
+  id: ClothingUniformJumpsuitLawyerGood
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLawyerGood
+
+- type: loadout
+  id: ClothingUniformJumpskirtLawyerGood
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtLawyerGood
+
+- type: loadout
+  id: ClothingUniformJumpskirtBlackElegantDress
+  name: black elegant dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlackElegantDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ClothingUniformJumpskirtRedElegantDress
+  name: red elegant dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRedElegantDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ClothingUniformJumpskirtGreenElegantDress
+  name: green elegant dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGreenElegantDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ClothingUniformJumpskirtBlueElegantDress
+  name: blue elegant dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlueElegantDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ClothingUniformJumpskirtPurpleElegantDress
+  name: purple elegant dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPurpleElegantDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ClothingUniformJumpskirtCyanStripedDress
+  name: cyan striped dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCyanStripedDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ClothingUniformJumpskirtRedStripedDress
+  name: red striped dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRedStripedDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ClothingUniformJumpskirtGreenStripedDress
+  name: green striped dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGreenStripedDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ClothingUniformJumpskirtPinkStripedDress
+  name: pink striped dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPinkStripedDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ClothingUniformJumpskirtOrangeStripedDress
+  name: orange striped dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtOrangeStripedDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ClothingUniformJumpskirtPurpleTurtleneckDress
+  name: purple turtleneck dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPurpleTurtleneckDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ClothingUniformJumpskirtRedTurtleneckDress
+  name: red turtleneck dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRedTurtleneckDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ClothingUniformJumpskirtGreenTurtleneckDress
+  name: green turtleneck dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGreenTurtleneckDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ClothingUniformJumpskirtBlueTurtleneckDress
+  name: blue turtleneck dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlueTurtleneckDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ClothingUniformJumpskirtYellowTurtleneckDress
+  name: yellow turtleneck dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtYellowTurtleneckDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ClothingUniformJumpskirtYellowOldDress
+  name: yellow old dress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtYellowOldDress
+  groupBy: "dresses"
+
+# Punk stuff
+- type: loadout
+  id: ClothingUniformRandomPunkCroptop
+  name: punk croptop jumpsuit (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformRandomPunkCroptop
+  groupBy: "punkJumpsuit"
+
+- type: loadout
+  id: ClothingUniformRandomPunkTanktop
+  name: punk tanktop jumpsuit (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformRandomPunkTanktop
+  groupBy: "punkJumpsuit"
+
+- type: loadout
+  id: ClothingUniformRandomPunkCroptopShorts
+  name: punk croptop with shorts (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformRandomPunkCroptopShorts
+  groupBy: "punkJumpsuit"
+
+- type: loadout
+  id: ClothingUniformRandomPunkTanktopShorts
+  name: punk tanktop with shorts (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformRandomPunkTanktopShorts
+  groupBy: "punkJumpsuit"
+
+- type: loadout
+  id: ClothingUniformRandomPunkPantsOnly
+  name: punk pants (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformRandomPunkPantsOnly
+  groupBy: "punkJumpsuit"
+
+- type: loadout
+  id: ClothingUniformRandomPunkShortsOnly
+  name: punk shorts (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformRandomPunkShortsOnly
+  groupBy: "punkJumpsuit"
+
+- type: loadout
+  id: ClothingUniformRandomArmlessNoSkirt
+  name: sleeveless jumpsuit (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformRandomArmlessNoSkirt
+  groupBy: "colorfulJumpsuit"
+
+- type: loadout
+  id: ClothingUniformRandomArmless
+  name: colorful sleeveless top and pants (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformRandomArmless
+  groupBy: "colorfulJumpsuit"
+
+- type: loadout
+  id: ClothingUniformRandomStandard
+  name: colorful top and pants (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformRandomStandard
+  groupBy: "colorfulJumpsuit"
+
+- type: loadout
+  id: ClothingUniformRandomShorts
+  name: colorful pants (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformRandomShorts
+  groupBy: "colorfulJumpsuit"
+
+- type: loadout
+  id: ClothingUniformRandomShirt
+  name: colorful patterned top and pants (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformRandomShirt
+  groupBy: "colorfulJumpsuit"
+
+- type: loadout
+  id: ClothingSkirtUniformRandomArmless
+  name: colorful sleeveless top and skirt (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingSkirtUniformRandomArmless
+  groupBy: "colorfulJumpsuit"
+
+- type: loadout
+  id: ClothingSkirtUniformRandomStandard
+  name: colorful top and skirt (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingSkirtUniformRandomStandard
+  groupBy: "colorfulJumpsuit"
+
+- type: loadout
+  id: ClothingSkirtUniformRandomBra
+  name: colorful bra and skirt (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingSkirtUniformRandomBra
+  groupBy: "colorfulJumpsuit"
+
+- type: loadout
+  id: ClothingSkirtUniformRandomShorts
+  name: colorful skirt (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingSkirtUniformRandomShorts
+  groupBy: "colorfulJumpsuit"
+
+- type: loadout
+  id: ClothingSkirtUniformRandomShirt
+  name: colorful patterned top and skirt (random)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT1
+  price: 500
+  equipment:
+    jumpsuit: ClothingSkirtUniformRandomShirt
+  groupBy: "colorfulJumpsuit"
+
+#T2 Head and Senior drip, theater and elite service drip
+- type: loadout
+  id: ClothingUniformJumpsuitMonasticRobeDark
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMonasticRobeDark
+
+- type: loadout
+  id: ClothingUniformJumpsuitMonasticRobeLight
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMonasticRobeLight
+
+- type: loadout
+  id: ClothingUniformJumpsuitChaplainPilgrimVest
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChaplainPilgrimVest
+
+- type: loadout
+  id: ClothingUniformJumpsuitJester
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitJester
+
+- type: loadout
+  id: ClothingUniformJumpsuitJesterAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitJesterAlt
+
+- type: loadout
+  id: ClothingUniformJumpsuitKilt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitKilt
+
+- type: loadout
+  id: ClothingUniformJumpsuitDameDane
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDameDane
+
+- type: loadout
+  id: ClothingUniformJumpsuitKimono
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitKimono
+
+- type: loadout
+  id: ClothingKimonoPink
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingKimonoPink
+
+- type: loadout
+  id: ClothingKimonoBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingKimonoBlue
+
+- type: loadout
+  id: ClothingUniformJumpsuitGladiator
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGladiator
+
+- type: loadout
+  id: ClothingUniformJumpskirtPerformer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPerformer
+
+- type: loadout
+  id: ClothingUniformJumpskirtJanimaid
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtJanimaid
+
+- type: loadout
+  id: ClothingUniformJumpsuitSafari
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSafari
+
+- type: loadout
+  id: UniformShortsRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: UniformShortsRed
+
+- type: loadout
+  id: UniformShortsRedWithTop
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: UniformShortsRedWithTop
+
+- type: loadout
+  id: ClothingUniformJumpsuitTshirtJeans
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTshirtJeans
+
+- type: loadout
+  id: ClothingUniformJumpsuitTshirtJeansGray
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTshirtJeansGray
+
+- type: loadout
+  id: ClothingUniformJumpsuitTshirtJeansPeach
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT2
+  price: 1000
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTshirtJeansPeach
+
+# T3 "Military"
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryContractor
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 675
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryContractor
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryContractorTac
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 675
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryContractorTac
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryColorGrey
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 1250
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorGrey
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryColorBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 1250
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorBlack
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryColorBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 1250
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorBlue
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryColorDarkBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 1250
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorDarkBlue
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryColorTeal
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 1250
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorTeal
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryColorGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 1250
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorGreen
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryColorDarkGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 1250
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorDarkGreen
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryColorOrange
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 1250
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorOrange
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryColorPink
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 1250
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorPink
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryColorRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 1250
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorRed
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryColorYellow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 1250
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorYellow
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryColorPurple
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 1250
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorPurple
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryColorLightBrown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 1250
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorLightBrown
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryColorBrown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 1250
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorBrown
+  groupBy: "militaryJumpsuit"
+
+- type: loadout
+  id: ClothingUniformJumpsuitMilitaryColorMaroon
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlaytimeT3
+  price: 1250
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorMaroon
+  groupBy: "militaryJumpsuit"

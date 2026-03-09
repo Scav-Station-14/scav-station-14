@@ -1,0 +1,57 @@
+- type: job
+  id: ChiefTacticalOfficer
+  name: job-name-cto
+  description: job-description-cto
+  playTimeTracker: JobChiefTacticalOfficer
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobMercenary
+      time: 9000 #2.5 hrs
+    - !type:DepartmentTimeRequirement
+      department: Tactical
+      time: 36000 #10 hrs
+  weight: 10
+  startingGear: CTOGear
+  icon: "JobIconChiefTacticalOfficer"
+  supervisors: job-supervisors-captain
+  canBeAntag: false
+  access:
+  - HeadOfSecurity
+  - Command
+  - Brig
+  - Security
+  - Mercenary
+  - Armory
+  - Maintenance
+  - Service
+  - External
+  - Detective
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff
+  accessGroups: # Frontier
+  - GeneralAccess # Frontier
+
+- type: startingGear
+  id: CTOGear
+  equipment:
+    id: MercenaryPDA
+    ears: ClothingHeadsetAltMercenaryCommon
+    belt: ClothingBeltMercenaryWebbing
+  storage:
+    back:
+    - Flash
+
+- type: chameleonOutfit
+  id: ChiefTacticalOfficerChameleonOutfit
+  job: ChiefTacticalOfficer
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretCommander
+    mask: ClothingMaskGasMercenary
+    outerClothing: ClothingOuterVestWebMercenary
+    gloves: ClothingHandsMercenaryGlovesCombat
