@@ -17,3 +17,4 @@ loadout-group-survival-box = Survival Box
 loadout-group-cartridge = PDA Cartridges
 loadout-group-wallet = Wallet
 loadout-group-implanter = Implanters
+loadout-group-id = ID

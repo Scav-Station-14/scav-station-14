@@ -668,7 +668,7 @@
   - SurvivalMedical
   - BaseBackpackItems
   - BaseHandItems
-  - NFSpeciesSpecific
+  - SpeciesSpecificMedical
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -688,7 +688,7 @@
   - SurvivalMedical
   - BaseBackpackItems
   - BaseHandItems
-  - NFSpeciesSpecific
+  - SpeciesSpecificMedical
   - MedicalDoctorPDA
 
 - type: roleLoadout
@@ -700,7 +700,7 @@
   - SurvivalMedical
   - BaseBackpackItems
   - BaseHandItems
-  - NFSpeciesSpecificMedical
+  - SpeciesSpecificMedical
 
 - type: roleLoadout
   id: JobChemist
@@ -720,7 +720,7 @@
   - SurvivalMedical
   - BaseBackpackItems
   - BaseHandItems
-  - NFSpeciesSpecific
+  - SpeciesSpecificMedical
 
 - type: roleLoadout
   id: JobParamedic
@@ -738,7 +738,7 @@
   - SurvivalMedical
   - BaseBackpackItems
   - BaseHandItems
-  - NFSpeciesSpecific
+  - SpeciesSpecificMedical
 
 # Wildcards
 - type: roleLoadout

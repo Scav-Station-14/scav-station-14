@@ -137,7 +137,7 @@
     normalBodyTemperature: 310.15 #may want a higher body temperature than humans eventually but this is fine for now
     thermalRegulationTemperatureThreshold: 2
   - type: Sprite #some layers need reordering
-    size: 0.8, 0.8
+    scale: 0.8, 0.8
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]

@@ -379,7 +379,7 @@
 
 - type: loadoutGroup
   id: ChaplainBible
-  name: loadout-group-bible
+  name: loadout-group-chaplain-bible
   minLimit: 1
   loadouts:
   - Bible
@@ -437,7 +437,7 @@
 
 - type: loadoutGroup
   id: JanitorPlunger
-  name: loadout-group-plunger
+  name: loadout-group-janitor-plunger
   minLimit: 0
   loadouts:
   - JanitorGoldenPlunger
@@ -761,7 +761,7 @@
   id: SalvageSpecialistJumpsuit
   name: loadout-group-jumpsuit
   loadouts:
-  - ClothingUniformJumpsuitSalvageSpecialist
+  - SalvageSpecialistBackpackJumpsuit
   subgroups:
   - BaseJumpsuit
 
@@ -802,6 +802,15 @@
   - EngineeringHeadsetAlt
   subgroups:
   - BaseEars
+
+- type: loadoutGroup
+  id: EngineeringBelt
+  name: loadout-group-belt
+  minLimit: 1
+  loadouts:
+  - EngineeringBelt
+  subgroups:
+  - BaseBelt
 
 - type: loadoutGroup
   id: ChiefEngineerHead
@@ -1352,7 +1361,7 @@
 
 - type: loadoutGroup
   id: SecurityStar
-  name: loadout-group-star
+  name: loadout-group-security-star
   minLimit: 0
   loadouts:
   - SecStar
@@ -1497,7 +1506,7 @@
 
 - type: loadoutGroup
   id: MedicalInternJumpsuit
-  name: loadout-group-intern-jumpsuit
+  name: loadout-group-jumpsuit
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
