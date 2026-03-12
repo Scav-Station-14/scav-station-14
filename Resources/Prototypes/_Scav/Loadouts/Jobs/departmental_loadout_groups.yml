@@ -808,7 +808,7 @@
   name: loadout-group-belt
   minLimit: 1
   loadouts:
-  - EngineeringBelt
+  - EngineerBelt
   subgroups:
   - BaseBelt
 
