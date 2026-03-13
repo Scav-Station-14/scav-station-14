@@ -761,7 +761,7 @@
   id: SalvageSpecialistJumpsuit
   name: loadout-group-jumpsuit
   loadouts:
-  - SalvageSpecialistBackpackJumpsuit
+  - SalvageSpecialistJumpsuit
   subgroups:
   - BaseJumpsuit
 

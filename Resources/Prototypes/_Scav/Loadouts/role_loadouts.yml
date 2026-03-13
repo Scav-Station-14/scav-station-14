@@ -391,7 +391,7 @@
   - BaseGloves
   - ChiefEngineerShoes
   - StationEngineerBackpack
-  - EngineerBelt
+  - EngineeringBelt
   - BaseWallet
   - BaseBoxSurvival
   - BaseBackpackItems
@@ -411,7 +411,7 @@
   - BaseGloves
   - BaseShoes
   - StationEngineerBackpack
-  - EngineerBelt
+  - EngineeringBelt
   - BaseWallet
   - BaseBoxSurvival
   - BaseBackpackItems
@@ -431,7 +431,7 @@
   - BaseGloves
   - StationEngineerShoes
   - StationEngineerBackpack
-  - EngineerBelt
+  - EngineeringBelt
   - BaseWallet
   - BaseBoxSurvival
   - BaseBackpackItems
@@ -452,7 +452,7 @@
   - BaseGloves
   - AtmosphericTechnicianShoes
   - AtmosphericTechnicianBackpack
-  - EngineerBelt
+  - EngineeringBelt
   - BaseWallet
   - BaseBoxSurvival
   - BaseBackpackItems
