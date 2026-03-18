@@ -4,7 +4,7 @@ public sealed class FrontierConstants
 {
     public static readonly string[] GameMapPrototypes =
     {
-        "Frontier",
+        "BusStop", // Scav: changed to our functional equivalent of Frontier Outpost
         "NFDev"
     };
 }

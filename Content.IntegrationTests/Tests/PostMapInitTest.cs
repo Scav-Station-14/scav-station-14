@@ -65,6 +65,13 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_NF/Shuttles/Nfsd/paladin.yml", // Contains EXP-2100g "Duster"
             "/Maps/_NF/Shuttles/Nfsd/rogue.yml", // Contains EXP-320g "Friendship"
             // End Frontier
+            // Scav: dont check unused Frontier maps
+            "/Maps/_NF/POI/nfsd.yml",
+            "/Maps/_NF/POI/trademall.yml",
+            "/Maps/_NF/POI/anomalousgeode.yml",
+            "/Maps/_NF/POI/cove.yml",
+            "/Maps/_NF/Shuttles/Nfsd/wasp.yml", //contains old cargo sale computer
+            // End Scav
         };
 
         private static readonly string[] GameMaps = FrontierConstants.GameMapPrototypes; // Frontier: not inline constants

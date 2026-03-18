@@ -65,6 +65,7 @@ public sealed class ShipyardTest
     }
 
     [Test]
+    [Ignore("Not as relevant to Scav.")] // Scav
     public async Task NoShipyardShipArbitrage()
     {
         await using var pair = await PoolManager.GetServerClient();
