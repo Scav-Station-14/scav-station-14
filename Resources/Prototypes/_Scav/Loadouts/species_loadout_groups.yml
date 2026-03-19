@@ -1,0 +1,14 @@
+- type: loadoutGroup
+  id: SpeciesSpecificMedical
+  name: loadout-group-breath-tool # if visible, rename
+  minLimit: 3
+  maxLimit: 3
+  hidden: true
+  loadouts:
+  - LoadoutTankHarness
+  - LoadoutSpeciesBreathToolMedical
+  - LoadoutSpeciesVoxNitrogen
+  fallbacks:
+  - LoadoutTankHarness
+  - LoadoutSpeciesBreathToolMedical
+  - LoadoutSpeciesVoxNitrogen

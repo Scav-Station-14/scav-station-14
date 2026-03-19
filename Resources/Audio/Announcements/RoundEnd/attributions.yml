@@ -14,4 +14,6 @@
   source: "https://github.com/tgstation/tgstation/blob/ea4870f6d1c0d6b553bb0540d3f4d6efd6f4a3a3/sound/ai/intern/alerts/9.ogg"
 
 - files: ["whackhispeepee.ogg"]
+  license: "Custom"
+  copyright: "Link is a repost and original source is unknown, oldest known version is by a since-deleted instagram account"
   source: "https://www.youtube.com/watch?v=hUj5K7ComC0"

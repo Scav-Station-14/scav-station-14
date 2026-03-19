@@ -219,10 +219,9 @@
 
 - type: entity
   id: IntercomCommand
-  parent: [BaseStructureIndestructible, BaseIntercomSecure] # Frontier - added BaseStructureIndestructible
+  parent: [BaseIntercomSecure]
   suffix: Command
   description: An intercom. It's been reinforced with metal.
-  categories: [ DoNotMap ] # Frontier
   components:
   - type: ContainerFill
     containers:
@@ -281,7 +280,7 @@
 
 - type: entity
   id: IntercomSecurity
-  parent: [BaseStructureIndestructible, BaseIntercomSecure] # Frontier - added BaseStructureIndestructible
+  parent: [BaseIntercomSecure]
   suffix: Security
   description: An intercom. It's been reinforced with metal from security helmets, making it a bitch-and-a-half to open.
   components:
@@ -327,9 +326,8 @@
 
 - type: entity
   id: IntercomAll
-  parent: [BaseStructureIndestructible, Intercom] # Frontier - added BaseStructureIndestructible
+  parent: [Intercom]
   suffix: All
-  categories: [ DoNotMap ] # Frontier
   components:
   - type: ContainerFill
     containers:

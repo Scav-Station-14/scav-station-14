@@ -10,3 +10,5 @@ flatpacker-ui-cost-label = Packing Cost
 flatpacker-ui-no-board-label = No board present!
 flatpacker-ui-insert-board = Insert a board to begin.
 flatpacker-ui-pack-button = Pack
+
+flatpacker-item-cannot-be-flatpacked = This cannot be flatpacked!

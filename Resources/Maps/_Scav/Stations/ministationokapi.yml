@@ -4150,8 +4150,6 @@ entities:
       pos: -16.5,1.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4194
       - 4394
@@ -23472,8 +23470,6 @@ entities:
       pos: -16.5,6.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4194
       - 4227
@@ -23501,8 +23497,6 @@ entities:
       pos: -5.5,0.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4194
       - 4227
@@ -23528,8 +23522,6 @@ entities:
       pos: -7.5,2.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4393
       - 4394
@@ -23546,8 +23538,6 @@ entities:
       pos: 0.5,8.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4693
       - 5895
@@ -23558,8 +23548,6 @@ entities:
       pos: -1.5,15.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4693
   - uid: 4692
@@ -23568,8 +23556,6 @@ entities:
       pos: -11.5,14.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4693
   - uid: 4826
@@ -35793,8 +35779,6 @@ entities:
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4227
       - 4228
@@ -35809,8 +35793,6 @@ entities:
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4227
       - 4228
@@ -36127,8 +36109,6 @@ entities:
       pos: 33.5,27.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6097
     - type: AtmosPipeLayers
@@ -36232,8 +36212,6 @@ entities:
       pos: -7.5,-32.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 7081
     - type: AtmosPipeLayers
@@ -36402,8 +36380,6 @@ entities:
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4227
       - 4228
@@ -36419,8 +36395,6 @@ entities:
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4227
       - 4228
@@ -36771,8 +36745,6 @@ entities:
       pos: 32.5,27.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6097
     - type: AtmosPipeLayers

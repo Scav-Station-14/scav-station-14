@@ -34,7 +34,6 @@
     damageContainer: Biological
     damageModifierSet: Yinglet
   - type: Carriable
-    freehandsrequired: 1
   - type: PseudoItem
     size: Large
 #    shape: #this doesnt work, dunno if setting size is overriding it or i just set it up wrong
@@ -127,8 +126,8 @@
             sprite: _Scav/Mobs/Species/Yinglet/displacement.rsi
             state: hand_l
   - type: MovementSpeedModifier
-    basewalkspeed: 4
-    basesprintspeed: 6
+    baseWalkSpeed: 4
+    baseSprintSpeed: 6
   - type: ThermalRegulator #Yinglets have about 1/7 the mass of humans so these need to change
     metabolismHeat: 400
     radiatedHeat: 50
@@ -138,7 +137,7 @@
     normalBodyTemperature: 310.15 #may want a higher body temperature than humans eventually but this is fine for now
     thermalRegulationTemperatureThreshold: 2
   - type: Sprite #some layers need reordering
-    size: 0.8, 0.8
+    scale: 0.8, 0.8
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]

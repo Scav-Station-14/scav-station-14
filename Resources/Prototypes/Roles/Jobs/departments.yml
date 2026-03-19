@@ -28,7 +28,7 @@
   # - Librarian # Frontier
   # - Mime # Frontier
   # - Musician # Frontier
-  # - Passenger # Frontier
+  - Passenger # Frontier
   - CrewMember # Scav
   # - Reporter # Frontier
   # - Visitor # Frontier
@@ -36,7 +36,7 @@
   # - ServiceWorker # Frontier
   # - Contractor # Frontier # Scav
   # - Mercenary # Frontier # Scav
-  - Borg # Frontier
+  # - Borg # Frontier # Scav (Note: It would probably be more preferable for borg to be civilian actually, but the silicon department would need a rework)
 
 - type: department
   id: CentralCommand

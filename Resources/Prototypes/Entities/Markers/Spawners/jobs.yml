@@ -84,7 +84,6 @@
   id: SpawnPointPassenger
   parent: SpawnPointJobBase
   name: passenger
-  categories: [ HideSpawnMenu ] # Frontier
   components:
   - type: SpawnPoint
     job_id: Passenger

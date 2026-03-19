@@ -3153,8 +3153,6 @@ entities:
       pos: -2.5,-1.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 851
       - 6
@@ -3167,8 +3165,6 @@ entities:
       secondsUntilStateChange: -16488.71
       state: Closing
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 851
       - 6
@@ -3187,8 +3183,6 @@ entities:
       pos: -0.5,3.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 851
       - 769
@@ -3198,8 +3192,6 @@ entities:
       pos: -1.5,5.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 769
       - 23
@@ -3209,8 +3201,6 @@ entities:
       pos: -6.5,8.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 7
       - 23
@@ -3229,8 +3219,6 @@ entities:
       pos: 0.5,0.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 851
       - 846
@@ -3249,8 +3237,6 @@ entities:
       pos: 7.5,6.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 769
       - 847
@@ -3270,8 +3256,6 @@ entities:
       pos: 6.5,4.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 847
 - proto: FloorDrain
@@ -4340,8 +4324,6 @@ entities:
       pos: -2.5,2.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 851
     - type: AtmosPipeColor
@@ -4352,8 +4334,6 @@ entities:
       pos: -5.5,8.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 23
     - type: AtmosPipeColor
@@ -4395,8 +4375,6 @@ entities:
       pos: 7.5,3.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 847
     - type: AtmosPipeColor
@@ -4463,8 +4441,6 @@ entities:
       pos: -1.5,2.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 851
     - type: AtmosPipeColor
@@ -4486,8 +4462,6 @@ entities:
       pos: -2.5,6.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 23
     - type: AtmosPipeColor
@@ -4531,8 +4505,6 @@ entities:
       pos: 9.5,5.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 847
     - type: AtmosPipeColor

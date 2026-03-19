@@ -458,6 +458,8 @@ public partial class SharedBodySystem
         BodyComponent? body = null,
         MovementSpeedModifierComponent? movement = null)
     {
+        // Scav: Disabled this outright as it was breaking movement speed modifiers. This was removed on wizden entirely so any future upstream pull will eliminate it
+        /*
         if (!Resolve(bodyId, ref body, ref movement, logMissing: false)
             || body.RequiredLegs <= 0)
         {
@@ -479,7 +481,7 @@ public partial class SharedBodySystem
         walkSpeed /= body.RequiredLegs;
         sprintSpeed /= body.RequiredLegs;
         acceleration /= body.RequiredLegs;
-        Movement.ChangeBaseSpeed(bodyId, walkSpeed, sprintSpeed, acceleration, movement);
+        Movement.ChangeBaseSpeed(bodyId, walkSpeed, sprintSpeed, acceleration, movement);*/
     }
 
     #endregion

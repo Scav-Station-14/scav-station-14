@@ -3695,8 +3695,6 @@ entities:
       pos: 8.5,-2.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 954
   - uid: 870
@@ -3706,8 +3704,6 @@ entities:
       pos: 12.5,-3.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 954
   - uid: 873
@@ -3717,8 +3713,6 @@ entities:
       pos: -2.5,-3.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 954
   - uid: 874
@@ -3728,8 +3722,6 @@ entities:
       pos: 6.5,-7.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 954
   - uid: 892
@@ -3738,8 +3730,6 @@ entities:
       pos: 5.5,2.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 954
 - proto: GasVentScrubber
@@ -3750,8 +3740,6 @@ entities:
       pos: 0.5,-1.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 954
   - uid: 871
@@ -3760,8 +3748,6 @@ entities:
       pos: 11.5,-0.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 954
   - uid: 872
@@ -3770,8 +3756,6 @@ entities:
       pos: -3.5,-0.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 954
   - uid: 884
@@ -3781,8 +3765,6 @@ entities:
       pos: 2.5,-7.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 954
   - uid: 891
@@ -3791,8 +3773,6 @@ entities:
       pos: 3.5,2.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 954
 - proto: GasVolumePumpOn

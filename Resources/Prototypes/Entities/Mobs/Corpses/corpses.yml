@@ -27,7 +27,7 @@
     prototypes:
     - TechnicalAssistantGear
     - AtmosphericTechnicianGear
-    - StationEngineerGear
+    # - StationEngineerGear # Scav
 
 - type: entity
   parent: SalvageHumanCorpse
@@ -62,7 +62,7 @@
   - type: Loadout
     prototypes:
     - ResearchAssistantGear
-    - ScientistGear
+    # - ScientistGear # Scav
 
 - type: entity
   parent: SalvageHumanCorpse

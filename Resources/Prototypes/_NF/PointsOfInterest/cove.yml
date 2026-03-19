@@ -8,21 +8,21 @@
 
 # Notes:
 # Byarr
-- type: pointOfInterest
-  id: Cove
-  parent: BasePOI
-  name: Pirate Cove
-  minimumDistance: 10000
-  maximumDistance: 15000
-  spawnGamePreset: [ NFPirate ]
-  spawnGroup: Required
-  gridPath: /Maps/_NF/POI/cove.yml
-  hideWarp: true
-  addComponents:
-  - type: IFF
-    color: "#C83737"
-    flags: [HideLabel, Hide]
-    readOnly: false
+# - type: pointOfInterest
+#   id: Cove
+#   parent: BasePOI
+#   name: Pirate Cove
+#   minimumDistance: 10000
+#   maximumDistance: 15000
+#   spawnGamePreset: [ NFPirate ]
+#   spawnGroup: Required
+#   gridPath: /Maps/_NF/POI/cove.yml
+#   hideWarp: true
+#   addComponents:
+#   - type: IFF
+#     color: "#C83737"
+#     flags: [HideLabel, Hide]
+#     readOnly: false
 
 - type: gameMap
   id: Cove

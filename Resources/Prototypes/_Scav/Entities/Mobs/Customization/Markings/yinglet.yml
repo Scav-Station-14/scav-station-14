@@ -7,13 +7,13 @@
     default:
       type:
         !type:SkinColoring
-       layers:
-        long_tip:
-         type:
-          !type:SkinColoring
-        long_inner:
-         type:
-          !type:SkinColoring
+    layers:
+      long_tip:
+       type:
+        !type:SkinColoring
+      long_inner:
+       type:
+        !type:SkinColoring
   sprites:
   - sprite: _Scav/Mobs/Customization/Yinglet/yinglet_ears.rsi
     state: long
@@ -31,13 +31,13 @@
     default:
       type:
         !type:SkinColoring
-      layers:
-        short_tip:
-         type:
-          !type:SkinColoring
-        short_inner:
-         type:
-          !type:SkinColoring
+    layers:
+      short_tip:
+       type:
+        !type:SkinColoring
+      short_inner:
+       type:
+        !type:SkinColoring
   sprites:
   - sprite: _Scav/Mobs/Customization/Yinglet/yinglet_ears.rsi
     state: short

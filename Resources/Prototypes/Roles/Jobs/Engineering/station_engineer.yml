@@ -7,7 +7,7 @@
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 9000 #2.5 hrs
-  startingGear: StationEngineerGear
+  #startingGear: StationEngineerGear # Scav
   icon: "JobIconStationEngineer"
   supervisors: job-supervisors-ce
   access:
