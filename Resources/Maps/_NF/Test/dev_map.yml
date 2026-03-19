@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 261.2.0
+  engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 10/09/2025 22:15:12
-  entityCount: 1908
+  time: 03/18/2026 22:55:48
+  entityCount: 1879
 maps:
 - 1814
 grids:
@@ -6891,27 +6891,6 @@ entities:
     - type: Transform
       pos: -16.5,-6.5
       parent: 179
-- proto: NFSpawnPointDetective
-  entities:
-  - uid: 1487
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: NFSpawnPointJanitor
-  entities:
-  - uid: 1488
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: NFSpawnPointSeniorOfficer
-  entities:
-  - uid: 382
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
 - proto: NFTelecomServerFilled
   entities:
   - uid: 963
@@ -8596,96 +8575,12 @@ entities:
     - type: Transform
       pos: 3.5,7.5
       parent: 179
-- proto: SpawnPointBailiff
-  entities:
-  - uid: 1482
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
 - proto: SpawnPointBorg
   entities:
   - uid: 1485
     components:
     - type: Transform
       pos: -4.5,2.5
-      parent: 179
-- proto: SpawnPointBrigmedic
-  entities:
-  - uid: 1483
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointCadet
-  entities:
-  - uid: 1484
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointContractor
-  entities:
-  - uid: 1462
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointDeputy
-  entities:
-  - uid: 1486
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointERTChaplain
-  entities:
-  - uid: 1458
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointERTEngineer
-  entities:
-  - uid: 1456
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointERTJanitor
-  entities:
-  - uid: 1477
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointERTLeader
-  entities:
-  - uid: 1478
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointERTMailCarrier
-  entities:
-  - uid: 1479
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointERTMedical
-  entities:
-  - uid: 1480
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointERTSecurity
-  entities:
-  - uid: 1481
-    components:
-    - type: Transform
-      pos: -3.5,2.5
       parent: 179
 - proto: SpawnPointLatejoin
   entities:
@@ -8694,41 +8589,6 @@ entities:
     - type: Transform
       pos: -3.5,3.5
       parent: 179
-- proto: SpawnPointMailCarrier
-  entities:
-  - uid: 1461
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointMercenary
-  entities:
-  - uid: 1460
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointNFPirate
-  entities:
-  - uid: 1466
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointNFPirateCaptain
-  entities:
-  - uid: 1465
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointNFPirateFirstMate
-  entities:
-  - uid: 1464
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
 - proto: SpawnPointObserver
   entities:
   - uid: 679
@@ -8736,65 +8596,9 @@ entities:
     - type: Transform
       pos: -3.5,4.5
       parent: 179
-- proto: SpawnPointPilot
+- proto: SpawnPointPassenger
   entities:
-  - uid: 1463
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointPrisoner
-  entities:
-  - uid: 1459
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointPrisonGuard
-  entities:
-  - uid: 1491
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointPublicAffairsLiaison
-  entities:
-  - uid: 1489
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointSecurityGuard
-  entities:
-  - uid: 1457
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointSheriff
-  entities:
-  - uid: 1455
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointStationRepresentative
-  entities:
-  - uid: 1454
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointStc
-  entities:
-  - uid: 486
-    components:
-    - type: Transform
-      pos: -3.5,2.5
-      parent: 179
-- proto: SpawnPointValet
-  entities:
-  - uid: 1346
+  - uid: 382
     components:
     - type: Transform
       pos: -3.5,2.5
