@@ -200,8 +200,7 @@
   parent: [ EncryptionKey, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityLawyerContraband<BaseC2ContrabandUnredeemable
   id: EncryptionKeySecurity
   name: security encryption key
-  categories: [ DoNotMap ] # Frontier
-  description: An encryption key used by Frontier security forces. # Frontier
+  description: An encryption key used by security.
   components:
   - type: EncryptionKey
     channels:

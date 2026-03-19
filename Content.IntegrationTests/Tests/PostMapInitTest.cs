@@ -58,19 +58,6 @@ namespace Content.IntegrationTests.Tests
             // "/Maps/Shuttles/ShuttleEvent/honki.yml", // Contains golden honker, clown's rubber stamp
             // "/Maps/Shuttles/ShuttleEvent/instigator.yml", // Contains EXP-320g "Friendship"
             // "/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", // Contains syndicate rubber stamp
-            "/Maps/_NF/Outpost/frontier.yml", // Contains janitorial bomb suit closet
-            "/Maps/_NF/POI/tinnia.yml", // Contains syndicate rubber stamp
-            "/Maps/_NF/POI/lpbravo.yml", // Contains syndicate rubber stamp
-            "/Maps/_NF/Shuttles/Admin/fishbowl.yml", // Contains CentComm folder
-            "/Maps/_NF/Shuttles/Nfsd/paladin.yml", // Contains EXP-2100g "Duster"
-            "/Maps/_NF/Shuttles/Nfsd/rogue.yml", // Contains EXP-320g "Friendship"
-            // End Frontier
-            // Scav: dont check unused Frontier maps
-            "/Maps/_NF/POI/nfsd.yml",
-            "/Maps/_NF/POI/trademall.yml",
-            "/Maps/_NF/POI/anomalousgeode.yml",
-            "/Maps/_NF/POI/cove.yml",
-            "/Maps/_NF/Shuttles/Nfsd/wasp.yml", //contains old cargo sale computer
             // End Scav
         };
 
@@ -154,7 +141,7 @@ namespace Content.IntegrationTests.Tests
             var cfg = server.ResolveDependency<IConfigurationManager>();
             Assert.That(cfg.GetCVar(CCVars.GridFill), Is.False);
 
-            var shuttleFolder = new ResPath("/Maps/_NF/Shuttles"); // Frontier: use NF maps
+            var shuttleFolder = new ResPath("/Maps/_Scav/Shuttles"); // Frontier: use NF maps
             var shuttles = resMan
                 .ContentFindFiles(shuttleFolder)
                 .Where(filePath =>
@@ -197,7 +184,7 @@ namespace Content.IntegrationTests.Tests
             var protoManager = server.ResolveDependency<IPrototypeManager>();
             var loader = server.System<MapLoaderSystem>();
 
-            var mapFolder = new ResPath("/Maps/_NF"); // Frontier: add _NF
+            var mapFolder = new ResPath("/Maps/_Scav"); // Scav: add _Scav
             var maps = resourceManager
                 .ContentFindFiles(mapFolder)
                 .Where(filePath => filePath.Extension == "yml" && !filePath.Filename.StartsWith(".", StringComparison.Ordinal))
@@ -497,6 +484,7 @@ namespace Content.IntegrationTests.Tests
                 // Frontier: FIXME - hacky test fix
                 .Where(x =>
                     x.ID == PoolManager.TestMap || // Frontier: check test map
+                    x.ID == "NFDev" || //Scav: hardcoding this for now, will change when we get our own
                     x.MapPath.ToString().StartsWith("/Maps/_Scav/Hubs") //Scav: Only check scav hub map(s)
                     )
                 // End Frontier
@@ -524,7 +512,7 @@ namespace Content.IntegrationTests.Tests
 
             var gameMaps = protoManager.EnumeratePrototypes<GameMapPrototype>().Select(o => o.MapPath).ToHashSet();
 
-            var mapFolder = new ResPath("/Maps/_NF"); // Frontier
+            var mapFolder = new ResPath("/Maps/_Scav"); // Frontier
             var maps = resourceManager
                 .ContentFindFiles(mapFolder)
                 .Where(filePath => filePath.Extension == "yml" && !filePath.Filename.StartsWith(".", StringComparison.Ordinal))

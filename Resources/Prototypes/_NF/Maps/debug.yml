@@ -12,6 +12,5 @@
         - type: StationJobs
           availableJobs:
             Passenger: [ -1, -1 ]
-            Captain: [ -1, -1 ]
         - type: StationDeadDrop
           maxDeadDrops: 20 # Testing

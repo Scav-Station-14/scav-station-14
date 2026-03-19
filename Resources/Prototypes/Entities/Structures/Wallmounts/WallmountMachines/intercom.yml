@@ -328,7 +328,6 @@
   id: IntercomAll
   parent: [Intercom]
   suffix: All
-  categories: [ DoNotMap ] # Frontier
   components:
   - type: ContainerFill
     containers:
