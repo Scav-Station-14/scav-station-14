@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Original sprite (space) taken from Baystation12 at https://github.com/Baystation12/Baystation12/blob/dev/icons/mob/onmob/onmob_suit.dmi | Grayscaled, split into layers, altered a tiny bit by erhardsteinhauer (discord/github) | Monkey alterations by eckoaurum (github)",
+  "copyright": "Original sprite (space) taken from Baystation12 at https://github.com/Baystation12/Baystation12/blob/dev/icons/mob/onmob/onmob_suit.dmi | Grayscaled, split into layers, altered a tiny bit by erhardsteinhauer (discord/github) | Monkey alterations by eckoaurum (github), yinglet state by Big_Stinkus.",
   "size": {
     "x": 32,
     "y": 32
@@ -146,6 +146,40 @@
         },
         {
             "name": "inhand-right-unshaded",
+            "directions": 4,
+            "delays": [
+                [ 0.2, 0.1, 0.1, 0.3 ],
+                [ 0.2, 0.1, 0.1, 0.3 ],
+                [ 0.2, 0.1, 0.1, 0.3 ],
+                [ 0.2, 0.1, 0.1, 0.3 ]
+            ]
+        },
+        {
+           "name": "equipped-base-yinglet",
+            "directions": 4
+        },
+        {
+            "name": "equipped-breathing-gear-yinglet",
+            "directions": 4
+        },
+        {
+            "name": "equipped-decals-01-yinglet",
+            "directions": 4
+        },
+        {
+            "name": "equipped-reinforced-points-yinglet",
+            "directions": 4
+        },
+        {
+            "name": "equipped-shoulder-light-yinglet",
+            "directions": 4
+        },
+        {
+            "name": "equipped-Shoulder-light-overlay-unshaded-yinglet",
+            "directions": 4
+        },
+        {
+            "name": "equipped-unshaded-yinglet",
             "directions": 4,
             "delays": [
                 [ 0.2, 0.1, 0.1, 0.3 ],
