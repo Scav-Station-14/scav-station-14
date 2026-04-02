@@ -227,6 +227,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorRainbow
 
+#turtlenecks
 - type: loadout
   id: ClothingUniformTurtleneckColorWhite
   price: 0
@@ -451,7 +452,7 @@
     jumpsuit: ClothingUniformTurtleneckSkirtColorMaroon
   groupBy: "turtleneck"
 
-
+#T1 again(this is getting vaporized when the lockers are added anyways so might as well)
 - type: loadout
   id: ClothingUniformJumpsuitHawaiBlack
   effects:
