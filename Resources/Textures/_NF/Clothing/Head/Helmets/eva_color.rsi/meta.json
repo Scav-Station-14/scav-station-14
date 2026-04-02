@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Original sprite (spacebowl) taken from Baystation12 at https://github.com/Baystation12/Baystation12/blob/dev/icons/mob/onmob/onmob_head.dmi | Grayscaled, split into layers, altered a tiny bit by erhardsteinhauer (discord/github) | Monkey alterations by eckoaurum (github)",
+  "copyright": "Original sprite (spacebowl) taken from Baystation12 at https://github.com/Baystation12/Baystation12/blob/dev/icons/mob/onmob/onmob_head.dmi | Grayscaled, split into layers, altered a tiny bit by erhardsteinhauer (discord/github) | Monkey alterations by eckoaurum (github), yinglet state by Big_Stinkus for Scav Station 14",
   "size": {
     "x": 32,
     "y": 32
@@ -84,6 +84,34 @@
         },
         {
             "name": "equipped-head-light-monkey",
+            "directions": 4
+        },
+        {
+            "name": "equipped-head-base-yinglet",
+            "directions": 4
+        },
+        {
+            "name": "equipped-head-decals-01-yinglet",
+            "directions": 4
+        },
+        {
+            "name": "equipped-head-decals-02-yinglet",
+            "directions": 4
+        },
+        {
+            "name": "equipped-head-reinforced-points-yinglet",
+            "directions": 4
+        },
+        {
+            "name": "equipped-head-visor-yinglet",
+            "directions": 4
+        },
+        {
+            "name": "equipped-head-light-yinglet",
+            "directions": 4
+        },
+        {
+            "name": "light-overlay-yinglet",
             "directions": 4
         }
     ]
