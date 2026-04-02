@@ -28,7 +28,6 @@
     autoRecharge: false
 
 - type: entity
-  categories: [ DoNotMap ]
   id: NFWeaponEnergyPistolLaserAntique
   parent: [ NFBaseWeaponEnergyPistolFireModes, NFBaseWeaponFrameEnergyPistolNanotrasen ]
   name: antique laser pistol
@@ -57,7 +56,6 @@
       - state: inhand-right
 
 - type: entity
-  categories: [ DoNotMap ]
   id: NFWeaponEnergyPistolLaserX01Multiphase
   parent: [ BaseC2ContrabandUnredeemable, NFWeaponEnergyPistolLaserAntique ]
   name: X-01 multiphase energy gun
