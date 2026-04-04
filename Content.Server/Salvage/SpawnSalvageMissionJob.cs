@@ -388,14 +388,6 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
             }
         }
 
-        // Frontier: delay ship FTL
-        if (shuttleUid is { Valid: true })
-        {
-            var shuttle = _entManager.GetComponent<ShuttleComponent>(shuttleUid.Value);
-            _shuttle.FTLToCoordinates(shuttleUid.Value, shuttle, new EntityCoordinates(mapUid, coords), 0f, 5.5f, _salvage.TravelTime);
-        }
-        // End Frontier
-
         return true;
     }
 

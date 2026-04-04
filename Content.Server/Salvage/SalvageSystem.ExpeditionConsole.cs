@@ -57,57 +57,8 @@ public sealed partial class SalvageSystem
         }
         // End Frontier
 
-        // var cdUid = Spawn(CoordinatesDisk, Transform(uid).Coordinates); // Frontier: no disk-based FTL
-        // SpawnMission(missionparams, station.Value, cdUid); // Frontier: no disk-based FTL
-
-        // Frontier: FTL travel is currently restricted to expeditions and such, and so we need to put this here
-        #region Frontier FTL changes
-        // until FTL changes for us in some way.
-
-        // Run a proximity check (unless using a debug console)
-        if (_salvage.ProximityCheck && !component.Debug)
-        {
-            if (!TryComp<StationDataComponent>(station, out var stationData)
-                || _station.GetLargestGrid(stationData) is not { Valid: true } ourGrid
-                || !TryComp<MapGridComponent>(ourGrid, out var gridComp))
-            {
-                PlayDenySound((uid, component));
-                _popupSystem.PopupEntity(Loc.GetString("shuttle-ftl-invalid"), uid, PopupType.MediumCaution);
-                UpdateConsoles((station.Value, data));
-                return;
-            }
-
-            if (HasComp<FTLComponent>(ourGrid))
-            {
-                PlayDenySound((uid, component));
-                _popupSystem.PopupEntity(Loc.GetString("shuttle-ftl-recharge"), uid, PopupType.MediumCaution);
-                UpdateConsoles((station.Value, data));
-                return;
-            }
-
-            var xform = Transform(ourGrid);
-            var bounds = _transform.GetWorldMatrix(ourGrid).TransformBox(gridComp.LocalAABB).Enlarged(ShuttleFTLRange);
-            var bodyQuery = GetEntityQuery<PhysicsComponent>();
-            var otherGrids = new List<Entity<MapGridComponent>>();
-            _mapManager.FindGridsIntersecting(xform.MapID, bounds, ref otherGrids);
-            foreach (var otherGrid in otherGrids)
-            {
-                if (ourGrid == otherGrid.Owner ||
-                    !bodyQuery.TryGetComponent(otherGrid.Owner, out var body) ||
-                    body.Mass < ShuttleFTLMassThreshold && body.BodyType == BodyType.Dynamic)
-                {
-                    continue;
-                }
-
-                PlayDenySound((uid, component));
-                _popupSystem.PopupEntity(Loc.GetString("shuttle-ftl-proximity"), uid, PopupType.MediumCaution);
-                UpdateConsoles((station.Value, data));
-                return;
-            }
-        }
-        SpawnMission(missionparams, station.Value, null);
-        #endregion Frontier FTL changes
-        // End Frontier
+        var cdUid = Spawn(CoordinatesDisk, Transform(uid).Coordinates);
+        SpawnMission(missionparams, station.Value, cdUid);
 
         data.ActiveMission = args.Index;
         var mission = GetMission(missionparams.MissionType, _prototypeManager.Index<SalvageDifficultyPrototype>(missionparams.Difficulty), missionparams.Seed); // Frontier: add MissionType
@@ -115,8 +66,8 @@ public sealed partial class SalvageSystem
         data.NextOffer = _timing.CurTime + mission.Duration + TimeSpan.FromSeconds(1);
         data.CooldownTime = mission.Duration + TimeSpan.FromSeconds(1); // Frontier
 
-        // _labelSystem.Label(cdUid, GetFTLName(_prototypeManager.Index(PlanetNames), missionparams.Seed)); // Frontier: no disc
-        // _audio.PlayPvs(component.PrintSound, uid); // Frontier: no disc
+        _labelSystem.Label(cdUid, GetFTLName(_prototypeManager.Index(PlanetNames), missionparams.Seed));
+        _audio.PlayPvs(component.PrintSound, uid);
 
         UpdateConsoles((station.Value, data));
     }
