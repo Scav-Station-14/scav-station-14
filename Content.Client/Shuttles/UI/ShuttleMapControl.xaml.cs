@@ -72,7 +72,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
     private readonly Dictionary<Color, List<(Vector2, string)>> _strings = new();
     private readonly List<ShuttleExclusionObject> _viewportExclusions = new();
 
-    public ShuttleMapControl() : base(256f, 1024f, 512f)
+    public ShuttleMapControl() : base(1024f, 16384f, 12288f)
     {
         RobustXamlLoader.Load(this);
         _mapSystem = EntManager.System<SharedMapSystem>();
@@ -88,7 +88,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
     public void SetMap(MapId mapId, Vector2 offset, bool recentering = false)
     {
         ViewingMap = mapId;
-        TargetOffset = offset;
+        TargetOffset = Vector2.Zero; // Scav: Force this to center and ignore input offset, we want to display the whole sector.
         Recentering = recentering;
     }
 
@@ -250,7 +250,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
             return;
         }
 
-        DrawParallax(handle);
+        DrawBacking(handle);
 
         var viewedMapUid = _mapSystem.GetMapOrInvalid(ViewingMap);
         var matty = Matrix3Helpers.CreateInverseTransform(Offset, Angle.Zero);
@@ -346,6 +346,13 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
             Entity<MapGridComponent> grid = (gridObj.Entity, mapGrid);
             IFFComponent? iffComp = null;
 
+            // Scav: hide items on different maps from the one we're viewing
+            if (_xformSystem.GetMapId(grid.Owner) != ViewingMap)
+            {
+                continue;
+            }
+            // End Scav
+
             // Rudimentary IFF for now, if IFF hiding on then we don't show on the map at all
             if (grid.Owner != _shuttleEntity &&
                 EntManager.TryGetComponent(grid, out iffComp) &&
@@ -367,8 +374,18 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
             gridRelativePos = gridRelativePos with { Y = -gridRelativePos.Y };
             var gridUiPos = ScalePosition(gridRelativePos);
 
-            var mapObject = GetMapObject(gridRelativePos, Angle.Zero, scalePosition: true);
-            AddMapObject(existingEdges, existingVerts, mapObject);
+            //Scav: new directional icon for shuttle
+            if (grid.Owner == _shuttleEntity)
+            {
+                var mapObject = GetMapObjectDirectional(gridRelativePos, -gridRot, scalePosition: true);
+                AddMapObject(existingEdges, existingVerts, mapObject);
+            }
+            else
+            {
+                var mapObject = GetMapObject(gridRelativePos, Angle.Zero, scalePosition: true);
+                AddMapObject(existingEdges, existingVerts, mapObject);
+            }
+            //End Scav
 
             // Text
             if (iffComp != null && (iffComp.Flags & IFFFlags.HideLabel) != 0x0)
@@ -457,7 +474,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
                     handle.DrawDottedLine(gridUiPos, mouseLocalPos, color, (float) realTime.TotalSeconds * 30f);
 
                     // Draw shuttle pre-vis
-                    var mouseVerts = GetMapObject(mouseLocalPos, _ftlAngle, scale: MinimapScale);
+                    var mouseVerts = GetMapObjectDirectional(mouseLocalPos, _ftlAngle, scale: MinimapScale);
 
                     handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, mouseVerts.Span, color.WithAlpha(0.05f));
                     handle.DrawPrimitives(DrawPrimitiveTopology.LineLoop, mouseVerts.Span, color);
@@ -547,6 +564,30 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
             localPos + angle.RotateVec(new Vector2(diamondRadius, 0f)) * scale,
             localPos + angle.RotateVec(new Vector2(0f, 2f * diamondRadius)) * scale,
             localPos + angle.RotateVec(new Vector2(-diamondRadius, 0f)) * scale,
+        };
+
+        if (scalePosition)
+        {
+            for (var i = 0; i < mapObj.Count; i++)
+            {
+                mapObj[i] = ScalePosition(mapObj[i]);
+            }
+        }
+
+        return mapObj;
+    }
+
+    private ValueList<Vector2> GetMapObjectDirectional(Vector2 localPos, Angle angle, float scale = 1f, bool scalePosition = false)
+    {
+        // Constant size diamonds
+        var objectRadius = GetMapObjectRadius();
+
+        var mapObj = new ValueList<Vector2>(4)
+        {
+            localPos + angle.RotateVec(new Vector2(0f, 0.4f) * objectRadius) * scale,
+            localPos + angle.RotateVec(new Vector2(1f, 1f) * objectRadius) * scale,
+            localPos + angle.RotateVec(new Vector2(0f, -2f) * objectRadius) * scale,
+            localPos + angle.RotateVec(new Vector2(-1, 1f) * objectRadius) * scale,
         };
 
         if (scalePosition)

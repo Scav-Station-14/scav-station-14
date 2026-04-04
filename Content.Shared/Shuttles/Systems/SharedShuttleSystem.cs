@@ -23,7 +23,7 @@ public abstract partial class SharedShuttleSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem XformSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
-    public const float FTLRange = 1024f; // Scav: 256f<1024f
+    public const float FTLRange = 4096f; // Scav: 256f<4096f
     public const float FTLBufferRange = 8f;
     public const float TileDensityMultiplier = 0.5f;
 
