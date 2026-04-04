@@ -569,8 +569,8 @@ public sealed partial class MapScreen : BoxContainer
         if (_entManager.TryGetComponent(_shuttleEntity, out TransformComponent? shuttleXform))
         {
             SetMap(shuttleXform.MapID, _maps.GetGridPosition((_shuttleEntity.Value, null, shuttleXform)));
-            RebuildMapObjects();
-            BumpMapDequeue();
+            RebuildMapObjects(); // Scav
+            BumpMapDequeue(); // Scav
         }
     }
 }

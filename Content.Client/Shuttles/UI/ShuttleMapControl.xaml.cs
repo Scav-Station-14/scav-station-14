@@ -72,7 +72,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
     private readonly Dictionary<Color, List<(Vector2, string)>> _strings = new();
     private readonly List<ShuttleExclusionObject> _viewportExclusions = new();
 
-    public ShuttleMapControl() : base(1024f, 16384f, 12288f)
+    public ShuttleMapControl() : base(1024f, 16384f, 12288f) // Scav: (256f, 512f, 512f)<(1024f, 16384f, 12288f)
     {
         RobustXamlLoader.Load(this);
         _mapSystem = EntManager.System<SharedMapSystem>();
@@ -250,7 +250,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
             return;
         }
 
-        DrawBacking(handle);
+        DrawBacking(handle); // Scav: no longer drawing parallax, just blank background
 
         var viewedMapUid = _mapSystem.GetMapOrInvalid(ViewingMap);
         var matty = Matrix3Helpers.CreateInverseTransform(Offset, Angle.Zero);
@@ -474,7 +474,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
                     handle.DrawDottedLine(gridUiPos, mouseLocalPos, color, (float) realTime.TotalSeconds * 30f);
 
                     // Draw shuttle pre-vis
-                    var mouseVerts = GetMapObjectDirectional(mouseLocalPos, _ftlAngle, scale: MinimapScale);
+                    var mouseVerts = GetMapObjectDirectional(mouseLocalPos, _ftlAngle, scale: MinimapScale); //Scav: changed to Directional variant
 
                     handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, mouseVerts.Span, color.WithAlpha(0.05f));
                     handle.DrawPrimitives(DrawPrimitiveTopology.LineLoop, mouseVerts.Span, color);
@@ -577,6 +577,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
         return mapObj;
     }
 
+    // Scav: New variant for arrow instead of diamond
     private ValueList<Vector2> GetMapObjectDirectional(Vector2 localPos, Angle angle, float scale = 1f, bool scalePosition = false)
     {
         // Constant size diamonds
@@ -600,6 +601,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
 
         return mapObj;
     }
+    // End Scav
 
     private bool TryGetBeacon(IEnumerable<IMapObject> mapObjects, Matrix3x2 mapTransform, Vector2 mousePos, UIBox2i area, out ShuttleBeaconObject foundBeacon, out Vector2 foundLocalPos)
     {
