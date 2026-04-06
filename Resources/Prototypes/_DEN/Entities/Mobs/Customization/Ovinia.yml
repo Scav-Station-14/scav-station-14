@@ -27,6 +27,16 @@
   - sprite: _DEN/Mobs/Customization/Ovinia/tail_markings.rsi
     state: ovinia-tail
 
+# Neck Fluff Markings
+- type: marking
+  id: OviniaNeckfluff
+  bodyPart: NeckFluff
+  markingCategory: NeckFluff
+  speciesRestriction: [Ovinia]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Ovinia/head_markings.rsi
+    state: ovinia-neck-fluff
+
 # Horns Markings
 - type: marking
   id: OviniaLambHorns
@@ -143,15 +153,6 @@
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
     state: ovinia-tummy
-
-- type: marking
-  id: OviniaNeckfluff
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Ovinia]
-  sprites:
-  - sprite: _DEN/Mobs/Customization/Ovinia/head_markings.rsi
-    state: ovinia-neck-fluff
 
 # Leg Markings
 - type: marking

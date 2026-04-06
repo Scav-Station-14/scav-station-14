@@ -21,6 +21,7 @@
     UndergarmentBottom: MobHumanoidAnyMarking
     UndergarmentTop: MobHumanoidAnyMarking
     Chest: MobOviniaTorso
+    NeckFluff: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
@@ -44,6 +45,9 @@
       points: 1
       required: false
     Tail:
+      points: 1
+      required: false
+    NeckFluff:
       points: 1
       required: false
     HeadTop:
