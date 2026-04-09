@@ -1,4 +1,5 @@
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Coordinates;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.UI.MapObjects;
@@ -22,7 +23,7 @@ public abstract partial class SharedShuttleSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem XformSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
-    public const float FTLRange = 256f;
+    public const float FTLRange = 4096f; // Scav: 256f<4096f
     public const float FTLBufferRange = 8f;
     public const float TileDensityMultiplier = 0.5f;
 
@@ -199,14 +200,15 @@ public abstract partial class SharedShuttleSystem : EntitySystem
         // Just checks if any grids inside of a buffer range at the target position.
         _grids.Clear();
         var mapCoordinates = XformSystem.ToMapCoordinates(coordinates);
+        var shuttleCoordinates = XformSystem.ToMapCoordinates(shuttleUid.ToCoordinates());
 
         var ourPos = Maps.GetGridPosition((shuttleUid, shuttlePhysics, shuttleXform));
 
         // This is the already adjusted position
         var targetPosition = mapCoordinates.Position;
 
-        // Check range even if it's cross-map.
-        if ((targetPosition - ourPos).Length() > FTLRange)
+        // Check range if warping to the same map. // Scav: allow warps to new maps regardless of coordinates. This may need to change if something other than Expeditions use this.
+        if (mapCoordinates.MapId == shuttleCoordinates.MapId && ((targetPosition - ourPos).Length() > FTLRange))
         {
             return false;
         }

@@ -20,7 +20,7 @@ public partial class MapGridControl : LayoutContainer
     [Dependency] protected readonly IEntityManager EntManager = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
 
-    protected static readonly Color BackingColor = new Color(0.08f, 0.08f, 0.08f);
+    protected static readonly Color BackingColor = new Color(0.05f, 0.05f, 0.05f); //Scav: Darker background
 
     private Font _largerFont;
 
