@@ -1,0 +1,5 @@
+- type: entity
+  save: false
+  parent: MobOviniaBase
+  id: MobOvinia
+  name: Urist McSheepy
