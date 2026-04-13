@@ -81,15 +81,13 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
         WithdrawAmount.ValueChanged += args =>
         {
             _withdrawalAmount = args.Value;
+            WithdrawButton.Disabled = args.Value <= 0;
         };
 
         WithdrawOptions.OnItemSelected += idx =>
         {
             WithdrawOptions.SelectId(idx.Id);
-            if (idx.Id == 0)
-                WithdrawButton.Text = Loc.GetString("bank-atm-menu-withdraw-button");
-            else
-                WithdrawButton.Text = Loc.GetString("bank-atm-menu-transfer-button");
+            WithdrawButton.Text = Loc.GetString(idx.Id == 0 ? "bank-atm-menu-withdraw-button" : "bank-atm-menu-transfer-button");
         };
 
         WithdrawButton.OnPressed += _ =>
@@ -133,10 +131,6 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
 
         _cfg.OnValueChanged(CCVars.AllowPrimaryCutAdjustment, enabled => { _allowPrimaryCutAdjustment = enabled; }, true);
         _cfg.OnValueChanged(CCVars.LockboxCutEnabled, enabled => { _lockboxCutEnabled = enabled; }, true);
-
-        BuildAccountList();
-        BuildTransferTab();
-        BuildAllocationTab();
     }
 
     private bool WithdrawAmountValid(int val)
@@ -324,6 +318,8 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
 
         _selectedAccount = state.SelectedAccount;
         DepositAmount.Text = state.DepositAmount.ToString();
+        DepositButton.Disabled = state.DepositAmount <= 0;
+        WithdrawAmount.Value = 0;
 
         BuildAccountList();
         BuildTransferTab();
