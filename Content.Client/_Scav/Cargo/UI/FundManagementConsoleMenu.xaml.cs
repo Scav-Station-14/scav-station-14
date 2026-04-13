@@ -349,7 +349,7 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
         UpdateWithdrawalButton();
         UpdateDepositButton();
 
-        WithdrawButton.Text = _canAct ? Loc.GetString(WithdrawAmount.Value == 0 ? "bank-atm-menu-withdraw-button" : "bank-atm-menu-transfer-button") : Loc.GetString("bank-atm-menu-wait"); //broke the transfer logic, fix this.
+        WithdrawButton.Text = _canAct ? Loc.GetString(WithdrawOptions.SelectedId == 0 ? "bank-atm-menu-withdraw-button" : "bank-atm-menu-transfer-button") : Loc.GetString("bank-atm-menu-wait");
         DepositButton.Text = _canAct ? Loc.GetString("bank-atm-menu-deposit-button") : Loc.GetString("bank-atm-menu-wait");
 
         if (!_bankQuery.TryComp(_station, out var bankAccount))
