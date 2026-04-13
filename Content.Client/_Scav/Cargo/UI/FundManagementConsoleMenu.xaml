@@ -38,7 +38,7 @@
                                StyleClasses="LabelKeyText"
                                HorizontalAlignment="Right" />
                 <Label Name="DepositAmount"
-                       Text="{Loc 'bank-atm-menu-no-deposit'}" />
+                       Text="{Loc 'fund-management-console-no-deposit'}" />
 
                 <BoxContainer/> <!-- Skip an element -->
                 <Button Name="DepositButton"

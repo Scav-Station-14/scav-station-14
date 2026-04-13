@@ -19,5 +19,5 @@ fund-management-console-label-balance = Balance:{" "}
 fund-management-console-label-withdraw = Withdraw:{" "}
 fund-management-console-label-deposit = Deposit:{" "}
 
-bank-atm-menu-no-deposit = Empty
+fund-management-console-no-deposit = Empty
 fund-management-console-no-bank = No Bank Account!
