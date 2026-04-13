@@ -22,6 +22,7 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private readonly EntityQuery<StationBankAccountComponent> _bankQuery;
 
@@ -33,6 +34,8 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
     private EntityUid? _station;
     private Dictionary<ProtoId<CargoAccountPrototype>, int> _accounts = new();
     private ProtoId<CargoAccountPrototype> _selectedAccount = "";
+    private TimeSpan _nextActionTime = TimeSpan.Zero;
+    private bool _canAct;
 
     private int _withdrawalAmount;
     private int _depositAmount;
@@ -81,13 +84,12 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
         WithdrawAmount.ValueChanged += args =>
         {
             _withdrawalAmount = args.Value;
-            WithdrawButton.Disabled = args.Value <= 0;
+            UpdateWithdrawalButton();
         };
 
         WithdrawOptions.OnItemSelected += idx =>
         {
             WithdrawOptions.SelectId(idx.Id);
-            WithdrawButton.Text = Loc.GetString(idx.Id == 0 ? "bank-atm-menu-withdraw-button" : "bank-atm-menu-transfer-button");
         };
 
         WithdrawButton.OnPressed += _ =>
@@ -131,6 +133,16 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
 
         _cfg.OnValueChanged(CCVars.AllowPrimaryCutAdjustment, enabled => { _allowPrimaryCutAdjustment = enabled; }, true);
         _cfg.OnValueChanged(CCVars.LockboxCutEnabled, enabled => { _lockboxCutEnabled = enabled; }, true);
+    }
+
+    private void UpdateWithdrawalButton()
+    {
+        WithdrawButton.Disabled = WithdrawAmount.Value <= 0 || !_canAct;
+    }
+
+    private void UpdateDepositButton()
+    {
+        DepositButton.Disabled = _depositAmount <= 0 || !_canAct;
     }
 
     private bool WithdrawAmountValid(int val)
@@ -316,10 +328,12 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
         _station = _entityManager.GetEntity(state.Station);
         _accounts = _entityManager.TryGetComponent<StationBankAccountComponent>(_station, out var bank) ? bank.Accounts : new Dictionary<ProtoId<CargoAccountPrototype>, int>();
 
+        _nextActionTime = state.NextAccountActionTime;
         _selectedAccount = state.SelectedAccount;
-        DepositAmount.Text = state.DepositAmount.ToString();
-        DepositButton.Disabled = state.DepositAmount <= 0;
+        _depositAmount = state.DepositAmount;
         WithdrawAmount.Value = 0;
+
+        DepositAmount.Text = _depositAmount.ToString();
 
         BuildAccountList();
         BuildTransferTab();
@@ -330,6 +344,13 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
+
+        _canAct = _timing.CurTime > _nextActionTime;
+        UpdateWithdrawalButton();
+        UpdateDepositButton();
+
+        WithdrawButton.Text = _canAct ? Loc.GetString(WithdrawAmount.Value == 0 ? "bank-atm-menu-withdraw-button" : "bank-atm-menu-transfer-button") : Loc.GetString("bank-atm-menu-wait"); //broke the transfer logic, fix this.
+        DepositButton.Text = _canAct ? Loc.GetString("bank-atm-menu-deposit-button") : Loc.GetString("bank-atm-menu-wait");
 
         if (!_bankQuery.TryComp(_station, out var bankAccount))
             return;

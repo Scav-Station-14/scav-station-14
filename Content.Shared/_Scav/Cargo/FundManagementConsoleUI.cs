@@ -38,12 +38,14 @@ public sealed class FundManagementConsoleBuiState : BoundUserInterfaceState
     public NetEntity Station;
     public ProtoId<CargoAccountPrototype> SelectedAccount;
     public int DepositAmount;
+    public TimeSpan NextAccountActionTime;
 
-    public FundManagementConsoleBuiState(NetEntity station, ProtoId<CargoAccountPrototype> selectedAccount, int depositAmount)
+    public FundManagementConsoleBuiState(NetEntity station, ProtoId<CargoAccountPrototype> selectedAccount, int depositAmount, TimeSpan nextAccountActionTime)
     {
         Station = station;
         SelectedAccount = selectedAccount;
         DepositAmount = depositAmount;
+        NextAccountActionTime = nextAccountActionTime;
     }
 }
 

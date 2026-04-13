@@ -107,9 +107,10 @@ public sealed partial class CargoSystem
 
     private void OnUpdateSelection(Entity<FundManagementConsoleComponent> ent, ref FundManagementConsoleUpdateSelectionMessage args)
     {
-        if (args.Account != null)
+        if (args.Account != null && ent.Comp.SelectedAccount != args.Account.Value)
         {
             ent.Comp.SelectedAccount = args.Account.Value;
+            UpdateUi(ent);
         }
     }
 
@@ -120,7 +121,7 @@ public sealed partial class CargoSystem
 
         GetInsertedCashAmount(ent.Comp, out var amount);
 
-        _uiSystem.SetUiState(ent.Owner, FundManagementConsoleUiKey.Key, new FundManagementConsoleBuiState(GetNetEntity(station), ent.Comp.SelectedAccount, amount));
+        _uiSystem.SetUiState(ent.Owner, FundManagementConsoleUiKey.Key, new FundManagementConsoleBuiState(GetNetEntity(station), ent.Comp.SelectedAccount, amount, ent.Comp.NextAccountActionTime));
     }
 
     private void OnDepositFunds(Entity<FundManagementConsoleComponent> ent, ref FundManagementConsoleDepositFundsMessage args)
