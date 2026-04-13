@@ -30,6 +30,10 @@ public sealed class FundManagementConsoleBoundUserInterface(EntityUid owner, Enu
         {
             SendMessage(new FundManagementConsoleDepositFundsMessage(account));
         };
+        _menu.OnUpdateSelection += account =>
+        {
+            SendMessage(new FundManagementConsoleUpdateSelectionMessage(account));
+        };
     }
 
     protected override void UpdateState(BoundUserInterfaceState message)

@@ -28,12 +28,14 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
     public event Action<Dictionary<ProtoId<CargoAccountPrototype>, int>, double, double>? OnAllocationSave;
     public event Action<ProtoId<CargoAccountPrototype>?, int, ProtoId<CargoAccountPrototype>?>? OnWithdraw;
     public event Action<ProtoId<CargoAccountPrototype>?>? OnDeposit;
+    public event Action<ProtoId<CargoAccountPrototype>?>? OnUpdateSelection;
 
     private EntityUid? _station;
     private Dictionary<ProtoId<CargoAccountPrototype>, int> _accounts = new();
     private ProtoId<CargoAccountPrototype> _selectedAccount = "";
 
     private int _withdrawalAmount;
+    private int _depositAmount;
 
     private bool _allowPrimaryAccountAllocation;
     private bool _allowPrimaryCutAdjustment;
@@ -60,7 +62,11 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
         {
             AccountSelection.SelectId(args.Id);
             if (AccountSelection.SelectedMetadata is ProtoId<CargoAccountPrototype> selectedAccount)
+            {
                 _selectedAccount = selectedAccount;
+                OnUpdateSelection?.Invoke(_selectedAccount);
+            }
+
             BuildTransferTab();
         };
 
@@ -80,6 +86,10 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
         WithdrawOptions.OnItemSelected += idx =>
         {
             WithdrawOptions.SelectId(idx.Id);
+            if (idx.Id == 0)
+                WithdrawButton.Text = Loc.GetString("bank-atm-menu-withdraw-button");
+            else
+                WithdrawButton.Text = Loc.GetString("bank-atm-menu-transfer-button");
         };
 
         WithdrawButton.OnPressed += _ =>
@@ -267,7 +277,8 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
 
 
             if (_selectedAccount == account)
-                accountSelectionValid = true;
+                AccountSelection.Select(index);
+
             index++;
         }
 
@@ -276,11 +287,12 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
             AccountSelection.AddItem(Loc.GetString("cargo-console-menu-account-selection-item-no-account"));
         }
 
-        if ((!accountSelectionValid) || _selectedAccount == "")
+        if (AccountSelection.SelectedId == 0)
         {
-            AccountSelection.Select(0);
-            if (AccountSelection.SelectedMetadata is ProtoId<CargoAccountPrototype> newSelected) //probably want to check if its still int eh list but oh well
+            if (AccountSelection.SelectedMetadata is ProtoId<CargoAccountPrototype> newSelected) //probably want to check if its still in the list but oh well
                 _selectedAccount = newSelected;
+            else
+                _selectedAccount = "";
         }
     }
     private void BuildTransferTab()
@@ -309,6 +321,9 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
     {
         _station = _entityManager.GetEntity(state.Station);
         _accounts = _entityManager.TryGetComponent<StationBankAccountComponent>(_station, out var bank) ? bank.Accounts : new Dictionary<ProtoId<CargoAccountPrototype>, int>();
+
+        _selectedAccount = state.SelectedAccount;
+        DepositAmount.Text = state.DepositAmount.ToString();
 
         BuildAccountList();
         BuildTransferTab();

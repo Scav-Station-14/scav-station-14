@@ -36,10 +36,25 @@ public sealed class FundManagementConsoleDepositFundsMessage : BoundUserInterfac
 public sealed class FundManagementConsoleBuiState : BoundUserInterfaceState
 {
     public NetEntity Station;
+    public ProtoId<CargoAccountPrototype> SelectedAccount;
+    public int DepositAmount;
 
-    public FundManagementConsoleBuiState(NetEntity station)
+    public FundManagementConsoleBuiState(NetEntity station, ProtoId<CargoAccountPrototype> selectedAccount, int depositAmount)
     {
         Station = station;
+        SelectedAccount = selectedAccount;
+        DepositAmount = depositAmount;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class FundManagementConsoleUpdateSelectionMessage : BoundUserInterfaceMessage
+{
+    public ProtoId<CargoAccountPrototype>? Account;
+
+    public FundManagementConsoleUpdateSelectionMessage(ProtoId<CargoAccountPrototype>? account)
+    {
+        Account = account;
     }
 }
 

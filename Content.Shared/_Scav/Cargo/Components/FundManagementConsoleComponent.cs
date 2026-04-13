@@ -1,4 +1,6 @@
 using Content.Shared.Cargo;
+using Content.Shared.Cargo.Prototypes;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -40,6 +42,14 @@ public sealed partial class FundManagementConsoleComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<StackPrototype> CashType = "Credit";
+
+    public static string CashSlotId = "station-bank-ATM-cashSlot";
+
+    [DataField]
+    public ItemSlot CashSlot = new();
+
+    [DataField]
+    public ProtoId<CargoAccountPrototype> SelectedAccount = "Cargo";
 
     /// <summary>
     /// The time at which the console will be able to play the deny sound.

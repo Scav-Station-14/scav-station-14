@@ -7,20 +7,29 @@ using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Emag.Systems;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Stacks;
 using Content.Shared.UserInterface;
+using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Cargo.Systems;
 
 public sealed partial class CargoSystem
 {
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+
     private bool _allowPrimaryAccountAllocation;
     private bool _allowPrimaryCutAdjustment;
 
     public void InitializeFunds()
     {
         SubscribeLocalEvent<FundManagementConsoleComponent, FundManagementConsoleWithdrawFundsMessage>(OnWithdrawFunds);
+        SubscribeLocalEvent<FundManagementConsoleComponent, FundManagementConsoleDepositFundsMessage>(OnDepositFunds);
+        SubscribeLocalEvent<FundManagementConsoleComponent, FundManagementConsoleUpdateSelectionMessage>(OnUpdateSelection);
         SubscribeLocalEvent<FundManagementConsoleComponent, SetFundingAllocationBuiMessage>(OnSetFundingAllocation);
         SubscribeLocalEvent<FundManagementConsoleComponent, BeforeActivatableUIOpenEvent>(OnFundAllocationBuiOpen);
+        SubscribeLocalEvent<FundManagementConsoleComponent, EntInsertedIntoContainerMessage>(OnCashSlotChanged);
+        SubscribeLocalEvent<FundManagementConsoleComponent, EntRemovedFromContainerMessage>(OnCashSlotChanged);
 
         _cfg.OnValueChanged(CCVars.AllowPrimaryAccountAllocation, enabled => { _allowPrimaryAccountAllocation = enabled; }, true);
         _cfg.OnValueChanged(CCVars.AllowPrimaryCutAdjustment, enabled => { _allowPrimaryCutAdjustment = enabled; }, true);
@@ -93,7 +102,110 @@ public sealed partial class CargoSystem
             _radio.SendRadioMessage(ent, msg, otherAccountProto.RadioChannel, ent, escapeMarkup: false);
         }
 
-        _uiSystem.SetUiState(ent.Owner, FundManagementConsoleUiKey.Key, new FundManagementConsoleBuiState(GetNetEntity(station)));
+        UpdateUi(ent);
+    }
+
+    private void OnUpdateSelection(Entity<FundManagementConsoleComponent> ent, ref FundManagementConsoleUpdateSelectionMessage args)
+    {
+        if (args.Account != null)
+        {
+            ent.Comp.SelectedAccount = args.Account.Value;
+        }
+    }
+
+    private void UpdateUi(Entity<FundManagementConsoleComponent> ent)
+    {
+        if (_station.GetOwningStation(ent) is not { } station)
+            return;
+
+        GetInsertedCashAmount(ent.Comp, out var amount);
+
+        _uiSystem.SetUiState(ent.Owner, FundManagementConsoleUiKey.Key, new FundManagementConsoleBuiState(GetNetEntity(station), ent.Comp.SelectedAccount, amount));
+    }
+
+    private void OnDepositFunds(Entity<FundManagementConsoleComponent> ent, ref FundManagementConsoleDepositFundsMessage args)
+    {
+        if (_station.GetOwningStation(ent) is not { } station ||
+            !TryComp<StationBankAccountComponent>(station, out var bank))
+            return;
+
+        if (args.Account is null || !_protoMan.TryIndex(args.Account!.Value, out var sourceAccountProto))
+        {
+            PlayDenySound(ent, ent.Comp);
+            return;
+        }
+
+        if (Timing.CurTime < ent.Comp.NextAccountActionTime)
+            return;
+
+        if (!_accessReaderSystem.IsAllowed(args.Actor, ent))
+        {
+            ConsolePopup(args.Actor, Loc.GetString("cargo-console-order-not-allowed"));
+            PlayDenySound(ent, ent.Comp);
+            return;
+        }
+
+        GetInsertedCashAmount(ent.Comp, out var deposit);
+
+        if (deposit <= 0)
+        {
+            return;
+        }
+
+        ent.Comp.NextAccountActionTime = Timing.CurTime + ent.Comp.AccountActionDelay;
+        UpdateBankAccount((station, bank), deposit, args.Account!.Value, dirty: true);
+        _audio.PlayPvs(ApproveSound, ent);
+
+        SetInsertedCashAmount(ent.Comp, deposit);
+
+        UpdateUi(ent);
+    }
+
+    private void GetInsertedCashAmount(FundManagementConsoleComponent component, out int amount)
+    {
+        amount = 0;
+        var cashEntity = component.CashSlot.ContainerSlot?.ContainedEntity;
+
+        // Nothing inserted: amount should be 0.
+        if (cashEntity == null)
+            return;
+
+        // Invalid item inserted (doubloons, FUC, telecrystals...): amount should be negative (to denote an error)
+        if (!TryComp<StackComponent>(cashEntity, out var cashStack) ||
+            cashStack.StackTypeId != component.CashType)
+        {
+            amount = -1;
+            return;
+        }
+
+        // Valid amount: output the stack's value.
+        amount = cashStack.Count;
+    }
+
+    private void SetInsertedCashAmount(FundManagementConsoleComponent component, int amount)
+    {
+        var empty = false;
+        var cashEntity = component.CashSlot.ContainerSlot?.ContainedEntity;
+
+        if (!TryComp<StackComponent>(cashEntity, out var cashStack) ||
+            cashStack.StackTypeId != component.CashType)
+        {
+            return;
+        }
+
+        int newAmount = cashStack.Count;
+        cashStack.Count = newAmount - amount;
+
+        if (cashStack.Count <= 0)
+            empty = true;
+
+        if (empty)
+            _containerSystem.CleanContainer(component.CashSlot.ContainerSlot!);
+    }
+
+    private void OnCashSlotChanged(EntityUid uid, FundManagementConsoleComponent component, ContainerModifiedMessage args)
+    {
+        UpdateUi((uid, component));
     }
 
     private void OnSetFundingAllocation(Entity<FundManagementConsoleComponent> ent, ref SetFundingAllocationBuiMessage args)
@@ -154,7 +266,6 @@ public sealed partial class CargoSystem
 
     private void OnFundAllocationBuiOpen(Entity<FundManagementConsoleComponent> ent, ref BeforeActivatableUIOpenEvent args)
     {
-        if (_station.GetOwningStation(ent) is { } station)
-            _uiSystem.SetUiState(ent.Owner, FundManagementConsoleUiKey.Key, new FundManagementConsoleBuiState(GetNetEntity(station)));
+        UpdateUi(ent);
     }
 }
