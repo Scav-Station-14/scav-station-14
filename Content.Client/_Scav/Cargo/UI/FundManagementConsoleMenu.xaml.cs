@@ -58,8 +58,8 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
 
         _bankQuery = _entityManager.GetEntityQuery<StationBankAccountComponent>();
 
-        TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-funds"));
-        TabContainer.SetTabTitle(1, Loc.GetString("cargo-console-menu-tab-title-funds"));
+        TabContainer.SetTabTitle(0, Loc.GetString("fund-management-console-menu-tab-title-transfers"));
+        TabContainer.SetTabTitle(1, Loc.GetString("fund-management-console-menu-tab-title-allocation"));
 
         AccountSelection.OnItemSelected += args =>
         {
@@ -213,7 +213,7 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
 
             var balanceLabel = new RichTextLabel
             {
-                Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balance)),
+                Text = Loc.GetString("fund-management-console-menu-amount", ("amount", balance)),
                 HorizontalExpand = true,
                 HorizontalAlignment = HAlignment.Center,
                 Margin = new Thickness(5, 0),
@@ -305,14 +305,14 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
     {
         var index = 0;
         WithdrawOptions.Clear();
-        WithdrawOptions.AddItem(Loc.GetString("cargo-console-menu-account-action-option-withdraw"), index);
+        WithdrawOptions.AddItem(Loc.GetString("fund-management-console-menu-account-action-option-withdraw"), index);
         index++;
         foreach (var (account, _) in _accounts.OrderBy(p => p.Key))
         {
             if (account != _selectedAccount)
             {
                 var accountProto = _prototypeManager.Index(account);
-                WithdrawOptions.AddItem(Loc.GetString("cargo-console-menu-account-action-option-transfer",
+                WithdrawOptions.AddItem(Loc.GetString("fund-management-console-menu-account-action-option-transfer",
                         ("code", Loc.GetString(accountProto.Code))),
                     index);
                 WithdrawOptions.SetItemMetadata(index, account);
@@ -320,7 +320,7 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
             }
         }
 
-        BalanceLabel.Text = _accounts.TryGetValue(_selectedAccount, out var selectedAccount) ? Loc.GetString("cargo-console-menu-points-amount", ("amount", selectedAccount)) : Loc.GetString("bank-atm-menu-no-bank");
+        BalanceLabel.Text = _accounts.TryGetValue(_selectedAccount, out var selectedAccount) ? Loc.GetString("fund-management-console-menu-amount", ("amount", selectedAccount)) : Loc.GetString("bank-atm-menu-no-bank");
     }
 
     public void Update(FundManagementConsoleBuiState state)
@@ -349,8 +349,8 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
         UpdateWithdrawalButton();
         UpdateDepositButton();
 
-        WithdrawButton.Text = _canAct ? Loc.GetString(WithdrawOptions.SelectedId == 0 ? "bank-atm-menu-withdraw-button" : "bank-atm-menu-transfer-button") : Loc.GetString("bank-atm-menu-wait");
-        DepositButton.Text = _canAct ? Loc.GetString("bank-atm-menu-deposit-button") : Loc.GetString("bank-atm-menu-wait");
+        WithdrawButton.Text = _canAct ? Loc.GetString(WithdrawOptions.SelectedId == 0 ? "fund-management-console-button-withdraw" : "fund-management-console-button-transfer") : Loc.GetString("fund-management-console-button-wait");
+        DepositButton.Text = _canAct ? Loc.GetString("fund-management-console-button-deposit") : Loc.GetString("fund-management-console-button-wait");
 
         if (!_bankQuery.TryComp(_station, out var bankAccount))
             return;
@@ -359,11 +359,11 @@ public sealed partial class FundManagementConsoleMenu : FancyWindow
         {
             _accounts[key] = bankAccount.Accounts[key];
         }
-        BalanceLabel.Text = _accounts.TryGetValue(_selectedAccount, out var selectedAccount) ? Loc.GetString("cargo-console-menu-points-amount", ("amount", selectedAccount)) : Loc.GetString("bank-atm-menu-no-bank");
+        BalanceLabel.Text = _accounts.TryGetValue(_selectedAccount, out var selectedAccount) ? Loc.GetString("fund-management-console-menu-amount", ("amount", selectedAccount)) : Loc.GetString("fund-management-console-no-bank");
 
         foreach (var (account, label) in _balanceLabels)
         {
-            label.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", bankAccount.Accounts[account]));
+            label.Text = Loc.GetString("fund-management-console-menu-amount", ("amount", bankAccount.Accounts[account]));
         }
     }
 }

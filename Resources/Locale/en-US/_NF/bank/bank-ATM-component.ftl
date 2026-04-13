@@ -8,7 +8,6 @@ bank-atm-menu-deposit-label = Deposit:{" "}
 bank-atm-menu-amount-label = Withdraw:{" "}
 bank-atm-menu-no-deposit = Empty
 bank-atm-menu-deposit-button = Deposit
-bank-atm-menu-wait = Please wait...
 bank-atm-reason-label = For:{" "}
 bank-atm-description-label = Description:{" "}
 

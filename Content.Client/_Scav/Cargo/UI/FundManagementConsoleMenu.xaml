@@ -6,35 +6,35 @@
         <!-- Funds tab -->
         <BoxContainer Orientation="Vertical" Margin="15">
             <GridContainer Columns="2" HorizontalExpand="True">
-                <RichTextLabel Text="{Loc 'cargo-console-menu-account-name-label'}"
+                <RichTextLabel Text="{Loc 'fund-management-console-label-account-name'}"
                                StyleClasses="LabelKeyText"
                                HorizontalAlignment="Right"/>
                 <OptionButton Name="AccountSelection"
                     HorizontalExpand="True"/>
 
-                <RichTextLabel Text="{Loc 'bank-atm-menu-balance-label'}"
+                <RichTextLabel Text="{Loc 'fund-management-console-label-balance'}"
                     StyleClasses="LabelKeyText"
                     HorizontalAlignment="Right"/>
                 <Label Name="BalanceLabel"
                     Text="{Loc 'bank-atm-menu-no-bank'}"/>
 
-                <RichTextLabel Text="{Loc 'bank-atm-menu-amount-label'}"
+                <RichTextLabel Text="{Loc 'fund-management-console-label-withdraw'}"
                                StyleClasses="LabelKeyText"
                                HorizontalAlignment="Right"/>
                 <SpinBox Name="WithdrawAmount" MinSize="260 0" HorizontalExpand="True"/>
 
-                <RichTextLabel Text="{Loc 'cargo-console-menu-account-action-select'}"
+                <RichTextLabel Text="{Loc 'fund-management-console-account-action-select'}"
                                StyleClasses="LabelKeyText"
                                HorizontalAlignment="Right"/>
                 <OptionButton Name="WithdrawOptions" HorizontalExpand="True"/>
 
                 <BoxContainer/> <!-- Skip an element -->
                 <Button Name="WithdrawButton"
-                        Text="{Loc 'bank-atm-menu-withdraw-button'}"
+                        Text="{Loc 'fund-management-console-button-withdraw'}"
                         Disabled="True"
                         HorizontalExpand="True"/>
 
-                <RichTextLabel Text="{Loc 'bank-atm-menu-deposit-label'}"
+                <RichTextLabel Text="{Loc 'fund-management-console-label-deposit'}"
                                StyleClasses="LabelKeyText"
                                HorizontalAlignment="Right" />
                 <Label Name="DepositAmount"
@@ -42,7 +42,7 @@
 
                 <BoxContainer/> <!-- Skip an element -->
                 <Button Name="DepositButton"
-                        Text="{Loc 'bank-atm-menu-deposit-button'}"
+                        Text="{Loc 'fund-management-console-button-deposit'}"
                         Disabled="True"
                         HorizontalExpand="True"/>
             </GridContainer>
