@@ -33,6 +33,14 @@ namespace Content.Client.Cargo.UI
         public event Action<ButtonEventArgs>? OnOrderApproved;
         public event Action<ButtonEventArgs>? OnOrderCanceled;
 
+        // Scav: Removed Funds Tab
+        /*
+        public event Action<ProtoId<CargoAccountPrototype>?, int>? OnAccountAction;
+
+        public event Action<ButtonEventArgs>? OnToggleUnboundedLimit;
+        */
+        // End Scav
+
         private readonly List<string> _categoryStrings = new();
         private string? _category;
 
@@ -66,6 +74,36 @@ namespace Content.Client.Cargo.UI
             }
 
             TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-orders"));
+            // Scav: Removed Funds tab
+            /*
+            TabContainer.SetTabTitle(1, Loc.GetString("cargo-console-menu-tab-title-funds"));
+
+            ActionOptions.OnItemSelected += idx =>
+            {
+                ActionOptions.SelectId(idx.Id);
+            };
+
+            TransferSpinBox.IsValid = val =>
+            {
+                if (!_entityManager.TryGetComponent<CargoOrderConsoleComponent>(owner, out var console) ||
+                    !_entityManager.TryGetComponent<StationBankAccountComponent>(_station, out var bank))
+                    return true;
+
+                return val >= 0 && val <= (int) (console.TransferLimit * bank.Accounts[console.Account]);
+            };
+
+            AccountActionButton.OnPressed += _ =>
+            {
+                var account = (ProtoId<CargoAccountPrototype>?) ActionOptions.SelectedMetadata;
+                OnAccountAction?.Invoke(account, TransferSpinBox.Value);
+            };
+
+            AccountLimitToggleButton.OnPressed += a =>
+            {
+                OnToggleUnboundedLimit?.Invoke(a);
+            };
+            */
+            // End Scav
         }
 
         private void OnCategoryItemSelected(OptionButton.ItemSelectedEventArgs args)
@@ -73,6 +111,33 @@ namespace Content.Client.Cargo.UI
             SetCategoryText(args.Id);
             PopulateProducts();
         }
+
+        //Scav: Removed Funds Tab
+        /*
+        public void PopulateAccountActions()
+        {
+            if (!_entityManager.TryGetComponent<StationBankAccountComponent>(_station, out var bank) ||
+                !_entityManager.TryGetComponent<CargoOrderConsoleComponent>(_owner, out var console))
+                return;
+
+            var i = 0;
+            ActionOptions.Clear();
+            ActionOptions.AddItem(Loc.GetString("cargo-console-menu-account-action-option-withdraw"), i);
+            i++;
+            foreach (var account in bank.Accounts.Keys)
+            {
+                if (account == console.Account)
+                    continue;
+                var accountProto = _protoManager.Index(account);
+                ActionOptions.AddItem(Loc.GetString("cargo-console-menu-account-action-option-transfer",
+                    ("code", Loc.GetString(accountProto.Code))),
+                    i);
+                ActionOptions.SetItemMetadata(i, account);
+                i++;
+            }
+        }
+        */
+        // End Scav
 
         private void OnSearchBarTextChanged(LineEdit.LineEditEventArgs args)
         {
@@ -233,6 +298,17 @@ namespace Content.Client.Cargo.UI
 
             var balance = _cargoSystem.GetBalanceFromAccount((_station.Value, bankAccount), orderConsole.Account);
             PointsLabel.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balance));
+            // Scav: Removed Funds Tab
+            /*
+            TransferLimitLabel.Text = Loc.GetString("cargo-console-menu-account-action-transfer-limit",
+                ("limit", (int) (balance * orderConsole.TransferLimit)));
+
+            UnlimitedNotifier.Visible = orderConsole.TransferUnbounded;
+            AccountActionButton.Disabled = TransferSpinBox.Value <= 0 ||
+                                           TransferSpinBox.Value > bankAccount.Accounts[orderConsole.Account] * orderConsole.TransferLimit ||
+                                           _timing.CurTime < orderConsole.NextAccountActionTime;
+            */
+            // End Scav
 
             OrdersSpacer.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip;
             Orders.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip;

@@ -100,6 +100,20 @@ namespace Content.Client.Cargo.BUI
                 }
             };
 
+            // Scav: Removed Fund Transfer Code
+            /*
+            _menu.OnAccountAction += (account, amount) =>
+            {
+                SendMessage(new CargoConsoleWithdrawFundsMessage(account, amount));
+            };
+
+            _menu.OnToggleUnboundedLimit += _ =>
+            {
+                SendMessage(new CargoConsoleToggleLimitMessage());
+            };
+            */
+            // End Scav
+
             _menu.OpenCentered();
         }
 
@@ -111,7 +125,7 @@ namespace Content.Client.Cargo.BUI
             _menu.PopulateProducts();
             _menu.PopulateCategories();
             _menu.PopulateOrders(orders);
-            //_menu.PopulateAccountActions();
+            //_menu.PopulateAccountActions(); // Scav: disabled
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)

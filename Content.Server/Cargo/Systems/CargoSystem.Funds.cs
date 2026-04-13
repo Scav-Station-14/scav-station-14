@@ -1,16 +1,14 @@
 using System.Linq;
-using Content.Shared._Scav.Cargo;
-using Content.Shared._Scav.Cargo.Components;
+using Content.Shared._Scav.Cargo; // Scav
+using Content.Shared._Scav.Cargo.Components; // Scav
 using Content.Shared.Cargo.Components;
-using Content.Shared.Cargo.Prototypes;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Emag.Systems;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Stacks;
+using Content.Shared.Stacks; // Scav
 using Content.Shared.UserInterface;
-using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Containers; // Scav
 
 namespace Content.Server.Cargo.Systems;
 
@@ -23,6 +21,7 @@ public sealed partial class CargoSystem
 
     public void InitializeFunds()
     {
+        // Scav: Changed console components to FundManagementConsoleComponent, added additional subscriptions
         SubscribeLocalEvent<FundManagementConsoleComponent, FundManagementConsoleWithdrawFundsMessage>(OnWithdrawFunds);
         SubscribeLocalEvent<FundManagementConsoleComponent, FundManagementConsoleDepositFundsMessage>(OnDepositFunds);
         SubscribeLocalEvent<FundManagementConsoleComponent, FundManagementConsoleUpdateSelectionMessage>(OnUpdateSelection);
@@ -30,6 +29,7 @@ public sealed partial class CargoSystem
         SubscribeLocalEvent<FundManagementConsoleComponent, BeforeActivatableUIOpenEvent>(OnFundAllocationBuiOpen);
         SubscribeLocalEvent<FundManagementConsoleComponent, EntInsertedIntoContainerMessage>(OnCashSlotChanged);
         SubscribeLocalEvent<FundManagementConsoleComponent, EntRemovedFromContainerMessage>(OnCashSlotChanged);
+        // End Scav
 
         _cfg.OnValueChanged(CCVars.AllowPrimaryAccountAllocation, enabled => { _allowPrimaryAccountAllocation = enabled; }, true);
         _cfg.OnValueChanged(CCVars.AllowPrimaryCutAdjustment, enabled => { _allowPrimaryCutAdjustment = enabled; }, true);
@@ -41,12 +41,13 @@ public sealed partial class CargoSystem
             !TryComp<StationBankAccountComponent>(station, out var bank))
             return;
 
+        // Scav: Account is no longer stored on console component, source and destination in params
         if (args.SourceAccount is null)
             return;
         var sourceAccount = args.SourceAccount!.Value;
 
         if (args.Amount <= 0 ||
-            args.Amount > GetBalanceFromAccount((station, bank), sourceAccount))
+            args.Amount > GetBalanceFromAccount((station, bank), sourceAccount)) //Scav: removed transfer limit
             return;
 
         if (Timing.CurTime < ent.Comp.NextAccountActionTime)
@@ -59,20 +60,23 @@ public sealed partial class CargoSystem
             return;
         }
 
+        // Scav: additional validation
         if (!_protoMan.TryIndex(sourceAccount, out var sourceAccountProto) ||
             (args.DestinationAccount is not null && !_protoMan.TryIndex(args.DestinationAccount.Value, out _)))
         {
             PlayDenySound(ent, ent.Comp);
             return;
         }
+        // End Scav
 
         ent.Comp.NextAccountActionTime = Timing.CurTime + ent.Comp.AccountActionDelay;
-        UpdateBankAccount((station, bank), -args.Amount,  sourceAccount, dirty: true);
+        UpdateBankAccount((station, bank), -args.Amount,  sourceAccount, dirty: true); //Scav: now dirties
         _audio.PlayPvs(ApproveSound, ent);
 
         var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(ent, args.Actor);
         RaiseLocalEvent(tryGetIdentityShortInfoEvent);
 
+        // Scav: significant rewrites to support new args
         if (args.DestinationAccount == null)
         {
             var stackPrototype = _protoMan.Index(ent.Comp.CashType);
@@ -101,10 +105,12 @@ public sealed partial class CargoSystem
             _radio.SendRadioMessage(ent, msg, sourceAccountProto.RadioChannel, ent, escapeMarkup: false);
             _radio.SendRadioMessage(ent, msg, otherAccountProto.RadioChannel, ent, escapeMarkup: false);
         }
+        // End Scav
 
-        UpdateUi(ent);
+        UpdateUi(ent); //Scav
     }
 
+    // Scav: Added additional functions to support fund transfer, deposit, etc functionality.
     private void OnUpdateSelection(Entity<FundManagementConsoleComponent> ent, ref FundManagementConsoleUpdateSelectionMessage args)
     {
         if (args.Account != null && ent.Comp.SelectedAccount != args.Account.Value)
@@ -208,6 +214,24 @@ public sealed partial class CargoSystem
     {
         UpdateUi((uid, component));
     }
+    // End Scav
+
+    // Scav: Removed OnToggleLimit
+    /*
+    private void OnToggleLimit(Entity<CargoOrderConsoleComponent> ent, ref CargoConsoleToggleLimitMessage args)
+    {
+        if (!_accessReaderSystem.FindAccessTags(args.Actor).Intersect(ent.Comp.RemoveLimitAccess).Any())
+        {
+            ConsolePopup(args.Actor, Loc.GetString("cargo-console-order-not-allowed"));
+            PlayDenySound(ent, ent.Comp);
+            return;
+        }
+
+        _audio.PlayPvs(ent.Comp.ToggleLimitSound, ent);
+        ent.Comp.TransferUnbounded = !ent.Comp.TransferUnbounded;
+        Dirty(ent);
+    }
+    */
 
     private void OnSetFundingAllocation(Entity<FundManagementConsoleComponent> ent, ref SetFundingAllocationBuiMessage args)
     {
@@ -267,6 +291,6 @@ public sealed partial class CargoSystem
 
     private void OnFundAllocationBuiOpen(Entity<FundManagementConsoleComponent> ent, ref BeforeActivatableUIOpenEvent args)
     {
-        UpdateUi(ent);
+        UpdateUi(ent); //Scav: moved logic to UpdateUi helper function
     }
 }

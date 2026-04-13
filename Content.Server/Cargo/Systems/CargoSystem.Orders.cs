@@ -2,7 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Cargo.Components;
 using Content.Server.Station.Components;
-using Content.Shared._Scav.Cargo.Components;
+using Content.Shared._Scav.Cargo.Components; // Scav
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.BUI;
 using Content.Shared.Cargo.Components;
@@ -466,6 +466,7 @@ namespace Content.Server.Cargo.Systems
             }
         }
 
+        // Scav: variant for FundManagementConsole
         private void PlayDenySound(EntityUid uid, FundManagementConsoleComponent component)
         {
             if (_timing.CurTime >= component.NextDenySoundTime)
@@ -474,6 +475,7 @@ namespace Content.Server.Cargo.Systems
                 _audio.PlayPvs(_audio.ResolveSound(component.ErrorSound), uid);
             }
         }
+        // End Scav
 
         private static CargoOrderData GetOrderData(CargoConsoleAddOrderMessage args, CargoProductPrototype cargoProduct, int id, ProtoId<CargoAccountPrototype> account)
         {

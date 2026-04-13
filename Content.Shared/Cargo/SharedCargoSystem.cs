@@ -1,7 +1,7 @@
-using Content.Shared._Scav.Cargo.Components;
+using Content.Shared._Scav.Cargo.Components; // Scav
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
-using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Containers.ItemSlots; // Scav
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
@@ -19,8 +19,8 @@ public abstract class SharedCargoSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<StationBankAccountComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<FundManagementConsoleComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<FundManagementConsoleComponent, ComponentRemove>(OnComponentRemove);
+        SubscribeLocalEvent<FundManagementConsoleComponent, ComponentInit>(OnComponentInit); // Scav
+        SubscribeLocalEvent<FundManagementConsoleComponent, ComponentRemove>(OnComponentRemove); // Scav
     }
 
     private void OnMapInit(Entity<StationBankAccountComponent> ent, ref MapInitEvent args)
@@ -29,6 +29,7 @@ public abstract class SharedCargoSystem : EntitySystem
         Dirty(ent);
     }
 
+    // Scav: Initializers for Fund Management Console deposit slot
     private void OnComponentInit(EntityUid uid, FundManagementConsoleComponent component, ComponentInit args)
     {
         _itemSlotsSystem.AddItemSlot(uid, FundManagementConsoleComponent.CashSlotId, component.CashSlot);
@@ -38,6 +39,7 @@ public abstract class SharedCargoSystem : EntitySystem
     {
         _itemSlotsSystem.RemoveItemSlot(uid, component.CashSlot);
     }
+    // End Scav
 
     /// <summary>
     /// For a given station, retrieves the balance in a specific account.

@@ -33,7 +33,7 @@ public sealed partial class StationBankAccountComponent : Component
     /// A dictionary corresponding to the money held by each cargo account.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Dictionary<ProtoId<CargoAccountPrototype>, int> Accounts = new()
+    public Dictionary<ProtoId<CargoAccountPrototype>, int> Accounts = new() //Scav: Changed default entries to Cargo, Payroll, and Savings
     {
         { "Cargo",       2000 },
         { "Payroll",     2000 },
@@ -44,7 +44,7 @@ public sealed partial class StationBankAccountComponent : Component
     /// A baseline distribution used for income and dispersing leftovers after sale.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Dictionary<ProtoId<CargoAccountPrototype>, double> RevenueDistribution = new()
+    public Dictionary<ProtoId<CargoAccountPrototype>, double> RevenueDistribution = new() //Scav: Changed default entries to Cargo, Payroll, and Savings
     {
         { "Cargo",       0.00 },
         { "Payroll",     0.50 },

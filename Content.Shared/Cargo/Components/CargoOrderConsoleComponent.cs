@@ -90,6 +90,8 @@ public sealed partial class CargoOrderConsoleComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan DenySoundDelay = TimeSpan.FromSeconds(2);
+
+    //Scav: Removed numerous parameters used for Fund Transfer Tab, as it has been moved.
 }
 
 /// <summary>
@@ -111,3 +113,29 @@ public enum CargoOrderConsoleMode : byte
     /// </summary>
     SendToPrimary,
 }
+
+//Scav: Removed unused messages
+/*
+/// <summary>
+/// Withdraw funds from an account
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class CargoConsoleWithdrawFundsMessage : BoundUserInterfaceMessage
+{
+    public ProtoId<CargoAccountPrototype>? Account;
+    public int Amount;
+
+    public CargoConsoleWithdrawFundsMessage(ProtoId<CargoAccountPrototype>? account, int amount)
+    {
+        Account = account;
+        Amount = amount;
+    }
+}
+
+/// <summary>
+/// Toggle the limit on withdrawals and transfers.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class CargoConsoleToggleLimitMessage : BoundUserInterfaceMessage;
+*/
+// End Scav
