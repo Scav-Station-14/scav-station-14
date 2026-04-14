@@ -21,3 +21,5 @@ fund-management-console-label-deposit = Deposit:{" "}
 
 fund-management-console-no-deposit = Empty
 fund-management-console-no-bank = No Bank Account!
+
+fund-management-console-cashSlot = Cash Slot

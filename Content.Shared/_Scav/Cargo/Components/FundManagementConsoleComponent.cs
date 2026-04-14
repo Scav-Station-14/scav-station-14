@@ -43,7 +43,7 @@ public sealed partial class FundManagementConsoleComponent : Component
     [DataField]
     public ProtoId<StackPrototype> CashType = "Credit";
 
-    public static string CashSlotId = "station-bank-ATM-cashSlot";
+    public static string CashSlotId = "fund-management-console-cashSlot";
 
     [DataField]
     public ItemSlot CashSlot = new();

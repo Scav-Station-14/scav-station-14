@@ -1166,6 +1166,15 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: FundManagementConsole # Scav: FundingAllocationConsole<FundManagementConsole
+    cashSlot: # Scav
+      name: fund-management-console-cashSlot
+      insertSound: /Audio/Machines/scanning.ogg
+      ejectSound: /Audio/Machines/tray_eject.ogg
+      ejectOnBreak: true
+      swap: false
+      whitelist:
+        components:
+          - Cash
   - type: ActivatableUI
     key: enum.FundManagementConsoleUiKey.Key # Scav: FundingAllocationConsoleUiKey<FundManagementConsoleUiKey
   - type: ActivatableUIRequiresAccess
@@ -1183,6 +1192,12 @@
     radius: 1.5
     energy: 4.0
     color: "#3c5eb5"
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      fund-management-console-cashSlot: !type:ContainerSlot
+
 
 - type: entity
   parent: BaseComputerAiAccess
