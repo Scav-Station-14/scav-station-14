@@ -3,6 +3,7 @@ bank-atm-menu-title = NT Galactic Bank
 bank-atm-menu-balance-label = Balance:{" "}
 bank-atm-menu-no-bank = No Bank Account!
 bank-atm-menu-withdraw-button = Withdraw
+bank-atm-menu-transfer-button = Transfer
 bank-atm-menu-deposit-label = Deposit:{" "}
 bank-atm-menu-amount-label = Withdraw:{" "}
 bank-atm-menu-no-deposit = Empty

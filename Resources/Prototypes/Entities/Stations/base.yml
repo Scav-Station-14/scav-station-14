@@ -12,11 +12,8 @@
     - type: StationCargoOrderDatabase
       orders:
         Cargo: [ ]
-        Engineering: [ ]
-        Medical: [ ]
-        Science: [ ]
-        Security: [ ]
-        Service: [ ]
+        Payroll: [ ] #Scav
+        Savings: [ ] #Scav
     - type: StationCargoBountyDatabase
 
 - type: entity

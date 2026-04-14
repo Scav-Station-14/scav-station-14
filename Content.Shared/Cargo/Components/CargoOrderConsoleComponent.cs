@@ -27,54 +27,6 @@ public sealed partial class CargoOrderConsoleComponent : Component
     public SoundSpecifier ErrorSound = new SoundCollectionSpecifier("CargoError");
 
     /// <summary>
-    /// Sound made when <see cref="TransferUnbounded"/> is toggled.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier ToggleLimitSound = new SoundCollectionSpecifier("CargoToggleLimit");
-
-    /// <summary>
-    /// If true, account transfers have no limit and a lower cooldown.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool TransferUnbounded;
-
-    [ViewVariables]
-    public float TransferLimit => TransferUnbounded ? 1 : BaseTransferLimit;
-
-    /// <summary>
-    /// The maximum percent of total funds that can be transferred or withdrawn in one action.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float BaseTransferLimit = 0.20f;
-
-    /// <summary>
-    /// The time at which account actions can be performed again.
-    /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
-    public TimeSpan NextAccountActionTime;
-
-    [ViewVariables]
-    public TimeSpan AccountActionDelay => TransferUnbounded ? UnboundedAccountActionDelay : BaseAccountActionDelay;
-
-    /// <summary>
-    /// The minimum time between account actions when <see cref="TransferUnbounded"/> is false
-    /// </summary>
-    [DataField]
-    public TimeSpan BaseAccountActionDelay = TimeSpan.FromMinutes(1);
-
-    /// <summary>
-    /// The minimum time between account actions when <see cref="TransferUnbounded"/> is true
-    /// </summary>
-    [DataField]
-    public TimeSpan UnboundedAccountActionDelay = TimeSpan.FromSeconds(10);
-
-    /// <summary>
-    /// The stack representing cash dispensed on withdrawals.
-    /// </summary>
-    [DataField]
-    public ProtoId<StackPrototype> CashType = "Credit";
-
-    /// <summary>
     /// All of the <see cref="CargoProductPrototype.Group"/>s that are supported.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -85,12 +37,6 @@ public sealed partial class CargoOrderConsoleComponent : Component
         "SalvageJobReward3",
         "SalvageJobRewardMAX",
     };
-
-    /// <summary>
-    /// Access needed to toggle the limit on this console.
-    /// </summary>
-    [DataField]
-    public HashSet<ProtoId<AccessLevelPrototype>> RemoveLimitAccess = new();
 
     /// <summary>
     /// Radio channel on which order approval announcements are transmitted
@@ -144,6 +90,8 @@ public sealed partial class CargoOrderConsoleComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan DenySoundDelay = TimeSpan.FromSeconds(2);
+
+    //Scav: Removed numerous parameters used for Fund Transfer Tab, as it has been moved.
 }
 
 /// <summary>
@@ -166,6 +114,8 @@ public enum CargoOrderConsoleMode : byte
     SendToPrimary,
 }
 
+//Scav: Removed unused messages
+/*
 /// <summary>
 /// Withdraw funds from an account
 /// </summary>
@@ -187,3 +137,5 @@ public sealed class CargoConsoleWithdrawFundsMessage : BoundUserInterfaceMessage
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class CargoConsoleToggleLimitMessage : BoundUserInterfaceMessage;
+*/
+// End Scav

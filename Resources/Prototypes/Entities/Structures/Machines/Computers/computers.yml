@@ -903,7 +903,7 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: CargoOrderConsole # Frontier: use NF component # Scav: revert
-    removeLimitAccess: [ "Quartermaster" ]
+    #removeLimitAccess: [ "Quartermaster" ] # Scav: removed, fund transfer moved to fund management console
   - type: ActiveRadio
     channels:
     - Supply
@@ -959,7 +959,7 @@
   - type: CargoOrderConsole
     account: Engineering
     announcementChannel: Engineering
-    removeLimitAccess: [ "ChiefEngineer" ]
+    # removeLimitAccess: [ "ChiefEngineer" ] # Scav
     mode: SendToPrimary
   - type: ActiveRadio
     channels:
@@ -993,7 +993,7 @@
   - type: CargoOrderConsole
     account: Medical
     announcementChannel: Medical
-    removeLimitAccess: [ "ChiefMedicalOfficer" ]
+    #removeLimitAccess: [ "ChiefMedicalOfficer" ] # Scav
     mode: SendToPrimary
   - type: ActiveRadio
     channels:
@@ -1027,7 +1027,7 @@
   - type: CargoOrderConsole
     account: Science
     announcementChannel: Science
-    removeLimitAccess: [ "ResearchDirector" ]
+    #removeLimitAccess: [ "ResearchDirector" ] # Scav
     mode: SendToPrimary
   - type: ActiveRadio
     channels:
@@ -1061,7 +1061,7 @@
   - type: CargoOrderConsole
     account: Security
     announcementChannel: Security
-    removeLimitAccess: [ "HeadOfSecurity" ]
+    #removeLimitAccess: [ "HeadOfSecurity" ] # Scav
     mode: SendToPrimary
   - type: ActiveRadio
     channels:
@@ -1095,7 +1095,7 @@
   - type: CargoOrderConsole
     account: Service
     announcementChannel: Service
-    removeLimitAccess: [ "HeadOfPersonnel" ]
+    #removeLimitAccess: [ "HeadOfPersonnel" ] # Scav
     mode: SendToPrimary
   - type: ActiveRadio
     channels:
@@ -1165,16 +1165,25 @@
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
-  - type: FundingAllocationConsole
+  - type: FundManagementConsole # Scav: FundingAllocationConsole<FundManagementConsole
+    cashSlot: # Scav
+      name: fund-management-console-cashSlot
+      insertSound: /Audio/Machines/scanning.ogg
+      ejectSound: /Audio/Machines/tray_eject.ogg
+      ejectOnBreak: true
+      swap: false
+      whitelist:
+        components:
+          - Cash
   - type: ActivatableUI
-    key: enum.FundingAllocationConsoleUiKey.Key
+    key: enum.FundManagementConsoleUiKey.Key # Scav: FundingAllocationConsoleUiKey<FundManagementConsoleUiKey
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
     access: [["HeadOfPersonnel"]]
   - type: UserInterface
     interfaces:
-      enum.FundingAllocationConsoleUiKey.Key:
-        type: FundingAllocationConsoleBoundUserInterface
+      enum.FundManagementConsoleUiKey.Key: # Scav: FundingAllocationConsoleUiKey<FundManagementConsoleUiKey
+        type: FundManagementConsoleBoundUserInterface # Scav: FundingAllocationConsoleBoundUserInterface<FundManagementConsoleBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: Computer
@@ -1183,6 +1192,12 @@
     radius: 1.5
     energy: 4.0
     color: "#3c5eb5"
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      fund-management-console-cashSlot: !type:ContainerSlot
+
 
 - type: entity
   parent: BaseComputerAiAccess
