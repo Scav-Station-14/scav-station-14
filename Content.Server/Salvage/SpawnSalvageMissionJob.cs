@@ -35,8 +35,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Server.Shuttles.Components;
 using Content.Server._NF.Salvage.Expeditions; // Frontier
-using Content.Server.Station.Components; // Frontier
-using Content.Server.Station.Systems; // Frontier
 using Content.Server.Shuttles.Systems;
 using Content.Server._NF.Salvage.Expeditions.Structure; // Frontier
 
@@ -52,9 +50,6 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
     private readonly DungeonSystem _dungeon;
     private readonly MetaDataSystem _metaData;
     private readonly SharedMapSystem _map;
-    private readonly StationSystem _station; // Frontier
-    private readonly ShuttleSystem _shuttle; // Frontier
-    private readonly SalvageSystem _salvage; // Frontier
 
     public readonly EntityUid Station;
     public readonly EntityUid? CoordinatesDisk;
@@ -80,9 +75,6 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         DungeonSystem dungeon,
         MetaDataSystem metaData,
         SharedMapSystem map,
-        StationSystem stationSystem, // Frontier
-        ShuttleSystem shuttleSystem, // Frontier
-        SalvageSystem salvageSystem, // Frontier
         EntityUid station,
         EntityUid? coordinatesDisk,
         SalvageMissionParams missionParams,
@@ -96,9 +88,6 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         _dungeon = dungeon;
         _metaData = metaData;
         _map = map;
-        _station = stationSystem; // Frontier
-        _shuttle = shuttleSystem; // Frontier
-        _salvage = salvageSystem; // Frontier
         Station = station;
         CoordinatesDisk = coordinatesDisk;
         _missionParams = missionParams;
@@ -150,7 +139,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         _metaData.SetEntityName(
             mapUid,
             _entManager.System<SharedSalvageSystem>().GetFTLName(_prototypeManager.Index(SalvageSystem.PlanetNames), _missionParams.Seed));
-        _entManager.AddComponent<FTLBeaconComponent>(mapUid);
+        var beacon = _entManager.AddComponent<FTLBeaconComponent>(mapUid);
 
         // Saving the mission mapUid to a CD is made optional, in case one is somehow made in a process without a CD entity
         if (CoordinatesDisk.HasValue)
@@ -246,26 +235,15 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
             dungeonBox = dungeonBox.ExtendToContain(tile);
         }
 
-        var stationData = _entManager.GetComponent<StationDataComponent>(Station);
-
-        // Get ship bounding box relative to largest grid coords
-        var shuttleUid = _station.GetLargestGrid(stationData);
-        Box2 shuttleBox = new Box2();
-
-        if (shuttleUid is { Valid: true } vesselUid &&
-            _entManager.TryGetComponent<MapGridComponent>(vesselUid, out var gridComp))
-        {
-            shuttleBox = gridComp.LocalAABB;
-        }
-
         // Offset ship spawn point from bounding boxes
         float sin = (float)Math.Sin(dungeonRotation);
         float cos = (float)Math.Cos(dungeonRotation);
         Vector2 dungeonProjection = new Vector2(dungeonBox.Width * -sin / 2, dungeonBox.Height * cos / 2); // Project boxes to get relevant offset for dungeon rotation.
-        Vector2 shuttleProjection = new Vector2(shuttleBox.Width * -sin / 2, shuttleBox.Height * cos / 2); // Note: sine is negative because of CCW rotation (starting north, then west)
-        Vector2 coords = dungeonBox.Center - dungeonProjection - dungeonOffset - shuttleProjection - shuttleBox.Center; // Coordinates to spawn the ship at to center it with the dungeon's bounding boxes
+        Vector2 coords = dungeonBox.Center - dungeonProjection - dungeonOffset; // Coordinates to spawn the ship at to center it with the dungeon's bounding boxes //Scav: Removed shuttle part of the offset, will apply that on FTL instead.
         coords = coords.Rounded(); // Ensure grid is aligned to map coords
 
+        beacon.Coords = coords;
+        beacon.Rotation = dungeonRotation;
         // List<Vector2i> reservedTiles = new();
 
         // foreach (var tile in _map.GetTilesIntersecting(mapUid, grid, new Circle(Vector2.Zero, landingPadRadius), false))

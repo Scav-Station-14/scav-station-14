@@ -1,5 +1,7 @@
+using System.Numerics;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
+using Content.Server.Station.Components;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Events;
@@ -42,6 +44,11 @@ public sealed partial class ShuttleConsoleSystem
         {
             return;
         }
+        // Scav: explicit query for beacon, we need data off it
+        if (!_beaconQuery.TryGetComponent(beaconEnt, out var beaconComp))
+        {
+            return;
+        }
 
         var nCoordinates = new NetCoordinates(GetNetEntity(targetXform.ParentUid), targetXform.LocalPosition);
         if (targetXform.ParentUid == EntityUid.Invalid)
@@ -55,10 +62,35 @@ public sealed partial class ShuttleConsoleSystem
             return;
         }
 
-        var angle = args.Angle.Reduced();
-        var targetCoordinates = new EntityCoordinates(targetXform.MapUid!.Value, _transform.GetWorldPosition(targetXform));
+        var station = _station.GetOwningStation(ent.Owner);
+        if (beaconComp.Coords != Vector2.Zero && TryComp<StationDataComponent>(station, out var stationData))
+        {
+            // Get ship bounding box relative to largest grid coords
+            var shuttleUid = _station.GetLargestGrid(stationData);
+            Box2 shuttleBox = new Box2();
 
-        ConsoleFTL(ent, targetCoordinates, angle, targetXform.MapID);
+            if (shuttleUid is { Valid: true } vesselUid &&
+                TryComp<MapGridComponent>(vesselUid, out var gridComp))
+            {
+                shuttleBox = gridComp.LocalAABB;
+            }
+
+            float sin = (float)Math.Sin(beaconComp.Rotation);
+            float cos = (float)Math.Cos(beaconComp.Rotation);
+            Vector2 shuttleProjection = new Vector2(shuttleBox.Width * -sin / 2, shuttleBox.Height * cos / 2); // Note: sine is negative because of CCW rotation (starting north, then west)
+
+            var coords = beaconComp.Coords - shuttleProjection - shuttleBox.Center;
+            var targetCoordinates = new EntityCoordinates(targetXform.MapUid!.Value, coords);
+
+            ConsoleFTL(ent, targetCoordinates, 0, targetXform.MapID);
+        }
+        else
+        {
+            var angle = args.Angle.Reduced();
+            var targetCoordinates = new EntityCoordinates(targetXform.MapUid!.Value, _transform.GetWorldPosition(targetXform));
+            ConsoleFTL(ent, targetCoordinates, angle, targetXform.MapID);
+        }
+
     }
 
     private void OnPositionFTLMessage(Entity<ShuttleConsoleComponent> entity, ref ShuttleConsoleFTLPositionMessage args)

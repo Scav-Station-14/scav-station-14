@@ -13,6 +13,7 @@ using Robust.Shared.Collections;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -201,6 +202,19 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
         }
     }
 
+    private void DrawCircles(DrawingHandleScreen handle)
+    {
+        var matty = Matrix3Helpers.CreateInverseTransform(Offset, Angle.Zero);
+
+        var center = Vector2.Transform(Vector2.Zero, matty);
+        center = center with { Y = -center.Y };
+        center = ScalePosition(center);
+
+        handle.DrawCircle(center, 5000 * MinimapScale, Color.FromHex("#A78475"), filled: false);
+        handle.DrawCircle(center, 9000 * MinimapScale, Color.FromHex("#A79B75"), filled: false);
+        handle.DrawCircle(center, 15000 * MinimapScale, Color.FromHex("#7593A7"), filled: false);
+    }
+
     /// <summary>
     /// Gets the map objects that intersect the viewport.
     /// </summary>
@@ -251,6 +265,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
         }
 
         DrawBacking(handle); // Scav: no longer drawing parallax, just blank background
+        DrawCircles(handle);
 
         var viewedMapUid = _mapSystem.GetMapOrInvalid(ViewingMap);
         var matty = Matrix3Helpers.CreateInverseTransform(Offset, Angle.Zero);

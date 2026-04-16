@@ -268,9 +268,6 @@ public sealed partial class SalvageSystem
             _dungeon,
             _metaData,
             _mapSystem,
-            _station, // Frontier
-            _shuttle, // Frontier
-            this, // Frontier
             station,
             coordinatesDisk,
             missionParams,
