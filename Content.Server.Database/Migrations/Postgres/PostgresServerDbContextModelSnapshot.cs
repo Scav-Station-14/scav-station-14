@@ -782,6 +782,39 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
+            modelBuilder.Entity("Content.Server.Database.PlayerStation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("station_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BankBalance")
+                        .HasColumnType("integer")
+                        .HasColumnName("bank_balance");
+
+                    b.Property<bool>("Enabled")
+                        .HasColumnType("boolean")
+                        .HasColumnName("enabled");
+
+                    b.Property<string>("StationName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("station_name");
+
+                    b.Property<string>("StationPrototypeId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("station_prototype_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_station");
+
+                    b.ToTable("station", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Preference", b =>
                 {
                     b.Property<int>("Id")
@@ -1398,35 +1431,6 @@ namespace Content.Server.Database.Migrations.Postgres
                             t.Property("ShipId")
                                 .HasColumnName("ship_id1");
                         });
-                });
-
-            modelBuilder.Entity("Content.Server.Database.Station", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("station_id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("BankBalance")
-                        .HasColumnType("integer")
-                        .HasColumnName("bank_balance");
-
-                    b.Property<string>("StationName")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("station_name");
-
-                    b.Property<string>("StationPrototypeId")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("station_prototype_id");
-
-                    b.HasKey("Id")
-                        .HasName("PK_station");
-
-                    b.ToTable("station", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
