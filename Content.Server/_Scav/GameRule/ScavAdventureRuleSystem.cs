@@ -231,7 +231,7 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
         List<PointOfInterestPrototype> optionalProtos = new();
         Dictionary<string, List<PointOfInterestPrototype>> remainingUniqueProtosBySpawnGroup = new();
 
-        List<StationMapPrototype> stationProtos = new();
+        List<PlayerStationPrototype> stationProtos = new();
 
         var currentPreset = _ticker.CurrentPreset?.ID ?? _fallbackPresetID;
 
@@ -277,10 +277,10 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
         RaiseLocalEvent(EntityUid.Invalid, new StationsGeneratedEvent(), broadcast: true); // TODO: attach this to a meaningful entity.
     }
 
-    private void GenerateStations(MapId mapUid, Database.Station station, string currentPreset, out EntityUid? gridUid)
+    private void GenerateStations(MapId mapUid, Database.PlayerStation playerStation, string currentPreset, out EntityUid? gridUid)
     {
         gridUid = null;
-        if (!_proto.TryIndex<StationMapPrototype>(station.StationPrototypeId, out var proto))
+        if (!_proto.TryIndex<PlayerStationPrototype>(playerStation.StationPrototypeId, out var proto))
             return;
 
         if (proto.SpawnGamePreset.Length > 0 && !proto.SpawnGamePreset.Contains(currentPreset))
@@ -294,7 +294,7 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
         gridUid = loadedGrid.Value;
         List<EntityUid> gridList = [loadedGrid.Value];
 
-        string stationName = string.IsNullOrEmpty(station.StationName) ? proto.Name : station.StationName;
+        string stationName = string.IsNullOrEmpty(playerStation.StationName) ? proto.Name : playerStation.StationName;
 
         EntityUid? stationUid = null;
         if (_proto.TryIndex<GameMapPrototype>(proto.ID, out var stationProto))

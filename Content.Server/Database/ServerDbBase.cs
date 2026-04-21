@@ -1977,14 +1977,50 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         #endregion
 
         #region Stations
-        public async Task<List<Station>> GetStations()
+        public async Task<List<PlayerStation>> GetStations()
         {
             await using var db = await GetDb();
 
-            var stations = db.DbContext.Station.ToList();
+            var stations = db.DbContext.PlayerStation.ToList();
 
             return stations;
         }
+
+        public async Task<int> AddStation(string stationName, string stationPrototypeId, int bankBalance)
+        {
+            await using var db = await GetDb();
+
+            var entry = new PlayerStation
+            {
+                StationName = stationName,
+                StationPrototypeId = stationPrototypeId,
+                BankBalance = bankBalance,
+            };
+
+            db.DbContext.Add(entry);
+
+            await db.DbContext.SaveChangesAsync();
+
+            return entry.Id;
+        }
+
+        public async Task<bool> UpdateStation(int id, string? stationName, string? stationPrototypeId, int? bankBalance, bool? enabled)
+        {
+            await using var db = await GetDb();
+
+            var record = db.DbContext.PlayerStation.SingleOrDefault(s => s.Id == id);
+            if (record == null)
+                return false;
+
+            record.StationName = stationName ?? record.StationName;
+            record.StationPrototypeId = stationPrototypeId ?? record.StationPrototypeId;
+            record.BankBalance = bankBalance ?? record.BankBalance;
+            record.Enabled = enabled ?? record.Enabled;
+
+            await db.DbContext.SaveChangesAsync();
+            return true;
+        }
+
         #endregion
         public abstract Task SendNotification(DatabaseNotification notification);
 
