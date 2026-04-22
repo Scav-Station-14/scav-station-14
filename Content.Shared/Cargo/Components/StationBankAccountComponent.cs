@@ -30,14 +30,14 @@ public sealed partial class StationBankAccountComponent : Component
     public double LockboxCut = 0.75;
 
     /// <summary>
-    /// A dictionary corresponding to the money held by each cargo account.
+    /// A dictionary corresponding to the money held by each cargo account. Savings account must start at zero, as the PlayerStation bank balance is added to it at roundstart.
     /// </summary>
     [DataField, AutoNetworkedField]
     public Dictionary<ProtoId<CargoAccountPrototype>, int> Accounts = new() //Scav: Changed default entries to Cargo, Payroll, and Savings
     {
         { "Cargo",       2000 },
         { "Payroll",     2000 },
-        { "Savings",     2000 },
+        { "Savings",     0 },
     };
 
     /// <summary>
