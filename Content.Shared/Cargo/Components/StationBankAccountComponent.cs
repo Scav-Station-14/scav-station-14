@@ -47,8 +47,8 @@ public sealed partial class StationBankAccountComponent : Component
     public Dictionary<ProtoId<CargoAccountPrototype>, double> RevenueDistribution = new() //Scav: Changed default entries to Cargo, Payroll, and Savings
     {
         { "Cargo",       0.00 },
-        { "Payroll",     0.50 },
-        { "Savings",     0.50 },
+        { "Payroll",     1.00 },
+        { "Savings",     0.00 },
     };
 
     /// <summary>
