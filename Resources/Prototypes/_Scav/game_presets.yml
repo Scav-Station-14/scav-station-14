@@ -3,8 +3,8 @@
   alias:
     - scavadventure
     - adventure
-  name: nf-adventure-title
-  description: nf-adventure-description
+  name: scav-adventure-title
+  description: scav-adventure-description
   showInVote: true
   rules:
     - ScavAdventure # Worldgen rules, based roughly on NFAdventure but with new spawning logic for main stations

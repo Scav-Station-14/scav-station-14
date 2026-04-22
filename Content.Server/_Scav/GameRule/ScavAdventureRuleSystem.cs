@@ -72,8 +72,6 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
         public EntityUid StationUid;
         //Starting bank balance loaded from database
         public int StartBankBalance;
-        //Final bank balance
-        public int EndBankBalance;
         // Entity name: used for display purposes ("Ministation earned 100,000 spesos")
         public string Name;
 
@@ -82,7 +80,6 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
             StationUid = stationUid;
             StartBankBalance = startBalance;
             Name = name;
-            EndBankBalance = -1;
         }
     }
 
@@ -137,8 +134,6 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
                 {
                     var endBalance = bankAccount.Accounts.Values.Sum();
 
-                    station.Value.EndBankBalance = endBalance;
-
                     _db.UpdateStation(station.Key, bankBalance: endBalance);
                 }
             }
@@ -147,7 +142,32 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
 
     protected override void AppendRoundEndText(EntityUid uid, ScavAdventureRuleComponent component, GameRuleComponent gameRule, ref RoundEndTextAppendEvent ev)
     {
-        ev.AddLine(Loc.GetString("adventure-list-start"));
+        ev.AddLine(Loc.GetString("adventure-list-station"));
+        var sortedStations = _stations.Values.ToList();
+        sortedStations.Sort((s1, s2) => s1.Name.CompareTo(s2.Name));
+
+        foreach (var station in sortedStations)
+        {
+            var endBalance = -1;
+            if (TryComp<StationBankAccountComponent>(station.StationUid, out var bankAccount))
+                endBalance = bankAccount.Accounts.Values.Sum();
+
+            if (endBalance < 0)
+                continue;
+
+            var profit = endBalance - station.StartBankBalance;
+
+            string summaryText;
+            summaryText = profit < 0
+                ? Loc.GetString("adventure-list-loss", ("amount", BankSystemExtensions.ToSpesoString(-profit)))
+                : Loc.GetString("adventure-list-profit", ("amount", BankSystemExtensions.ToSpesoString(profit)));
+
+            ev.AddLine($"- {station.Name} {summaryText}");
+        }
+
+        ev.AddLine("");
+
+        ev.AddLine(Loc.GetString("adventure-list-crew"));
         var allScore = new List<Tuple<string, int>>();
 
         var sortedPlayers = _players.ToList();
