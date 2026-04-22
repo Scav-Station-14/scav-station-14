@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using Content.Client._Scav.Lobby.UI.Roles;
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
@@ -388,6 +389,8 @@ namespace Content.Client.Lobby.UI
 
             TabContainer.SetTabTitle(1, Loc.GetString("humanoid-profile-editor-jobs-tab"));
 
+            //Scav: Removed PreferenceUnavailableButton
+            /*
             PreferenceUnavailableButton.AddItem(
                 Loc.GetString("humanoid-profile-editor-preference-unavailable-stay-in-lobby-button"),
                 (int) PreferenceUnavailableMode.StayInLobby);
@@ -407,6 +410,8 @@ namespace Content.Client.Lobby.UI
                 Profile = Profile?.WithPreferenceUnavailable((PreferenceUnavailableMode) args.Id);
                 SetDirty();
             };
+            */
+            //End Scav
 
             _jobCategories = new Dictionary<string, BoxContainer>();
 
@@ -786,10 +791,14 @@ namespace Content.Client.Lobby.UI
             RefreshFlavorText();
             ReloadPreview();
 
+            // Scav: removed PreferenceUnavailableButton as there is no ready up functionality
+            /*
             if (Profile != null)
             {
                 PreferenceUnavailableButton.SelectId((int) Profile.PreferenceUnavailable);
             }
+            */
+            // End Scav
         }
 
 
@@ -850,13 +859,16 @@ namespace Content.Client.Lobby.UI
 
             departments.Sort(DepartmentUIComparer.Instance);
 
-            var items = new[]
+            //Scav: Removed selector
+            /*
+            var items = Array.Empty<(string, int)>();
             {
                 ("humanoid-profile-editor-job-priority-never-button", (int) JobPriority.Never),
                 ("humanoid-profile-editor-job-priority-low-button", (int) JobPriority.Low),
                 ("humanoid-profile-editor-job-priority-medium-button", (int) JobPriority.Medium),
                 ("humanoid-profile-editor-job-priority-high-button", (int) JobPriority.High),
-            };
+            };*/
+            //End Scav
 
             foreach (var department in departments)
             {
@@ -915,11 +927,13 @@ namespace Content.Client.Lobby.UI
                         Orientation = LayoutOrientation.Horizontal,
                     };
 
-                    var selector = new RequirementsSelector()
+                    //Scav: Removed selector
+                    /*var selector = new RequirementsSelector()
                     {
                         Margin = new Thickness(3f, 3f, 3f, 0f),
                     };
-                    selector.OnOpenGuidebook += OnOpenGuidebook;
+                    selector.OnOpenGuidebook += OnOpenGuidebook;*/
+                    //End Scav
 
                     var icon = new TextureRect
                     {
@@ -928,18 +942,15 @@ namespace Content.Client.Lobby.UI
                     };
                     var jobIcon = _prototypeManager.Index(job.Icon);
                     icon.Texture = _sprite.Frame0(jobIcon.Icon);
-                    selector.Setup(items, job.LocalizedName, 200, job.LocalizedDescription, icon, job.Guides);
 
-                    if (!_requirements.IsAllowed(job, (HumanoidCharacterProfile?)_preferencesManager.Preferences?.SelectedCharacter, out var reason))
-                    {
-                        selector.LockRequirements(reason);
-                    }
-                    else
-                    {
-                        selector.UnlockRequirements();
-                    }
+                    //Scav: Replaced selector with ProfileJobRow
+                    //selector.Setup(items, job.LocalizedName, 200, job.LocalizedDescription, icon, job.Guides);
+                    var locked = _requirements.IsAllowed(job, (HumanoidCharacterProfile?)_preferencesManager.Preferences?.SelectedCharacter, out var reason);
+                    var jobRow = new ProfileJobRow(job.LocalizedName, 200, job.LocalizedDescription, icon, locked, reason);
+                    //End Scav
 
-                    selector.OnSelected += selectedPrio =>
+                    //Scav: Removed selector functionality
+                    /*selector.OnSelected += selectedPrio =>
                     {
                         var selectedJobPrio = (JobPriority) selectedPrio;
                         Profile = Profile?.WithJobPriority(job.ID, selectedJobPrio);
@@ -967,6 +978,8 @@ namespace Content.Client.Lobby.UI
                         UpdateJobPriorities();
                         SetDirty();
                     };
+                    */
+                    // End Scav
 
                     var loadoutWindowBtn = new Button()
                     {
@@ -1005,8 +1018,8 @@ namespace Content.Client.Lobby.UI
                         };
                     }
 
-                    _jobPriorities.Add((job.ID, selector));
-                    jobContainer.AddChild(selector);
+                    //_jobPriorities.Add((job.ID, selector)); //Scav: removed selector
+                    jobContainer.AddChild(jobRow);
                     jobContainer.AddChild(loadoutWindowBtn);
                     category.AddChild(jobContainer);
                 }
@@ -1312,11 +1325,13 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         private void UpdateJobPriorities()
         {
-            foreach (var (jobId, prioritySelector) in _jobPriorities)
+            //Scav: removed selector
+            /*foreach (var (jobId, prioritySelector) in _jobPriorities)
             {
                 var priority = Profile?.JobPriorities.GetValueOrDefault(jobId, JobPriority.Never) ?? JobPriority.Never;
                 prioritySelector.Select((int) priority);
-            }
+            }*/
+            //End Scav
         }
 
         private void UpdateSexControls()

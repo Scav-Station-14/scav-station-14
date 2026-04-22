@@ -113,7 +113,9 @@
                 </BoxContainer>
                 <BoxContainer Orientation="Vertical">
                     <!-- Jobs -->
+                    <!-- Scav: no PreferenceUnavailableButton
                     <OptionButton Name="PreferenceUnavailableButton" />
+                    End Scav -->
                     <ScrollContainer VerticalExpand="True">
                         <BoxContainer Name="JobList" Orientation="Vertical" />
                     </ScrollContainer>
