@@ -122,23 +122,25 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawningEvent);
         SubscribeLocalEvent<PlayerDetachedEvent>(OnPlayerDetachedEvent);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+        SubscribeLocalEvent<GameRunLevelChangedEvent>(OnRunLevelChanged);
         _player.PlayerStatusChanged += PlayerManagerOnPlayerStatusChanged;
         _sawmill = Logger.GetSawmill("debris");
     }
 
-    protected override void Ended(EntityUid uid, ScavAdventureRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
+    private void OnRunLevelChanged(GameRunLevelChangedEvent args)
     {
-        base.Ended(uid, component, gameRule, args);
-
-        foreach (var station in _stations)
+        if (args.New == GameRunLevel.PostRound)
         {
-            if (TryComp<StationBankAccountComponent>(station.Value.StationUid, out var bankAccount))
+            foreach (var station in _stations)
             {
-                var endBalance = bankAccount.Accounts.Values.Sum();
+                if (TryComp<StationBankAccountComponent>(station.Value.StationUid, out var bankAccount))
+                {
+                    var endBalance = bankAccount.Accounts.Values.Sum();
 
-                station.Value.EndBankBalance = endBalance;
+                    station.Value.EndBankBalance = endBalance;
 
-                _db.UpdateStation(station.Key, bankBalance: endBalance);
+                    _db.UpdateStation(station.Key, bankBalance: endBalance);
+                }
             }
         }
     }
