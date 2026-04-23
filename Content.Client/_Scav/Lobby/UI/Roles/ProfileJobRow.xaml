@@ -1,0 +1,10 @@
+<BoxContainer xmlns="https://spacestation14.io"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         Orientation="Horizontal">
+    <Label Name="TitleLabel"
+           Margin="5 0"
+           MouseFilter="Stop"/>
+    <BoxContainer SetWidth="21">
+        <TextureButton Name="LockIcon" SetSize="21 21" VerticalAlignment="Center" TexturePath="/Textures/Interface/VerbIcons/lock-red.svg.192dpi.png"/>
+    </BoxContainer>
+</BoxContainer>
