@@ -47,7 +47,7 @@ namespace Content.Server.Database
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
         public DbSet<Ship> Ship { get; set; } = null!;
-        public DbSet<Station> Station { get; set; } = null!;
+        public DbSet<PlayerStation> PlayerStation { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -482,9 +482,10 @@ namespace Content.Server.Database
     }
 
     [Table("station")]
-    public class Station
+    public class PlayerStation
     {
         public int Id { get; set; }
+        public bool Enabled { get; set; }
         public string StationName { get; set; } = null!;
         public string StationPrototypeId { get; set; } = null!;
         public int BankBalance { get; set; }

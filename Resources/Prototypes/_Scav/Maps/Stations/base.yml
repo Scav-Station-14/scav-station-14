@@ -1,5 +1,5 @@
-- type: stationMap
-  id: BaseStationMap
+- type: playerStation
+  id: BasePlayerStation
   abstract: true
   minimumDistance: 2000 # Some sane defaults
   maximumDistance: 4000

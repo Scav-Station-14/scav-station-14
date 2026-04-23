@@ -135,7 +135,7 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");
             _prototypeManager.RegisterIgnore("pointOfInterest"); // Frontier: worldgen-related, server-only
             _prototypeManager.RegisterIgnore("publicTransitRoute"); // Frontier: worldgen-related, server-only
-            _prototypeManager.RegisterIgnore("stationMap"); // Scav: worldgen-related, server-only
+            _prototypeManager.RegisterIgnore("playerStation"); // Scav: worldgen-related, server-only
             _prototypeManager.RegisterIgnore("codewordGenerator");
             _prototypeManager.RegisterIgnore("codewordFaction");
 

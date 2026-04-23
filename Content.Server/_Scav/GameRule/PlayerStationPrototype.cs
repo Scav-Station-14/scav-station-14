@@ -10,12 +10,12 @@ namespace Content.Server._Scav.GameRule;
 /// </summary>
 [Prototype]
 [Serializable]
-public sealed partial class StationMapPrototype : IPrototype, IInheritingPrototype
+public sealed partial class PlayerStationPrototype : IPrototype, IInheritingPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<StationMapPrototype>))]
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<PlayerStationPrototype>))]
     public string[]? Parents { get; private set; }
 
     [NeverPushInheritance]

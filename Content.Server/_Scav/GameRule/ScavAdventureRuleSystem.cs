@@ -15,12 +15,15 @@ using Content.Server.GameTicking.Rules;
 using Content.Server._NF.ShuttleRecords;
 using Content.Server._NF.Station.Systems;
 using Content.Server._Scav.GameRule.Components;
+using Content.Server.Cargo.Systems;
 using Content.Server.Database;
 using Content.Server.Maps;
 using Content.Server.Station.Systems;
 using Content.Shared._NF.Bank;
 using Content.Shared._NF.Bank.Components;
 using Content.Shared._NF.CCVar;
+using Content.Shared.Cargo.Components;
+using Content.Shared.Cargo.Prototypes;
 using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
 using Robust.Server;
@@ -56,11 +59,33 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
     [Dependency] private readonly StationRenameWarpsSystems _renameWarps = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly CargoSystem _cargo = default!;
 
     private readonly HttpClient _httpClient = new();
 
     private readonly ProtoId<GamePresetPrototype> _fallbackPresetID = "ScavAdventure";
     private ISawmill _sawmill = default!;
+
+    public sealed class PlayerStationRoundInformation
+    {
+        //The uid of the grid assigned to the playerstation for this round
+        public EntityUid StationUid;
+        //Starting bank balance loaded from database
+        public int StartBankBalance;
+        // Entity name: used for display purposes ("Ministation earned 100,000 spesos")
+        public string Name;
+
+        public PlayerStationRoundInformation(EntityUid stationUid, int startBalance, string name)
+        {
+            StationUid = stationUid;
+            StartBankBalance = startBalance;
+            Name = name;
+        }
+    }
+
+    // A list of player bank account information stored by the controlled character's entity.
+    [ViewVariables]
+    private Dictionary<int, PlayerStationRoundInformation> _stations = new();
 
     public sealed class PlayerRoundBankInformation
     {
@@ -94,13 +119,55 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawningEvent);
         SubscribeLocalEvent<PlayerDetachedEvent>(OnPlayerDetachedEvent);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+        SubscribeLocalEvent<GameRunLevelChangedEvent>(OnRunLevelChanged);
         _player.PlayerStatusChanged += PlayerManagerOnPlayerStatusChanged;
         _sawmill = Logger.GetSawmill("debris");
     }
 
+    private void OnRunLevelChanged(GameRunLevelChangedEvent args)
+    {
+        if (args.New == GameRunLevel.PostRound)
+        {
+            foreach (var station in _stations)
+            {
+                if (TryComp<StationBankAccountComponent>(station.Value.StationUid, out var bankAccount))
+                {
+                    var endBalance = bankAccount.Accounts.Values.Sum();
+
+                    _db.UpdateStation(station.Key, bankBalance: endBalance);
+                }
+            }
+        }
+    }
+
     protected override void AppendRoundEndText(EntityUid uid, ScavAdventureRuleComponent component, GameRuleComponent gameRule, ref RoundEndTextAppendEvent ev)
     {
-        ev.AddLine(Loc.GetString("adventure-list-start"));
+        ev.AddLine(Loc.GetString("adventure-list-station"));
+        var sortedStations = _stations.Values.ToList();
+        sortedStations.Sort((s1, s2) => s1.Name.CompareTo(s2.Name));
+
+        foreach (var station in sortedStations)
+        {
+            var endBalance = -1;
+            if (TryComp<StationBankAccountComponent>(station.StationUid, out var bankAccount))
+                endBalance = bankAccount.Accounts.Values.Sum();
+
+            if (endBalance < 0)
+                continue;
+
+            var profit = endBalance - station.StartBankBalance;
+
+            string summaryText;
+            summaryText = profit < 0
+                ? Loc.GetString("adventure-list-loss", ("amount", BankSystemExtensions.ToSpesoString(-profit)))
+                : Loc.GetString("adventure-list-profit", ("amount", BankSystemExtensions.ToSpesoString(profit)));
+
+            ev.AddLine($"- {station.Name} {summaryText}");
+        }
+
+        ev.AddLine("");
+
+        ev.AddLine(Loc.GetString("adventure-list-crew"));
         var allScore = new List<Tuple<string, int>>();
 
         var sortedPlayers = _players.ToList();
@@ -231,17 +298,23 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
         List<PointOfInterestPrototype> optionalProtos = new();
         Dictionary<string, List<PointOfInterestPrototype>> remainingUniqueProtosBySpawnGroup = new();
 
-        List<StationMapPrototype> stationProtos = new();
-
         var currentPreset = _ticker.CurrentPreset?.ID ?? _fallbackPresetID;
 
         var dbStations = Task.Run(() => _db.GetStations()).GetAwaiter().GetResult();
 
-        foreach (var station in dbStations)
+        foreach (var playerStation in dbStations)
         {
-            GenerateStations(mapUid, station, currentPreset, out var gridUid);
-            if (gridUid is { Valid: true } stationGridUid)
-                component.Stations.Add(station.Id, stationGridUid);
+            GenerateStations(mapUid, playerStation, currentPreset, out var stationUid, out var startingBankBalance);
+            if (stationUid is { Valid: true } stationEntityUid)
+            {
+                var record = new PlayerStationRoundInformation(
+                    stationEntityUid,
+                    startingBankBalance,
+                    playerStation.StationName
+                );
+
+                _stations.Add(playerStation.Id, record);
+            }
         }
 
         foreach (var location in _proto.EnumeratePrototypes<PointOfInterestPrototype>())
@@ -277,10 +350,12 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
         RaiseLocalEvent(EntityUid.Invalid, new StationsGeneratedEvent(), broadcast: true); // TODO: attach this to a meaningful entity.
     }
 
-    private void GenerateStations(MapId mapUid, Database.Station station, string currentPreset, out EntityUid? gridUid)
+    private void GenerateStations(MapId mapUid, PlayerStation playerStation, string currentPreset, out EntityUid? stationUid, out int startingBankBalance)
     {
-        gridUid = null;
-        if (!_proto.TryIndex<StationMapPrototype>(station.StationPrototypeId, out var proto))
+        stationUid = null;
+        startingBankBalance = 0;
+
+        if (!_proto.TryIndex<PlayerStationPrototype>(playerStation.StationPrototypeId, out var proto))
             return;
 
         if (proto.SpawnGamePreset.Length > 0 && !proto.SpawnGamePreset.Contains(currentPreset))
@@ -291,12 +366,10 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
         // Code taken from _poi.TrySpawnPoiGrid
         if (!_map.TryLoadGrid(mapUid, proto.GridPath, out var loadedGrid, offset: offset, rot: _random.NextAngle()))
             return;
-        gridUid = loadedGrid.Value;
         List<EntityUid> gridList = [loadedGrid.Value];
 
-        string stationName = string.IsNullOrEmpty(station.StationName) ? proto.Name : station.StationName;
+        string stationName = string.IsNullOrEmpty(playerStation.StationName) ? proto.Name : playerStation.StationName;
 
-        EntityUid? stationUid = null;
         if (_proto.TryIndex<GameMapPrototype>(proto.ID, out var stationProto))
             stationUid = _station.InitializeNewStation(stationProto.Stations[proto.ID], gridList, stationName);
 
@@ -304,6 +377,19 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
         _meta.SetEntityName(loadedGrid.Value, stationName, meta);
 
         EntityManager.AddComponents(loadedGrid.Value, proto.AddComponents);
+
+        //Set up persistent bank data
+        if (stationUid != null && TryComp<StationBankAccountComponent>(stationUid.Value, out var bankAccount))
+        {
+            ProtoId<CargoAccountPrototype> savingsAccount = "Savings";
+            //Extract the starting values of the non-savings accounts from savings (if the amount needed exceeds the amount in savings, give the remainder for free)
+            startingBankBalance = playerStation.BankBalance;
+            var savings = startingBankBalance - bankAccount.Accounts.Where(x => x.Key != savingsAccount).Sum(x => x.Value);
+            if (savings < 0)
+                savings = 0;
+
+            _cargo.UpdateBankAccount((stationUid.Value, bankAccount), savings, savingsAccount);
+        }
 
         // Rename warp points after set up if needed
         if (proto.NameWarp)
@@ -314,9 +400,6 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
             else
                 _renameWarps.SyncWarpPointsToGrids(gridList, forceAdminOnly: hideWarp);
         }
-
-        if (gridUid is not { Valid: true })
-            return;
 
         _poi.AddStationCoordsToSet(offset, proto.MinimumClearance);
     }

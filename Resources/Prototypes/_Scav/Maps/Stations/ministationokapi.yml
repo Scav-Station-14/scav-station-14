@@ -1,6 +1,6 @@
-- type: stationMap
+- type: playerStation
   id: MinistationOkapi
-  parent: BaseStationMap
+  parent: BasePlayerStation
   name: "Ministation Okapi"
   minimumDistance: 1200
   maximumDistance: 4600

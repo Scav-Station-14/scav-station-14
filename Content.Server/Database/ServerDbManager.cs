@@ -363,7 +363,15 @@ namespace Content.Server.Database
 
         #region Stations
 
-        Task<List<Station>> GetStations();
+        Task<List<PlayerStation>> GetStations();
+        Task<int> AddStation(string stationName, string stationPrototypeId, int bankBalance);
+
+        Task<bool> UpdateStation(int id,
+            string? stationName = null,
+            string? stationPrototypeId = null,
+            int? bankBalance = null,
+            bool? enabled = null);
+
         #endregion
 
         #region DB Notifications
@@ -1134,10 +1142,22 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetShipsByUser(userId));
         }
 
-        public Task<List<Station>> GetStations()
+        public Task<List<PlayerStation>> GetStations()
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.GetStations());
+        }
+
+        public Task<int> AddStation(string stationName, string stationPrototypeId, int bankBalance)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddStation(stationName, stationPrototypeId, bankBalance));
+        }
+
+        public Task<bool> UpdateStation(int id, string? stationName = null, string? stationPrototypeId = null, int? bankBalance = null, bool? enabled = null)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpdateStation(id, stationName, stationPrototypeId, bankBalance, enabled));
         }
         // End Scav
 
