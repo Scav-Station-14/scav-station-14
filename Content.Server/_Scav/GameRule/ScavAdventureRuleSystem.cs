@@ -285,6 +285,7 @@ public sealed class ScavAdventureRuleSystem : GameRuleSystem<ScavAdventureRuleCo
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
     {
         _players.Clear();
+        _stations.Clear();
     }
 
     protected override void Started(EntityUid uid, ScavAdventureRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
